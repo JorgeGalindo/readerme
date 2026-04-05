@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>readerme</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>readerme <span class="meta">{{ generated_at }}</span></h1>
+  </header>
+
+  <!-- Tag filter bar -->
+  <nav class="tag-filter" id="tagFilter">
+    <button class="tag-btn active" data-tag="all" onclick="filterTag('all')">todo</button>
+  </nav>
+
+  <main>
+    {% if not articles and not thinktank and not abundance %}
+    <div class="empty">
+      <p>No hay artículos curados todavía.</p>
+      <code>python run.py</code>
+    </div>
+    {% endif %}
+
+    {% if thinktank %}
+    <section class="bubble-section" data-section="thinktank">
+      <h2 class="section-title">Thinktank</h2>
+      {% for b in thinktank %}
+      <article class="card bubble-card" data-tag="{{ b.tag }}">
+        <div class="card-header">
+          <span class="tag">{{ b.tag }}</span>
+        </div>
+        <h2>
+          {% if b.source_url %}
+          <a href="{{ b.source_url }}" target="_blank" rel="noopener">{{ b.title }}</a>
+          {% else %}
+          {{ b.title }}
+          {% endif %}
+        </h2>
+        <p class="source-reason">{{ b.site_name }} &middot; <span class="reason">{{ b.reason }}</span></p>
+        <div class="card-actions">
+          {% if b.source_url %}
+          <button class="btn-expand" data-url="{{ b.source_url }}" onclick="toggleScrape(this)">Leer</button>
+          {% endif %}
+        </div>
+        <div class="article-content" style="display:none"></div>
+        <div class="card-bottom" style="display:none">
+          <div class="card-actions">
+            <button class="btn-post-idea" data-title="{{ b.title }}" onclick="getPostIdea(this)">Idea de post</button>
+            <div class="feedback" data-title="{{ b.title }}" data-tag="{{ b.tag }}" data-section="thinktank" data-source-url="{{ b.source_url or '' }}">
+              <button class="btn-yes" onclick="sendFeedback(this, true)">Si</button>
+              <button class="btn-no" onclick="sendFeedback(this, false)">No</button>
+            </div>
+          </div>
+          <div class="post-idea-result"></div>
+        </div>
+      </article>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    {% if abundance %}
+    <section class="abundance-section" data-section="abundance">
+      <h2 class="section-title">Mundo abundancia</h2>
+      {% for a in abundance %}
+      <article class="card abundance-card" data-tag="{{ a.tag }}">
+        <div class="card-header">
+          <span class="tag">{{ a.tag }}</span>
+        </div>
+        <h2>
+          <a href="{{ a.source_url or '#' }}" target="_blank" rel="noopener">{{ a.title }}</a>
+        </h2>
+        <p class="source-reason">{{ a.site_name }} &middot; <span class="reason">{{ a.reason }}</span></p>
+        <div class="card-actions">
+          {% if a.source_url %}
+          <button class="btn-expand" data-url="{{ a.source_url }}" onclick="toggleScrape(this)">Leer</button>
+          {% endif %}
+        </div>
+        <div class="article-content" style="display:none"></div>
+        <div class="card-bottom" style="display:none">
+          <div class="card-actions">
+            <button class="btn-post-idea" data-title="{{ a.title }}" onclick="getPostIdea(this)">Idea de post</button>
+            <div class="feedback" data-title="{{ a.title }}" data-tag="{{ a.tag }}" data-section="abundance" data-source-url="{{ a.source_url or '' }}">
+              <button class="btn-yes" onclick="sendFeedback(this, true)">Si</button>
+              <button class="btn-no" onclick="sendFeedback(this, false)">No</button>
+            </div>
+          </div>
+          <div class="post-idea-result"></div>
+        </div>
+      </article>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    {% if articles %}
+    <h2 class="section-title">Desde tus fuentes</h2>
+    {% endif %}
+
+    {% for article in articles %}
+    <article class="card" data-tag="{{ article.tag }}">
+      <div class="card-header">
+        <span class="tag">{{ article.tag }}</span>
+        <span class="score">{{ article.score }}</span>
+      </div>
+      <h2>
+        <a href="{{ article.source_url or '#' }}" target="_blank" rel="noopener">{{ article.title }}</a>
+      </h2>
+      <p class="source-reason">
+        {{ article.site_name or 'Unknown' }}
+        {% if article.author %} &middot; {{ article.author }}{% endif %}
+        {% if article.reading_time %} &middot; {{ article.reading_time }}{% endif %}
+        &middot; <span class="reason">{{ article.reason }}</span>
+      </p>
+      <div class="card-actions top-actions">
+        {% if article.id %}
+        <button class="btn-expand" data-id="{{ article.id }}" onclick="toggleExpand(this)">Leer</button>
+        {% endif %}
+      </div>
+      <div class="article-content" style="display:none"></div>
+      <div class="card-bottom" style="display:none">
+        <div class="card-actions">
+          <button class="btn-post-idea" data-title="{{ article.title }}" onclick="getPostIdea(this)">Idea de post</button>
+          <div class="feedback" data-title="{{ article.title }}" data-tag="{{ article.tag }}" data-section="feeds" data-id="{{ article.id or '' }}" data-source-url="{{ article.source_url or '' }}">
+            <button class="btn-yes" onclick="sendFeedback(this, true)">Si</button>
+            <button class="btn-no" onclick="sendFeedback(this, false)">No</button>
+          </div>
+        </div>
+        <div class="post-idea-result"></div>
+      </div>
+    </article>
+    {% endfor %}
+  </main>
+
+  <footer>
+    <p>readerme &middot; curado con Claude a partir de tu escritura y tus lecturas</p>
+  </footer>
+
+  <script>
+  // Build tag filter from actual tags on page
+  (function() {
+    const tags = new Set();
+    document.querySelectorAll('.card[data-tag]').forEach(c => tags.add(c.dataset.tag));
+    const bar = document.getElementById('tagFilter');
+    [...tags].sort().forEach(tag => {
+      const btn = document.createElement('button');
+      btn.className = 'tag-btn';
+      btn.dataset.tag = tag;
+      btn.textContent = tag;
+      btn.onclick = () => filterTag(tag);
+      bar.appendChild(btn);
+    });
+  })();
+
+  function filterTag(tag) {
+    document.querySelectorAll('.tag-btn').forEach(b => b.classList.toggle('active', b.dataset.tag === tag));
+    document.querySelectorAll('.card[data-tag]').forEach(card => {
+      card.style.display = (tag === 'all' || card.dataset.tag === tag) ? '' : 'none';
+    });
+    // Show/hide section titles
+    document.querySelectorAll('section[data-section]').forEach(sec => {
+      const visible = sec.querySelectorAll('.card[data-tag]:not([style*="display: none"])');
+      sec.style.display = visible.length ? '' : 'none';
+    });
+  }
+
+  function sendFeedback(btn, liked) {
+    const container = btn.closest('.feedback');
+    const data = {
+      title: container.dataset.title,
+      tag: container.dataset.tag,
+      section: container.dataset.section,
+      id: container.dataset.id || '',
+      source_url: container.dataset.sourceUrl || '',
+      liked: liked
+    };
+    fetch('/api/feedback', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    });
+    container.querySelectorAll('button').forEach(b => b.classList.add('done'));
+    btn.classList.remove('done');
+    btn.classList.add('active');
+  }
+
+  function _showBottom(card) {
+    const bottom = card.querySelector('.card-bottom');
+    if (bottom) bottom.style.display = 'block';
+  }
+  function _hideBottom(card) {
+    const bottom = card.querySelector('.card-bottom');
+    if (bottom) bottom.style.display = 'none';
+  }
+
+  async function toggleExpand(btn) {
+    const card = btn.closest('.card');
+    const contentDiv = card.querySelector('.article-content');
+    if (contentDiv.style.display !== 'none') {
+      contentDiv.style.display = 'none';
+      _hideBottom(card);
+      btn.textContent = 'Leer';
+      return;
+    }
+    if (!contentDiv.innerHTML) {
+      btn.textContent = '...';
+      const resp = await fetch('/api/content/' + btn.dataset.id);
+      const data = await resp.json();
+      if (data.ok && data.html) {
+        contentDiv.innerHTML = data.html;
+      } else {
+        btn.style.display = 'none';
+        return;
+      }
+    }
+    contentDiv.style.display = 'block';
+    _showBottom(card);
+    btn.textContent = 'Cerrar';
+  }
+
+  async function toggleScrape(btn) {
+    const card = btn.closest('.card');
+    const contentDiv = card.querySelector('.article-content');
+    if (contentDiv.style.display !== 'none') {
+      contentDiv.style.display = 'none';
+      _hideBottom(card);
+      btn.textContent = 'Leer';
+      return;
+    }
+    if (!contentDiv.innerHTML) {
+      btn.textContent = '...';
+      const resp = await fetch('/api/scrape?url=' + encodeURIComponent(btn.dataset.url));
+      const data = await resp.json();
+      if (data.ok && data.html) {
+        contentDiv.innerHTML = data.html;
+      } else {
+        btn.style.display = 'none';
+        return;
+      }
+    }
+    contentDiv.style.display = 'block';
+    _showBottom(card);
+    btn.textContent = 'Cerrar';
+  }
+
+  async function getPostIdea(btn) {
+    const card = btn.closest('.card');
+    const resultDiv = card.querySelector('.post-idea-result');
+    const contentDiv = card.querySelector('.article-content');
+
+    btn.textContent = 'Pensando...';
+    btn.disabled = true;
+
+    const resp = await fetch('/api/post-idea', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        title: btn.dataset.title,
+        content: contentDiv ? contentDiv.textContent.substring(0, 3000) : ''
+      })
+    });
+    const data = await resp.json();
+
+    if (data.ok) {
+      resultDiv.innerHTML = '<div class="post-idea">' + data.idea.replace(/\n/g, '<br>') + '</div>';
+    } else {
+      resultDiv.innerHTML = '<p class="post-idea-error">No se pudo generar la idea.</p>';
+    }
+    btn.textContent = 'Idea de post';
+    btn.disabled = false;
+  }
+  </script>
+</body>
+</html>

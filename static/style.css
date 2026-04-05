@@ -1,0 +1,470 @@
+/* readerme — clean reading UI for iPad and desktop */
+
+:root {
+  --bg: #FAFAF7;
+  --surface: #FFFFFF;
+  --text: #1A1A1A;
+  --text-secondary: #6B6B6B;
+  --accent: #2D5F2D;
+  --accent-light: #E8F0E8;
+  --border: #E8E8E4;
+  --radius: 12px;
+  --max-width: 720px;
+
+  --bubble-color: #8B7B2D;
+  --bubble-bg: #F5F0D8;
+  --abundance-color: #C4782A;
+  --abundance-bg: #FAEBD7;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1A1A1A;
+    --surface: #242424;
+    --text: #E8E8E4;
+    --text-secondary: #9B9B9B;
+    --accent: #7BC47B;
+    --accent-light: #2D3A2D;
+    --border: #333333;
+
+    --bubble-color: #D4C46B;
+    --bubble-bg: #3A3720;
+    --abundance-color: #E8A84C;
+    --abundance-bg: #3A2E1A;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 300;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+header {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 60px 24px 32px;
+}
+
+header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+header .meta {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-left: 8px;
+}
+
+/* Tag filter bar */
+
+.tag-filter {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tag-btn {
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 300;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tag-btn.active {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+.tag-btn:not(.active):hover {
+  border-color: var(--text-secondary);
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+
+.empty {
+  text-align: center;
+  padding: 80px 0;
+  color: var(--text-secondary);
+}
+
+.empty code {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+/* Section titles */
+
+.section-title {
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Shared section spacing */
+
+.bubble-section,
+.abundance-section {
+  margin-bottom: 32px;
+}
+
+/* Thinktank — amarillo crema */
+
+.bubble-card .tag {
+  color: var(--bubble-color);
+  background: var(--bubble-bg);
+}
+
+.bubble-card .source-reason .reason {
+  color: var(--bubble-color);
+}
+
+/* Mundo abundancia — naranja */
+
+.abundance-card .tag {
+  color: var(--abundance-color);
+  background: var(--abundance-bg);
+}
+
+.abundance-card .source-reason .reason {
+  color: var(--abundance-color);
+}
+
+/* Article cards */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 16px;
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.score {
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  min-width: 28px;
+  text-align: center;
+}
+
+.card h2 {
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+
+.card h2 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.card h2 a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.source-reason {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin-bottom: 8px;
+}
+
+.source-reason .reason {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.summary {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Card actions row */
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.btn-expand {
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.78rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-expand:hover {
+  background: var(--accent-light);
+}
+
+/* Inline article content */
+
+.article-content {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+.article-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 12px 0;
+}
+
+.article-content a {
+  color: var(--accent);
+}
+
+.article-content h1,
+.article-content h2,
+.article-content h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 16px 0 8px;
+}
+
+.article-content p {
+  margin-bottom: 12px;
+}
+
+.article-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 16px;
+  color: var(--text-secondary);
+  margin: 12px 0;
+}
+
+/* Card bottom (shown after expand) */
+
+.card-bottom {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.btn-post-idea {
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--text-secondary);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.78rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-post-idea:hover {
+  border-color: var(--text);
+  color: var(--text);
+}
+
+.btn-post-idea:disabled {
+  opacity: 0.5;
+}
+
+.post-idea {
+  margin-top: 16px;
+  padding: 16px;
+  background: var(--accent-light);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.post-idea-error {
+  margin-top: 12px;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+/* Feedback buttons */
+
+.feedback {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.feedback button {
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.feedback button:active {
+  transform: scale(0.95);
+}
+
+.feedback .btn-yes:hover,
+.feedback .btn-yes.active {
+  background: var(--accent-light);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.feedback .btn-no:hover,
+.feedback .btn-no.active {
+  background: #F5E0E0;
+  color: #8B3A3A;
+  border-color: #8B3A3A;
+}
+
+@media (prefers-color-scheme: dark) {
+  .feedback .btn-no:hover,
+  .feedback .btn-no.active {
+    background: #3A2020;
+    color: #D47B7B;
+    border-color: #D47B7B;
+  }
+}
+
+.feedback .done {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Footer */
+
+footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border);
+}
+
+/* iPad-specific tweaks */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  header {
+    padding-top: 48px;
+  }
+
+  .card {
+    padding: 28px;
+  }
+}
+
+/* Small phones */
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  .card h2 {
+    font-size: 1.1rem;
+  }
+
+  .card {
+    padding: 20px;
+    border-radius: 8px;
+  }
+}
+
+/* Safe area for notched devices */
+
+@supports (padding: env(safe-area-inset-top)) {
+  header {
+    padding-top: calc(60px + env(safe-area-inset-top));
+  }
+
+  footer {
+    padding-bottom: calc(48px + env(safe-area-inset-bottom));
+  }
+}

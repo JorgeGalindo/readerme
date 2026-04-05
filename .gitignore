@@ -1,0 +1,8 @@
+.env
+node_modules/
+.next/
+__pycache__/
+*.pyc
+.venv/
+data/reader_articles.json
+data/substack_articles.json
