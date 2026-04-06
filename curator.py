@@ -299,6 +299,26 @@ def curate(days: int = 2, top_n: int = 0) -> dict:
     thinktank = find_outside_bubble(profile, reader_urls, thinktank_ids)
     abundance = find_abundance(reader_urls)
 
+    # Merge with pending articles from previous run (not yet marked Sí/No)
+    feedback_urls = set()
+    if FEEDBACK_FILE.exists():
+        for f in json.loads(FEEDBACK_FILE.read_text()):
+            if f.get("source_url"):
+                feedback_urls.add(f["source_url"])
+
+    new_urls = {a.get("source_url", "") for a in curated_articles}
+
+    if CURATED_FILE.exists():
+        prev = json.loads(CURATED_FILE.read_text())
+        for old_article in prev.get("articles", []):
+            old_url = old_article.get("source_url", "")
+            # Keep if: not already in new batch AND not yet marked with feedback
+            if old_url and old_url not in new_urls and old_url not in feedback_urls:
+                curated_articles.append(old_article)
+
+    # Re-sort everything by score
+    curated_articles.sort(key=lambda a: a.get("score", 0), reverse=True)
+
     from datetime import datetime, timezone
     result = {
         "generated_at": datetime.now(timezone.utc).isoformat(),

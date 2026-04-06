@@ -192,6 +192,11 @@
     container.querySelectorAll('button').forEach(b => b.classList.add('done'));
     btn.classList.remove('done');
     btn.classList.add('active');
+    // Fade out the card after a moment
+    const card = btn.closest('.card');
+    if (card && container.dataset.section === 'feeds') {
+      setTimeout(() => { card.style.opacity = '0.3'; }, 600);
+    }
   }
 
   function _showBottom(card) {
