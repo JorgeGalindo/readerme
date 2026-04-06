@@ -88,6 +88,11 @@ def espana():
     if polls_file.exists():
         polls_data = json.loads(polls_file.read_text())
 
+    markets_file = DATA_DIR / "markets.json"
+    markets_data = {}
+    if markets_file.exists():
+        markets_data = json.loads(markets_file.read_text())
+
     generated_at = spain_data.get("generated_at", "")
     if generated_at:
         dt = datetime.fromisoformat(generated_at)
@@ -98,6 +103,7 @@ def espana():
         intl=spain_data.get("intl", []),
         spanish=spain_data.get("spanish", []),
         polls=polls_data,
+        markets=markets_data,
         generated_at=generated_at,
     )
 

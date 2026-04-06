@@ -57,6 +57,26 @@
     </section>
     {% endif %}
 
+    {% if markets %}
+    <section>
+      <h2 class="section-title">Mercados de predicción</h2>
+      <div class="markets-grid">
+        {% for key, m in markets.items() %}
+        <div class="market-card">
+          <div class="market-header">
+            <span class="market-title">{{ m.title }}</span>
+            <span class="market-current">{{ m.current }}%</span>
+          </div>
+          <div class="market-chart-container">
+            <canvas id="market-{{ key }}"></canvas>
+          </div>
+          <a href="{{ m.url }}" target="_blank" rel="noopener" class="market-source">polymarket</a>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
     {% if intl %}
     <section>
       <h2 class="section-title">Lo que se dice fuera</h2>
@@ -164,6 +184,52 @@
         },
         interaction: { mode: 'nearest', axis: 'x', intersect: false }
       }
+    });
+  })();
+  {% endif %}
+
+  {% if markets %}
+  (function() {
+    const mkts = {{ markets | tojson }};
+    Object.keys(mkts).forEach(key => {
+      const m = mkts[key];
+      const ctx = document.getElementById('market-' + key);
+      if (!ctx || !m.dates) return;
+
+      const labels = m.dates.map(d => {
+        const [y, mo, day] = d.split('-');
+        const months = ['','Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+        return months[parseInt(mo)] + ' ' + day;
+      });
+
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            data: m.prices,
+            borderColor: '#5B9BD5',
+            backgroundColor: 'rgba(91,155,213,0.08)',
+            borderWidth: 1.5,
+            pointRadius: 0,
+            tension: 0.3,
+            fill: true,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false }, tooltip: {
+            callbacks: { label: ctx => ctx.parsed.y + '%' },
+            titleFont: { family: "'Roboto Mono'", size: 10 },
+            bodyFont: { family: "'Roboto Mono'", size: 10, weight: 300 }
+          }},
+          scales: {
+            x: { display: false },
+            y: { display: false, min: 0, max: Math.max(...m.prices) * 1.3 }
+          }
+        }
+      });
     });
   })();
   {% endif %}

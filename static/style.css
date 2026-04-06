@@ -239,6 +239,67 @@ main {
 .bloc-media { color: #C4782A; }
 .bloc-baja { color: #2D5F2D; }
 
+/* Prediction markets */
+
+.markets-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 480px) {
+  .markets-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.market-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+.market-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.market-title {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.3;
+  flex: 1;
+  margin-right: 8px;
+}
+
+.market-current {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.market-chart-container {
+  height: 100px;
+  margin-bottom: 6px;
+}
+
+.market-source {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  opacity: 0.6;
+}
+
+.market-source:hover {
+  opacity: 1;
+}
+
 /* Compact cards (Spain page) */
 
 .card-compact {
