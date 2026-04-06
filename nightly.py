@@ -72,15 +72,20 @@ def run_nightly():
     print("1. Processing pending feedback...")
     process_pending_feedback()
 
-    print("\n2. Curating fresh feed...")
+    print("\n2. Curating fresh feed (Mundo)...")
     result = curate()
 
     n_articles = len(result.get("articles", []))
-    n_bubble = len(result.get("bubble", []))
+    n_thinktank = len(result.get("thinktank", []))
     n_abundance = len(result.get("abundance", []))
     total = result.get("article_count_total", 0)
 
-    print(f"\nDone: {n_bubble} bubble + {n_abundance} abundance + {n_articles} feeds (from {total} in Reader)")
+    print(f"  Mundo: {n_thinktank} thinktank + {n_abundance} abundance + {n_articles} feeds (from {total} in Reader)")
+
+    print("\n3. Curating España...")
+    from spain import curate_spain
+    spain = curate_spain()
+    print(f"  España: {len(spain.get('intl', []))} intl + {len(spain.get('spanish', []))} national")
 
 
 if __name__ == "__main__":

@@ -75,6 +75,33 @@ def index():
     )
 
 
+@app.route("/espana")
+def espana():
+    spain_file = DATA_DIR / "spain.json"
+    polls_file = DATA_DIR / "polls.json"
+
+    spain_data = {}
+    if spain_file.exists():
+        spain_data = json.loads(spain_file.read_text())
+
+    polls_data = {}
+    if polls_file.exists():
+        polls_data = json.loads(polls_file.read_text())
+
+    generated_at = spain_data.get("generated_at", "")
+    if generated_at:
+        dt = datetime.fromisoformat(generated_at)
+        generated_at = dt.strftime("%d %b %Y, %H:%M")
+
+    return render_template(
+        "espana.html",
+        intl=spain_data.get("intl", []),
+        spanish=spain_data.get("spanish", []),
+        polls=polls_data,
+        generated_at=generated_at,
+    )
+
+
 @app.route("/api/content/<doc_id>")
 def content(doc_id):
     html = fetch_html_content(doc_id)

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>readerme — España</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>readerme <span class="meta">{{ generated_at }}</span></h1>
+    <nav class="page-nav">
+      <a href="/">Mundo</a>
+      <a href="/espana" class="active">España</a>
+    </nav>
+  </header>
+
+  <main>
+    {% if not intl and not spanish %}
+    <div class="empty">
+      <p>No hay datos de España todavía.</p>
+      <code>python run.py curate-spain</code>
+    </div>
+    {% endif %}
+
+    {% if polls and polls.dates %}
+    <section>
+      <h2 class="section-title">Cómo va el voto</h2>
+      <div class="chart-container">
+        <canvas id="pollChart"></canvas>
+      </div>
+      {% if polls.bloc %}
+      <div class="bloc-analysis">
+        <div class="bloc-row">
+          <span class="bloc-label">PP + Vox</span>
+          <span class="bloc-value">{{ polls.bloc.right_bloc }}%</span>
+        </div>
+        <div class="bloc-row">
+          <span class="bloc-label">Bloque izquierda</span>
+          <span class="bloc-value">{{ polls.bloc.left_bloc }}%</span>
+        </div>
+        <div class="bloc-row">
+          <span class="bloc-label">Brecha</span>
+          <span class="bloc-value">{{ polls.bloc.gap_label }}</span>
+        </div>
+        <div class="bloc-row">
+          <span class="bloc-label">Mayoría PP+Vox solos</span>
+          <span class="bloc-value bloc-{{ polls.bloc.majority_prob }}">{{ polls.bloc.majority_prob }}</span>
+        </div>
+      </div>
+      {% endif %}
+    </section>
+    {% endif %}
+
+    {% if intl %}
+    <section>
+      <h2 class="section-title">Lo que se dice fuera</h2>
+      {% for a in intl %}
+      <article class="card card-compact">
+        <h2>
+          <a href="{{ a.link or '#' }}" target="_blank" rel="noopener">{{ a.title }}</a>
+        </h2>
+        <p class="source-reason">
+          <span class="src-label" data-source="{{ a.source }}">{{ a.source }}</span>
+          {% if a.author %} &middot; {{ a.author }}{% endif %}
+          &middot; <span class="reason">{{ a.risk_summary }}</span>
+        </p>
+      </article>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    {% if spanish %}
+    <section>
+      <h2 class="section-title">Radar de riesgo político</h2>
+      {% for a in spanish %}
+      <article class="card card-compact">
+        <h2>
+          <a href="{{ a.link or '#' }}" target="_blank" rel="noopener">{{ a.title }}</a>
+        </h2>
+        <p class="source-reason">
+          <span class="src-label" data-source="{{ a.source }}">{{ a.source }}</span>
+          {% if a.author %} &middot; {{ a.author }}{% endif %}
+          &middot; <span class="reason">{{ a.risk_summary }}</span>
+        </p>
+        {% if a.scrapeable %}
+        <div class="card-actions">
+          <button class="btn-expand" data-url="{{ a.link }}" onclick="toggleScrape(this)">Leer</button>
+        </div>
+        <div class="article-content" style="display:none"></div>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </section>
+    {% endif %}
+  </main>
+
+  <footer>
+    <p>readerme &middot; radar España con lente Eurasia Group</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <script>
+  {% if polls and polls.dates %}
+  (function() {
+    const ctx = document.getElementById('pollChart').getContext('2d');
+    const dates = {{ polls.dates | tojson }};
+    const labels = dates.map(d => {
+      const [y, m] = d.split('-');
+      const months = ['', 'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+      return months[parseInt(m)] + ' ' + y.slice(2);
+    });
+
+    const endLabelPlugin = {
+      id: 'endLabel',
+      afterDatasetsDraw(chart) {
+        const { ctx } = chart;
+        chart.data.datasets.forEach((ds, i) => {
+          const meta = chart.getDatasetMeta(i);
+          const lastPoint = meta.data[meta.data.length - 1];
+          if (!lastPoint) return;
+          const val = ds.data[ds.data.length - 1];
+          if (val == null) return;
+          ctx.save();
+          ctx.font = "300 11px 'Roboto Mono', monospace";
+          ctx.fillStyle = ds.borderColor;
+          ctx.textAlign = 'left';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(val.toFixed(1) + '%', lastPoint.x + 6, lastPoint.y);
+          ctx.restore();
+        });
+      }
+    };
+
+    new Chart(ctx, {
+      type: 'line',
+      plugins: [endLabelPlugin],
+      data: {
+        labels: labels,
+        datasets: [
+          { label: 'PP', data: {{ polls.averages.PP | tojson }}, borderColor: '#5B9BD5', backgroundColor: 'transparent', borderWidth: 2, pointRadius: 0, tension: 0.4 },
+          { label: 'PSOE', data: {{ polls.averages.PSOE | tojson }}, borderColor: '#C47B78', backgroundColor: 'transparent', borderWidth: 2, pointRadius: 0, tension: 0.4 },
+          { label: 'VOX', data: {{ polls.averages.VOX | tojson }}, borderColor: '#7BC47B', backgroundColor: 'transparent', borderWidth: 2, pointRadius: 0, tension: 0.4 },
+          { label: 'Sumar', data: {{ polls.averages.SUMAR | tojson }}, borderColor: '#D4918E', backgroundColor: 'transparent', borderWidth: 1.5, pointRadius: 0, tension: 0.4 },
+          { label: 'Podemos', data: {{ polls.averages.PODEMOS | tojson }}, borderColor: '#9B7B9B', backgroundColor: 'transparent', borderWidth: 1.5, pointRadius: 0, tension: 0.4 },
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        layout: { padding: { right: 50 } },
+        plugins: {
+          legend: { position: 'bottom', labels: { font: { family: "'Roboto Mono'", size: 11, weight: 300 }, boxWidth: 12, padding: 16 } },
+          tooltip: { mode: 'index', intersect: false, titleFont: { family: "'Roboto Mono'" }, bodyFont: { family: "'Roboto Mono'", weight: 300 } }
+        },
+        scales: {
+          x: { ticks: { font: { family: "'Roboto Mono'", size: 10, weight: 300 }, maxTicksLimit: 8 }, grid: { display: false } },
+          y: { min: 0, max: 40, ticks: { font: { family: "'Roboto Mono'", size: 10, weight: 300 }, callback: v => v + '%' }, grid: { color: 'rgba(128,128,128,0.1)' } }
+        },
+        interaction: { mode: 'nearest', axis: 'x', intersect: false }
+      }
+    });
+  })();
+  {% endif %}
+
+  async function toggleScrape(btn) {
+    const card = btn.closest('.card');
+    const contentDiv = card.querySelector('.article-content');
+    if (contentDiv.style.display !== 'none') {
+      contentDiv.style.display = 'none';
+      btn.textContent = 'Leer';
+      return;
+    }
+    if (!contentDiv.innerHTML) {
+      btn.textContent = '...';
+      const resp = await fetch('/api/scrape?url=' + encodeURIComponent(btn.dataset.url));
+      const data = await resp.json();
+      if (data.ok && data.html) {
+        contentDiv.innerHTML = data.html;
+      } else {
+        btn.style.display = 'none';
+        return;
+      }
+    }
+    contentDiv.style.display = 'block';
+    btn.textContent = 'Cerrar';
+  }
+  </script>
+</body>
+</html>

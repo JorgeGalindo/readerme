@@ -70,6 +70,32 @@ header .meta {
   margin-left: 8px;
 }
 
+.page-nav {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.page-nav a {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.page-nav a.active {
+  color: var(--text);
+  border-bottom-color: var(--text);
+  font-weight: 500;
+}
+
+.page-nav a:hover {
+  color: var(--text);
+}
+
 /* Tag filter bar */
 
 .tag-filter {
@@ -171,6 +197,83 @@ main {
   color: var(--abundance-color);
 }
 
+/* Chart and bloc analysis (Spain page) */
+
+.chart-container {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 16px;
+  height: 420px;
+}
+
+.bloc-analysis {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 32px;
+}
+
+.bloc-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 0.85rem;
+}
+
+.bloc-row:not(:last-child) {
+  border-bottom: 1px solid var(--border);
+}
+
+.bloc-label {
+  color: var(--text-secondary);
+}
+
+.bloc-value {
+  font-weight: 500;
+}
+
+.bloc-alta { color: #EF1C27; }
+.bloc-media { color: #C4782A; }
+.bloc-baja { color: #2D5F2D; }
+
+/* Compact cards (Spain page) */
+
+.card-compact {
+  padding: 16px 24px;
+}
+
+.card-compact h2 {
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+/* Source label colors (Spain page) */
+
+.src-label {
+  font-weight: 500;
+}
+
+.src-label[data-source="The Economist"] { color: #C47B78; }
+.src-label[data-source="Financial Times"] { color: #C9A96E; }
+.src-label[data-source*="El País"] { color: #888888; }
+.src-label[data-source="El Mundo"] { color: #1A9CA0; }
+.src-label[data-source="El Confidencial"] { color: #5B8DBE; }
+.src-label[data-source="eldiario.es"] { color: #7BAFD4; }
+.src-label[data-source="democrata.es"] { color: #C4A832; }
+
+@media (prefers-color-scheme: dark) {
+  .src-label[data-source="The Economist"] { color: #D4918E; }
+  .src-label[data-source="Financial Times"] { color: #D4B87A; }
+  .src-label[data-source*="El País"] { color: #AAAAAA; }
+  .src-label[data-source="El Mundo"] { color: #2CC4C8; }
+  .src-label[data-source="El Confidencial"] { color: #7CB0E0; }
+  .src-label[data-source="eldiario.es"] { color: #94C8E8; }
+  .src-label[data-source="democrata.es"] { color: #D4B842; }
+}
+
 /* Article cards */
 
 .card {
@@ -239,8 +342,8 @@ main {
 }
 
 .source-reason .reason {
-  color: var(--accent);
   font-style: italic;
+  color: var(--text);
 }
 
 .summary {

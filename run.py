@@ -75,6 +75,9 @@ def main():
     p_run.add_argument("--debug", action="store_true")
     p_run.add_argument("--profile-only", action="store_true")
 
+    # curate-spain
+    sub.add_parser("curate-spain", help="Fetch and curate Spain political risk news")
+
     # nightly
     sub.add_parser("nightly", help="Run nightly cycle (process feedback + re-curate)")
 
@@ -82,6 +85,11 @@ def main():
 
     if args.command == "curate":
         cmd_curate(args)
+    elif args.command == "curate-spain":
+        from spain import curate_spain
+        from polls import fetch_and_process
+        curate_spain()
+        fetch_and_process()
     elif args.command == "serve":
         cmd_serve(args)
     elif args.command == "run":
