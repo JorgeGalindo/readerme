@@ -99,9 +99,9 @@ header .meta {
 }
 
 .tag-btn.active {
-  background: var(--accent);
+  background: var(--text-secondary);
   color: var(--bg);
-  border-color: var(--accent);
+  border-color: var(--text-secondary);
 }
 
 .tag-btn:not(.active):hover {
@@ -261,9 +261,9 @@ main {
 .btn-expand {
   padding: 5px 14px;
   border-radius: 20px;
-  border: 1px solid var(--accent);
+  border: 1px solid var(--text-secondary);
   background: transparent;
-  color: var(--accent);
+  color: var(--text-secondary);
   font-family: "Roboto Mono", monospace;
   font-size: 0.78rem;
   font-weight: 400;
@@ -273,7 +273,8 @@ main {
 }
 
 .btn-expand:hover {
-  background: var(--accent-light);
+  border-color: var(--text);
+  color: var(--text);
 }
 
 /* Inline article content */
