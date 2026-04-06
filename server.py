@@ -160,56 +160,52 @@ def feedback():
     return jsonify({"ok": True, "reader_synced": reader_synced})
 
 
-@app.route("/api/post-idea", methods=["POST"])
-def post_idea():
-    """Generate a post idea using Opus based on an article."""
+@app.route("/api/share-text", methods=["POST"])
+def share_text():
+    """Generate a ready-to-share LinkedIn/X post based on an article."""
     import anthropic
     from dotenv import load_dotenv
     load_dotenv()
 
     data = request.get_json()
     title = data.get("title", "")
+    url = data.get("url", "")
     content_snippet = data.get("content", "")[:3000]
 
-    # Load author profile for voice/angle
+    # Load author profile for voice
     profile_file = DATA_DIR / "profile.json"
     profile = {}
     if profile_file.exists():
         profile = json.loads(profile_file.read_text())
 
-    opus = anthropic.Anthropic(timeout=120.0, max_retries=2)
-    response = opus.messages.create(
-        model="claude-opus-4-20250514",
-        max_tokens=1500,
+    client = anthropic.Anthropic(timeout=120.0, max_retries=2)
+    response = client.messages.create(
+        model="claude-sonnet-4-20250514",
+        max_tokens=800,
         messages=[{
             "role": "user",
-            "content": f"""Eres el asistente editorial de un analista de políticas públicas que escribe en Substack en español.
+            "content": f"""Escribe un texto corto para compartir en LinkedIn o X (Twitter). El autor es Jorge Galindo, analista de políticas públicas con perspectiva YIMBY/abundance.
 
-PERFIL DEL AUTOR:
-{json.dumps(profile, ensure_ascii=False)}
+PERFIL: {json.dumps(profile, ensure_ascii=False)}
 
-ARTÍCULO QUE ACABA DE LEER:
+ARTÍCULO:
 Título: {title}
+URL: {url}
 Contenido: {content_snippet}
 
-Genera UNA idea de post para su Substack. La idea debe:
-- Conectar este artículo con sus temas habituales y perspectiva YIMBY/abundance
-- Proponer un ÁNGULO original, no un resumen del artículo
-- Incluir una tesis clara y provocadora
-- Sugerir 2-3 datos o fuentes que podría usar
-- Estar en español
-
-Formato:
-**Título tentativo:** ...
-**Tesis:** (1-2 frases)
-**Ángulo:** (por qué esto importa desde su perspectiva)
-**Datos a buscar:** (2-3 puntos concretos)
-**Primera frase del post:** (un arranque potente)"""
+INSTRUCCIONES:
+- Tono: analítico pero accesible, directo, sin florituras. Como alguien que comparte algo que le ha hecho pensar.
+- NO resumas el artículo. Extrae 1-2 takeaways o reflexiones propias que conecten con su perspectiva.
+- Puede ser en español o inglés según el artículo y la audiencia natural.
+- Incluye el link al final.
+- Longitud: 2-4 frases. Máximo 280 caracteres para X o un párrafo corto para LinkedIn.
+- NO uses hashtags, NO uses emojis, NO empieces con "Interesante artículo" ni fórmulas genéricas.
+- Ready to copy-paste. Solo el texto, nada más."""
         }],
     )
 
-    idea = response.content[0].text
-    return jsonify({"ok": True, "idea": idea})
+    text = response.content[0].text.strip()
+    return jsonify({"ok": True, "text": text})
 
 
 if __name__ == "__main__":

@@ -49,21 +49,21 @@
           {% endif %}
         </h2>
         <p class="source-reason">{{ b.site_name }} &middot; <span class="reason">{{ b.reason }}</span></p>
-        <div class="card-actions">
+        <div class="card-actions top-actions">
           {% if b.source_url %}
           <button class="btn-expand" data-url="{{ b.source_url }}" onclick="toggleScrape(this)">Leer</button>
           {% endif %}
+          <div class="feedback" data-title="{{ b.title }}" data-tag="{{ b.tag }}" data-section="thinktank" data-source-url="{{ b.source_url or '' }}">
+            <button class="btn-yes" onclick="sendFeedback(this, true)">Sí</button>
+            <button class="btn-no" onclick="sendFeedback(this, false)">No</button>
+          </div>
         </div>
         <div class="article-content" style="display:none"></div>
         <div class="card-bottom" style="display:none">
           <div class="card-actions">
-            <button class="btn-post-idea" data-title="{{ b.title }}" onclick="getPostIdea(this)">Idea de post</button>
-            <div class="feedback" data-title="{{ b.title }}" data-tag="{{ b.tag }}" data-section="thinktank" data-source-url="{{ b.source_url or '' }}">
-              <button class="btn-yes" onclick="sendFeedback(this, true)">Si</button>
-              <button class="btn-no" onclick="sendFeedback(this, false)">No</button>
-            </div>
+            <button class="btn-share" data-title="{{ b.title }}" data-url="{{ b.source_url or '' }}" onclick="getShareText(this)">Compartir</button>
           </div>
-          <div class="post-idea-result"></div>
+          <div class="share-result"></div>
         </div>
       </article>
       {% endfor %}
@@ -82,21 +82,21 @@
           <a href="{{ a.source_url or '#' }}" target="_blank" rel="noopener">{{ a.title }}</a>
         </h2>
         <p class="source-reason">{{ a.site_name }} &middot; <span class="reason">{{ a.reason }}</span></p>
-        <div class="card-actions">
+        <div class="card-actions top-actions">
           {% if a.source_url %}
           <button class="btn-expand" data-url="{{ a.source_url }}" onclick="toggleScrape(this)">Leer</button>
           {% endif %}
+          <div class="feedback" data-title="{{ a.title }}" data-tag="{{ a.tag }}" data-section="abundance" data-source-url="{{ a.source_url or '' }}">
+            <button class="btn-yes" onclick="sendFeedback(this, true)">Sí</button>
+            <button class="btn-no" onclick="sendFeedback(this, false)">No</button>
+          </div>
         </div>
         <div class="article-content" style="display:none"></div>
         <div class="card-bottom" style="display:none">
           <div class="card-actions">
-            <button class="btn-post-idea" data-title="{{ a.title }}" onclick="getPostIdea(this)">Idea de post</button>
-            <div class="feedback" data-title="{{ a.title }}" data-tag="{{ a.tag }}" data-section="abundance" data-source-url="{{ a.source_url or '' }}">
-              <button class="btn-yes" onclick="sendFeedback(this, true)">Si</button>
-              <button class="btn-no" onclick="sendFeedback(this, false)">No</button>
-            </div>
+            <button class="btn-share" data-title="{{ a.title }}" data-url="{{ a.source_url or '' }}" onclick="getShareText(this)">Compartir</button>
           </div>
-          <div class="post-idea-result"></div>
+          <div class="share-result"></div>
         </div>
       </article>
       {% endfor %}
@@ -126,20 +126,23 @@
         {% if article.id %}
         <button class="btn-expand" data-id="{{ article.id }}" onclick="toggleExpand(this)">Leer</button>
         {% endif %}
+        <div class="feedback" data-title="{{ article.title }}" data-tag="{{ article.tag }}" data-section="feeds" data-id="{{ article.id or '' }}" data-source-url="{{ article.source_url or '' }}">
+          <button class="btn-yes" onclick="sendFeedback(this, true)">Sí</button>
+          <button class="btn-no" onclick="sendFeedback(this, false)">No</button>
+        </div>
       </div>
       <div class="article-content" style="display:none"></div>
       <div class="card-bottom" style="display:none">
         <div class="card-actions">
-          <button class="btn-post-idea" data-title="{{ article.title }}" onclick="getPostIdea(this)">Idea de post</button>
-          <div class="feedback" data-title="{{ article.title }}" data-tag="{{ article.tag }}" data-section="feeds" data-id="{{ article.id or '' }}" data-source-url="{{ article.source_url or '' }}">
-            <button class="btn-yes" onclick="sendFeedback(this, true)">Si</button>
-            <button class="btn-no" onclick="sendFeedback(this, false)">No</button>
-          </div>
+          <button class="btn-share" data-title="{{ article.title }}" data-url="{{ article.source_url or '' }}" onclick="getShareText(this)">Compartir</button>
         </div>
-        <div class="post-idea-result"></div>
+        <div class="share-result"></div>
       </div>
     </article>
     {% endfor %}
+    <div class="mark-all-no">
+      <button class="btn-mark-all-no" onclick="markAllNo()">Marcar resto como No</button>
+    </div>
   </main>
 
   <footer>
@@ -167,7 +170,6 @@
     document.querySelectorAll('.card[data-tag]').forEach(card => {
       card.style.display = (tag === 'all' || card.dataset.tag === tag) ? '' : 'none';
     });
-    // Show/hide section titles
     document.querySelectorAll('section[data-section]').forEach(sec => {
       const visible = sec.querySelectorAll('.card[data-tag]:not([style*="display: none"])');
       sec.style.display = visible.length ? '' : 'none';
@@ -192,20 +194,24 @@
     container.querySelectorAll('button').forEach(b => b.classList.add('done'));
     btn.classList.remove('done');
     btn.classList.add('active');
-    // Fade out the card after a moment
+    container.dataset.marked = '1';
     const card = btn.closest('.card');
     if (card && container.dataset.section === 'feeds') {
       setTimeout(() => { card.style.opacity = '0.3'; }, 600);
     }
   }
 
-  function _showBottom(card) {
-    const bottom = card.querySelector('.card-bottom');
-    if (bottom) bottom.style.display = 'block';
-  }
-  function _hideBottom(card) {
-    const bottom = card.querySelector('.card-bottom');
-    if (bottom) bottom.style.display = 'none';
+  // Move feedback to card-bottom when expanded, back to top when collapsed
+  function _moveFeedback(card, toBottom) {
+    const fb = card.querySelector('.feedback');
+    if (!fb) return;
+    if (toBottom) {
+      const bottomActions = card.querySelector('.card-bottom .card-actions');
+      if (bottomActions) bottomActions.appendChild(fb);
+    } else {
+      const topActions = card.querySelector('.top-actions');
+      if (topActions) topActions.appendChild(fb);
+    }
   }
 
   async function toggleExpand(btn) {
@@ -213,7 +219,8 @@
     const contentDiv = card.querySelector('.article-content');
     if (contentDiv.style.display !== 'none') {
       contentDiv.style.display = 'none';
-      _hideBottom(card);
+      card.querySelector('.card-bottom').style.display = 'none';
+      _moveFeedback(card, false);
       btn.textContent = 'Leer';
       return;
     }
@@ -229,7 +236,8 @@
       }
     }
     contentDiv.style.display = 'block';
-    _showBottom(card);
+    card.querySelector('.card-bottom').style.display = 'block';
+    _moveFeedback(card, true);
     btn.textContent = 'Cerrar';
   }
 
@@ -238,7 +246,8 @@
     const contentDiv = card.querySelector('.article-content');
     if (contentDiv.style.display !== 'none') {
       contentDiv.style.display = 'none';
-      _hideBottom(card);
+      card.querySelector('.card-bottom').style.display = 'none';
+      _moveFeedback(card, false);
       btn.textContent = 'Leer';
       return;
     }
@@ -254,35 +263,54 @@
       }
     }
     contentDiv.style.display = 'block';
-    _showBottom(card);
+    card.querySelector('.card-bottom').style.display = 'block';
+    _moveFeedback(card, true);
     btn.textContent = 'Cerrar';
   }
 
-  async function getPostIdea(btn) {
+  async function getShareText(btn) {
     const card = btn.closest('.card');
-    const resultDiv = card.querySelector('.post-idea-result');
+    const resultDiv = card.querySelector('.share-result');
     const contentDiv = card.querySelector('.article-content');
 
-    btn.textContent = 'Pensando...';
+    btn.textContent = 'Generando...';
     btn.disabled = true;
 
-    const resp = await fetch('/api/post-idea', {
+    const resp = await fetch('/api/share-text', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
         title: btn.dataset.title,
+        url: btn.dataset.url,
         content: contentDiv ? contentDiv.textContent.substring(0, 3000) : ''
       })
     });
     const data = await resp.json();
 
     if (data.ok) {
-      resultDiv.innerHTML = '<div class="post-idea">' + data.idea.replace(/\n/g, '<br>') + '</div>';
+      resultDiv.innerHTML = '<div class="share-text"><pre>' + data.text + '</pre><button class="btn-copy" onclick="copyShare(this)">Copiar</button></div>';
     } else {
-      resultDiv.innerHTML = '<p class="post-idea-error">No se pudo generar la idea.</p>';
+      resultDiv.innerHTML = '<p class="share-error">No se pudo generar el texto.</p>';
     }
-    btn.textContent = 'Idea de post';
+    btn.textContent = 'Compartir';
     btn.disabled = false;
+  }
+
+  function copyShare(btn) {
+    const pre = btn.previousElementSibling;
+    navigator.clipboard.writeText(pre.textContent);
+    btn.textContent = 'Copiado';
+    setTimeout(() => { btn.textContent = 'Copiar'; }, 1500);
+  }
+
+  function markAllNo() {
+    const unmarked = document.querySelectorAll('.feedback:not([data-marked])');
+    unmarked.forEach(fb => {
+      const noBtn = fb.querySelector('.btn-no');
+      if (noBtn && !fb.dataset.marked) sendFeedback(noBtn, false);
+    });
+    const btn = document.querySelector('.btn-mark-all-no');
+    if (btn) { btn.textContent = 'Hecho'; btn.disabled = true; }
   }
   </script>
 </body>

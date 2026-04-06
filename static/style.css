@@ -490,7 +490,7 @@ main {
   border-top: 1px solid var(--border);
 }
 
-.btn-post-idea {
+.btn-share {
   padding: 5px 14px;
   border-radius: 20px;
   border: 1px solid var(--text-secondary);
@@ -504,28 +504,87 @@ main {
   -webkit-tap-highlight-color: transparent;
 }
 
-.btn-post-idea:hover {
+.btn-share:hover {
   border-color: var(--text);
   color: var(--text);
 }
 
-.btn-post-idea:disabled {
+.btn-share:disabled {
   opacity: 0.5;
 }
 
-.post-idea {
+.share-text {
   margin-top: 16px;
+  position: relative;
+}
+
+.share-text pre {
   padding: 16px;
   background: var(--accent-light);
   border-radius: 8px;
-  font-size: 0.85rem;
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.82rem;
   line-height: 1.6;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
-.post-idea-error {
+.btn-copy {
+  margin-top: 8px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--accent);
+  background: var(--accent-light);
+  color: var(--accent);
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-copy:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.share-error {
   margin-top: 12px;
   color: var(--text-secondary);
   font-size: 0.8rem;
+}
+
+/* Mark all as No button */
+
+.mark-all-no {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.btn-mark-all-no {
+  padding: 8px 24px;
+  border-radius: 20px;
+  border: 1px solid var(--text-secondary);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.8rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-mark-all-no:hover {
+  border-color: #8B3A3A;
+  color: #8B3A3A;
+}
+
+.btn-mark-all-no:disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 /* Feedback buttons */
@@ -533,7 +592,7 @@ main {
 .feedback {
   display: flex;
   gap: 8px;
-  margin-top: 12px;
+  margin-left: auto;
 }
 
 .feedback button {
