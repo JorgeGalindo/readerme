@@ -1,71 +1,16 @@
 {
-  "generated_at": "2026-04-06T08:05:12.857128+00:00",
-  "intl": [
-    {
-      "title": "Feted by Europe’s left, Spain’s Pedro Sánchez is unloved at home",
-      "link": "https://www.economist.com/europe/2026/03/05/feted-by-europes-left-spains-pedro-sanchez-is-unloved-at-home",
-      "author": "",
-      "summary": "The prime minister is trying to become an icon of resistance to Donald Trump",
-      "date": "Thu, 05 Mar 2026 13:45:01 +0000",
-      "source": "The Economist",
-      "risk_summary": "The prime minister is trying to become an icon of resistance to Donald Trump"
-    },
-    {
-      "title": "An awful crash blots Spain’s gleaming super-fast trains",
-      "link": "https://www.economist.com/europe/2026/01/22/an-awful-crash-blots-spains-gleaming-super-fast-trains",
-      "author": "",
-      "summary": "The world’s second-longest high-speed rail network is the country’s pride",
-      "date": "Thu, 22 Jan 2026 14:07:39 +0000",
-      "source": "The Economist",
-      "risk_summary": "The world’s second-longest high-speed rail network is the country’s pride"
-    },
-    {
-      "title": "Spain’s judiciary is caught up in a bitter political war",
-      "link": "https://www.economist.com/europe/2026/01/14/spains-judiciary-is-caught-up-in-a-bitter-political-war",
-      "author": "",
-      "summary": "The government decries charges of corruption as “lawfare”",
-      "date": "Wed, 14 Jan 2026 16:59:11 +0000",
-      "source": "The Economist",
-      "risk_summary": "The government decries charges of corruption as “lawfare”"
-    },
-    {
-      "title": "I joined an Easter procession for the fitness... and stayed for the faith",
-      "link": "https://www.ft.com/content/edb8780c-7500-4112-a6bf-a7fcab908676",
-      "author": "",
-      "summary": "Holy Week in Cádiz has helped one writer reconnect with himself and his community",
-      "date": "Fri, 27 Mar 2026 09:30:09 GMT",
-      "source": "Financial Times",
-      "risk_summary": "Holy Week in Cádiz has helped one writer reconnect with himself and his community"
-    },
-    {
-      "title": "A parador for the party isle of Ibiza",
-      "link": "https://www.ft.com/content/8cabc7a2-600b-45f5-8a3c-5f9bbe579950",
-      "author": "",
-      "summary": "Two decades in the making, the new Parador de Ibiza crowns the historic citadel — and shows the island does culture as well as clubbing",
-      "date": "Fri, 27 Mar 2026 05:00:08 GMT",
-      "source": "Financial Times",
-      "risk_summary": "Two decades in the making, the new Parador de Ibiza crowns the historic citadel — and shows the island does culture as well as clubbing"
-    },
-    {
-      "title": "Spain’s angry young men turn to the radical right",
-      "link": "https://www.ft.com/content/7e2fbc9c-19ba-41a7-9e33-d06fb3361c31",
-      "author": "",
-      "summary": "Young women still lean to the left but male youth is more rightwing than it has been for decades",
-      "date": "Sun, 22 Mar 2026 05:00:08 GMT",
-      "source": "Financial Times",
-      "risk_summary": "Young women still lean to the left but male youth is more rightwing than it has been for decades"
-    }
-  ],
+  "generated_at": "2026-04-07T14:42:37.823620+00:00",
+  "intl": [],
   "spanish": [
     {
-      "title": "PP y PSOE se recuperan mientras Vox se estanca",
-      "link": "https://elpais.com/espana/2026-04-06/pp-y-psoe-se-recuperan-mientras-vox-se-estanca.html",
-      "author": "Xosé  Hermida",
-      "summary": "La extrema derecha se frena por primera vez en medio año y los socialistas reciben apoyos desde la izquierda",
-      "date": "Mon, 06 Apr 2026 03:30:01 GMT",
+      "title": "80 testigos y hasta 30 años de cárcel: el Supremo juzga a Ábalos, Koldo y Aldama por la trama de las mascarillas",
+      "link": "https://elpais.com/espana/2026-04-07/80-testigos-y-hasta-30-anos-de-carcel-el-supremo-juzga-a-abalos-koldo-y-aldama-por-la-trama-de-las-mascarillas.html",
+      "author": "Reyes Rincón",
+      "summary": "Los interrogatorios al hijo y la expareja del exministro de Transportes abren la vista oral para la que el alto tribunal ha previsto 13 sesiones",
+      "date": "Tue, 07 Apr 2026 03:30:01 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "Recuperación de PP y PSOE tras estancamiento de Vox sugiere reconfiguración del mapa electoral con implicaciones para la estabilidad del bloque de derecha."
+      "risk_summary": "El juicio a Ábalos, figura clave del sanchismo, por corrupción en contratos públicos supone un riesgo reputacional grave para el PSOE y la estabilidad del Gobierno de coalición."
     },
     {
       "title": "Los riesgos de la improvisación regulatoria en materia de vivienda",
@@ -75,7 +20,7 @@
       "date": "Mon, 06 Apr 2026 03:30:01 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "Prórroga de alquileres sin respaldo parlamentario evidencia debilidad legislativa del gobierno y riesgo de inseguridad jurídica en políticas de vivienda."
+      "risk_summary": "La prórroga de alquileres sin respaldo parlamentario evidencia la debilidad legislativa del Gobierno y los riesgos de la improvisación regulatoria en política de vivienda."
     },
     {
       "title": "La amnistía, en espera de la justicia europea",
@@ -85,77 +30,77 @@
       "date": "Tue, 31 Mar 2026 03:30:01 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "Decisión del TJUE sobre amnistía en mayo podría invalidar la ley estrella de Sánchez y desestabilizar el pacto independentista que sostiene al gobierno."
+      "risk_summary": "La pendiente resolución del TJUE sobre la amnistía catalana en mayo podría invalidar la ley estrella de Sánchez y desestabilizar los acuerdos con los independentistas."
     },
     {
-      "title": "La trama de las mascarillas se sienta en el banquillo: Ábalos ante su primer juicio",
-      "link": "https://elpais.com/espana/2026-04-05/la-trama-de-las-mascarillas-se-sienta-en-el-banquillo-abalos-ante-su-primer-juicio.html",
-      "author": "Reyes Rincón",
-      "summary": "El Supremo acoge la primera vista oral por el ‘caso Koldo’, en la que el exministro y su antiguo asesor afrontan una petición de pena de hasta 30 años de cárcel",
-      "date": "Sun, 05 Apr 2026 03:30:01 GMT",
+      "title": "Vox retoma esta semana las reuniones con el PP pese a mantener los ataques contra Génova: “Son indistinguibles del PSOE”",
+      "link": "https://elpais.com/espana/2026-04-07/vox-retoma-esta-semana-las-reuniones-con-el-pp-pese-a-mantener-los-ataques-contra-genova-son-indistinguibles-del-psoe.html",
+      "author": "Virginia Martínez,Elsa García de Blas",
+      "summary": "La cúpula de Feijóo se muestra optimista y no entra al trapo de las acusaciones del partido de Abascal",
+      "date": "Tue, 07 Apr 2026 03:30:01 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "Juicio a Ábalos por caso mascarillas coincide con campaña andaluza y amplifica crisis de corrupción que debilita al PSOE ante comicios clave."
+      "risk_summary": "La reanudación de contactos PP-Vox pese a las tensiones públicas sugiere una posible recomposición de las mayorías conservadoras autonómicas."
     },
     {
-      "title": "Feijóo habló con Abascal tras las elecciones de Castilla y León para encarrilar las negociaciones de los gobiernos",
-      "link": "https://elpais.com/espana/2026-04-04/feijoo-hablo-con-abascal-tras-las-elecciones-de-castilla-y-leon.html",
-      "author": "Virginia Martínez",
-      "summary": "El líder del PP revela el contacto en una entrevista, realizada antes de la carta de Vox a su militancia con el duro ataque a Génova",
-      "date": "Sat, 04 Apr 2026 09:31:48 GMT",
-      "source": "El País (España)",
-      "scrapeable": false,
-      "risk_summary": "Comunicación directa Feijóo-Abascal tras elecciones regionales revela coordinación estratégica entre PP y Vox pese a tensiones públicas."
-    },
-    {
-      "title": "Sara Aagesen: “No buscamos de dónde sacar petróleo. Nuestro oro no es negro, sino verde”",
-      "link": "https://elpais.com/economia/2026-04-05/sara-aagesen-el-conflicto-provocado-por-trump-obliga-a-acelerar-la-transicion-verde.html",
-      "author": "Juan Cruz Peña,Ricardo de Querol",
-      "summary": "La vicepresidenta y ministra para la Transición Ecológica promueve en la UE un plan de electrificación y un impuesto a las energéticas. Y ve irresponsable que el PP se alíe con la ultraderecha negacionista",
-      "date": "Sun, 05 Apr 2026 03:30:01 GMT",
+      "title": "El mercado laboral crea 211.510 empleos en el mejor marzo del registro pese a la guerra de Irán",
+      "link": "https://elpais.com/economia/2026-04-06/el-mercado-laboral-crea-211510-empleos-en-el-mejor-marzo-del-registro-pese-a-la-guerra-de-iran.html",
+      "author": "Raquel Cortés Pascual",
+      "summary": "Sánchez se salta el embargo de las cifras oficiales y avanza que por primera vez se superan los 22 millones de afiliados en la serie de datos desestacionalizados",
+      "date": "Mon, 06 Apr 2026 07:00:22 GMT",
       "source": "El País (Economía)",
       "scrapeable": false,
-      "risk_summary": "Ministra Aagesen impulsa impuesto energético en UE y critica alianza PP-Vox en negacionismo climático, escalando polarización en política energética."
+      "risk_summary": "Sánchez se adelanta a los datos oficiales de empleo para construir un relato económico positivo ante el deterioro de expectativas electorales del PSOE."
     },
     {
-      "title": "De Rajoy a Cospedal, pasando por Sáenz de Santamaría y Javier Arenas: más de 100 testigos citados a declarar en el juicio de 'Kitchen'",
-      "link": "https://www.elmundo.es/espana/2026/04/06/69d2884dfc6c83ca228b4570.html",
-      "author": "Silvia Lorenzo",
-      "summary": "Desde hoy, altos cargos del Partido Popular y de la Policía prestarán declaración en la Audiencia Nacional a petición de las acusaciones populares y particularesLeer",
-      "date": "Mon, 06 Apr 2026 02:06:26 +0200",
+      "title": "Los sindicatos se marcan como prioridad encarecer por ley el despido y limitar el empleo parcial",
+      "link": "https://elpais.com/economia/2026-04-07/los-sindicatos-se-marcan-como-prioridad-encarecer-el-despido-y-limitar-el-tiempo-parcial-en-las-proximas-negociaciones-de-convenios.html",
+      "author": "Raquel Cortés Pascual",
+      "summary": "Trabajo deberá ahora retomar la mesa para reformar las indemnizaciones, pero la patronal ya ha anunciado que no acudirá",
+      "date": "Tue, 07 Apr 2026 13:45:54 GMT",
+      "source": "El País (Economía)",
+      "scrapeable": false,
+      "risk_summary": "La agenda sindical de endurecer el despido y limitar el empleo parcial presiona al Gobierno hacia políticas laborales que rechazan empresarios y podrían frenar la creación de empleo."
+    },
+    {
+      "title": "Los promotores del bilingüismo demandarán a las escuelas que no apliquen el último fallo judicial contra la inmersión en catalán",
+      "link": "https://www.elmundo.es/cataluna/2026/04/06/69d3e98cfc6c8305528b4599.html",
+      "author": "Víctor Mondelo",
+      "summary": "La AEB elabora un plan para forzar la ejecución de la orden que el TSJC emitió la semana pasada ante la negativa de Illa a acatarla. La entidad prevé actuar contra los directores de colegios que coaccionen a profesores dispuestos a cumplir la sentenciaLeer",
+      "date": "Mon, 06 Apr 2026 22:38:04 +0200",
       "source": "El Mundo",
       "scrapeable": false,
-      "risk_summary": "Comparecencia de más de 100 testigos del PP en juicio Kitchen, incluyendo Rajoy y Cospedal, reabre heridas de corrupción durante campaña electoral crítica."
+      "risk_summary": "La escalada judicial contra la inmersión lingüística catalana desafía al Govern de Illa y reactiva el conflicto territorial con implicaciones para la gobernabilidad."
     },
     {
-      "title": "Frenazo de Vox y subida del PP mientras Sánchez rentabiliza el 'No a la guerra'",
-      "link": "https://www.elmundo.es/espana/encuestas/2026/04/05/69d289e3fc6c83b84d8b4575.html",
-      "author": "Iratxe Rojo",
-      "summary": "Leer",
-      "date": "Sun, 05 Apr 2026 22:56:43 +0200",
+      "title": "Montero sigue el manual sanchista y rechaza apoyar al PP para evitar una hipotética coalición con Vox en Andalucía",
+      "link": "https://www.elmundo.es/elecciones/elecciones-andalucia/2026/04/06/69d38c36fc6c83fb158b4597.html",
+      "author": "Chema Rodríguez",
+      "summary": "La candidata del PSOE a la Junta anticipa su negativa a cualquier pacto con Juanma Moreno tras el 17-MLeer",
+      "date": "Mon, 06 Apr 2026 13:10:43 +0200",
       "source": "El Mundo",
       "scrapeable": false,
-      "risk_summary": "Frenazo electoral de Vox y subida del PP mientras Sánchez rentabiliza crisis internacional sugiere recomposición del espacio político de derechas."
+      "risk_summary": "Montero descarta pactos postelectorales con el PP andaluz siguiendo la estrategia de polarización de Sánchez, consolidando el bloqueo institucional."
     },
     {
-      "title": "El pacto de última hora de IU y Podemos en Andalucía, una solución de urgencia que no despeja la X de cara a las generales",
-      "link": "https://www.eldiario.es/politica/pacto-ultima-hora-iu-andalucia-solucion-urgencia-no-despeja-x-cara-generales_1_13119193.html",
-      "author": "Daniel Ríos",
-      "summary": "La unidad de última hora para las elecciones del 17 de mayo no anticipa un acuerdo a nivel estatal y nace entre reproches de Podemos a IU por no darles un puesto de salida, pero evita un nuevo desencuentro que algunas fuentes temen que hubiera sido definitivoIU y Sumar alcanzan un acuerdo con Podemo",
-      "date": "Sat, 04 Apr 2026 20:23:18 +0000",
-      "source": "eldiario.es",
-      "scrapeable": true,
-      "risk_summary": "Pacto de urgencia IU-Podemos en Andalucía no garantiza unidad nacional de la izquierda y revela persistentes divisiones internas ante las generales."
+      "title": "Tezanos sondea Andalucía antes del 17-M: la Junta gestionó mejor las inundaciones que el Gobierno central y Moreno bate a Montero",
+      "link": "https://www.elmundo.es/espana/2026/04/07/69d4ee1ee9cf4a63478b457f.html",
+      "author": "Marisa Cruz",
+      "summary": "En respuesta espontánea, un 32% asegura que votará al partido Popular; un 22% optará por el Partido Socialista; un 8,8% lo hará por Vox y un 7,7% por Adelante AndalucíaLeer",
+      "date": "Tue, 07 Apr 2026 13:46:52 +0200",
+      "source": "El Mundo",
+      "scrapeable": false,
+      "risk_summary": "La encuesta del CIS en Andalucía confirma la ventaja del PP de Moreno sobre Montero, anticipando una posible pérdida socialista en su feudo histórico."
     },
     {
-      "title": "Vox acusa a Feijóo en una carta a su militancia de dirigir \"un ataque brutal\" de \"insidias\" contra el partido",
-      "link": "https://www.eldiario.es/politica/vox-acusa-feijoo-carta-militancia-dirigir-ataque-brutal-insidias-partido_1_13116744.html",
-      "author": "Europa Press",
-      "summary": "La misiva llega en plenas negociaciones para conformar gobiernos en tres comunidades, pero la formación mantiene que se pueden llegar a acuerdosVox se enreda en su política internacional de seguidismo a Trump y NetanyahuEl secretario general de Vox, Ignacio Garriga, ha acusado a la dirección del Par",
-      "date": "Thu, 02 Apr 2026 10:40:35 +0000",
-      "source": "eldiario.es",
+      "title": "El Senado acelera la reforma constitucional para que Formentera tenga senador propio y la debatirá desde mañana",
+      "link": "https://www.democrata.es/actualidad/senado-acelera-reforma-constitucional-formentera-senador/",
+      "author": "Agencias/Demócrata",
+      "summary": "El Senado decide este miércoles si tramita por lectura única la reforma constitucional que dará a Formentera un senador propio, separado de Ibiza.",
+      "date": "Tue, 07 Apr 2026 16:03:11 +0200",
+      "source": "democrata.es",
       "scrapeable": true,
-      "risk_summary": "Vox acusa a Feijóo de ataque brutal en carta a militancia durante negociaciones autonómicas, intensificando crisis interna de la coalición de derechas."
+      "risk_summary": "La reforma constitucional exprés para dar senador propio a Formentera evidencia la instrumentalización territorial de las instituciones por intereses partidistas menores."
     }
   ]
 }
