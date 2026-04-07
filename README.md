@@ -1,22 +1,40 @@
 # readerme
 
-Curador personal de contenido que aprende de lo que escribes y filtra lo que lees. Construido para reemplazar Readwise Reader como interfaz diaria de lectura.
+Curador personal de contenido que aprende de lo que escribes y filtra lo que lees. Reemplaza Readwise Reader como interfaz diaria de lectura.
 
 ## Cómo funciona
 
 ```
-Tu Substack (90 artículos) → perfil de escritor → sesgo YIMBY/abundance
+Tu Substack (90+ artículos) → perfil de escritor → sesgo YIMBY/abundance
                                                           ↓
 Readwise Reader (feed RSS + newsletters) ──→ Claude rankea todo ──→ microsite
                                                           ↑
 Thinktank Twitter Lists ──→ sección Thinktank      Feedback Sí/No
 DuckDuckGo + WiP ──→ sección Mundo Abundancia      (entrena el ranking)
+RSS medios españoles ──→ sección España             Audio briefing diario
+Polymarket + encuestas ──→ mercados/gráficos
 ```
 
+## Dos páginas
+
+### Mundo (`/`)
 Tres secciones:
-- **Thinktank** — lo que comparten los think tanks en Twitter (extraído de tus listas de Twitter en Reader)
+- **Thinktank** — lo que comparten los think tanks en Twitter (extraído de listas de Twitter en Reader)
 - **Mundo abundancia** — búsqueda web en el ecosistema YIMBY/abundance (siempre 1 de Works in Progress)
 - **Desde tus fuentes** — todo tu feed de Reader, rankeado por relevancia
+
+Cada card tiene:
+- Botones **Sí/No** siempre visibles (collapsed y expanded). Cuando se expande el artículo, se mueven abajo
+- Botón **Leer** para contenido inline (Reader API o scraping)
+- Botón **Compartir** (visible al expandir) genera texto listo para LinkedIn/X con tono Jorge Galindo + link. Copy-paste directo
+- **Marcar resto como No** al final de la página: marca todos los no marcados como No de golpe
+
+### España (`/espana`)
+- **Briefing de hoy** — audio de ~4 min generado con Claude + edge-tts (voz es-ES-AlvaroNeural). Síntesis de mercados de predicción + radar de riesgo político + prensa internacional. Sin encuestas
+- **Cómo va el voto** — gráfico de tendencias electorales (datos de colmenadedatos.com/Datawrapper)
+- **Mercados de predicción** — Polymarket: probabilidad de elecciones anticipadas
+- **Lo que se dice fuera** — FT y Economist sobre España (filtrado por keywords, sin IA)
+- **Radar de riesgo político** — 10 noticias de medios españoles curadas con Claude (lente Eurasia Group)
 
 ## Setup
 
@@ -38,69 +56,101 @@ ANTHROPIC_API_KEY=tu_api_key_de_anthropic
 ## Uso
 
 ```bash
-# Curar + servir (el combo completo)
+# Curar mundo + servir
 .venv/bin/python run.py
 
-# Solo curar sin servidor
-.venv/bin/python run.py curate
+# Solo curar mundo
+.venv/bin/python run.py curate --days 7 --top 10
+
+# Solo curar España (noticias + encuestas + mercados + audio)
+.venv/bin/python run.py curate-spain
 
 # Solo servir lo ya curado
-.venv/bin/python run.py serve
+.venv/bin/python run.py serve --port 8080
 
-# Ciclo nocturno (procesa feedback + re-cura)
+# Ciclo nocturno completo (feedback + mundo + españa)
 .venv/bin/python run.py nightly
 
-# Opciones
-.venv/bin/python run.py curate --days 7    # última semana
-.venv/bin/python run.py serve --port 8080  # otro puerto
+# Solo rebuild del perfil de autor
+.venv/bin/python run.py curate --profile-only
 ```
 
 Desde el iPad u otro dispositivo en la misma red, abre la IP local que muestra al arrancar (ej: `http://192.168.1.68:5555`).
 
 ## Ciclo diario
 
-1. **Madrugada**: `run.py nightly` procesa el feedback del día anterior (Sí → archiva en Reader, No → marca como visto) y genera una curación fresca
-2. **Durante el día**: lees desde readerme, marcas Sí/No en cada artículo
+1. **Madrugada**: `nightly.sh` ejecuta todo el ciclo + auto-commit + push → Render redeploy
+2. **Durante el día**: lees desde readerme, marcas Sí/No, compartes lo bueno
 3. **Siguiente madrugada**: repite
 
-El ranking se estabiliza con el uso gracias a:
-- Rúbrica explícita (relevancia 0-30, sustantividad 0-25, alineación YIMBY 0-25, novedad 0-20)
-- Ranking comparativo (ordena primero, puntúa después)
-- Cache de scores (max ±10 puntos entre pasadas)
-- Feedback como calibración (ejemplos concretos de Sí/No en el prompt)
+## Ranking: cómo funciona
 
-## Lectura inline
+- Rúbrica de 4 dimensiones: relevancia (0-30), sustantividad (0-25), alineación YIMBY (0-25), novedad (0-20)
+- Ranking comparativo: ordena primero, puntúa después
+- Cache de scores: max ±10 puntos entre pasadas para estabilidad
+- Feedback como calibración: ejemplos concretos de Sí/No inyectados en el prompt
+- Feed persistente: artículos no marcados se arrastran entre curaciones
 
-Botón "Leer" en cada artículo:
-- Artículos de Reader → contenido completo vía API
-- Artículos de búsqueda web → scraping (funciona en blogs y think tanks, no en paywalls)
+## Deploy
 
-Si el contenido no está disponible, el botón desaparece.
+- Hosted en **Render** (auto-deploy desde `main` en GitHub)
+- `Procfile`: `web: gunicorn server:app --bind 0.0.0.0:$PORT`
+- `runtime.txt`: Python 3.13.1
+- `nightly.sh` se ejecuta localmente (launchd/cron) y pushea datos a `main` → Render redeploy
 
 ## Stack
 
-- Python 3.10+
-- Flask (servidor)
-- Anthropic API / Claude Sonnet (curación)
+- Python 3.13
+- Flask + Gunicorn (servidor)
+- Anthropic API / Claude Sonnet (curación, briefing, compartir)
 - Readwise Reader API (fuente de lectura, bidireccional)
 - DuckDuckGo (búsqueda web para abundance)
-- httpx + BeautifulSoup (scraping)
+- edge-tts (text-to-speech para briefing, gratis, sin API key)
+- Chart.js (gráficos de encuestas y mercados)
+- Polymarket CLOB API (mercados de predicción)
+- httpx + BeautifulSoup (scraping + RSS parsing)
 
 ## Estructura
 
 ```
 readerme/
-├── run.py          # CLI: curate / serve / nightly
-├── curator.py      # perfil + ranking + búsquedas
+├── run.py          # CLI: curate / serve / curate-spain / nightly
+├── curator.py      # perfil + ranking + búsquedas (thinktank, abundance)
 ├── reader.py       # Readwise Reader API (fetch, archive, save)
-├── substack.py     # scraper de jorgegalindo.substack.com
-├── server.py       # Flask + endpoints API
-├── nightly.py      # ciclo nocturno (feedback + re-curación)
+├── substack.py     # scraper de jorgegalindo.substack.com (perfil de autor)
+├── spain.py        # RSS medios españoles + FT/Economist + audio briefing
+├── polls.py        # encuestas electorales (colmenadedatos → Datawrapper CSV)
+├── markets.py      # Polymarket prediction markets
+├── nightly.py      # ciclo nocturno (feedback + re-curación mundo + españa)
+├── nightly.sh      # wrapper bash: nightly + git push (para launchd/cron)
+├── server.py       # Flask: páginas + API (content, scrape, feedback, share, audio)
 ├── templates/
-│   └── index.html  # microsite
+│   ├── index.html  # página Mundo
+│   └── espana.html # página España (charts, audio, radar)
 ├── static/
 │   └── style.css   # Roboto Mono Light, responsive, dark mode
-├── data/           # (gitignored) cache, feedback, scores
-├── .env            # (gitignored) tokens
-└── requirements.txt
+├── data/           # cache, feedback, scores, audio (committed via nightly.sh)
+├── Procfile        # Render web process
+├── runtime.txt     # Python version for Render
+├── requirements.txt
+└── .env            # (gitignored) READWISE_TOKEN, ANTHROPIC_API_KEY
 ```
+
+## API endpoints
+
+| Endpoint | Método | Descripción |
+|----------|--------|-------------|
+| `/` | GET | Página Mundo |
+| `/espana` | GET | Página España |
+| `/api/content/<doc_id>` | GET | Contenido HTML de artículo Reader |
+| `/api/scrape?url=...` | GET | Scraping de artículo web |
+| `/api/feedback` | POST | Registrar Sí/No + sync a Reader |
+| `/api/share-text` | POST | Generar texto para compartir en LinkedIn/X |
+| `/api/briefing.mp3` | GET | Audio briefing político |
+
+## Costes estimados
+
+- **Anthropic API**: ~$0.10-0.20/día (curación mundo + españa + briefing + compartir esporádico)
+- **edge-tts**: gratis
+- **Render**: plan free o starter
+- **Readwise Reader**: tu suscripción existente
