@@ -473,9 +473,15 @@ main {
   -webkit-tap-highlight-color: transparent;
 }
 
-.btn-expand:hover {
+.btn-expand:hover:not(:disabled) {
   border-color: var(--text);
   color: var(--text);
+}
+
+.btn-dead {
+  opacity: 0.4;
+  pointer-events: none;
+  border-style: dashed;
 }
 
 /* Inline article content */

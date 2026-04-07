@@ -214,6 +214,22 @@
     }
   }
 
+  async function _fetchContent(btn, contentDiv, url) {
+    btn.textContent = '...';
+    try {
+      const resp = await fetch(url);
+      const data = await resp.json();
+      if (data.ok && data.html) {
+        contentDiv.innerHTML = data.html;
+        return true;
+      }
+    } catch (e) {}
+    btn.textContent = 'Sin contenido';
+    btn.disabled = true;
+    btn.classList.add('btn-dead');
+    return false;
+  }
+
   async function toggleExpand(btn) {
     const card = btn.closest('.card');
     const contentDiv = card.querySelector('.article-content');
@@ -225,15 +241,7 @@
       return;
     }
     if (!contentDiv.innerHTML) {
-      btn.textContent = '...';
-      const resp = await fetch('/api/content/' + btn.dataset.id);
-      const data = await resp.json();
-      if (data.ok && data.html) {
-        contentDiv.innerHTML = data.html;
-      } else {
-        btn.style.display = 'none';
-        return;
-      }
+      if (!await _fetchContent(btn, contentDiv, '/api/content/' + btn.dataset.id)) return;
     }
     contentDiv.style.display = 'block';
     card.querySelector('.card-bottom').style.display = 'block';
@@ -252,15 +260,7 @@
       return;
     }
     if (!contentDiv.innerHTML) {
-      btn.textContent = '...';
-      const resp = await fetch('/api/scrape?url=' + encodeURIComponent(btn.dataset.url));
-      const data = await resp.json();
-      if (data.ok && data.html) {
-        contentDiv.innerHTML = data.html;
-      } else {
-        btn.style.display = 'none';
-        return;
-      }
+      if (!await _fetchContent(btn, contentDiv, '/api/scrape?url=' + encodeURIComponent(btn.dataset.url))) return;
     }
     contentDiv.style.display = 'block';
     card.querySelector('.card-bottom').style.display = 'block';
