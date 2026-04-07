@@ -275,7 +275,76 @@ Responde SOLO JSON array, sin markdown:
     DATA_DIR.mkdir(exist_ok=True)
     SPAIN_FILE.write_text(json.dumps(result, ensure_ascii=False, indent=2))
     print(f"Spain curated: {len(curated_intl)} intl + {len(curated_spanish)} national")
+
+    # Generate audio briefing
+    generate_audio_briefing(curated_intl, curated_spanish)
+
     return result
+
+
+def generate_audio_briefing(intl: list[dict], spanish: list[dict]):
+    """Generate a spoken political risk briefing from curated news + markets."""
+    import asyncio
+    import edge_tts
+
+    # Load markets data if available
+    markets_file = DATA_DIR / "markets.json"
+    markets = {}
+    if markets_file.exists():
+        markets = json.loads(markets_file.read_text())
+
+    # Build context for Claude
+    intl_lines = [f"- {a['title']} ({a['source']}): {a.get('risk_summary', '')}" for a in intl]
+    spanish_lines = [f"- {a['title']} ({a['source']}): {a.get('risk_summary', '')}" for a in spanish]
+
+    markets_lines = []
+    for m in markets.values():
+        markets_lines.append(f"- {m['title']}: {m['current']}%")
+
+    prompt = f"""Genera un briefing de audio sobre riesgo político en España. Será leído por un TTS, así que escribe como se habla: frases claras, ritmo natural, sin bullet points ni formato.
+
+MERCADOS DE PREDICCIÓN:
+{chr(10).join(markets_lines) if markets_lines else "No disponibles."}
+
+PRENSA INTERNACIONAL SOBRE ESPAÑA:
+{chr(10).join(intl_lines) if intl_lines else "Sin artículos hoy."}
+
+RADAR DE RIESGO POLÍTICO (prensa española):
+{chr(10).join(spanish_lines)}
+
+INSTRUCCIONES:
+- Tono: analista de Eurasia Group haciendo un briefing matutino para un cliente. Profesional pero no robótico.
+- Estructura: empieza con los mercados de predicción (probabilidad de anticipadas), luego las señales clave del radar, luego la perspectiva internacional si hay.
+- Conecta las noticias entre sí cuando tenga sentido (ej: "esto se suma a..." o "en paralelo...").
+- Cierra con una valoración de riesgo general: ¿la situación se calienta, se enfría, o está estable?
+- Longitud: ~800-1200 palabras (para ~4 minutos de audio).
+- Idioma: español.
+- NO uses encabezados, asteriscos, guiones ni ningún formato. Solo texto corrido con párrafos."""
+
+    print("Generating audio briefing text...")
+    response = client.messages.create(
+        model="claude-sonnet-4-20250514",
+        max_tokens=2000,
+        messages=[{"role": "user", "content": prompt}],
+    )
+
+    briefing_text = response.content[0].text.strip()
+
+    # Save text version
+    briefing_text_file = DATA_DIR / "briefing.txt"
+    briefing_text_file.write_text(briefing_text)
+
+    # Generate audio
+    print("Converting to audio...")
+    audio_file = DATA_DIR / "briefing.mp3"
+
+    async def _tts():
+        communicate = edge_tts.Communicate(briefing_text, "es-ES-AlvaroNeural")
+        await communicate.save(str(audio_file))
+
+    asyncio.run(_tts())
+    size_kb = audio_file.stat().st_size // 1024
+    print(f"  Audio briefing: {size_kb}KB")
 
 
 if __name__ == "__main__":

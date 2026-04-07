@@ -197,6 +197,43 @@ main {
   color: var(--abundance-color);
 }
 
+/* Audio briefing */
+
+.audio-briefing {
+  margin-bottom: 24px;
+}
+
+.audio-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.audio-header .section-title {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.btn-play {
+  padding: 6px 18px;
+  border-radius: 20px;
+  border: 1px solid var(--text-secondary);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.8rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-play:hover {
+  border-color: var(--text);
+  color: var(--text);
+}
+
 /* Chart and bloc analysis (Spain page) */
 
 .chart-container {

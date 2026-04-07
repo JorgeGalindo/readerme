@@ -28,6 +28,16 @@
     </div>
     {% endif %}
 
+    {% if has_audio %}
+    <section class="audio-briefing">
+      <div class="audio-header">
+        <h2 class="section-title">Briefing de hoy</h2>
+        <button class="btn-play" id="playBtn" onclick="toggleAudio()">Escuchar</button>
+      </div>
+      <audio id="briefingAudio" src="/api/briefing.mp3" preload="none"></audio>
+    </section>
+    {% endif %}
+
     {% if polls and polls.dates %}
     <section>
       <h2 class="section-title">Cómo va el voto</h2>
@@ -233,6 +243,20 @@
     });
   })();
   {% endif %}
+
+  function toggleAudio() {
+    const audio = document.getElementById('briefingAudio');
+    const btn = document.getElementById('playBtn');
+    if (!audio) return;
+    if (audio.paused) {
+      audio.play();
+      btn.textContent = 'Pausar';
+    } else {
+      audio.pause();
+      btn.textContent = 'Escuchar';
+    }
+    audio.onended = () => { btn.textContent = 'Escuchar'; };
+  }
 
   async function toggleScrape(btn) {
     const card = btn.closest('.card');

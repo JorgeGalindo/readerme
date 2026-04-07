@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 
 import httpx
 from bs4 import BeautifulSoup
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_file
 
 from reader import archive_article, save_url, fetch_html_content
 
@@ -98,6 +98,8 @@ def espana():
         dt = datetime.fromisoformat(generated_at)
         generated_at = dt.strftime("%d %b %Y, %H:%M")
 
+    has_audio = (DATA_DIR / "briefing.mp3").exists()
+
     return render_template(
         "espana.html",
         intl=spain_data.get("intl", []),
@@ -105,7 +107,16 @@ def espana():
         polls=polls_data,
         markets=markets_data,
         generated_at=generated_at,
+        has_audio=has_audio,
     )
+
+
+@app.route("/api/briefing.mp3")
+def briefing_audio():
+    audio_file = DATA_DIR / "briefing.mp3"
+    if not audio_file.exists():
+        return jsonify({"ok": False}), 404
+    return send_file(audio_file, mimetype="audio/mpeg")
 
 
 @app.route("/api/content/<doc_id>")
