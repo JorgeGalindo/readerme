@@ -14,6 +14,19 @@ from reader import archive_article, save_url, fetch_html_content
 DATA_DIR = pathlib.Path(__file__).parent / "data"
 FEEDBACK_FILE = DATA_DIR / "feedback.json"
 
+
+def _today_feedback() -> dict:
+    """Return today's feedback as {title: liked} for UI restoration."""
+    if not FEEDBACK_FILE.exists():
+        return {}
+    feedback = json.loads(FEEDBACK_FILE.read_text())
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    marked = {}
+    for f in feedback:
+        if f.get("date", "").startswith(today):
+            marked[f["title"]] = f["liked"]
+    return marked
+
 app = Flask(__name__)
 
 
@@ -72,6 +85,7 @@ def index():
         abundance=data.get("abundance", []),
         generated_at=generated_at,
         total=data.get("article_count_total", 0),
+        today_feedback=_today_feedback(),
     )
 
 

@@ -150,6 +150,24 @@
   </footer>
 
   <script>
+  // Restore feedback visual state from server
+  (function() {
+    const fb = {{ today_feedback | tojson }};
+    document.querySelectorAll('.feedback[data-title]').forEach(container => {
+      const title = container.dataset.title;
+      if (title in fb) {
+        const liked = fb[title];
+        container.querySelectorAll('button').forEach(b => b.classList.add('done'));
+        const activeBtn = liked ? container.querySelector('.btn-yes') : container.querySelector('.btn-no');
+        if (activeBtn) { activeBtn.classList.remove('done'); activeBtn.classList.add('active'); }
+        container.dataset.marked = '1';
+        if (container.dataset.section === 'feeds') {
+          container.closest('.card').style.opacity = '0.3';
+        }
+      }
+    });
+  })();
+
   // Build tag filter from actual tags on page
   (function() {
     const tags = new Set();

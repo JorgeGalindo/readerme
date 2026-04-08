@@ -445,13 +445,46 @@ Responde SOLO JSON array, sin markdown:
 def find_abundance(reader_urls: set[str]) -> list[dict]:
     """Search for 3 articles from the YIMBY/abundance world, always including Works in Progress."""
     from urllib.parse import urlparse
+    import random
+    from datetime import datetime, timezone
 
-    # Dedicated WiP query + diverse abundance queries
+    # Dedicated WiP query
     wip_query = "site:worksinprogress.co"
+
+    # Rotating query pools — pick 3 from diverse buckets each run
+    source_queries = [
+        "site:ifp.org analysis",
+        "site:niskanencenter.org policy",
+        "site:constructionphysics.substack.com",
+        "site:fullstackeconomics.com",
+        "site:worksinprogress.co recent",
+        "site:asteriskmag.com",
+        "site:maximumprogress.substack.com",
+    ]
+    topic_queries = [
+        "YIMBY housing reform zoning results 2024 2025",
+        "permitting reform infrastructure energy abundance",
+        "building more homes policy evidence Europe",
+        "supply side progressivism pro-growth policy",
+        "nuclear energy deregulation new construction",
+        "abundance agenda housing transportation density",
+        "immigration economic growth labor shortage reform",
+        "industrial policy productivity growth evidence",
+    ]
+    geo_queries = [
+        "housing reform UK planning permission results",
+        "Spain vivienda urbanismo reforma supply",
+        "Germany Wohnungsbau housing construction reform",
+        "Japan housing zoning abundance lessons",
+        "New Zealand housing reform YIMBY results",
+        "Australia housing supply planning reform",
+    ]
+
+    # Pick 1 source + 1 topic + 1 geo for variety
     general_queries = [
-        "abundance agenda supply side progressivism analysis",
-        "YIMBY housing reform Europe Spain UK results",
-        "Institute for Progress Niskanen Center abundance infrastructure energy",
+        random.choice(source_queries),
+        random.choice(topic_queries),
+        random.choice(geo_queries),
     ]
 
     reader_domains = {re.sub(r'^www\.', '', urlparse(u).netloc) for u in reader_urls if u}
