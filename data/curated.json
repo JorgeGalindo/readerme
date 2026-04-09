@@ -1,63 +1,97 @@
 {
-  "generated_at": "2026-04-07T14:42:04.582742+00:00",
-  "article_count_total": 53,
+  "generated_at": "2026-04-09T08:06:57.682620+00:00",
+  "article_count_total": 34,
   "thinktank": [
     {
       "title": "My Most Progressive Views",
       "source_url": "https://www.slowboring.com/p/my-most-progressive-views",
       "site_name": "Matthew Yglesias",
-      "reason": "Análisis pragmático sobre políticas progresistas",
+      "reason": "Posiciones progresistas desde perspectiva pro-crecimiento",
       "tag": "políticas públicas"
-    },
-    {
-      "title": "AI Risk and Catastrophic Disasters",
-      "source_url": "",
-      "site_name": "Noah Smith",
-      "reason": "Perspectiva realista sobre riesgos de IA",
-      "tag": "IA"
     },
     {
       "title": "Trade, Labor Market Concentration, and Wages",
       "source_url": "",
       "site_name": "Mayara Felix (retweeted by Dina Pomeranz)",
-      "reason": "Datos sobre competencia comercial y salarios",
-      "tag": "comercio"
+      "reason": "Competencia importaciones y poder monopsonio laboral",
+      "tag": "mercado laboral"
     },
     {
-      "title": "Orbán-Putin Call Transcript",
+      "title": "AI Risk and Catastrophic Scenarios",
+      "source_url": "",
+      "site_name": "Noah Smith",
+      "reason": "Riesgos AI requieren desastres previos para credibilidad",
+      "tag": "IA"
+    },
+    {
+      "title": "Orbán-Putin Call Transcript Released",
       "source_url": "https://www.bloomberg.com/news/articles/2026-04-07/orban-discusses-us-russia-summit-with-putin-call-transcript",
-      "site_name": "Bloomberg (shared by Anne Applebaum)",
-      "reason": "Revelación sobre influencia rusa en Europa",
+      "site_name": "Bloomberg (retweeted by Anne Applebaum)",
+      "reason": "Transcripción revelaría sumisión Orbán a Putin",
       "tag": "política europea"
     }
   ],
   "abundance": [
     {
-      "title": "Issue 18 | Works in Progress",
-      "source_url": "https://worksinprogress.co/issue-18/",
+      "title": "Archive - Works in Progress Magazine",
+      "source_url": "https://worksinprogress.co/archive/",
       "site_name": "Works in Progress",
-      "reason": "red de vapor centenaria de Manhattan",
-      "tag": "energía",
-      "snippet": "Works in Progress Website New York's skyscrapers soar above a century-old steam network that still warms the city. While the rest of the world moved to hot water, Manhattanites still buy steam by the megapound."
+      "reason": "Historia de Viktor Zhdanov y proyectos históricos",
+      "tag": "políticas públicas",
+      "snippet": "Although Viktor Zhdanov's name is little known today, he spearheaded one of the greatest projects in history. Who was he and what did he do?"
     },
     {
-      "title": "The rise of the abundance faction - Niskanen Center",
-      "source_url": "https://www.niskanencenter.org/the-rise-of-the-abundance-faction/",
-      "site_name": "niskanencenter.org",
-      "reason": "Análisis Niskanen sobre política abundancia",
-      "tag": "abundancia",
-      "snippet": "Thesupply-sideprogressivismassociated with Ezra Klein and Derek Thompson and the state-capacity libertarianism of Tyler Cowen do not align on all issues, but what they have in common is an agreement that the constipation of our systems of governance, connected to capture by concentrated interests, is the central challenge of our time."
+      "title": "A Prescription for Fixing the Prevailing Wage System | IFP",
+      "source_url": "https://ifp.org/prevailing-wage-benchmarking/",
+      "site_name": "ifp.org",
+      "reason": "reforma salarios construcción EEUU",
+      "tag": "mercado laboral",
+      "snippet": "As a basis for thisanalysis, we used OEWS-provided median earnings for each occupation-area combination. These were pulled from OFLC-released prevailing wage data, in which Level III conveniently corresponds to the 50th percentile earnings level."
     },
     {
-      "title": "Is Yimbyism the answer to the housing crisis? - New Statesman",
-      "source_url": "https://www.newstatesman.com/spotlight/2024/12/is-yimbyism-the-answer-to-the-housing-crisis",
-      "site_name": "newstatesman.com",
-      "reason": "YIMBY Reino Unido crisis vivienda",
+      "title": "New Zealand's YIMBY Success - And How We Can Learn From it - Reason.com",
+      "source_url": "https://reason.com/volokh/2024/04/03/new-zealands-yimby-success-and-how-we-can-learn-from-it/",
+      "site_name": "reason.com",
+      "reason": "éxito YIMBY Nueva Zelanda",
       "tag": "vivienda",
-      "snippet": "By Shreya Nanda, chair and co-founder of LabourYimby, and Islington councillor heUKis in the midst of ahousingcrisis. How did we get here? From the mid-20th century, successive governments made a series of policy changes, relaxing lending, scrapping taxes on property, abolishing rent controls, selling off council homes and failing to build ..."
+      "snippet": "NewZealandNewZealand'sYIMBYSuccess - And How We Can Learn From itNewZealandalleviated a severehousingshortage by liberalizing regulations that had previously blocked mostnewconstruction."
     }
   ],
   "articles": [
+    {
+      "id": "01knrdw1vx7k55590vqh92wfyq",
+      "title": "What explains heterogeneity in AI adoption?",
+      "author": "Luis Garicano",
+      "source_url": "https://www.siliconcontinent.com/p/what-explains-heterogeneity-in-ai",
+      "site_name": "siliconcontinent.com",
+      "summary": "Management and incentives matter",
+      "word_count": 1668,
+      "reading_time": "7 mins",
+      "published_date": "2026-04-09",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!TnXq!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8813b98b-765f-452d-92b3-5c9457be5df5_1450x822.png",
+      "score": 88,
+      "reason": "Factores clave en adopción empresarial de IA",
+      "tag": "IA"
+    },
+    {
+      "id": "01knr8vwz569thgskw3vawkx3p",
+      "title": "Differences in AI adoption in Europe and the US: Explanations and implications for productivity growth",
+      "author": "VoxEU | CEPR",
+      "source_url": "https://cepr.org/voxeu/columns/differences-ai-adoption-europe-and-us-explanations-and-implications-productivity",
+      "site_name": "CEPR",
+      "summary": "The economic impact of generative AI will depend on the speed and breadth of adoption by workers and firms. Drawing on a survey of workers in the US and six European countries and a firm survey covering 32 European countries, this column explores the speed of AI adoption across countries and whether an ‘AI gap’ will exacerbate existing productivity differences between the US and Europe. There are large differences in AI adoption across countries, much of which are accounted for by management practices. Higher AI adoption rates are associated with faster productivity growth but not with changes in employment.",
+      "word_count": 2217,
+      "reading_time": "9 mins",
+      "published_date": "2026-04-09",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://cepr.org/themes/custom/cepr/assets/favicon/apple-touch-icon.png?v=1",
+      "score": 85,
+      "reason": "Brecha Europa-EEUU en productividad por IA",
+      "tag": "productividad"
+    },
     {
       "id": "01knf5br2pxcc0nkvh93t4kfpz",
       "title": "Roundup #80: All AI, all the time",
@@ -74,6 +108,23 @@
       "score": 85,
       "reason": "Análisis integral sobre adopción de IA",
       "tag": "IA"
+    },
+    {
+      "id": "01knrhtj4szdzp8jam31g26ww9",
+      "title": "Debí construir más datacenters",
+      "author": "Antonio Ortiz",
+      "source_url": "https://www.error500.net/p/debi-construir-mas-datacenters",
+      "site_name": "error500.net",
+      "summary": "Las cuentas de Anthropic no son las de una empresa en una burbuja corriendo hacia adelante. Son las de no ser capaz de satisfacer una demanda mayor de la planificada",
+      "word_count": 723,
+      "reading_time": "3 mins",
+      "published_date": "2026-04-09",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!ThEU!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fff3e25a6-c80e-43a7-97c6-c597aa3c56c5_2048x1392.jpeg",
+      "score": 82,
+      "reason": "Escasez artificial limita crecimiento tecnológico",
+      "tag": "tecnología"
     },
     {
       "id": "01knm23c7nvrgngw5pr5m6ktb6",
@@ -127,6 +178,23 @@
       "tag": "IA"
     },
     {
+      "id": "01knnp2mdd9vth6fy8yextr8nx",
+      "title": "Why firms’ responses to corporate taxes differ across countries",
+      "author": "VoxEU | CEPR",
+      "source_url": "https://cepr.org/voxeu/columns/why-firms-responses-corporate-taxes-differ-across-countries",
+      "site_name": "CEPR",
+      "summary": "Debates on corporate taxation hinge crucially on how firms respond to changing tax incentives. This column uses administrative tax data from 16 countries and a unified empirical framework to estimate corporate taxable income elasticities. It shows that the responsiveness of corporate taxable income varies widely across economies, and there are large differences in efficiency costs of corporate taxation as well. The differences are linked to tax system design, firm characteristics, and economic fundamentals. The results imply that identical tax reforms can produce very different revenue and efficiency outcomes.",
+      "word_count": 1397,
+      "reading_time": "6 mins",
+      "published_date": "2026-04-08",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://cepr.org/themes/custom/cepr/assets/favicon/apple-touch-icon.png?v=1",
+      "score": 78,
+      "reason": "Heterogeneidad global en respuesta fiscal empresarial",
+      "tag": "economía"
+    },
+    {
       "id": "01kngh2a9f1z2r3cj6jc5vg4rp",
       "title": "How AI Aggregation Affects Knowledge -- by Daron Acemoglu, Tianyi Lin, Asuman Ozdaglar, James Siderius",
       "author": "National Bureau of Economic Research Working Papers",
@@ -176,6 +244,23 @@
       "score": 76,
       "reason": "Productividad periodística mediante IA",
       "tag": "productividad"
+    },
+    {
+      "id": "01knnp2mfkgck17vqw3j6phwvz",
+      "title": "How far the apple falls: Evidence on social mobility across OECD countries",
+      "author": "VoxEU | CEPR",
+      "source_url": "https://cepr.org/voxeu/columns/how-far-apple-falls-evidence-social-mobility-across-oecd-countries",
+      "site_name": "CEPR",
+      "summary": "Understanding levels and patters of intergenerational social mobility can help in designing policy mixes that enhance both drivers of economic growth and equality of opportunity. This column provides new cross-country estimates of intergenerational social mobility for 29 OECD countries. Parental background exerts a significant influence on offsprings’ socioeconomic outcomes, though with a different extent across countries. Education is a key channel of intergenerational mobility.",
+      "word_count": 1994,
+      "reading_time": "8 mins",
+      "published_date": "2026-04-08",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://cepr.org/themes/custom/cepr/assets/favicon/apple-touch-icon.png?v=1",
+      "score": 75,
+      "reason": "Movilidad social como motor de crecimiento",
+      "tag": "desigualdad"
     },
     {
       "id": "01kngh2a2b5hhfxdkntq0nwfwb",
@@ -229,6 +314,23 @@
       "tag": "IA"
     },
     {
+      "id": "01knm6ne71zpa4sr8j6hpmhr97",
+      "title": "Emplois ponctuels et criminalité : les enseignements tirés des plateformes de livraison de repas en France",
+      "author": "VoxEU | CEPR",
+      "source_url": "https://cepr.org/voxeu/columns/emplois-ponctuels-et-criminalite-les-enseignements-tires-des-plateformes-de-livraison",
+      "site_name": "CEPR",
+      "summary": "Les plateformes de livraison de repas réduisent les obstacles à l'emploi légal pour les groupes défavorisés. S'appuyant sur le déploiement progressif de Deliveroo et Uber Eats à travers la France, cet article montre comment l'élargissement de l'accès à des revenus légaux pour ces groupes peut réduire la criminalité, même lorsque les emplois sont temporaires, flexibles et peu rémunérés. L'objectif politique devrait être de coupler des emplois accessibles de premier échelon avec des parcours de développement des compétences et d'emploi stable.",
+      "word_count": 2497,
+      "reading_time": "10 mins",
+      "published_date": "2026-04-07",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://cepr.org/themes/custom/cepr/assets/favicon/apple-touch-icon.png?v=1",
+      "score": 72,
+      "reason": "Plataformas digitales reducen barreras al empleo",
+      "tag": "mercado laboral"
+    },
+    {
       "id": "01kndy69r3pvb2y6fx86jwkntq",
       "title": "Greening at the border: Carbon Border Adjustment Mechanism incidence on EU member states and their trading partners",
       "author": "VoxEU | CEPR",
@@ -261,6 +363,23 @@
       "score": 70,
       "reason": "Enfermedad de costes y aislamiento social",
       "tag": "economía"
+    },
+    {
+      "id": "01knmrhcf4va11e62t0kfbx4a7",
+      "title": "Survey Statistics: improving with structure",
+      "author": "shira",
+      "source_url": "https://statmodeling.stat.columbia.edu/2026/04/07/survey-statistics-improving-with-structure/",
+      "site_name": "columbia.edu",
+      "summary": "We’ve met Mr. P (Multilevel Regression and Poststratification). We’ve met Mrs. P (Multilevel Regression with Synthetic Poststratification). Now let’s meet Ms. P (Multilevel Structured regression with Poststratification) from Gao et al. 2021. Let’s first review Poststratification: We want the population … Continue reading →",
+      "word_count": 474,
+      "reading_time": "2 mins",
+      "published_date": "2026-04-07",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://statmodeling.stat.columbia.edu/favicon.ico",
+      "score": 68,
+      "reason": "Innovación metodológica en análisis de encuestas",
+      "tag": "metodología"
     },
     {
       "id": "01knhgr3c0e9cwnq2egq8neq13",
@@ -329,6 +448,23 @@
       "score": 66,
       "reason": "Trabajo de plataformas reduce criminalidad",
       "tag": "mercado laboral"
+    },
+    {
+      "id": "01knnzrpfj4mzx9p87pw6nmg6p",
+      "title": "Ports electrification and the quest for European energy autonomy",
+      "author": "Alberto González Sánchez",
+      "source_url": "https://albertogonzalezsanchez.substack.com/p/ports-electrification-and-the-quest",
+      "site_name": "The mobility climate",
+      "summary": "The rationale for investing in onshore power supply has always been clear. The Iran War and the closure of the Strait of Hormuz make it even more so",
+      "word_count": 715,
+      "reading_time": "3 mins",
+      "published_date": "2026-04-08",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!DZg9!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F739d06c4-7af8-410c-9983-2a770b0d3f25_901x723.png",
+      "score": 65,
+      "reason": "Infraestructura portuaria para autonomía energética",
+      "tag": "energía"
     },
     {
       "id": "01kngh7t2bwkzrj9dz90j2vkck",
@@ -416,6 +552,23 @@
       "tag": "migración"
     },
     {
+      "id": "01knp9h7gv33za07sxmw5pvngb",
+      "title": "In defense of the \"girlboss\"",
+      "author": "Matthew Yglesias",
+      "source_url": "https://www.slowboring.com/p/in-defense-of-the-girlboss",
+      "site_name": "slowboring.com",
+      "summary": "Feminism without anti-capitalism is good, actually",
+      "word_count": 1112,
+      "reading_time": "5 mins",
+      "published_date": "2026-04-08",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!tkp8!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6de80105-9f1a-4eff-986c-9efef308d7f0_2455x1975.jpeg",
+      "score": 62,
+      "reason": "Feminismo pro-mercado impulsa crecimiento",
+      "tag": "economía"
+    },
+    {
       "id": "01knj01mj6dths8nyhd8hte9js",
       "title": "A Gender Quota for Top Executives: Diversity without Disruption -- by David A. Matsa, Amalia R. Miller",
       "author": "National Bureau of Economic Research Working Papers",
@@ -467,6 +620,23 @@
       "tag": "comercio"
     },
     {
+      "id": "01knqj1qyeg07gtancftz34j3x",
+      "title": "Build, baby, build",
+      "author": "Halina Bennet",
+      "source_url": "https://www.slowboring.com/p/build-baby-build",
+      "site_name": "slowboring.com",
+      "summary": "The YIMBYs were right.",
+      "word_count": 60,
+      "reading_time": "1 min",
+      "published_date": "2026-04-08",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!uVMO!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Faa2fa238-02de-4926-abff-90afc2541ad6_8480x5664.jpeg",
+      "score": 60,
+      "reason": "Victoria del movimiento YIMBY",
+      "tag": "vivienda"
+    },
+    {
       "id": "01knhyejp9v58q9jyd6e27hd2q",
       "title": "Análisis y valoración de las medidas de regulación energética del RDL 7/2026",
       "author": "Fedea – Fundación de Estudios de Economía Aplicada",
@@ -482,6 +652,23 @@
       "score": 60,
       "reason": "Regulación energética y supervisión parlamentaria",
       "tag": "energía"
+    },
+    {
+      "id": "01knr8vgwfassyxem4gjkfsns2",
+      "title": "El falso dilema de \"cañones o mantequilla\": los gobiernos eligen subir los impuestos",
+      "author": "Javier Jorrín",
+      "source_url": "https://www.elconfidencial.com/economia/2026-04-09/falso-dilema-canones-mantequilla-los-gobiernos-suben-impuestos_4334616/",
+      "site_name": "elconfidencial.com",
+      "summary": "Cuando los gobiernos tienen que abordar un aumento del gasto en defensa no recurren a otras partidas de gasto, sino que recurren al déficit y a incrementos de la recaudación",
+      "word_count": 946,
+      "reading_time": "4 mins",
+      "published_date": "2026-04-09",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://images.ecestaticos.com/e_nORsWb6xpn1Hijp6u_SvXVxNM=/0x0:2272x1515/600x315/filters:fill(white):format(jpg):quality(99):watermark(f.elconfidencial.com/file/bae/eea/fde/baeeeafde1b3229287b0c008f7602058.png,0,275,1)/f.elconfidencial.com/original/2c9/727/123/2c97271233bda60265b8d904956b710d.jpg",
+      "score": 58,
+      "reason": "Gasto militar no compite con gasto social",
+      "tag": "políticas públicas"
     },
     {
       "id": "01knj01mrxpra7jy7bjy8frm53",
@@ -603,6 +790,23 @@
       "tag": "productividad"
     },
     {
+      "id": "01knpfc7vy8t7bma0bjprxz2mp",
+      "title": "All the Religious Trends You’re Wrong About",
+      "author": "Derek Thompson",
+      "source_url": "https://www.derekthompson.org/p/all-the-religious-trends-youre-wrong",
+      "site_name": "derekthompson.org",
+      "summary": "Why young men aren't really going back to church, why liberals are sadder than conservatives, and how \"Substack-ification\" is transforming the future of Christianity, media, and politics",
+      "word_count": 6137,
+      "reading_time": "24 mins",
+      "published_date": "2026-04-08",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!oD-i!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F494e9f53-c5f7-4752-8c8f-bf065bf6dd42_1080x885.jpeg",
+      "score": 55,
+      "reason": "Transformación digital de instituciones religiosas",
+      "tag": "cultura"
+    },
+    {
       "id": "01kngh2a6hj1mmrkadn3vw6at9",
       "title": "Pharmaceutical Advertising in Dynamic Equilibrium -- by Pierre Dubois, Ariel Pakes",
       "author": "National Bureau of Economic Research Working Papers",
@@ -671,6 +875,23 @@
       "tag": "economía"
     },
     {
+      "id": "01knmddjmayeqqpmtmdr08z5bw",
+      "title": "Global democracy is in better shape than you think",
+      "author": "Graphic detail",
+      "source_url": "https://www.economist.com/interactive/democracy-index-2025",
+      "site_name": "The Economist",
+      "summary": "EIU’s annual index suggests an end to the democracy recession",
+      "word_count": 419,
+      "reading_time": "2 mins",
+      "published_date": "2026-04-07",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.economist.com/engassets/ico/touch-icon-180x180.png",
+      "score": 52,
+      "reason": "Resiliencia democrática global subestimada",
+      "tag": "política europea"
+    },
+    {
       "id": "01knj6hy88mrqwczaqgptss5z5",
       "title": "As Iran’s civilian economy crumbles, its military economy grows stronger",
       "author": "Finance & economics",
@@ -722,6 +943,23 @@
       "tag": "política europea"
     },
     {
+      "id": "01knpy1xdfa22g6xn1adfyr0j1",
+      "title": "How France learned to fight Russian disinformation",
+      "author": "Europe",
+      "source_url": "https://www.economist.com/europe/2026/04/08/how-france-learned-to-fight-russian-disinformation",
+      "site_name": "The Economist",
+      "summary": "The EU’s most-targeted country is counterattacking against fake news",
+      "word_count": 300,
+      "reading_time": "2 mins",
+      "published_date": "2026-04-08",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.economist.com/favicon.ico",
+      "score": 50,
+      "reason": "Estrategias efectivas contra desinformación",
+      "tag": "política europea"
+    },
+    {
       "id": "01knhbgnc138ndxbpgz7rr4wwv",
       "title": "How far do the European Union’s military ambitions go?",
       "author": "Europe",
@@ -754,6 +992,23 @@
       "score": 49,
       "reason": "Ecosistema tóxico de redes sociales",
       "tag": "medios"
+    },
+    {
+      "id": "01knns5r1m3fzv3p3mprbqywpx",
+      "title": "Nuclear brinkmanship usually works. It’s also incredibly dangerous.",
+      "author": "Nate Silver",
+      "source_url": "https://www.natesilver.net/p/nuclear-brinkmanship-usually-works",
+      "site_name": "natesilver.net",
+      "summary": "A small chance of a catastrophic outcome isn’t something to shrug off.",
+      "word_count": 1475,
+      "reading_time": "6 mins",
+      "published_date": "2026-04-08",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!Gd-L!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcdb9bb5f-39df-4dcf-b041-34df6a069963_2438x1316.png",
+      "score": 48,
+      "reason": "Gestión de riesgo en crisis geopolíticas",
+      "tag": "geopolítica"
     },
     {
       "id": "01knjx3tafkghy37enb4v8mg8p",
@@ -807,6 +1062,23 @@
       "tag": "metodología"
     },
     {
+      "id": "01knmkqm89jj4ajpbd98bw4b03",
+      "title": "Bye, bye to the Trump trades",
+      "author": "Finance & economics",
+      "source_url": "https://www.economist.com/finance-and-economics/2026/04/07/bye-bye-to-the-trump-trades",
+      "site_name": "The Economist",
+      "summary": "Markets are calling time on many Donald-adjacent bets",
+      "word_count": 395,
+      "reading_time": "2 mins",
+      "published_date": "2026-04-07",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.economist.com/favicon.ico",
+      "score": 45,
+      "reason": "Fin de las apuestas especulativas Trump",
+      "tag": "economía"
+    },
+    {
       "id": "01knhx85yn780p02vj92yx5bx4",
       "title": "Announcing the 2026 Roots of Progress Blog-Building Intensive",
       "author": "Emma McAleavy",
@@ -839,6 +1111,23 @@
       "score": 44,
       "reason": "Especulaciones sobre Bezos y periodismo",
       "tag": "medios"
+    },
+    {
+      "id": "01knppreb52mw56txxf4cv90sm",
+      "title": "The US and Iran Have Blueprints for a Hormuz Deal",
+      "author": "Javier Blas",
+      "source_url": "https://www.bloomberg.com/opinion/articles/2026-04-08/oil-price-the-us-and-iran-have-historical-blueprints-for-a-hormuz-deal",
+      "site_name": "Bloomberg.com",
+      "summary": "TOPSHOT - A motorboat cruises along the shore off the town of Al Jeer on the Strait of Hormuz in the northern emirate of Ras Al Khaimah, with a tanker seen in the background, on February 25, 2026. (Photo by FADEL SENNA / AFP via Getty Images)",
+      "word_count": 1190,
+      "reading_time": "5 mins",
+      "published_date": "2026-04-08",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iLZOJNjHt7hI/v1/piHJkQ_WoLj1E/-1x-1.jpg",
+      "score": 43,
+      "reason": "Acuerdos energéticos en crisis regional",
+      "tag": "geopolítica"
     },
     {
       "id": "01kngsk52y4yk50e7fentcr4f2",
@@ -892,6 +1181,23 @@
       "tag": "cultura"
     },
     {
+      "id": "01knr8vmjb66kvf67n4pv7bgnp",
+      "title": "El aborto y la gran ventaja estratégica de Pedro Sánchez",
+      "author": "Ramón González Férriz",
+      "source_url": "https://www.elconfidencial.com/espana/tiempos-dificiles/2026-04-09/aborto-ventaja-estrategica-pedro-sanchez-division-votantes-1hms_4334498/",
+      "site_name": "elconfidencial.com",
+      "summary": "En innumerables temas de actualidad, como la inmigración, Israel-Palestina, el cambio climático, Trump o el feminismo, la izquierda tiene una opinión monolítica, mientras que la derecha está dividida en dos. El Gobierno no hace más que explotarlo",
+      "word_count": 858,
+      "reading_time": "4 mins",
+      "published_date": "2026-04-09",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://images.ecestaticos.com/nN8vFUA9B9ba1n2DQZJgP1eZ-gA=/0x0:2272x1534/600x315/filters:fill(white):format(jpg):quality(99):watermark(f.elconfidencial.com/file/bae/eea/fde/baeeeafde1b3229287b0c008f7602058.png,0,275,1)/f.elconfidencial.com/original/116/c1a/f8f/116c1af8f1fc1bdc7ac512d69f6f6b7b.jpg",
+      "score": 40,
+      "reason": "Ventaja estratégica por cohesión ideológica",
+      "tag": "política europea"
+    },
+    {
       "id": "01knjdcma5gg31a58wbjh65vp4",
       "title": "The midterms in motion",
       "author": "Halina Bennet",
@@ -926,6 +1232,40 @@
       "tag": "medios"
     },
     {
+      "id": "01knqjf7h9ytzyfgv96kh7tyth",
+      "title": "The third Gulf war will scar energy markets for a long time yet",
+      "author": "Finance & economics",
+      "source_url": "https://www.economist.com/finance-and-economics/2026/04/08/the-third-gulf-war-will-scar-energy-markets-for-a-long-time-yet",
+      "site_name": "The Economist",
+      "summary": "Residual risks and ruined infrastructure will keep prices high",
+      "word_count": 320,
+      "reading_time": "2 mins",
+      "published_date": "2026-04-08",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.economist.com/favicon.ico",
+      "score": 38,
+      "reason": "Impacto duradero en mercados energéticos",
+      "tag": "energía"
+    },
+    {
+      "id": "01knm9marzfmjgfa530k8rzznm",
+      "title": "The war in the Gulf could cause a global food shock",
+      "author": "Finance & economics",
+      "source_url": "https://www.economist.com/finance-and-economics/2026/04/07/the-war-in-the-gulf-could-cause-a-global-food-shock",
+      "site_name": "The Economist",
+      "summary": "Soaring prices for fertiliser and fuel are sowing panic among farmers",
+      "word_count": 280,
+      "reading_time": "2 mins",
+      "published_date": "2026-04-07",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.economist.com/favicon.ico",
+      "score": 35,
+      "reason": "Crisis alimentaria por shock energético",
+      "tag": "energía"
+    },
+    {
       "id": "01knh0ngk40d755642m4j9120f",
       "title": "Open Thread 428",
       "author": "Scott Alexander",
@@ -941,6 +1281,40 @@
       "score": 35,
       "reason": "Hilo abierto discusión general",
       "tag": "cultura"
+    },
+    {
+      "id": "01knr8vgqjr2mhay5fcv12fydg",
+      "title": "La crisis del petróleo entra en el 'escenario adverso' de los expertos y apunta a crisis larga",
+      "author": "Javier Jorrín",
+      "source_url": "https://www.elconfidencial.com/economia/2026-04-09/crisis-petroleo-escenario-adverso-expertos-crisis-larga_4330572/",
+      "site_name": "elconfidencial.com",
+      "summary": "El impacto económico de la crisis energética no es lineal, sino exponencial: a cada día que pasa, el golpe es mayor. Los inversores empiezan a descontar que el 'shock' será largo",
+      "word_count": 1379,
+      "reading_time": "6 mins",
+      "published_date": "2026-04-09",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://images.ecestaticos.com/e_nORsWb6xpn1Hijp6u_SvXVxNM=/0x0:2272x1515/600x315/filters:fill(white):format(jpg):quality(99):watermark(f.elconfidencial.com/file/bae/eea/fde/baeeeafde1b3229287b0c008f7602058.png,0,275,1)/f.elconfidencial.com/original/2c9/727/123/2c97271233bda60265b8d904956b710d.jpg",
+      "score": 33,
+      "reason": "Escalada exponencial de crisis energética",
+      "tag": "energía"
+    },
+    {
+      "id": "01knp6jjgykefd8t1pg6bcqdap",
+      "title": "How ‘pump anxiety’ is prompting a surge in EV interest | FT #shorts",
+      "author": "Financial Times",
+      "source_url": "https://www.youtube.com/shorts/TaxMaR2a4fM",
+      "site_name": "YouTube",
+      "summary": "Rising fuel prices and ‘pump anxiety’ caused by the Middle East conflict have brought a surge in consumer interest in electric vehicles, leading to more test drives and sales. Kana Inagaki explains what it means for the EV market.\n\n#evs #electricvehicle #middleeastconflict #electricvehicles #automobile \n#shortsvideo #shortfeed #shorts #shortsviral #shortsyoutube #shortsvideos\n\n► Enjoying FT content? Get a daily slice of the very best FT journalism with FT Edit. Free for 30 days then just £4.99 a month\n\nSee if you get the FT for free as a student (http://ft.com/schoolsarefree) or start a £1 trial: https://subs.ft.com/spa3_trial?segmentId=3d4ba81b-96bb-cef0-9ece-29efd6ef2132.\n\n► Check out our Community tab for more stories: https://www.youtube.com/@FinancialTimes/community\n►  Listen to our podcasts: https://www.ft.com/podcasts\n►  Follow us on Instagram: https://www.instagram.com/financialtimes\n►  Follow us on Instagram: https://www.tiktok.com/@financialtimes",
+      "word_count": null,
+      "reading_time": null,
+      "published_date": "2026-04-08",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://i.ytimg.com/vi/TaxMaR2a4fM/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AG2CIACgA-KAgwIABABGD4gQCh_MA8=&rs=AOn4CLA8EvqoOGNu3c4ZnSDBCsc-y96Bsw",
+      "score": 30,
+      "reason": "Adopción de vehículos eléctricos por crisis",
+      "tag": "tecnología"
     },
     {
       "id": "01knkzc5c486k0ffehkryz0rvf",
@@ -994,6 +1368,40 @@
       "tag": "mercado laboral"
     },
     {
+      "id": "01knnzrn0kwyrb04tm2w1qzbnr",
+      "title": "Is social media having its tobacco moment | FT #shorts",
+      "author": "Financial Times",
+      "source_url": "https://www.youtube.com/shorts/v5aJQdfR3H0",
+      "site_name": "YouTube",
+      "summary": "A jury in Los Angeles has found Meta and Google liable for $6mn in damages in a civil suit alleging that their social media products are designed to be addictive to children.⁠\n⁠\nThis could pave the way for thousands of similar suits. Today on Unhedged, technology reporter Hannah Murphy joins Robert Armstrong and Katie Martin to discuss what the verdict means — and how it's affecting markets.⁠\n\n#shortsvideo #shortfeed #shorts #shortsviral #shortsyoutube #shortsvideos\n\n► Enjoying FT content? Get a daily slice of the very best FT journalism with FT Edit. Free for 30 days then just £4.99 a month\n\nSee if you get the FT for free as a student (http://ft.com/schoolsarefree) or start a £1 trial: https://subs.ft.com/spa3_trial?segmentId=3d4ba81b-96bb-cef0-9ece-29efd6ef2132.\n\n► Check out our Community tab for more stories: https://www.youtube.com/@FinancialTimes/community\n►  Listen to our podcasts: https://www.ft.com/podcasts\n►  Follow us on Instagram: https://www.instagram.com/financialtimes\n►  Follow us on Instagram: https://www.tiktok.com/@financialtimes",
+      "word_count": null,
+      "reading_time": null,
+      "published_date": "2026-04-07",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://i.ytimg.com/vi/v5aJQdfR3H0/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AHOBYACgAqKAgwIABABGGMgZShZMA8=&rs=AOn4CLCZJUh67GHdmqyBkuOGgrNDJZBRwA",
+      "score": 28,
+      "reason": "Regulación de plataformas como tabaco",
+      "tag": "regulación"
+    },
+    {
+      "id": "01knpst4xj3a19ehkme0kh75py",
+      "title": "The Scariest Part of Artemis II Hasn’t Happened Yet",
+      "author": "Cleo Abram",
+      "source_url": "https://www.youtube.com/shorts/fv-IpmNzHBY",
+      "site_name": "YouTube",
+      "summary": "The scariest part of the Artemis II mission hasn’t happened yet.\n\nThey’ve slingshotted around the moon and they’re headed back but now… \n\nIt’s incredible we can do this. If you think there should be more optimistic tech stories, subscribe!\n\n#shorts #space #engineer #artemis #moon",
+      "word_count": null,
+      "reading_time": null,
+      "published_date": "2026-04-08",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://i.ytimg.com/vi/fv-IpmNzHBY/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AG2CIACgA-KAgwIABABGEYgZSgPMA8=&rs=AOn4CLB7YB-gr1x7cP6Omm9uuI1V8OBtAw",
+      "score": 25,
+      "reason": "Riesgos tecnológicos en exploración espacial",
+      "tag": "tecnología"
+    },
+    {
       "id": "01knh1twsdh0est5w9d1dyegds",
       "title": "Who’s profiting from war with Iran? | FT #shorts",
       "author": "Financial Times",
@@ -1028,6 +1436,40 @@
       "tag": "geopolítica"
     },
     {
+      "id": "01knpnehdxny34x2yg3d6fhrj8",
+      "title": "Updike in Tehran",
+      "author": "Andrew",
+      "source_url": "https://statmodeling.stat.columbia.edu/2026/04/08/updike-in-tehran/",
+      "site_name": "columbia.edu",
+      "summary": "I recently picked up the two volumes of John Updike’s collected stories. I’ve read many of them in their separate books over the years, but there’s an extra benefit to seeing them all in one place, in the order that … Continue reading →",
+      "word_count": 831,
+      "reading_time": "4 mins",
+      "published_date": "2026-04-08",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://statmodeling.stat.columbia.edu/favicon.ico",
+      "score": 22,
+      "reason": "Literatura americana en contexto internacional",
+      "tag": "cultura"
+    },
+    {
+      "id": "01knq5f0j6wh1s1h6pv4xvj3pz",
+      "title": "Documentos de Trabajo. 2613. Unexpecting the expected in real-time inflation forecasting: The inflation expectations channel?",
+      "author": "Últimas publicaciones - Publicaciones - Banco de España",
+      "source_url": "https://www.bde.es/wbe/es/publicaciones/analisis-economico-investigacion/documentos-trabajo/unexpecting-the-expected-in-real-time-inflation-forecasting-the-inflation-expectations-channel.html",
+      "site_name": "Banco de España",
+      "summary": "Nicolás Bonino-Gayoso y Mónica Correa-López",
+      "word_count": 152,
+      "reading_time": "1 min",
+      "published_date": "2026-04-08",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.bde.es/f/webbe/INF/assets/images/favicon.ico",
+      "score": 20,
+      "reason": "Metodología de pronósticos de inflación",
+      "tag": "metodología"
+    },
+    {
       "id": "01knhjyd1a6gq162w06q1snrxc",
       "title": "Why Are These Mysterious Tubes on Mars?",
       "author": "Cleo Abram",
@@ -1043,6 +1485,74 @@
       "score": 20,
       "reason": "Tubos misteriosos exploración Marte",
       "tag": "tecnología"
+    },
+    {
+      "id": "01knm6nfd63m55y6dx5ndyzpvr",
+      "title": "Informe Institucional. Informe Institucional 2025",
+      "author": "Últimas publicaciones - Publicaciones - Banco de España",
+      "source_url": "https://www.bde.es/wbe/es/publicaciones/informes-memorias-anuales/informe-institucional/informe-institucional-2025.html",
+      "site_name": "Banco de España",
+      "summary": "Banco de España",
+      "word_count": 184,
+      "reading_time": "1 min",
+      "published_date": "2026-04-07",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.bde.es/f/webbe/INF/assets/images/favicon.ico",
+      "score": 18,
+      "reason": "Informe institucional sin detalle específico",
+      "tag": "políticas públicas"
+    },
+    {
+      "id": "01knmvj8bfj6m9y5yfbvdcbxh3",
+      "title": "Zagreb Meetup This Friday",
+      "author": "Scott Alexander",
+      "source_url": "https://www.astralcodexten.com/p/zagreb-meetup-this-friday",
+      "site_name": "astralcodexten.com",
+      "summary": "...",
+      "word_count": 147,
+      "reading_time": "1 min",
+      "published_date": "2026-04-07",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substack-post-media.s3.amazonaws.com/public/images/b1ef1003-eda0-4a97-9153-6ca9aee0f53f_271x131.jpeg",
+      "score": 6,
+      "reason": "Anuncio de evento sin contenido sustantivo",
+      "tag": "cultura"
+    },
+    {
+      "id": "01knq7tsmmk25k0jsq67m6md5c",
+      "title": "Open Thread 428.5 + Zagreb Update",
+      "author": "Scott Alexander",
+      "source_url": "https://www.astralcodexten.com/p/open-thread-4285-zagreb-update",
+      "site_name": "astralcodexten.com",
+      "summary": "...",
+      "word_count": 80,
+      "reading_time": "1 min",
+      "published_date": "2026-04-08",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substack-post-media.s3.amazonaws.com/public/images/5d44ea44-6a93-4c9c-98f2-2b6da068c27f_496x341.png",
+      "score": 4,
+      "reason": "Hilo de discusión general sin foco",
+      "tag": "medios"
+    },
+    {
+      "id": "01knn09e3cv9vh8qx64sb8h29m",
+      "title": "Tuesday discussion post",
+      "author": "Halina Bennet",
+      "source_url": "https://www.slowboring.com/p/tuesday-discussion-post-693",
+      "site_name": "slowboring.com",
+      "summary": "Every day is unbelievable.",
+      "word_count": 24,
+      "reading_time": "1 min",
+      "published_date": "2026-04-07",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!gzxV!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fceeb681e-a14d-4bbb-a8fe-951c29603e3f_256x256.png",
+      "score": 2,
+      "reason": "Post de discusión vacío de contenido",
+      "tag": "medios"
     }
   ]
 }
