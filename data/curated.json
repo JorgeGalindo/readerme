@@ -1,34 +1,34 @@
 {
-  "generated_at": "2026-04-10T06:39:34.127694+00:00",
-  "article_count_total": 45,
+  "generated_at": "2026-04-10T07:25:42.375621+00:00",
+  "article_count_total": 48,
   "thinktank": [
     {
       "title": "New Emergent Ventures tranche on science policy and communication",
       "source_url": "https://marginalrevolution.com/marginalrevolution/2026/04/new-emergent-ventures-tranche-on-science-policy-and-communication.html",
-      "site_name": "Marginal Revolution",
-      "reason": "Nueva iniciativa para talento emergente científico",
+      "site_name": "Marginal Revolution @MargRev",
+      "reason": "financiación nueva talentos ciencia",
       "tag": "políticas públicas"
     },
     {
-      "title": "The biggest American tariff hike ever - by lunchtime, most were gone",
+      "title": "The AI Augmentation Trap: AI Skills Erosion Study",
+      "source_url": "",
+      "site_name": "Sinan Aral @sinanaral",
+      "reason": "erosión habilidades por IA",
+      "tag": "IA"
+    },
+    {
+      "title": "Here is link to my book talk with Barry Eichengreen on international currencies",
+      "source_url": "",
+      "site_name": "Karthik Sankaran @RajaKorman",
+      "reason": "futuro dólar monedas internacionales",
+      "tag": "economía"
+    },
+    {
+      "title": "The biggest American tariff hike ever - and their quick reversal",
       "source_url": "https://lnkd.in/e5VEUuhB",
-      "site_name": "Richard Baldwin",
-      "reason": "Mercados financieros vencen a aranceles políticos",
+      "site_name": "Richard Baldwin @BaldwinRE",
+      "reason": "aranceles históricos realidad financiera",
       "tag": "comercio"
-    },
-    {
-      "title": "The AI Augmentation Trap - AI Skills Erosion paper",
-      "source_url": "",
-      "site_name": "Sinan Aral",
-      "reason": "Erosión de habilidades por dependencia IA",
-      "tag": "IA"
-    },
-    {
-      "title": "Growing gap in understanding of AI capability due to outdated experience",
-      "source_url": "",
-      "site_name": "Andrej Karpathy",
-      "reason": "Percepciones obsoletas limitan comprensión IA actual",
-      "tag": "IA"
     }
   ],
   "abundance": [
@@ -36,25 +36,25 @@
       "title": "Microbubbles - Works in Progress Magazine",
       "source_url": "https://worksinprogress.co/issue/microbubbles/",
       "site_name": "Works in Progress",
-      "reason": "microburbujas médicas revolucionan diagnóstico radiológico",
+      "reason": "innovación médica con múltiples aplicaciones",
       "tag": "tecnología",
       "snippet": "Microbubbles were first developed to help radiologists read scans. In the late 1960s, doctors at the University of Rochester were using ultrasound to take pictures of heart structures when they made an accidental discovery. When they injected saline into a vein near the heart, their ultrasound image lit up with a cloud of bright signals. The flashes had been created by tiny air bubbles, formed ..."
     },
     {
-      "title": "PDFPutting the \"Why\" in YIMBY - arizonastatelawjournal.org",
-      "source_url": "https://arizonastatelawjournal.org/wp-content/uploads/2025/08/Connolly_PUB.pdf",
-      "site_name": "arizonastatelawjournal.org",
-      "reason": "análisis zoning revolución americana",
-      "tag": "urbanismo",
-      "snippet": "INTRODUCTION America is experiencing azoningrevolution. The basic structure and function ofzoning, the most pervasive form of U.S. land-use regulation, have endured and governed the built environment for the past hundred years.1 But as of early2024, at least eight states and more than one hundred cities have adopted wide-ranging deregulatory measures to promote newhousingsupply and ..."
+      "title": "A Prescription for Fixing the Prevailing Wage System | IFP",
+      "source_url": "https://ifp.org/prevailing-wage-benchmarking/",
+      "site_name": "ifp.org",
+      "reason": "reforma salarios construcción EEUU",
+      "tag": "políticas públicas",
+      "snippet": "As a basis for thisanalysis, we used OEWS-provided median earnings for each occupation-area combination. These were pulled from OFLC-released prevailing wage data, in which Level III conveniently corresponds to the 50th percentile earnings level."
     },
     {
-      "title": "Spain's Housing Policy: Stability, Supply, and Reform",
-      "source_url": "https://socialbites.ca/news/spains-housing-policy-stability-supply-and-reform",
-      "site_name": "socialbites.ca",
-      "reason": "reformas supply-side España",
-      "tag": "vivienda",
-      "snippet": "The article examines howSpainseeks housing stability through durable regulation,supply-focused measures, and fiscal tools to spur construction"
+      "title": "PDFTokyo's Zoning: Built for Density - abundanthousingla.org",
+      "source_url": "https://abundanthousingla.org/wp-content/uploads/2025/09/From-LA-to-Tokyo_-What-Zoning-Can-Teach-Us-About-Housing-Justice-1.pdf",
+      "site_name": "abundanthousingla.org",
+      "reason": "zoning pro-densidad Tokyo vs LA",
+      "tag": "urbanismo",
+      "snippet": "Lessonsfor Los Angeles The contrast between Los Angeles and Tokyo highlights an important truth: single-familyzoningdoesn't just limithousingsupply, it locks us into inequity, giving a disproportionate amount of influence to those alreadyhousing-secure."
     }
   ],
   "articles": [
@@ -72,7 +72,7 @@
       "location": "feed",
       "image_url": "https://substackcdn.com/image/fetch/$s_!uVMO!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Faa2fa238-02de-4926-abff-90afc2541ad6_8480x5664.jpeg",
       "score": 95,
-      "reason": "Construcción masiva como solución urbana",
+      "reason": "Manifesto YIMBY directo",
       "tag": "vivienda"
     },
     {
@@ -89,7 +89,7 @@
       "location": "feed",
       "image_url": "https://substackcdn.com/image/fetch/$s_!TnXq!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8813b98b-765f-452d-92b3-5c9457be5df5_1450x822.png",
       "score": 88,
-      "reason": "Factores organizacionales impulsan adopción tecnológica",
+      "reason": "Factores de adopción de IA",
       "tag": "IA"
     },
     {
@@ -106,8 +106,8 @@
       "location": "feed",
       "image_url": "https://substackcdn.com/image/fetch/$s_!ThEU!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fff3e25a6-c80e-43a7-97c6-c597aa3c56c5_2048x1392.jpeg",
       "score": 85,
-      "reason": "Demanda insatisfecha revela oportunidad de crecimiento",
-      "tag": "IA"
+      "reason": "Demanda insatisfecha de infraestructura digital",
+      "tag": "tecnología"
     },
     {
       "id": "01knr8vwz569thgskw3vawkx3p",
@@ -123,8 +123,25 @@
       "location": "feed",
       "image_url": "https://cepr.org/themes/custom/cepr/assets/favicon/apple-touch-icon.png?v=1",
       "score": 85,
-      "reason": "Diferencias estructurales en productividad digital",
-      "tag": "productividad"
+      "reason": "Análisis comparativo adopción IA Europa-EEUU",
+      "tag": "IA"
+    },
+    {
+      "id": "01kntxk43eqb00e2rqm48fqgtc",
+      "title": "When Cities Outrun the State",
+      "author": "Alice Evans",
+      "source_url": "https://www.ggd.world/p/when-cities-outrun-the-state",
+      "site_name": "ggd.world",
+      "summary": "Late industrialisers can import machines faster than they build impartial states.",
+      "word_count": 1739,
+      "reading_time": "7 mins",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!-uLH!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdda79e75-de95-4ca8-b1f1-a1828e4a238b_650x366.jpeg",
+      "score": 85,
+      "reason": "Industrialización vs construcción institucional",
+      "tag": "políticas públicas"
     },
     {
       "id": "01knf5br2pxcc0nkvh93t4kfpz",
@@ -191,7 +208,7 @@
       "location": "feed",
       "image_url": "https://www.economist.com/favicon.ico",
       "score": 80,
-      "reason": "Soluciones simples para problemas complejos",
+      "reason": "Solución simple contra pobreza extrema",
       "tag": "políticas públicas"
     },
     {
@@ -361,8 +378,25 @@
       "location": "feed",
       "image_url": "https://www.economist.com/favicon.ico",
       "score": 72,
-      "reason": "Integración migratoria como realidad pragmática",
+      "reason": "Migración como recurso económico permanente",
       "tag": "migración"
+    },
+    {
+      "id": "01kntttz8edavtm8y8dcqayvjz",
+      "title": "More women in politics does not always mean more gender equality",
+      "author": "VoxEU | CEPR",
+      "source_url": "https://cepr.org/voxeu/columns/more-women-politics-does-not-always-mean-more-gender-equality",
+      "site_name": "CEPR",
+      "summary": "Evidence on the policy impact of female politicians is mixed. This column uses data on bills sponsored in the Italian House of Representatives between 1987 and 2022 to show how female politicians’ engagement with women’s issues is systematically related to the gender norms of the environments in which they were born. The findings suggest that while increasing the number of women in politics remains essential to broaden representation and diversify policy priorities, if social norms remain traditional, progress on gender equality may still be slow.",
+      "word_count": 1845,
+      "reading_time": "7 mins",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://cepr.org/themes/custom/cepr/assets/favicon/apple-touch-icon.png?v=1",
+      "score": 72,
+      "reason": "Evidencia empírica mujeres en política",
+      "tag": "desigualdad"
     },
     {
       "id": "01knm6ne71zpa4sr8j6hpmhr97",
@@ -412,7 +446,7 @@
       "location": "feed",
       "image_url": "https://substackcdn.com/image/fetch/$s_!DZg9!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F739d06c4-7af8-410c-9983-2a770b0d3f25_901x723.png",
       "score": 70,
-      "reason": "Infraestructura portuaria para autonomía energética",
+      "reason": "Electrificación portuaria para autonomía energética",
       "tag": "energía"
     },
     {
@@ -446,8 +480,25 @@
       "location": "feed",
       "image_url": "https://substackcdn.com/image/fetch/$s_!p8G6!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffa05328c-e84e-4d5c-9295-05ac74d572d9_1075x716.jpeg",
       "score": 68,
-      "reason": "Asimilación cultural facilita convivencia productiva",
+      "reason": "Asimilación como tecnología social",
       "tag": "migración"
+    },
+    {
+      "id": "01kntttz5vs6f52ac05vqf1ykz",
+      "title": "When and why political leaders polarise rhetoric: Evidence from Twitter/X",
+      "author": "VoxEU | CEPR",
+      "source_url": "https://cepr.org/voxeu/columns/when-and-why-political-leaders-polarise-rhetoric-evidence-twitterx",
+      "site_name": "CEPR",
+      "summary": "Standard theories of electoral competition predict that politicians should converge toward the centre as elections approach. This column challenges this prediction, using 3.4 million tweets from 367 political leaders across 21 Western democracies. Rhetorical polarisation between populist and non-populist leaders rises sharply in the two quarters before an election and reverts to average levels once it is over. Both groups adopt a more emotionally direct communication style as elections near, but they increasingly talk about different topics. The findings suggest that social media turns electoral campaigns into an engine of political polarisation.",
+      "word_count": 1830,
+      "reading_time": "7 mins",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://cepr.org/themes/custom/cepr/assets/favicon/apple-touch-icon.png?v=1",
+      "score": 68,
+      "reason": "Polarización retórica como estrategia electoral",
+      "tag": "política europea"
     },
     {
       "id": "01knmrhcf4va11e62t0kfbx4a7",
@@ -535,23 +586,6 @@
       "tag": "mercado laboral"
     },
     {
-      "id": "01knp9h7gv33za07sxmw5pvngb",
-      "title": "In defense of the \"girlboss\"",
-      "author": "Matthew Yglesias",
-      "source_url": "https://www.slowboring.com/p/in-defense-of-the-girlboss",
-      "site_name": "slowboring.com",
-      "summary": "Feminism without anti-capitalism is good, actually",
-      "word_count": 1112,
-      "reading_time": "5 mins",
-      "published_date": "2026-04-08",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://substackcdn.com/image/fetch/$s_!tkp8!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6de80105-9f1a-4eff-986c-9efef308d7f0_2455x1975.jpeg",
-      "score": 65,
-      "reason": "Feminismo productivo sin anticapitalismo ideológico",
-      "tag": "economía"
-    },
-    {
       "id": "01knrvc78w76jpr7a0eb6kymwh",
       "title": "Republican war-mongering is their worst economic policy",
       "author": "Matthew Yglesias",
@@ -565,8 +599,25 @@
       "location": "feed",
       "image_url": "https://substackcdn.com/image/fetch/$s_!xMNX!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6b7cfd95-54d6-4f96-8ea3-3739a1e23b72_4032x2688.jpeg",
       "score": 65,
-      "reason": "Belicismo republicano daña crecimiento económico",
+      "reason": "Coste económico del militarismo",
       "tag": "geopolítica"
+    },
+    {
+      "id": "01knp9h7gv33za07sxmw5pvngb",
+      "title": "In defense of the \"girlboss\"",
+      "author": "Matthew Yglesias",
+      "source_url": "https://www.slowboring.com/p/in-defense-of-the-girlboss",
+      "site_name": "slowboring.com",
+      "summary": "Feminism without anti-capitalism is good, actually",
+      "word_count": 1112,
+      "reading_time": "5 mins",
+      "published_date": "2026-04-08",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!tkp8!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6de80105-9f1a-4eff-986c-9efef308d7f0_2455x1975.jpeg",
+      "score": 65,
+      "reason": "Feminismo compatible con capitalismo",
+      "tag": "desigualdad"
     },
     {
       "id": "01kngh7t2bwkzrj9dz90j2vkck",
@@ -718,7 +769,7 @@
       "location": "feed",
       "image_url": "https://images.ecestaticos.com/e_nORsWb6xpn1Hijp6u_SvXVxNM=/0x0:2272x1515/600x315/filters:fill(white):format(jpg):quality(99):watermark(f.elconfidencial.com/file/bae/eea/fde/baeeeafde1b3229287b0c008f7602058.png,0,275,1)/f.elconfidencial.com/original/2c9/727/123/2c97271233bda60265b8d904956b710d.jpg",
       "score": 60,
-      "reason": "Respuesta fiscal a shocks de defensa",
+      "reason": "Decisiones fiscales ante gasto defensa",
       "tag": "economía"
     },
     {
@@ -752,7 +803,7 @@
       "location": "feed",
       "image_url": "https://substackcdn.com/image/fetch/$s_!oD-i!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F494e9f53-c5f7-4752-8c8f-bf065bf6dd42_1080x885.jpeg",
       "score": 58,
-      "reason": "Tendencias religiosas y fragmentación mediática",
+      "reason": "Fragmentación digital de instituciones religiosas",
       "tag": "cultura"
     },
     {
@@ -888,8 +939,25 @@
       "location": "feed",
       "image_url": "https://www.economist.com/favicon.ico",
       "score": 55,
-      "reason": "Contraofensiva institucional contra desinformación",
-      "tag": "política europea"
+      "reason": "Contraofensiva francesa contra desinformación",
+      "tag": "geopolítica"
+    },
+    {
+      "id": "01knttrw33fk4n21krt68b4any",
+      "title": "How serious is the rift between Europe and the US | FT #shorts",
+      "author": "Financial Times",
+      "source_url": "https://www.youtube.com/shorts/knJvnNyuSTU",
+      "site_name": "YouTube",
+      "summary": "Has the war in the Middle East permanently reshaped the relationship between the US and Europe? Gideon Rachman talks to Baroness Catherine Ashton, the EU’s high representative for foreign policy from 2009 to 2014, who played a leading role in negotiations with Iran.⁠\n\n#shortsvideo #shortfeed #shorts #shortsviral #shortsyoutube #shortsvideos\n\n► Enjoying FT content? Get a daily slice of the very best FT journalism with FT Edit. Free for 30 days then just £4.99 a month\n\nSee if you get the FT for free as a student (http://ft.com/schoolsarefree) or start a £1 trial: https://subs.ft.com/spa3_trial?segmentId=3d4ba81b-96bb-cef0-9ece-29efd6ef2132.\n\n► Check out our Community tab for more stories: https://www.youtube.com/@FinancialTimes/community\n►  Listen to our podcasts: https://www.ft.com/podcasts\n►  Follow us on Instagram: https://www.instagram.com/financialtimes\n►  Follow us on Instagram: https://www.tiktok.com/@financialtimes",
+      "word_count": null,
+      "reading_time": null,
+      "published_date": "2026-04-09",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://i.ytimg.com/vi/knJvnNyuSTU/sd2.jpg?sqp=-oaymwEoCIAFEOAD8quKqQMcGADwAQH4Ac4FgAKACooCDAgAEAEYRCBTKHIwDw==&rs=AOn4CLB6EvCo-CBuaTPtirQXEwM3hMEx4A",
+      "score": 55,
+      "reason": "Fractura transatlántica post-conflicto",
+      "tag": "geopolítica"
     },
     {
       "id": "01kngh2a6hj1mmrkadn3vw6at9",
@@ -1058,7 +1126,7 @@
       "location": "feed",
       "image_url": "https://www.economist.com/engassets/ico/touch-icon-180x180.png",
       "score": 50,
-      "reason": "Análisis electoral en democracias iliberales",
+      "reason": "Análisis electoral húngaro con datos",
       "tag": "política europea"
     },
     {
@@ -1109,7 +1177,7 @@
       "location": "feed",
       "image_url": "https://www.economist.com/favicon.ico",
       "score": 48,
-      "reason": "Populismo electoral daña cooperación regional",
+      "reason": "Instrumentalización electoral de Ucrania",
       "tag": "política europea"
     },
     {
@@ -1160,7 +1228,7 @@
       "location": "feed",
       "image_url": "https://www.economist.com/favicon.ico",
       "score": 46,
-      "reason": "Pragmatismo italiano en equilibrios geopolíticos",
+      "reason": "Comportamiento geopolítico de potencia media",
       "tag": "geopolítica"
     },
     {
@@ -1194,8 +1262,25 @@
       "location": "feed",
       "image_url": "https://fedea.net/wp-content/uploads/2016/10/CTF201610_twitterCard_00.png",
       "score": 45,
-      "reason": "Coordinación fiscal europea ante crisis",
-      "tag": "política europea"
+      "reason": "Respuestas fiscales europeas a crisis energética",
+      "tag": "economía"
+    },
+    {
+      "id": "01knttv3rhm646gqvzzb44gw5n",
+      "title": "El estrecho de Ormuz sigue cerrado pese a la tregua y prolonga la crisis energética",
+      "author": "Javier Jorrín",
+      "source_url": "https://www.elconfidencial.com/economia/2026-04-10/estrecho-ormuz-sigue-cerrado-prolonga-crisis-energetica_4335231/",
+      "site_name": "elconfidencial.com",
+      "summary": "Un millar de buques cisterna siguen atascados y la circulación no ha aumentado dos días después del alto al fuego. Algunos buques chinos han intentado acercarse al estrecho y han desistido, lo que ha encarecido el precio del crudo",
+      "word_count": 797,
+      "reading_time": "4 mins",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://images.ecestaticos.com/e_nORsWb6xpn1Hijp6u_SvXVxNM=/0x0:2272x1515/600x315/filters:fill(white):format(jpg):quality(99):watermark(f.elconfidencial.com/file/bae/eea/fde/baeeeafde1b3229287b0c008f7602058.png,0,275,1)/f.elconfidencial.com/original/2c9/727/123/2c97271233bda60265b8d904956b710d.jpg",
+      "score": 45,
+      "reason": "Persistencia bloqueo energético post-tregua",
+      "tag": "energía"
     },
     {
       "id": "01knmkqm89jj4ajpbd98bw4b03",
@@ -1262,8 +1347,8 @@
       "location": "feed",
       "image_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iLZOJNjHt7hI/v1/piHJkQ_WoLj1E/-1x-1.jpg",
       "score": 43,
-      "reason": "Negociación energética en crisis geopolítica",
-      "tag": "geopolítica"
+      "reason": "Negociaciones geoeconómicas sobre Ormuz",
+      "tag": "energía"
     },
     {
       "id": "01kngsk52y4yk50e7fentcr4f2",
@@ -1296,7 +1381,7 @@
       "location": "feed",
       "image_url": "https://www.economist.com/favicon.ico",
       "score": 42,
-      "reason": "Mercados secundarios mitigan riesgos financieros",
+      "reason": "Mercados secundarios en crédito privado",
       "tag": "economía"
     },
     {
@@ -1347,8 +1432,8 @@
       "location": "feed",
       "image_url": "https://www.economist.com/favicon.ico",
       "score": 40,
-      "reason": "Política industrial choca con realidad energética",
-      "tag": "energía"
+      "reason": "Colisión entre política IA y crisis energética",
+      "tag": "IA"
     },
     {
       "id": "01knjdcma5gg31a58wbjh65vp4",
@@ -1398,8 +1483,25 @@
       "location": "feed",
       "image_url": "https://www.economist.com/favicon.ico",
       "score": 38,
-      "reason": "Infraestructura dañada perpetúa volatilidad energética",
+      "reason": "Impacto duradero en mercados energéticos",
       "tag": "energía"
+    },
+    {
+      "id": "01kntmyqvq40y8a8hmpzqwr0ad",
+      "title": "India's Communists fight to stay in power in Kerala | FT #shorts",
+      "author": "Financial Times",
+      "source_url": "https://www.youtube.com/shorts/QJ8AGOrM2Ow",
+      "site_name": "YouTube",
+      "summary": "The era of Soviet global power may be long dead but in one tropical corner of India, ubiquitous red flags and Che Guevara images show it is very much alive.⁠\n⁠\nHailed by some economists as a development miracle for its low poverty and high literacy rates, the state of Kerala will decide this week whether the Communist Party of India will remain in power after a decade as one of the few freely elected communist governments in the world and the last one in India.⁠\n⁠\nCritics argue that the Communists, who first came to power in 1957 and have governed the state on and off since then, have failed to lay a solid economic foundation that creates good jobs, relying instead on remittances from residents forced to go abroad to find well-paid work.⁠\n\n#shortsvideo #shortfeed #shorts #shortsviral #shortsyoutube #shortsvideos\n\n► Enjoying FT content? Get a daily slice of the very best FT journalism with FT Edit. Free for 30 days then just £4.99 a month\n\nSee if you get the FT for free as a student (http://ft.com/schoolsarefree) or start a £1 trial: https://subs.ft.com/spa3_trial?segmentId=3d4ba81b-96bb-cef0-9ece-29efd6ef2132.\n\n► Check out our Community tab for more stories: https://www.youtube.com/@FinancialTimes/community\n►  Listen to our podcasts: https://www.ft.com/podcasts\n►  Follow us on Instagram: https://www.instagram.com/financialtimes\n►  Follow us on Instagram: https://www.tiktok.com/@financialtimes",
+      "word_count": null,
+      "reading_time": null,
+      "published_date": "2026-04-09",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://i.ytimg.com/vi/QJ8AGOrM2Ow/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AHeBIACuAiKAgwIABABGEwgVChlMA8=&rs=AOn4CLCmDMHVobGVVmlCz_FYP88PZAmMvw",
+      "score": 38,
+      "reason": "Supervivencia comunismo en Kerala",
+      "tag": "política europea"
     },
     {
       "id": "01knr8vmjb66kvf67n4pv7bgnp",
@@ -1415,8 +1517,8 @@
       "location": "feed",
       "image_url": "https://images.ecestaticos.com/nN8vFUA9B9ba1n2DQZJgP1eZ-gA=/0x0:2272x1534/600x315/filters:fill(white):format(jpg):quality(99):watermark(f.elconfidencial.com/file/bae/eea/fde/baeeeafde1b3229287b0c008f7602058.png,0,275,1)/f.elconfidencial.com/original/116/c1a/f8f/116c1af8f1fc1bdc7ac512d69f6f6b7b.jpg",
       "score": 37,
-      "reason": "Ventaja electoral por cohesión ideológica",
-      "tag": "políticas públicas"
+      "reason": "Ventajas electorales de posiciones monolíticas",
+      "tag": "política europea"
     },
     {
       "id": "01knrvc71cyvtsrvzd41w04y4d",
@@ -1432,7 +1534,7 @@
       "location": "feed",
       "image_url": "https://substackcdn.com/image/fetch/$s_!EgXP!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F07bd6c5e-9f37-4bce-b1bb-93bef4380850_1080x567.jpeg",
       "score": 35,
-      "reason": "Algoritmos y flujo cultural contemporáneo",
+      "reason": "Consumo cultural pasivo como problema sistémico",
       "tag": "cultura"
     },
     {
@@ -1483,7 +1585,7 @@
       "location": "feed",
       "image_url": "https://www.economist.com/favicon.ico",
       "score": 33,
-      "reason": "Colaboración científica trasciende tensiones geopolíticas",
+      "reason": "Cooperación científica pese a tensiones geopolíticas",
       "tag": "tecnología"
     },
     {
@@ -1517,7 +1619,7 @@
       "location": "feed",
       "image_url": "https://www.economist.com/favicon.ico",
       "score": 30,
-      "reason": "Intrigas bancarias italianas revelan fragilidades",
+      "reason": "Drama bancario italiano",
       "tag": "economía"
     },
     {
@@ -1585,7 +1687,7 @@
       "location": "feed",
       "image_url": "https://i.ytimg.com/vi/TaxMaR2a4fM/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AG2CIACgA-KAgwIABABGD4gQCh_MA8=&rs=AOn4CLA8EvqoOGNu3c4ZnSDBCsc-y96Bsw",
       "score": 28,
-      "reason": "Crisis energética acelera transición eléctrica",
+      "reason": "Crisis energética impulsa transición eléctrica",
       "tag": "energía"
     },
     {
@@ -1602,7 +1704,7 @@
       "location": "feed",
       "image_url": "https://i.ytimg.com/vi/v5aJQdfR3H0/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AHOBYACgAqKAgwIABABGGMgZShZMA8=&rs=AOn4CLCZJUh67GHdmqyBkuOGgrNDJZBRwA",
       "score": 26,
-      "reason": "Regulación de redes sociales por adicción",
+      "reason": "Regulación de redes sociales como tabaco",
       "tag": "regulación"
     },
     {
@@ -1619,7 +1721,7 @@
       "location": "feed",
       "image_url": "https://substackcdn.com/image/fetch/$s_!Y0SR!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fca32ebc6-1dee-4785-b73d-35d3d4e2bfb2_1456x1048.png",
       "score": 25,
-      "reason": "Construcción de vivienda como transformación personal",
+      "reason": "Construcción de viviendas como transformación personal",
       "tag": "vivienda"
     },
     {
@@ -1670,7 +1772,7 @@
       "location": "feed",
       "image_url": "https://i.ytimg.com/vi/fv-IpmNzHBY/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AG2CIACgA-KAgwIABABGEYgZSgPMA8=&rs=AOn4CLB7YB-gr1x7cP6Omm9uuI1V8OBtAw",
       "score": 23,
-      "reason": "Riesgos tecnológicos en exploración espacial",
+      "reason": "Riesgos técnicos misión lunar",
       "tag": "tecnología"
     },
     {
@@ -1687,7 +1789,7 @@
       "location": "feed",
       "image_url": "https://statmodeling.stat.columbia.edu/favicon.ico",
       "score": 20,
-      "reason": "Literatura norteamericana en contexto internacional",
+      "reason": "Literatura americana en contexto iraní",
       "tag": "cultura"
     },
     {
@@ -1721,8 +1823,8 @@
       "location": "feed",
       "image_url": "https://www.bde.es/f/webbe/INF/assets/images/favicon.ico",
       "score": 18,
-      "reason": "Modelos econométricos de expectativas inflacionarias",
-      "tag": "metodología"
+      "reason": "Modelización técnica expectativas inflación",
+      "tag": "datos"
     },
     {
       "id": "01knm6nfd63m55y6dx5ndyzpvr",
@@ -1755,7 +1857,7 @@
       "location": "feed",
       "image_url": "https://statmodeling.stat.columbia.edu/favicon.ico",
       "score": 15,
-      "reason": "Herramienta web para entrenamiento neural",
+      "reason": "Entrenamiento IA en navegador",
       "tag": "IA"
     },
     {
@@ -1772,7 +1874,7 @@
       "location": "feed",
       "image_url": "https://i.ytimg.com/vi/NxESvYKee6U/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AHOBYACgAqKAgwIABABGEsgUyhlMA8=&rs=AOn4CLDZ9349D2xjmurBZ4ds9ru1EWCyeg",
       "score": 7,
-      "reason": "Guía fiscal para inversión británica",
+      "reason": "Optimización fiscal inversiones británicas",
       "tag": "economía"
     },
     {
@@ -1789,7 +1891,7 @@
       "location": "feed",
       "image_url": "https://i.ytimg.com/vi/W2Jw5N7XIwY/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AG2CIACgA-KAgwIABABGGUgTyg-MA8=&rs=AOn4CLBV9AfPh_1WDYxzHnSYXruMRmMCyw",
       "score": 6,
-      "reason": "Misión lunar como hito tecnológico",
+      "reason": "Misión lunar Artemis II",
       "tag": "tecnología"
     },
     {
@@ -1823,7 +1925,7 @@
       "location": "feed",
       "image_url": "https://i.ytimg.com/vi/aho93jmY7yY/sd2.jpg?sqp=-oaymwEoCIAFEOAD8quKqQMcGADwAQH4AbYIgAKAD4oCDAgAEAEYSSBWKGUwDw==&rs=AOn4CLBk-4AIVgqdqmdGy4XQg3tOXyyizQ",
       "score": 5,
-      "reason": "Diplomacia europea en crisis regional",
+      "reason": "Extensión geográfica tregua Oriente Medio",
       "tag": "geopolítica"
     },
     {
@@ -1840,7 +1942,7 @@
       "location": "feed",
       "image_url": "https://substack-post-media.s3.amazonaws.com/public/images/5d44ea44-6a93-4c9c-98f2-2b6da068c27f_496x341.png",
       "score": 4,
-      "reason": "Hilo de comentarios sin contenido sustantivo",
+      "reason": "Hilo abierto con actualización Zagreb",
       "tag": "medios"
     },
     {
@@ -1857,7 +1959,7 @@
       "location": "feed",
       "image_url": "https://substackcdn.com/image/fetch/$s_!jK2j!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F05a43781-21f0-495a-90e6-568539bb6645_1200x1332.png",
       "score": 3,
-      "reason": "Post de discusión sin análisis",
+      "reason": "Hilo discusión semanal",
       "tag": "medios"
     },
     {

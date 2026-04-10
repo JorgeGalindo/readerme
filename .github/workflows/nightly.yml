@@ -1,0 +1,40 @@
+name: Nightly curation
+
+on:
+  schedule:
+    # 4:00 AM Madrid time (2:00 UTC in summer CEST, 3:00 UTC in winter CET)
+    - cron: "0 2 * * *"
+  workflow_dispatch: # manual trigger from GitHub UI
+
+jobs:
+  curate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Run nightly curation
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          READWISE_TOKEN: ${{ secrets.READWISE_TOKEN }}
+        run: |
+          python nightly.py
+          python polls.py
+          python markets.py
+
+      - name: Commit and push data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/curated.json data/spain.json data/polls.json data/markets.json \
+                  data/feedback.json data/scores_cache.json data/seen_intl.json \
+                  data/feedback_processed.json data/briefing.mp3 data/briefing.txt 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "nightly: $(date -u '+%Y-%m-%d %H:%M') UTC"
+          git push

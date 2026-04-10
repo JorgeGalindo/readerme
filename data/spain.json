@@ -1,37 +1,7 @@
 {
-  "generated_at": "2026-04-10T06:41:23.780270+00:00",
+  "generated_at": "2026-04-10T07:26:01.965065+00:00",
   "intl": [],
   "spanish": [
-    {
-      "title": "El PP se atasca con la guerra de Irán: “Nos hemos quedado en tierra de nadie”",
-      "link": "https://elpais.com/espana/2026-04-10/el-pp-se-atasca-con-la-guerra-de-iran-nos-hemos-quedado-en-tierra-de-nadie.html",
-      "author": "Elsa García de Blas",
-      "summary": "Feijóo acentúa ahora su distancia de Trump tras una primera justificación de la ofensiva. La portavoz parlamentaria, Ester Muñoz, resta importancia a la detención del casco azul español en Líbano",
-      "date": "Fri, 10 Apr 2026 03:30:01 GMT",
-      "source": "El País (España)",
-      "scrapeable": false,
-      "risk_summary": "El PP muestra división interna y debilidad en política exterior al cambiar su posición sobre el conflicto en Oriente Medio."
-    },
-    {
-      "title": "El Gobierno, sobre el proceso a Ábalos: “Es imposible hablar de nada positivo esta semana, el juicio es desolador”",
-      "link": "https://elpais.com/espana/2026-04-09/el-gobierno-sobre-el-proceso-a-abalos-es-imposible-hablar-de-nada-positivo-esta-semana-el-juicio-es-desolador.html",
-      "author": "Carlos E Cué",
-      "summary": "El Ejecutivo admite que la causa que juzga al exministro tapa la agenda pero confía en que el efecto esté ya descontado porque no han aparecido datos nuevos",
-      "date": "Thu, 09 Apr 2026 03:30:01 GMT",
-      "source": "El País (España)",
-      "scrapeable": false,
-      "risk_summary": "El juicio al exministro Ábalos por corrupción genera ruido mediático que paraliza la agenda gubernamental y erosiona la imagen del PSOE."
-    },
-    {
-      "title": "Los riesgos de la improvisación regulatoria en materia de vivienda",
-      "link": "https://elpais.com/opinion/2026-04-06/los-riesgos-de-la-improvisacion-regulatoria-en-materia-de-vivienda.html",
-      "author": "Ana Carmona",
-      "summary": "La decisión del Consejo de Ministros de prorrogar los alquileres sin tener los apoyos para consolidarla es problemática desde el punto de vista jurídico y político",
-      "date": "Mon, 06 Apr 2026 03:30:01 GMT",
-      "source": "El País (España)",
-      "scrapeable": false,
-      "risk_summary": "El Gobierno muestra debilidad parlamentaria al prorrogar medidas de vivienda sin garantizar los apoyos necesarios para su convalidación."
-    },
     {
       "title": "La amnistía, en espera de la justicia europea",
       "link": "https://elpais.com/espana/2026-03-31/la-amnistia-en-espera-de-la-justicia-europea.html",
@@ -40,17 +10,7 @@
       "date": "Tue, 31 Mar 2026 03:30:01 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "La ley de amnistía enfrenta un test decisivo en mayo ante el Tribunal de Justicia de la UE que podría condicionar su aplicación."
-    },
-    {
-      "title": "Rufián aprovecha el acto con Montero para exigir a ERC que lidere la suma de la izquierda alternativa",
-      "link": "https://elpais.com/espana/catalunya/2026-04-09/montero-y-rufian-hablan-sobre-el-futuro-de-la-izquierda-desde-barcelona-en-directo.html",
-      "author": "Camilo S. Baquero",
-      "summary": "Ninguno de los dos líderes ahonda en el acto en Barcelona sobre la concreción de la posible unidad electoral",
-      "date": "Thu, 09 Apr 2026 17:21:54 GMT",
-      "source": "El País (España)",
-      "scrapeable": false,
-      "risk_summary": "ERC y Podemos exploran una posible coalición de izquierdas que podría reconfigurar el mapa electoral progresista."
+      "risk_summary": "El Tribunal de Justicia de la UE decidirá en mayo sobre la amnistía, con potencial para desestabilizar la coalición gubernamental si falla en contra."
     },
     {
       "title": "Bustinduy atribuye a una “campaña orquestada” el que se dé por perdido el decreto sobre vivienda",
@@ -60,17 +20,7 @@
       "date": "Thu, 09 Apr 2026 11:48:59 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "El ministro Bustinduy mantiene optimismo sobre la aprobación del decreto de vivienda pese a la oposición parlamentaria confirmada."
-    },
-    {
-      "title": "El Gobierno denuncia la nueva ley de urbanismo de Ayuso por favorecer los “pelotazos”",
-      "link": "https://elpais.com/economia/2026-04-09/el-gobierno-denuncia-la-nueva-ley-de-urbanismo-de-ayuso-por-favorecer-los-pelotazos.html",
-      "author": "Pablo Sempere",
-      "summary": "El Ministerio de Vivienda alega que la norma que prevé aprobar Madrid permite esquivar en algunos casos la demolición de edificios ilegales a cambio de una multa",
-      "date": "Thu, 09 Apr 2026 03:45:01 GMT",
-      "source": "El País (Economía)",
-      "scrapeable": false,
-      "risk_summary": "Escalada del conflicto institucional entre el Gobierno central y la Comunidad de Madrid por las políticas urbanísticas."
+      "risk_summary": "Riesgo de crisis gubernamental por falta de apoyos parlamentarios para prorrogar controles de alquileres, exponiendo debilidad legislativa del ejecutivo."
     },
     {
       "title": "Vox usará los pactos con el PP como \"preludio\" al de Feijóo y da casi por cerrado Extremadura",
@@ -80,17 +30,37 @@
       "date": "2026-04-10T05:00:00+02:00",
       "source": "El Confidencial",
       "scrapeable": false,
-      "risk_summary": "Vox utiliza los pactos autonómicos como estrategia de presión para futuras negociaciones con el PP a nivel nacional."
+      "risk_summary": "Vox consolida estrategia de presión al PP en pactos autonómicos como preludio a futuras negociaciones nacionales, fortaleciendo su posición de bisagra."
     },
     {
-      "title": "Feijóo se reúne con Ayuso y anuncia más citas con los demás presidentes del PP",
-      "link": "https://www.eldiario.es/politica/feijoo-reune-ayuso-anuncia-encuentros-presidentes-pp_1_13129319.html",
-      "author": "Aitor Riveiro",
-      "summary": "La dirección nacional informa de la cita 24 horas después y afirma que la ronda \"será útil para definir\" sus \"prioridades políticas a la hora de hacer oposición a Pedro Sánchez\" y para \"concretar\" su \"proyecto\"Feijóo promete bajar los impuestos si llega al Gobierno: “Si no lo hago, dejaré de ser pre",
-      "date": "Thu, 09 Apr 2026 09:59:58 +0000",
+      "title": "Montero y Rufián proponen que ERC lidere la coalición de izquierdas en Cataluña y Podemos en el resto de España para \"no morir por separado\"",
+      "link": "https://www.elmundo.es/cataluna/2026/04/09/69d7d48fe85ecee1238b4590.html",
+      "author": "Víctor Mondelo",
+      "summary": "El republicano asegura que no abandonará su partido para liderar un frente estatal, pero insta a ERC a inspirar a la izquierda española e implicarse en su unificaciónLeer",
+      "date": "Thu, 09 Apr 2026 21:42:38 +0200",
+      "source": "El Mundo",
+      "scrapeable": false,
+      "risk_summary": "Propuesta de coalición de izquierdas entre ERC y Podemos podría reconfigurar el mapa electoral y alterar la aritmética parlamentaria de apoyo al gobierno."
+    },
+    {
+      "title": "El Gobierno se mete en la 'nevera' mientras se multiplica el escándalo de Ábalos en el Supremo",
+      "link": "https://www.elmundo.es/espana/2026/04/09/69d7e2d9fc6c830b188b457a.html",
+      "author": "Raúl Piña",
+      "summary": "Creen que el tema \"aburre\" a los suyos, pero en el PSOE cargos asumen \"días duros\"Leer",
+      "date": "Thu, 09 Apr 2026 22:46:08 +0200",
+      "source": "El Mundo",
+      "scrapeable": false,
+      "risk_summary": "El gobierno adopta estrategia de perfil bajo ante el escándalo Ábalos mientras el PSOE reconoce 'días duros', sugiriendo impacto electoral potencial."
+    },
+    {
+      "title": "La empresaria Carmen Pano reitera en el Supremo que entregó 90.000 euros en la sede del PSOE por indicación de Aldama",
+      "link": "https://www.eldiario.es/politica/empresaria-carmen-pano-reitera-supremo-entrego-90-000-euros-sede-psoe-indicacion-aldama_1_13129850.html",
+      "author": "Javier Lillo, Elena Herrera",
+      "summary": "La testigo sostiene que el chalé de La Alcaidesa fue un “regalo” para Ábalos de un empresario interesado en conseguir una licencia de hidrocarburos'Caso Ábalos: la tríada de la corrupción': un documental de elDiario.es sobre el caso mascarillasLa empresaria Carmen Pano, imputada por el fraude millon",
+      "date": "Thu, 09 Apr 2026 11:41:43 +0000",
       "source": "eldiario.es",
       "scrapeable": true,
-      "risk_summary": "Feijóo refuerza la coordinación territorial del PP con reuniones con presidentes autonómicos para definir estrategia de oposición."
+      "risk_summary": "Testimonio en el Supremo sobre entrega de dinero en Ferraz intensifica presión judicial sobre el PSOE y amenaza credibilidad gubernamental."
     },
     {
       "title": "Feijóo promete bajar los impuestos si llega al Gobierno: \"Si no lo hago, dejaré de ser presidente\"",
@@ -100,7 +70,37 @@
       "date": "Wed, 08 Apr 2026 11:16:28 +0000",
       "source": "eldiario.es",
       "scrapeable": true,
-      "risk_summary": "Feijóo compromete públicamente su liderazgo con la promesa de bajar impuestos, elevando las expectativas electorales del PP."
+      "risk_summary": "Feijóo promete bajadas fiscales comprometiendo su liderazgo, intensificando presión sobre política económica del gobierno de cara a próximas elecciones."
+    },
+    {
+      "title": "Sumar se queda solo en la negociación del decreto de vivienda que el PSOE da por imposible",
+      "link": "https://www.eldiario.es/politica/sumar-queda-negociacion-decreto-vivienda-psoe-da-imposible_1_13124929.html",
+      "author": "Daniel Ríos, José Enrique Monrosi",
+      "summary": "Los de Yolanda Díaz son conscientes de la dificultad de aprobar el paquete de medidas sobre el alquiler, pero marcan perfil propio en plena precampaña andaluza y en mitad de la reconfiguración de la izquierda alternativa escenificando un choque con la derechaBustinduy promete “más actuaciones para d",
+      "date": "Tue, 07 Apr 2026 19:45:02 +0000",
+      "source": "eldiario.es",
+      "scrapeable": true,
+      "risk_summary": "Sumar marca distancias del PSOE en política de vivienda evidenciando tensiones internas en la coalición gubernamental."
+    },
+    {
+      "title": "PP, Junts y Vox intentan frenar en el Congreso el sablazo a los autónomos societarios y colaboradores",
+      "link": "https://www.democrata.es/economia/pp-junts-y-vox-intentan-frenar-en-el-congreso-el-sablazo-a-los-autonomos-societarios-y-colaboradores/",
+      "author": "Agencias",
+      "summary": "Lorenzo Amor alerta de un \"sablazo\" de 1.620 euros a autónomos societarios y colaboradores y anuncia que PP, Vox y Junts intentarán frenarlo en el Congreso.",
+      "date": "Fri, 10 Apr 2026 09:16:39 +0200",
+      "source": "democrata.es",
+      "scrapeable": true,
+      "risk_summary": "Alianza parlamentaria PP-Junts-Vox contra medidas fiscales a autónomos demuestra capacidad de bloqueo de la oposición al gobierno."
+    },
+    {
+      "title": "El Gobierno denuncia la nueva ley de urbanismo de Ayuso por favorecer los “pelotazos”",
+      "link": "https://elpais.com/economia/2026-04-09/el-gobierno-denuncia-la-nueva-ley-de-urbanismo-de-ayuso-por-favorecer-los-pelotazos.html",
+      "author": "Pablo Sempere",
+      "summary": "El Ministerio de Vivienda alega que la norma que prevé aprobar Madrid permite esquivar en algunos casos la demolición de edificios ilegales a cambio de una multa",
+      "date": "Thu, 09 Apr 2026 03:45:01 GMT",
+      "source": "El País (Economía)",
+      "scrapeable": false,
+      "risk_summary": "Conflicto competencial Estado-Madrid por nueva ley urbanística evidencia escalada tensional entre administraciones de diferente signo político."
     }
   ]
 }
