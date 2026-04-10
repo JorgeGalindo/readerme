@@ -1,7 +1,17 @@
 {
-  "generated_at": "2026-04-09T08:07:15.122774+00:00",
+  "generated_at": "2026-04-10T06:41:23.780270+00:00",
   "intl": [],
   "spanish": [
+    {
+      "title": "El PP se atasca con la guerra de Irán: “Nos hemos quedado en tierra de nadie”",
+      "link": "https://elpais.com/espana/2026-04-10/el-pp-se-atasca-con-la-guerra-de-iran-nos-hemos-quedado-en-tierra-de-nadie.html",
+      "author": "Elsa García de Blas",
+      "summary": "Feijóo acentúa ahora su distancia de Trump tras una primera justificación de la ofensiva. La portavoz parlamentaria, Ester Muñoz, resta importancia a la detención del casco azul español en Líbano",
+      "date": "Fri, 10 Apr 2026 03:30:01 GMT",
+      "source": "El País (España)",
+      "scrapeable": false,
+      "risk_summary": "El PP muestra división interna y debilidad en política exterior al cambiar su posición sobre el conflicto en Oriente Medio."
+    },
     {
       "title": "El Gobierno, sobre el proceso a Ábalos: “Es imposible hablar de nada positivo esta semana, el juicio es desolador”",
       "link": "https://elpais.com/espana/2026-04-09/el-gobierno-sobre-el-proceso-a-abalos-es-imposible-hablar-de-nada-positivo-esta-semana-el-juicio-es-desolador.html",
@@ -10,97 +20,87 @@
       "date": "Thu, 09 Apr 2026 03:30:01 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "El caso Ábalos domina la agenda mediática debilitando al Gobierno cuando no aporta revelaciones sustancialmente nuevas."
+      "risk_summary": "El juicio al exministro Ábalos por corrupción genera ruido mediático que paraliza la agenda gubernamental y erosiona la imagen del PSOE."
     },
     {
-      "title": "Irene Montero se acerca a Gabriel Rufián para intentar reflotar a Podemos",
-      "link": "https://elpais.com/espana/2026-04-09/irene-montero-se-acerca-a-gabriel-rufian-para-intentar-reflotar-a-podemos.html",
-      "author": "Paula Chouza Candeira,Camilo S. Baquero",
-      "summary": "La eurodiputada da pasos en su candidatura a las generales en una charla con el portavoz de ERC cuando su partido, muy debilitado, acaba de pactar con IU y Sumar en Andalucía",
-      "date": "Thu, 09 Apr 2026 03:30:01 GMT",
+      "title": "Los riesgos de la improvisación regulatoria en materia de vivienda",
+      "link": "https://elpais.com/opinion/2026-04-06/los-riesgos-de-la-improvisacion-regulatoria-en-materia-de-vivienda.html",
+      "author": "Ana Carmona",
+      "summary": "La decisión del Consejo de Ministros de prorrogar los alquileres sin tener los apoyos para consolidarla es problemática desde el punto de vista jurídico y político",
+      "date": "Mon, 06 Apr 2026 03:30:01 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "Montero busca alianzas con independentistas para revitalizar Podemos ante su crisis interna y pérdida de representación."
+      "risk_summary": "El Gobierno muestra debilidad parlamentaria al prorrogar medidas de vivienda sin garantizar los apoyos necesarios para su convalidación."
     },
     {
-      "title": "El frenazo de Vox en España se agudiza en Andalucía",
-      "link": "https://elpais.com/espana/elecciones-andalucia/2026-04-09/el-frenazo-de-vox-en-espana-se-agudiza-en-andalucia.html",
-      "author": "Ángel Munárriz Fernández",
-      "summary": "Pese al empeño del partido en negar su pérdida de empuje, ya detectada por las encuestas en España, los resultados de más de 6.000 entrevistas del CIS en Andalucía lo ratifican y lo muestran aún más grave",
-      "date": "Thu, 09 Apr 2026 03:30:01 GMT",
+      "title": "La amnistía, en espera de la justicia europea",
+      "link": "https://elpais.com/espana/2026-03-31/la-amnistia-en-espera-de-la-justicia-europea.html",
+      "author": "José María Brunet",
+      "summary": "Es probable que en mayo el Tribunal de Justicia de la UE dé a conocer su sentencia sobre las cuestiones prejudiciales que el Tribunal de Cuentas y la Audiencia Nacional plantearon contra la aplicación de la ley a líderes del ‘procés’",
+      "date": "Tue, 31 Mar 2026 03:30:01 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "Vox experimenta un frenazo electoral significativo especialmente en Andalucía según datos del CIS, alterando el equilibrio de fuerzas de la derecha."
+      "risk_summary": "La ley de amnistía enfrenta un test decisivo en mayo ante el Tribunal de Justicia de la UE que podría condicionar su aplicación."
     },
     {
-      "title": "Bolaños fija la ley de protección al honor y la reforma de la ‘ley mordaza’ como próximas prioridades del Congreso",
-      "link": "https://elpais.com/espana/2026-04-08/bolanos-fija-la-ley-de-proteccion-al-honor-y-la-reforma-de-la-ley-mordaza-como-proximas-prioridades-del-congreso.html",
-      "author": "Javier Casqueiro Barreiro",
-      "summary": "El ministro ensalzó la “democracia plena” en España ante las críticas por falta de audacia de sus socios y el cuestionamiento total de PP y Vox",
-      "date": "Wed, 08 Apr 2026 14:12:08 GMT",
+      "title": "Rufián aprovecha el acto con Montero para exigir a ERC que lidere la suma de la izquierda alternativa",
+      "link": "https://elpais.com/espana/catalunya/2026-04-09/montero-y-rufian-hablan-sobre-el-futuro-de-la-izquierda-desde-barcelona-en-directo.html",
+      "author": "Camilo S. Baquero",
+      "summary": "Ninguno de los dos líderes ahonda en el acto en Barcelona sobre la concreción de la posible unidad electoral",
+      "date": "Thu, 09 Apr 2026 17:21:54 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "Bolaños marca las próximas prioridades legislativas del Gobierno con leyes de protección al honor y reforma de la ley mordaza."
+      "risk_summary": "ERC y Podemos exploran una posible coalición de izquierdas que podría reconfigurar el mapa electoral progresista."
     },
     {
-      "title": "Las empresas españolas ya han recibido 5.550 millones para aliviar los aranceles de Trump pero apenas piden avales del ICO",
-      "link": "https://elpais.com/economia/2026-04-08/las-empresas-espanolas-ya-han-recibido-5550-millones-para-aliviar-los-aranceles-de-trump-pero-apenas-piden-creditos-del-ico.html",
-      "author": "Carlos Molina Infante",
-      "summary": "Carlos Cuerpo se compromete en el Congreso a mantener el apoyo a los exportadores e insta a potenciar las ventas hacia Mercosur y otras áreas de libre comercio",
-      "date": "Wed, 08 Apr 2026 14:15:12 GMT",
-      "source": "El País (Economía)",
+      "title": "Bustinduy atribuye a una “campaña orquestada” el que se dé por perdido el decreto sobre vivienda",
+      "link": "https://elpais.com/espana/2026-04-09/bustinduy-atribuye-a-una-campana-orquestada-el-que-se-de-por-perdido-el-decreto-sobre-vivienda.html",
+      "author": "Paula Chouza Candeira,Laura Llach",
+      "summary": "El ministro de Derechos Sociales desoye la negativa de PP y Vox y se muestra convencido de la aprobación de la prórroga de los alquileres en el Congreso",
+      "date": "Thu, 09 Apr 2026 11:48:59 GMT",
+      "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "El Gobierno ya ha movilizado 5.550 millones para contrarrestar aranceles de Trump pero las empresas demandan poco apoyo adicional del ICO."
+      "risk_summary": "El ministro Bustinduy mantiene optimismo sobre la aprobación del decreto de vivienda pese a la oposición parlamentaria confirmada."
     },
     {
-      "title": "Las rentas bajas y medias pagarán entre 250 y 350 euros de más por la negativa de Hacienda a ajustar el IRPF a la inflación",
-      "link": "https://elpais.com/economia/2026-04-08/las-rentas-bajas-y-medias-pagaran-entre-250-y-350-euros-de-mas-por-la-negativa-de-hacienda-a-ajustar-el-irpf-a-la-inflacion.html",
+      "title": "El Gobierno denuncia la nueva ley de urbanismo de Ayuso por favorecer los “pelotazos”",
+      "link": "https://elpais.com/economia/2026-04-09/el-gobierno-denuncia-la-nueva-ley-de-urbanismo-de-ayuso-por-favorecer-los-pelotazos.html",
       "author": "Pablo Sempere",
-      "summary": "Las comunidades siguen sin deflactar la tarifa autonómica del impuesto por segundo año consecutivo",
-      "date": "Wed, 08 Apr 2026 03:45:00 GMT",
+      "summary": "El Ministerio de Vivienda alega que la norma que prevé aprobar Madrid permite esquivar en algunos casos la demolición de edificios ilegales a cambio de una multa",
+      "date": "Thu, 09 Apr 2026 03:45:01 GMT",
       "source": "El País (Economía)",
       "scrapeable": false,
-      "risk_summary": "Las clases medias pagarán entre 250-350 euros más de IRPF por la falta de deflactación autonómica del impuesto por segundo año consecutivo."
+      "risk_summary": "Escalada del conflicto institucional entre el Gobierno central y la Comunidad de Madrid por las políticas urbanísticas."
     },
     {
-      "title": "Feijóo se compromete a deflactar el IRPF en su primer año gobernando en el comienzo de la campaña de Renta más \"voraz\" de Sánchez",
-      "link": "https://www.elmundo.es/espana/2026/04/08/69d62c4421efa0a7318b4583.html",
-      "author": "Silvia Lorenzo",
-      "summary": "Exige al Ejecutivo una bajada del IVA al 5% para la carne, el pescado y la conserva si el conflicto en Oriente Próximo no cesa en los próximos 15 díasLeer",
-      "date": "Wed, 08 Apr 2026 13:46:53 +0200",
-      "source": "El Mundo",
+      "title": "Vox usará los pactos con el PP como \"preludio\" al de Feijóo y da casi por cerrado Extremadura",
+      "link": "https://www.elconfidencial.com/espana/2026-04-10/vox-pactos-pp-acuerdo-feijoo-cerrado-extremadura_4335387/",
+      "author": "Borja Negrete",
+      "summary": "El partido de Santiago Abascal quiere demostrar su músculo negociador de cara a un futuro gobierno nacional con el PP. Las conversaciones prosiguen con la vista puesta en las elecciones andaluzas",
+      "date": "2026-04-10T05:00:00+02:00",
+      "source": "El Confidencial",
       "scrapeable": false,
-      "risk_summary": "Feijóo promete deflactar el IRPF en su primer año de gobierno marcando una línea roja electoral frente a la política fiscal de Sánchez."
+      "risk_summary": "Vox utiliza los pactos autonómicos como estrategia de presión para futuras negociaciones con el PP a nivel nacional."
     },
     {
-      "title": "Bruselas alerta de que \"no ha recibido ninguna comunicación oficial de España\" sobre la regularización masiva de inmigrantes",
-      "link": "https://www.elmundo.es/espana/2026/04/08/69d68616fdddff9a618b4596.html",
-      "author": "Daniel Viaña",
-      "summary": "El comisario Brunner insiste, en una respuesta parlamentaria a la que ha tenido acceso EL MUNDO, que el proceso \"puede tener consecuencias para otros Estados y para la UE en su conjunto\"Leer",
-      "date": "Wed, 08 Apr 2026 22:54:37 +0200",
-      "source": "El Mundo",
-      "scrapeable": false,
-      "risk_summary": "Bruselas alerta que España no ha comunicado oficialmente su plan de regularización masiva de inmigrantes, generando tensiones con la UE."
-    },
-    {
-      "title": "Las CCAA del PP plantan a Sira Rego para hablar de las plazas para menores extranjeros y la ministra denuncia: \"Abrazan tesis racistas\"",
-      "link": "https://www.elmundo.es/espana/2026/04/08/69d62172fc6c833f3c8b45a0.html",
-      "author": "Daniel Gómez-Fontecha",
-      "summary": "La reunión no se ha celebrado por falta de \"quórum\" y ha contado la presencia telemática de Cataluña, País Vasco, Navarra y Asturias.Leer",
-      "date": "Wed, 08 Apr 2026 15:03:21 +0200",
-      "source": "El Mundo",
-      "scrapeable": false,
-      "risk_summary": "Las CCAA del PP boicotean la reunión sobre menores extranjeros mientras la ministra las acusa de abrazar tesis racistas, escalando el conflicto territorial."
-    },
-    {
-      "title": "Sumar se queda solo en la negociación del decreto de vivienda que el PSOE da por imposible",
-      "link": "https://www.eldiario.es/politica/sumar-queda-negociacion-decreto-vivienda-psoe-da-imposible_1_13124929.html",
-      "author": "Daniel Ríos, José Enrique Monrosi",
-      "summary": "Los de Yolanda Díaz son conscientes de la dificultad de aprobar el paquete de medidas sobre el alquiler, pero marcan perfil propio en plena precampaña andaluza y en mitad de la reconfiguración de la izquierda alternativa escenificando un choque con la derechaBustinduy promete “más actuaciones para d",
-      "date": "Tue, 07 Apr 2026 19:45:02 +0000",
+      "title": "Feijóo se reúne con Ayuso y anuncia más citas con los demás presidentes del PP",
+      "link": "https://www.eldiario.es/politica/feijoo-reune-ayuso-anuncia-encuentros-presidentes-pp_1_13129319.html",
+      "author": "Aitor Riveiro",
+      "summary": "La dirección nacional informa de la cita 24 horas después y afirma que la ronda \"será útil para definir\" sus \"prioridades políticas a la hora de hacer oposición a Pedro Sánchez\" y para \"concretar\" su \"proyecto\"Feijóo promete bajar los impuestos si llega al Gobierno: “Si no lo hago, dejaré de ser pre",
+      "date": "Thu, 09 Apr 2026 09:59:58 +0000",
       "source": "eldiario.es",
       "scrapeable": true,
-      "risk_summary": "Sumar se queda solo negociando el decreto de vivienda que el PSOE da por imposible, evidenciando fracturas en la coalición gubernamental."
+      "risk_summary": "Feijóo refuerza la coordinación territorial del PP con reuniones con presidentes autonómicos para definir estrategia de oposición."
+    },
+    {
+      "title": "Feijóo promete bajar los impuestos si llega al Gobierno: \"Si no lo hago, dejaré de ser presidente\"",
+      "link": "https://www.eldiario.es/politica/feijoo-promete-bajar-impuestos-si-llega-gobierno-si-no-dejare-presidente_1_13126753.html",
+      "author": "Aitor Riveiro",
+      "summary": "El líder del PP sostiene que no hay \"una crisis clásica de la nación en su conjunto\", sino que \"los aprietos se producen dentro de las casas donde cunde la sensación de empobrecimiento mientras ven por la tele al Gobierno de la inflación y la corrupción\"Feijóo y Ayuso acusan al Gobierno de aumentar ",
+      "date": "Wed, 08 Apr 2026 11:16:28 +0000",
+      "source": "eldiario.es",
+      "scrapeable": true,
+      "risk_summary": "Feijóo compromete públicamente su liderazgo con la promesa de bajar impuestos, elevando las expectativas electorales del PP."
     }
   ]
 }
