@@ -1,7 +1,37 @@
 {
-  "generated_at": "2026-04-10T07:26:01.965065+00:00",
+  "generated_at": "2026-04-11T02:02:25.533099+00:00",
   "intl": [],
   "spanish": [
+    {
+      "title": "El PP se atasca con la guerra de Irán: “Nos hemos quedado en tierra de nadie”",
+      "link": "https://elpais.com/espana/2026-04-10/el-pp-se-atasca-con-la-guerra-de-iran-nos-hemos-quedado-en-tierra-de-nadie.html",
+      "author": "Elsa García de Blas",
+      "summary": "Feijóo acentúa ahora su distancia de Trump tras una primera justificación de la ofensiva. La portavoz parlamentaria, Ester Muñoz, resta importancia a la detención del casco azul español en Líbano",
+      "date": "Fri, 10 Apr 2026 03:30:01 GMT",
+      "source": "El País (España)",
+      "scrapeable": false,
+      "risk_summary": "El PP muestra división interna y debilidad en política exterior ante el conflicto de Oriente Medio, alejándose de Trump tras justificar inicialmente la ofensiva iraní."
+    },
+    {
+      "title": "El Gobierno, sobre el proceso a Ábalos: “Es imposible hablar de nada positivo esta semana, el juicio es desolador”",
+      "link": "https://elpais.com/espana/2026-04-09/el-gobierno-sobre-el-proceso-a-abalos-es-imposible-hablar-de-nada-positivo-esta-semana-el-juicio-es-desolador.html",
+      "author": "Carlos E Cué",
+      "summary": "El Ejecutivo admite que la causa que juzga al exministro tapa la agenda pero confía en que el efecto esté ya descontado porque no han aparecido datos nuevos",
+      "date": "Thu, 09 Apr 2026 03:30:01 GMT",
+      "source": "El País (España)",
+      "scrapeable": false,
+      "risk_summary": "El caso Ábalos genera presión mediática sobre el Gobierno, aunque el Ejecutivo confía en que el impacto político ya esté descontado por falta de revelaciones nuevas."
+    },
+    {
+      "title": "Los riesgos de la improvisación regulatoria en materia de vivienda",
+      "link": "https://elpais.com/opinion/2026-04-06/los-riesgos-de-la-improvisacion-regulatoria-en-materia-de-vivienda.html",
+      "author": "Ana Carmona",
+      "summary": "La decisión del Consejo de Ministros de prorrogar los alquileres sin tener los apoyos para consolidarla es problemática desde el punto de vista jurídico y político",
+      "date": "Mon, 06 Apr 2026 03:30:01 GMT",
+      "source": "El País (España)",
+      "scrapeable": false,
+      "risk_summary": "La prórroga de alquileres sin apoyos parlamentarios evidencia la debilidad legislativa del Gobierno y genera riesgos jurídicos y políticos por improvisación regulatoria."
+    },
     {
       "title": "La amnistía, en espera de la justicia europea",
       "link": "https://elpais.com/espana/2026-03-31/la-amnistia-en-espera-de-la-justicia-europea.html",
@@ -10,7 +40,7 @@
       "date": "Tue, 31 Mar 2026 03:30:01 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "El Tribunal de Justicia de la UE decidirá en mayo sobre la amnistía, con potencial para desestabilizar la coalición gubernamental si falla en contra."
+      "risk_summary": "La amnistía catalana enfrenta su prueba definitiva en el Tribunal de Justicia de la UE en mayo, con potencial impacto en la estabilidad del Gobierno de coalición."
     },
     {
       "title": "Bustinduy atribuye a una “campaña orquestada” el que se dé por perdido el decreto sobre vivienda",
@@ -20,87 +50,57 @@
       "date": "Thu, 09 Apr 2026 11:48:59 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "Riesgo de crisis gubernamental por falta de apoyos parlamentarios para prorrogar controles de alquileres, exponiendo debilidad legislativa del ejecutivo."
+      "risk_summary": "El ministro Bustinduy mantiene optimismo sobre la aprobación del decreto de vivienda pese a la oposición de PP y Vox, sugiriendo desconexión con la realidad parlamentaria."
     },
     {
       "title": "Vox usará los pactos con el PP como \"preludio\" al de Feijóo y da casi por cerrado Extremadura",
       "link": "https://www.elconfidencial.com/espana/2026-04-10/vox-pactos-pp-acuerdo-feijoo-cerrado-extremadura_4335387/",
       "author": "Borja Negrete",
-      "summary": "El partido de Santiago Abascal quiere demostrar su músculo negociador de cara a un futuro gobierno nacional con el PP. Las conversaciones prosiguen con la vista puesta en las elecciones andaluzas",
+      "summary": "El partido de Santiago Abascal quiere demostrar su músculo negociador de cara a un futuro gobierno nacional con el PP. Las dos delegaciones se han reunido durante seis horas este viernes en busca de la investidura de María Guardiola",
       "date": "2026-04-10T05:00:00+02:00",
       "source": "El Confidencial",
       "scrapeable": false,
-      "risk_summary": "Vox consolida estrategia de presión al PP en pactos autonómicos como preludio a futuras negociaciones nacionales, fortaleciendo su posición de bisagra."
+      "risk_summary": "Vox utiliza las negociaciones autonómicas como palanca de presión hacia un futuro pacto nacional con el PP, consolidando su posición negociadora."
     },
     {
-      "title": "Montero y Rufián proponen que ERC lidere la coalición de izquierdas en Cataluña y Podemos en el resto de España para \"no morir por separado\"",
-      "link": "https://www.elmundo.es/cataluna/2026/04/09/69d7d48fe85ecee1238b4590.html",
-      "author": "Víctor Mondelo",
-      "summary": "El republicano asegura que no abandonará su partido para liderar un frente estatal, pero insta a ERC a inspirar a la izquierda española e implicarse en su unificaciónLeer",
-      "date": "Thu, 09 Apr 2026 21:42:38 +0200",
+      "title": "Incendio en el PSC de Girona tras facilitar que Sílvia Orriols apruebe sus Presupuestos en Ripoll",
+      "link": "https://www.elmundo.es/cataluna/2026/04/10/69d8b589e85ece7c7e8b456e.html",
+      "author": "Gerard Melgar",
+      "summary": "Los dos concejales socialistas ponen su cargo a disposición del partido tras la abstención que permitió la validación de las cuentas públicas del Gobierno municipal de Aliança CatalanaLeer",
+      "date": "Fri, 10 Apr 2026 15:59:55 +0200",
       "source": "El Mundo",
       "scrapeable": false,
-      "risk_summary": "Propuesta de coalición de izquierdas entre ERC y Podemos podría reconfigurar el mapa electoral y alterar la aritmética parlamentaria de apoyo al gobierno."
+      "risk_summary": "Crisis interna en el PSC catalán por facilitar los presupuestos de la ultraderechista Aliança Catalana, evidenciando tensiones en la estrategia territorial socialista."
     },
     {
-      "title": "El Gobierno se mete en la 'nevera' mientras se multiplica el escándalo de Ábalos en el Supremo",
-      "link": "https://www.elmundo.es/espana/2026/04/09/69d7e2d9fc6c830b188b457a.html",
-      "author": "Raúl Piña",
-      "summary": "Creen que el tema \"aburre\" a los suyos, pero en el PSOE cargos asumen \"días duros\"Leer",
-      "date": "Thu, 09 Apr 2026 22:46:08 +0200",
+      "title": "Los barones del PP sortean el \"pulso\" entre Abascal y Feijóo y aceleran hacia un \"pacto en las tres comunidades\"",
+      "link": "https://www.elmundo.es/espana/2026/04/11/69d92d9fe9cf4a7a5d8b458c.html",
+      "author": "Juanma Lamet",
+      "summary": "Guardiola, Azcón y Mañueco prevén acuerdos en cascada al desbloquearse ExtremaduraLeer",
+      "date": "Sat, 11 Apr 2026 03:07:47 +0200",
       "source": "El Mundo",
       "scrapeable": false,
-      "risk_summary": "El gobierno adopta estrategia de perfil bajo ante el escándalo Ábalos mientras el PSOE reconoce 'días duros', sugiriendo impacto electoral potencial."
+      "risk_summary": "Los barones del PP aceleran hacia pactos autonómicos con Vox tras desbloquearse Extremadura, consolidando la alianza de derechas a nivel territorial."
     },
     {
-      "title": "La empresaria Carmen Pano reitera en el Supremo que entregó 90.000 euros en la sede del PSOE por indicación de Aldama",
-      "link": "https://www.eldiario.es/politica/empresaria-carmen-pano-reitera-supremo-entrego-90-000-euros-sede-psoe-indicacion-aldama_1_13129850.html",
-      "author": "Javier Lillo, Elena Herrera",
-      "summary": "La testigo sostiene que el chalé de La Alcaidesa fue un “regalo” para Ábalos de un empresario interesado en conseguir una licencia de hidrocarburos'Caso Ábalos: la tríada de la corrupción': un documental de elDiario.es sobre el caso mascarillasLa empresaria Carmen Pano, imputada por el fraude millon",
-      "date": "Thu, 09 Apr 2026 11:41:43 +0000",
+      "title": "Podemos corteja a Rufián para una alianza para las generales pero él evita por ahora dar nuevos pasos",
+      "link": "https://www.eldiario.es/politica/corteja-rufian-alianza-generales-evita-ahora-dar-nuevos-pasos_1_13134408.html",
+      "author": "Daniel Ríos",
+      "summary": "Un acuerdo con el portavoz de ERC para colaborar en las elecciones, sea cual sea el formato, daría fuerza a los morados en una eventual negociación con IU y Sumar. Los republicanos, no obstante, insisten en su negativa tajante: “No resolveremos, porque no podemos, las disputas de la izquierda españo",
+      "date": "Fri, 10 Apr 2026 20:20:56 +0000",
       "source": "eldiario.es",
       "scrapeable": true,
-      "risk_summary": "Testimonio en el Supremo sobre entrega de dinero en Ferraz intensifica presión judicial sobre el PSOE y amenaza credibilidad gubernamental."
+      "risk_summary": "Podemos corteja a ERC para una alianza electoral que recomponga la izquierda alternativa, aunque los republicanos mantienen cautela ante compromisos prematuros."
     },
     {
-      "title": "Feijóo promete bajar los impuestos si llega al Gobierno: \"Si no lo hago, dejaré de ser presidente\"",
-      "link": "https://www.eldiario.es/politica/feijoo-promete-bajar-impuestos-si-llega-gobierno-si-no-dejare-presidente_1_13126753.html",
-      "author": "Aitor Riveiro",
-      "summary": "El líder del PP sostiene que no hay \"una crisis clásica de la nación en su conjunto\", sino que \"los aprietos se producen dentro de las casas donde cunde la sensación de empobrecimiento mientras ven por la tele al Gobierno de la inflación y la corrupción\"Feijóo y Ayuso acusan al Gobierno de aumentar ",
-      "date": "Wed, 08 Apr 2026 11:16:28 +0000",
+      "title": "La Fiscalía recurre ante el Constitucional la condena contra el ex fiscal general y acusa al Supremo de vulnerar cinco derechos fundamentales",
+      "link": "https://www.eldiario.es/politica/fiscalia-recurre-constitucional-condena-ex-fiscal-general-acusa-supremo-vulnerar-cinco-derechos-fundamentales_1_13129214.html",
+      "author": "Elena Herrera",
+      "summary": "El Ministerio Público pide anular la sentencia que firmaron cinco de los siete magistrados por revelación de datos reservados en la filtración de la confesión de la pareja de AyusoEl Supremo rebaja las costas que debe pagar el ex fiscal general al abogado de la pareja de Ayuso y las fija en 39.000 e",
+      "date": "Fri, 10 Apr 2026 10:10:51 +0000",
       "source": "eldiario.es",
       "scrapeable": true,
-      "risk_summary": "Feijóo promete bajadas fiscales comprometiendo su liderazgo, intensificando presión sobre política económica del gobierno de cara a próximas elecciones."
-    },
-    {
-      "title": "Sumar se queda solo en la negociación del decreto de vivienda que el PSOE da por imposible",
-      "link": "https://www.eldiario.es/politica/sumar-queda-negociacion-decreto-vivienda-psoe-da-imposible_1_13124929.html",
-      "author": "Daniel Ríos, José Enrique Monrosi",
-      "summary": "Los de Yolanda Díaz son conscientes de la dificultad de aprobar el paquete de medidas sobre el alquiler, pero marcan perfil propio en plena precampaña andaluza y en mitad de la reconfiguración de la izquierda alternativa escenificando un choque con la derechaBustinduy promete “más actuaciones para d",
-      "date": "Tue, 07 Apr 2026 19:45:02 +0000",
-      "source": "eldiario.es",
-      "scrapeable": true,
-      "risk_summary": "Sumar marca distancias del PSOE en política de vivienda evidenciando tensiones internas en la coalición gubernamental."
-    },
-    {
-      "title": "PP, Junts y Vox intentan frenar en el Congreso el sablazo a los autónomos societarios y colaboradores",
-      "link": "https://www.democrata.es/economia/pp-junts-y-vox-intentan-frenar-en-el-congreso-el-sablazo-a-los-autonomos-societarios-y-colaboradores/",
-      "author": "Agencias",
-      "summary": "Lorenzo Amor alerta de un \"sablazo\" de 1.620 euros a autónomos societarios y colaboradores y anuncia que PP, Vox y Junts intentarán frenarlo en el Congreso.",
-      "date": "Fri, 10 Apr 2026 09:16:39 +0200",
-      "source": "democrata.es",
-      "scrapeable": true,
-      "risk_summary": "Alianza parlamentaria PP-Junts-Vox contra medidas fiscales a autónomos demuestra capacidad de bloqueo de la oposición al gobierno."
-    },
-    {
-      "title": "El Gobierno denuncia la nueva ley de urbanismo de Ayuso por favorecer los “pelotazos”",
-      "link": "https://elpais.com/economia/2026-04-09/el-gobierno-denuncia-la-nueva-ley-de-urbanismo-de-ayuso-por-favorecer-los-pelotazos.html",
-      "author": "Pablo Sempere",
-      "summary": "El Ministerio de Vivienda alega que la norma que prevé aprobar Madrid permite esquivar en algunos casos la demolición de edificios ilegales a cambio de una multa",
-      "date": "Thu, 09 Apr 2026 03:45:01 GMT",
-      "source": "El País (Economía)",
-      "scrapeable": false,
-      "risk_summary": "Conflicto competencial Estado-Madrid por nueva ley urbanística evidencia escalada tensional entre administraciones de diferente signo político."
+      "risk_summary": "La Fiscalía recurre al Constitucional la condena al fiscal general García Ortiz, escalando el conflicto entre poderes del Estado en un caso con alta carga política."
     }
   ]
 }
