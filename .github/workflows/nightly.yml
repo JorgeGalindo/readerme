@@ -6,6 +6,9 @@ on:
     - cron: "0 2 * * *"
   workflow_dispatch: # manual trigger from GitHub UI
 
+permissions:
+  contents: write
+
 jobs:
   curate:
     runs-on: ubuntu-latest
@@ -26,6 +29,7 @@ jobs:
           READWISE_TOKEN: ${{ secrets.READWISE_TOKEN }}
         run: |
           python nightly.py
+          python spain.py
           python polls.py
           python markets.py
 

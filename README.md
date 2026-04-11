@@ -24,7 +24,7 @@ Tres secciones:
 - **Desde tus fuentes** — todo tu feed de Reader, rankeado por relevancia
 
 Cada card tiene:
-- Botones **Sí/No** siempre visibles (collapsed y expanded). Cuando se expande el artículo, se mueven abajo
+- Botones **Sí/No** siempre visibles (collapsed y expanded). Persisten visualmente al recargar. Cuando se expande el artículo, se mueven abajo
 - Botón **Leer** para contenido inline (Reader API o scraping)
 - Botón **Compartir** (visible al expandir) genera texto listo para LinkedIn/X con tono Jorge Galindo + link. Copy-paste directo
 - **Marcar resto como No** al final de la página: marca todos los no marcados como No de golpe
@@ -79,8 +79,8 @@ Desde el iPad u otro dispositivo en la misma red, abre la IP local que muestra a
 
 ## Ciclo diario
 
-1. **Madrugada**: `nightly.sh` ejecuta todo el ciclo + auto-commit + push → Render redeploy
-2. **Durante el día**: lees desde readerme, marcas Sí/No, compartes lo bueno
+1. **Madrugada**: GitHub Action ejecuta nightly (curación mundo + españa + polls + markets) → commit + push → Render redeploy
+2. **Durante el día**: lees desde readerme, marcas Sí/No, compartes lo bueno. El feedback persiste visualmente al recargar la página
 3. **Siguiente madrugada**: repite
 
 ## Ranking: cómo funciona
@@ -96,7 +96,7 @@ Desde el iPad u otro dispositivo en la misma red, abre la IP local que muestra a
 - Hosted en **Render** (auto-deploy desde `main` en GitHub)
 - `Procfile`: `web: gunicorn server:app --bind 0.0.0.0:$PORT`
 - `runtime.txt`: Python 3.13.1
-- `nightly.sh` se ejecuta localmente (launchd/cron) y pushea datos a `main` → Render redeploy
+- **GitHub Actions** (`.github/workflows/nightly.yml`): cron a las 4:00 AM Madrid → curación mundo + españa + polls + markets + commit + push → Render redeploy automático
 
 ## Stack
 
@@ -104,7 +104,7 @@ Desde el iPad u otro dispositivo en la misma red, abre la IP local que muestra a
 - Flask + Gunicorn (servidor)
 - Anthropic API / Claude Sonnet (curación, briefing, compartir)
 - Readwise Reader API (fuente de lectura, bidireccional)
-- DuckDuckGo (búsqueda web para abundance)
+- DuckDuckGo (búsqueda web para abundance — queries rotativas por fuente/tema/geografía)
 - edge-tts (text-to-speech para briefing, gratis, sin API key)
 - Chart.js (gráficos de encuestas y mercados)
 - Polymarket CLOB API (mercados de predicción)
@@ -122,14 +122,16 @@ readerme/
 ├── polls.py        # encuestas electorales (colmenadedatos → Datawrapper CSV)
 ├── markets.py      # Polymarket prediction markets
 ├── nightly.py      # ciclo nocturno (feedback + re-curación mundo + españa)
-├── nightly.sh      # wrapper bash: nightly + git push (para launchd/cron)
 ├── server.py       # Flask: páginas + API (content, scrape, feedback, share, audio)
+├── .github/
+│   └── workflows/
+│       └── nightly.yml  # GitHub Action: cron 4AM Madrid, curación + push
 ├── templates/
 │   ├── index.html  # página Mundo
 │   └── espana.html # página España (charts, audio, radar)
 ├── static/
 │   └── style.css   # Roboto Mono Light, responsive, dark mode
-├── data/           # cache, feedback, scores, audio (committed via nightly.sh)
+├── data/           # cache, feedback, scores, audio (committed via GitHub Actions)
 ├── Procfile        # Render web process
 ├── runtime.txt     # Python version for Render
 ├── requirements.txt

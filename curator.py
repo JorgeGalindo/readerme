@@ -1,7 +1,6 @@
 """Claude-powered content curation: profile building + article ranking."""
 
 import json
-import os
 import pathlib
 import re
 
