@@ -1,52 +1,52 @@
 {
-  "generated_at": "2026-04-11T02:00:42.698206+00:00",
-  "article_count_total": 47,
+  "generated_at": "2026-04-12T04:51:37.219891+00:00",
+  "article_count_total": 26,
   "thinktank": [
     {
-      "title": "What if local control can actually solve the housing crisis?",
-      "source_url": "https://www.noahpinion.blog/p/what-if-local-control-can-actually",
-      "site_name": "Noah Smith",
-      "reason": "Propuesta innovadora control hiperlocal vivienda",
-      "tag": "vivienda"
-    },
-    {
-      "title": "Claude for Word integration in beta",
+      "title": "Enterprise AI adoption slowing due to model performance degradation",
       "source_url": "",
-      "site_name": "Claude",
-      "reason": "IA integrada herramientas productividad mainstream",
+      "site_name": "Alex Imas",
+      "reason": "Degradación modelos IA frena adopción empresarial",
       "tag": "IA"
     },
     {
-      "title": "How severe is China's growth slowdown (in historical perspective)?",
-      "source_url": "https://branko2f7.substack.com/p/how-severe-is-chinas-growth-slowdown",
-      "site_name": "Branko Milanovic",
-      "reason": "Análisis histórico desaceleración crecimiento chino",
-      "tag": "economía"
+      "title": "Statistical myths in public discourse: maternal mortality case study",
+      "source_url": "",
+      "site_name": "Saloni",
+      "reason": "Datos falsos dominan debates públicos importantes",
+      "tag": "metodología"
     },
     {
-      "title": "China and Taiwan populations drifting apart - three decades of survey data",
-      "source_url": "https://buff.ly/mCUEMLD",
-      "site_name": "The Diplomat",
-      "reason": "Datos longitudinales divergencia identitaria Taiwan",
-      "tag": "geopolítica"
+      "title": "Housing strain replaces unemployment as Spain's main problem",
+      "source_url": "https://x.com/i/broadcasts/1vJpPrlYPYMJE",
+      "site_name": "POLITICO Europe",
+      "reason": "Vivienda sustituye desempleo como problema principal",
+      "tag": "vivienda"
+    },
+    {
+      "title": "Increasing housing supply reduces rental prices in Germany study",
+      "source_url": "https://www.journals.uchicago.edu/doi/full/10.1086/733977",
+      "site_name": "Juan Luis Jiménez",
+      "reason": "Evidencia causal oferta vivienda reduce alquileres",
+      "tag": "economía"
     }
   ],
   "abundance": [
     {
-      "title": "Microbubbles - Works in Progress Magazine",
-      "source_url": "https://worksinprogress.co/issue/microbubbles/",
+      "title": "Magical systems thinking - Works in Progress Magazine",
+      "source_url": "https://worksinprogress.co/issue/magical-systems-thinking/",
       "site_name": "Works in Progress",
-      "reason": "innovación médica con aplicaciones múltiples",
-      "tag": "tecnología",
-      "snippet": "Microbubbles were first developed to help radiologists read scans. In the late 1960s, doctors at the University of Rochester were using ultrasound to take pictures of heart structures when they made an accidental discovery. When they injected saline into a vein near the heart, their ultrasound image lit up with a cloud of bright signals. The flashes had been created by tiny air bubbles, formed ..."
+      "reason": "crítica al pensamiento sistémico dominante",
+      "tag": "metodología",
+      "snippet": "Systems thinking promises to give us a toolkit to design complex systems that work from the ground up. It fails because it ignores that systems fight back."
     },
     {
-      "title": "Industrial Policy Can Lift Productivity—but Comes With Risks ... - IMF",
-      "source_url": "https://www.imf.org/en/blogs/articles/2025/11/25/industrial-policy-can-lift-productivity-but-comes-with-risks-and-trade-offs",
-      "site_name": "imf.org",
-      "reason": "Política industrial para crecimiento productivo",
-      "tag": "productividad",
-      "snippet": "Industrialpolicy, as it's known, is used for a range of goals, including to boostproductivitygrowth, protect manufacturing jobs, improve self-dependence and the resilience of supply chains, and develop \"infant\" industries to diversify the economy."
+      "title": "How to Implement an Operation Warp Speed for Rare Earths",
+      "source_url": "https://ifp.org/how-to-implement-an-operation-warp-speed-for-rare-earths/",
+      "site_name": "ifp.org",
+      "reason": "Política industrial acelerada para tierras raras",
+      "tag": "política industrial",
+      "snippet": "The success of Operation Warp Speed teaches us how to effectively execute a high-urgency, lightning-speed government initiative. The Warp Speed model can be applied to rare earths by establishing clear, predetermined targets to structure competition and creating incentives for the market to scale production. Investment in rare earths faces compounding uncertainties: volatile prices, Chinese ..."
     },
     {
       "title": "PDFTokyo's Zoning: Built for Density - abundanthousingla.org",
@@ -93,6 +93,23 @@
       "tag": "IA"
     },
     {
+      "id": "01knxxj7fvd2bxwszwkcr6a1p1",
+      "title": "Will Americans want more housing if it looks prettier?",
+      "author": "Noah Smith",
+      "source_url": "https://www.noahpinion.blog/p/will-americans-want-more-housing",
+      "site_name": "noahpinion.blog",
+      "summary": "Maybe a little bit, but I have my doubts.",
+      "word_count": 2037,
+      "reading_time": "8 mins",
+      "published_date": "2026-04-11",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!6gDm!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdf6947b1-4c58-4a9f-ae1e-40ce2806fcfa_5736x3824.jpeg",
+      "score": 88,
+      "reason": "Estética urbana como barrera artificial al crecimiento",
+      "tag": "vivienda"
+    },
+    {
       "id": "01knr8vwz569thgskw3vawkx3p",
       "title": "Differences in AI adoption in Europe and the US: Explanations and implications for productivity growth",
       "author": "VoxEU | CEPR",
@@ -107,6 +124,23 @@
       "image_url": "https://cepr.org/themes/custom/cepr/assets/favicon/apple-touch-icon.png?v=1",
       "score": 87,
       "reason": "Diferencias adopción IA Europa-EEUU productividad",
+      "tag": "IA"
+    },
+    {
+      "id": "01knxcqdv3dh3bw2bp52f70y4a",
+      "title": "The great AI talent migration: Why universities are losing the future of innovation",
+      "author": "VoxEU | CEPR",
+      "source_url": "https://cepr.org/voxeu/columns/great-ai-talent-migration-why-universities-are-losing-future-innovation",
+      "site_name": "CEPR",
+      "summary": "Delivered by PolitePaul service",
+      "word_count": 1884,
+      "reading_time": "8 mins",
+      "published_date": "2026-04-11",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://cepr.org/themes/custom/cepr/assets/favicon/apple-touch-icon.png?v=1",
+      "score": 85,
+      "reason": "Fuga de talento universitario hacia IA privada",
       "tag": "IA"
     },
     {
@@ -142,6 +176,23 @@
       "score": 83,
       "reason": "Demanda insatisfecha infraestructura digital",
       "tag": "tecnología"
+    },
+    {
+      "id": "01knzyz2wta905c875vedcx0gj",
+      "title": "Migration shocks and voting",
+      "author": "VoxEU | CEPR",
+      "source_url": "https://cepr.org/voxeu/columns/migration-shocks-and-voting",
+      "site_name": "CEPR",
+      "summary": "Delivered by PolitePaul service",
+      "word_count": 1473,
+      "reading_time": "6 mins",
+      "published_date": "2026-04-12",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://cepr.org/themes/custom/cepr/assets/favicon/apple-touch-icon.png?v=1",
+      "score": 82,
+      "reason": "Impacto político cuantificado de flujos migratorios",
+      "tag": "migración"
     },
     {
       "id": "01kntxk43eqb00e2rqm48fqgtc",
@@ -193,6 +244,23 @@
       "score": 82,
       "reason": "Crecimiento como motor de igualdad de género",
       "tag": "abundancia"
+    },
+    {
+      "id": "01knxcqx6dwxqca4kweyjxbd43",
+      "title": "PJM Targets 15 Gigawatts of New Power for Data Center Boom",
+      "author": "Naureen S Malik",
+      "source_url": "https://www.bloomberg.com/news/articles/2026-04-10/pjm-targets-15-gigawatts-of-new-power-to-feed-data-center-boom",
+      "site_name": "Bloomberg.com",
+      "summary": "Power transmission lines are suspended from electricity pylons in Kearny, New Jersey, U.S., on Thursday, Aug. 26, 2010. U.S. electrical output rose 6.2 percent to 94,254 gigawatthours from a year earlier during the week ending Aug. 14. About 45 percent of U.S. electricity will come from coal plants and 22 percent from natural gas power facilities this year, according to the Energy Department.",
+      "word_count": 212,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iuuPsd91Usgs/v1/piHJkQ_WoLj1E/-1x-1.jpg",
+      "score": 80,
+      "reason": "Expansión energética masiva para centros de datos",
+      "tag": "energía"
     },
     {
       "id": "01knhwe3qqtpw7xnzads64xktz",
@@ -295,6 +363,23 @@
       "score": 76,
       "reason": "Productividad periodística mediante IA",
       "tag": "productividad"
+    },
+    {
+      "id": "01knykk44dya3cg287208adejp",
+      "title": "“AI polls” are fake polls",
+      "author": "Eli McKown-Dawson",
+      "source_url": "https://www.natesilver.net/p/ai-polls-are-fake-polls",
+      "site_name": "natesilver.net",
+      "summary": "But they might be useful as something else: models.",
+      "word_count": 2697,
+      "reading_time": "11 mins",
+      "published_date": "2026-04-11",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!CwRn!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa0333d66-22e8-41fc-a301-35a37155e7ad_1930x1576.png",
+      "score": 75,
+      "reason": "Modelos IA como nueva metodología de análisis",
+      "tag": "metodología"
     },
     {
       "id": "01kns94dwra48ct4bx4cw24nca",
@@ -414,6 +499,23 @@
       "score": 72,
       "reason": "Aranceles carbono: efectos comerciales",
       "tag": "comercio"
+    },
+    {
+      "id": "01knw9eas2jyfgq07h858p47hw",
+      "title": "Nexo Europa (nº 277) - Cita húngara",
+      "author": "Nacho Alarcón",
+      "source_url": "https://nexoeuropa.substack.com/p/nexo-europa-n-277-cita-hungara",
+      "site_name": "substack.com",
+      "summary": "Las elecciones legislativas húngaras marcan la agenda de esta semana, mientras que las nuevas amenazas de Trump sitúan a la OTAN bajo una alargada sombra",
+      "word_count": 3807,
+      "reading_time": "15 mins",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!x6f8!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2e546e8c-4237-4d2a-9ddd-77223b161292_2048x1366.jpeg",
+      "score": 70,
+      "reason": "Elecciones húngaras y futuro democrático europeo",
+      "tag": "política europea"
     },
     {
       "id": "01knrv0758gr9mh7vaxhff5v78",
@@ -569,6 +671,23 @@
       "tag": "mercado laboral"
     },
     {
+      "id": "01knyfhnkbmm8ga8xv8dzdj50c",
+      "title": "Una crisis larga: el mercado prevé que el crudo no vuelva al nivel preguerra hasta 2030",
+      "author": "Javier Jorrín",
+      "source_url": "https://www.elconfidencial.com/economia/2026-04-11/mercado-teme-petroleo-70-dolares-hasta-2030_4336282/",
+      "site_name": "elconfidencial.com",
+      "summary": "La tregua es tan precaria que los buques todavía no se atreven a atravesar Ormuz. A medida que pasan los días sin una solución, el impacto económico no es lineal, sino exponencial",
+      "word_count": 689,
+      "reading_time": "3 mins",
+      "published_date": "2026-04-11",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://images.ecestaticos.com/e_nORsWb6xpn1Hijp6u_SvXVxNM=/0x0:2272x1515/600x315/filters:fill(white):format(jpg):quality(99):watermark(f.elconfidencial.com/file/bae/eea/fde/baeeeafde1b3229287b0c008f7602058.png,0,275,1)/f.elconfidencial.com/original/2c9/727/123/2c97271233bda60265b8d904956b710d.jpg",
+      "score": 65,
+      "reason": "Persistencia estructural de crisis energética global",
+      "tag": "energía"
+    },
+    {
       "id": "01kntttz5vs6f52ac05vqf1ykz",
       "title": "When and why political leaders polarise rhetoric: Evidence from Twitter/X",
       "author": "VoxEU | CEPR",
@@ -705,6 +824,23 @@
       "tag": "migración"
     },
     {
+      "id": "01knxcqf1p7c2kbcx0g312sm13",
+      "title": "Las bolsas disparan la riqueza financiera a ritmo de burbuja y agudizan la desigualdad",
+      "author": "Javier Jorrín",
+      "source_url": "https://www.elconfidencial.com/economia/2026-04-11/riqueza-financiera-hogares-deudas-vivienda_4336140/",
+      "site_name": "elconfidencial.com",
+      "summary": "El patrimonio financiero aumentó en 261.000 millones en 2025. La ola de subidas en el mercado fue muy rentable para quienes pudieron surfearla, pero quienes no tenían inversiones se han visto 'engullidos'",
+      "word_count": 1117,
+      "reading_time": "5 mins",
+      "published_date": "2026-04-11",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://images.ecestaticos.com/e_nORsWb6xpn1Hijp6u_SvXVxNM=/0x0:2272x1515/600x315/filters:fill(white):format(jpg):quality(99):watermark(f.elconfidencial.com/file/bae/eea/fde/baeeeafde1b3229287b0c008f7602058.png,0,275,1)/f.elconfidencial.com/original/2c9/727/123/2c97271233bda60265b8d904956b710d.jpg",
+      "score": 62,
+      "reason": "Concentración de riqueza financiera y desigualdad",
+      "tag": "desigualdad"
+    },
+    {
       "id": "01knj01mj6dths8nyhd8hte9js",
       "title": "A Gender Quota for Top Executives: Diversity without Disruption -- by David A. Matsa, Amalia R. Miller",
       "author": "National Bureau of Economic Research Working Papers",
@@ -771,6 +907,23 @@
       "score": 60,
       "reason": "Regulación energética y supervisión parlamentaria",
       "tag": "energía"
+    },
+    {
+      "id": "01knw317xg2dvqg69t06yt7bfk",
+      "title": "Could AI chatbots undo the harms of social media? | FT",
+      "author": "Financial Times",
+      "source_url": "https://www.youtube.com/watch?v=wja4dTU_1L8",
+      "site_name": "YouTube",
+      "summary": "From the Arab Spring uprisings to the ongoing electoral gains of the radical right and left to the rise of anti-science sentiment, the past 15 years have been characterised by waves of populism, polarisation and an erosion of trust in experts, expertise and the establishment.\n\nMany factors contribute to these trends, but, as I have previously argued, a key one is the dramatic change in our information environment brought about by the rise of social media, the FT's John Burn-Murdoch explains.\n\n► Enjoying FT content? Get a daily slice of the very best FT journalism with FT Edit. Free for 30 days then just £4.99 a month\n\nSee if you get the FT for free as a student (http://ft.com/schoolsarefree) or start a £1 trial: https://subs.ft.com/spa3_trial?segmentId=3d4ba81b-96bb-cef0-9ece-29efd6ef2132.\n\n► Check out our Community tab for more stories: https://www.youtube.com/@FinancialTimes/community\n►  Listen to our podcasts: https://www.ft.com/podcasts\n►  Follow us on Instagram: https://www.instagram.com/financialtimes\n►  Follow us on Instagram: https://www.tiktok.com/@financialtimes",
+      "word_count": null,
+      "reading_time": null,
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://i.ytimg.com/vi/wja4dTU_1L8/sddefault.jpg",
+      "score": 58,
+      "reason": "IA como antídoto a polarización social",
+      "tag": "IA"
     },
     {
       "id": "01knr8vgwfassyxem4gjkfsns2",
@@ -1317,23 +1470,6 @@
       "tag": "cultura"
     },
     {
-      "id": "01knw9eas2jyfgq07h858p47hw",
-      "title": "Nexo Europa (nº 277) - Cita húngara",
-      "author": "Nacho Alarcón",
-      "source_url": "https://nexoeuropa.substack.com/p/nexo-europa-n-277-cita-hungara",
-      "site_name": "substack.com",
-      "summary": "Las elecciones legislativas húngaras marcan la agenda de esta semana, mientras que las nuevas amenazas de Trump sitúan a la OTAN bajo una alargada sombra",
-      "word_count": 3807,
-      "reading_time": "15 mins",
-      "published_date": "2026-04-10",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://substackcdn.com/image/fetch/$s_!x6f8!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2e546e8c-4237-4d2a-9ddd-77223b161292_2048x1366.jpeg",
-      "score": 44,
-      "reason": "Elecciones húngaras agenda europea",
-      "tag": "política europea"
-    },
-    {
       "id": "01knhh3bztaawg2n39hjrvg7d1",
       "title": "My (uninformed and completely speculative) theory about Jeff Bezos and the Washington Post",
       "author": "Andrew",
@@ -1399,6 +1535,23 @@
       "image_url": "https://www.nber.org/favicon.ico",
       "score": 43,
       "reason": "Selección adversarial en instituciones",
+      "tag": "metodología"
+    },
+    {
+      "id": "01knybs1jb8j665qjvyg7jysem",
+      "title": "Here’s a story from Australia:  There were so many problems with the survey that the government didn’t release the data.",
+      "author": "Andrew",
+      "source_url": "https://statmodeling.stat.columbia.edu/2026/04/11/heres-an-interesting-story-there-were-so-many-problems-with-the-survey-that-the-government-didnt-release-the-data/",
+      "site_name": "columbia.edu",
+      "summary": "From the Australian Bureau of Statistics: On 17 July 2025 the Australian Bureau of Statistics (ABS) announced that it will not release statistics from the 2023-24 Survey of Income and Housing (SIH), noting that the data did not meet the … Continue reading →",
+      "word_count": 711,
+      "reading_time": "3 mins",
+      "published_date": "2026-04-11",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://statmodeling.stat.columbia.edu/favicon.ico",
+      "score": 42,
+      "reason": "Fallos metodológicos en encuestas gubernamentales",
       "tag": "metodología"
     },
     {
@@ -1504,6 +1657,23 @@
       "tag": "medios"
     },
     {
+      "id": "01knytrb4bqmpkbd23dv8z1xnq",
+      "title": "Las Antípodas",
+      "author": "Miguel García Álvarez",
+      "source_url": "https://newsletter.mapasmilhaud.com/p/las-antipodas",
+      "site_name": "mapasmilhaud.com",
+      "summary": "Dos mil años especulando sobre el otro lado del mundo: geometría griega, fábula medieval y precisión moderna.",
+      "word_count": 1956,
+      "reading_time": "8 mins",
+      "published_date": "2026-04-11",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!hFmH!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd4bd694d-cdf4-4336-9d76-55a6e5030051_4096x2579.jpeg",
+      "score": 38,
+      "reason": "Historia geográfica de exploración mundial",
+      "tag": "cultura"
+    },
+    {
       "id": "01knrvc71cyvtsrvzd41w04y4d",
       "title": "How ‘Zombie Flow’ Took Over Culture",
       "author": "Derek Thompson",
@@ -1553,6 +1723,23 @@
       "score": 36,
       "reason": "Comunistas Kerala modelo desarrollo",
       "tag": "política europea"
+    },
+    {
+      "id": "01knvr4pkc5w46a6v0876hzb2k",
+      "title": "The internet of poop",
+      "author": "Andrew",
+      "source_url": "https://statmodeling.stat.columbia.edu/2026/04/10/the-internet-of-poop/",
+      "site_name": "columbia.edu",
+      "summary": "This is a funny story. Who are these customers who would pay $600 + $6.99/month to have toilet cam photos uploaded to a consumer-products company? I mean, I get it that Google’s grabbing all sorts of information on me right … Continue reading →",
+      "word_count": 173,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://statmodeling.stat.columbia.edu/favicon.ico",
+      "score": 35,
+      "reason": "Absurdo tecnológico y mercados nicho extraños",
+      "tag": "tecnología"
     },
     {
       "id": "01knrvz1eyecb3vjz1tnz6125d",
@@ -1621,6 +1808,23 @@
       "score": 33,
       "reason": "ITER necesita expertise ruso",
       "tag": "energía"
+    },
+    {
+      "id": "01knwq0bxn0cj1dzgdpdt0e9wd",
+      "title": "The girlboss was never a feminist ideal",
+      "author": "Halina Bennet",
+      "source_url": "https://www.slowboring.com/p/the-girlboss-was-never-a-feminist",
+      "site_name": "slowboring.com",
+      "summary": "The 2010s turned an eBay hustler into a symbol of corporate feminism she never set out to represent.",
+      "word_count": 57,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!CuoM!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffca884d8-e89b-4b64-88aa-cd7318f334cb_1000x667.jpeg",
+      "score": 32,
+      "reason": "Evolución narrativa del feminismo corporativo",
+      "tag": "cultura"
     },
     {
       "id": "01knr8vgqjr2mhay5fcv12fydg",
@@ -1708,6 +1912,23 @@
       "tag": "mercado laboral"
     },
     {
+      "id": "01knz9xfzpkkptk29j6w6xkynv",
+      "title": "“The FTC does not have our backs, that much is clear”",
+      "author": "Andrew",
+      "source_url": "https://statmodeling.stat.columbia.edu/2026/04/11/the-ftc-does-not-have-our-backs-that-much-is-clear/",
+      "site_name": "columbia.edu",
+      "summary": "The above line comes from Kaiser Fung in the context of this story, which is horrifying not so much in its details–lots more horrifying things are happening in wars around the world–but in how openly it’s all being done: The … Continue reading →",
+      "word_count": 463,
+      "reading_time": "2 mins",
+      "published_date": "2026-04-11",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://statmodeling.stat.columbia.edu/favicon.ico",
+      "score": 28,
+      "reason": "Crítica regulatoria a protección consumidor",
+      "tag": "regulación"
+    },
+    {
       "id": "01knsv3t9myw196f9vpjexrsfm",
       "title": "Change Lives With Me (Starting with Your Own)",
       "author": "Justin Gary",
@@ -1759,21 +1980,21 @@
       "tag": "regulación"
     },
     {
-      "id": "01knw317xg2dvqg69t06yt7bfk",
-      "title": "Could AI chatbots undo the harms of social media? | FT",
-      "author": "Financial Times",
-      "source_url": "https://www.youtube.com/watch?v=wja4dTU_1L8",
-      "site_name": "YouTube",
-      "summary": "From the Arab Spring uprisings to the ongoing electoral gains of the radical right and left to the rise of anti-science sentiment, the past 15 years have been characterised by waves of populism, polarisation and an erosion of trust in experts, expertise and the establishment.\n\nMany factors contribute to these trends, but, as I have previously argued, a key one is the dramatic change in our information environment brought about by the rise of social media, the FT's John Burn-Murdoch explains.\n\n► Enjoying FT content? Get a daily slice of the very best FT journalism with FT Edit. Free for 30 days then just £4.99 a month\n\nSee if you get the FT for free as a student (http://ft.com/schoolsarefree) or start a £1 trial: https://subs.ft.com/spa3_trial?segmentId=3d4ba81b-96bb-cef0-9ece-29efd6ef2132.\n\n► Check out our Community tab for more stories: https://www.youtube.com/@FinancialTimes/community\n►  Listen to our podcasts: https://www.ft.com/podcasts\n►  Follow us on Instagram: https://www.instagram.com/financialtimes\n►  Follow us on Instagram: https://www.tiktok.com/@financialtimes",
-      "word_count": null,
-      "reading_time": null,
+      "id": "01knvwyb69v07c3bmgjrm56ffa",
+      "title": "Apply for Invisible College 2026",
+      "author": "Ben Southwood",
+      "source_url": "https://www.worksinprogress.news/p/apply-for-invisible-college-2026",
+      "site_name": "worksinprogress.news",
+      "summary": "After two years of success, our residential seminar for 18–22 year olds is returning again",
+      "word_count": 451,
+      "reading_time": "2 mins",
       "published_date": "2026-04-10",
       "category": "rss",
       "location": "feed",
-      "image_url": "https://i.ytimg.com/vi/wja4dTU_1L8/sddefault.jpg",
+      "image_url": "https://substack-post-media.s3.amazonaws.com/public/images/a28cbc4e-0126-469b-8000-0559eb313db4_1200x628.png",
       "score": 25,
-      "reason": "Chatbots IA contrarrestan daños sociales",
-      "tag": "IA"
+      "reason": "Programa educativo alternativo para jóvenes",
+      "tag": "cultura"
     },
     {
       "id": "01knh1twsdh0est5w9d1dyegds",
@@ -1827,21 +2048,21 @@
       "tag": "tecnología"
     },
     {
-      "id": "01knwq0bxn0cj1dzgdpdt0e9wd",
-      "title": "The girlboss was never a feminist ideal",
-      "author": "Halina Bennet",
-      "source_url": "https://www.slowboring.com/p/the-girlboss-was-never-a-feminist",
-      "site_name": "slowboring.com",
-      "summary": "The 2010s turned an eBay hustler into a symbol of corporate feminism she never set out to represent.",
-      "word_count": 57,
-      "reading_time": "1 min",
+      "id": "01knwsneb06t5x8mr0wy5fzfht",
+      "title": "My Latest Dispatch Column And A Quick, Annoyed Response",
+      "author": "Jesse Singal",
+      "source_url": "https://jessesingal.substack.com/p/my-latest-dispatch-column-and-a-quick",
+      "site_name": "substack.com",
+      "summary": "“I am mad at you for being mad at the radical and unpopular policy I chose to champion”",
+      "word_count": 984,
+      "reading_time": "4 mins",
       "published_date": "2026-04-10",
       "category": "rss",
       "location": "feed",
-      "image_url": "https://substackcdn.com/image/fetch/$s_!CuoM!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffca884d8-e89b-4b64-88aa-cd7318f334cb_1000x667.jpeg",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!YMKN!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9b7a70a8-a16a-4552-913c-f4fc7587bcd4_2117x1415.jpeg",
       "score": 22,
-      "reason": "Girlboss nunca fue ideal feminista",
-      "tag": "cultura"
+      "reason": "Debate meta sobre posiciones políticas impopulares",
+      "tag": "medios"
     },
     {
       "id": "01kns7t7j5znk13p35rtwmjcc0",
@@ -1895,21 +2116,21 @@
       "tag": "tecnología"
     },
     {
-      "id": "01knvr4pkc5w46a6v0876hzb2k",
-      "title": "The internet of poop",
-      "author": "Andrew",
-      "source_url": "https://statmodeling.stat.columbia.edu/2026/04/10/the-internet-of-poop/",
-      "site_name": "columbia.edu",
-      "summary": "This is a funny story. Who are these customers who would pay $600 + $6.99/month to have toilet cam photos uploaded to a consumer-products company? I mean, I get it that Google’s grabbing all sorts of information on me right … Continue reading →",
-      "word_count": 173,
+      "id": "01knw9t2d9yd5ksezx8c2feqc4",
+      "title": "Boletín Estadístico. Marzo 2026",
+      "author": "Últimas publicaciones - Publicaciones - Banco de España",
+      "source_url": "https://www.bde.es/wbe/es/publicaciones/informacion-estadistica/boletin-estadistico/marzo-2026.html",
+      "site_name": "Banco de España",
+      "summary": "Banco de España",
+      "word_count": 19,
       "reading_time": "1 min",
       "published_date": "2026-04-10",
       "category": "rss",
       "location": "feed",
-      "image_url": "https://statmodeling.stat.columbia.edu/favicon.ico",
+      "image_url": "https://www.bde.es/f/webbe/INF/assets/images/favicon.ico",
       "score": 18,
-      "reason": "Internet inodoros cámaras consumidores",
-      "tag": "tecnología"
+      "reason": "Datos estadísticos básicos sin análisis",
+      "tag": "datos"
     },
     {
       "id": "01knq5f0j6wh1s1h6pv4xvj3pz",
@@ -1946,21 +2167,21 @@
       "tag": "políticas públicas"
     },
     {
-      "id": "01knvwyb69v07c3bmgjrm56ffa",
-      "title": "Apply for Invisible College 2026",
-      "author": "Ben Southwood",
-      "source_url": "https://www.worksinprogress.news/p/apply-for-invisible-college-2026",
-      "site_name": "worksinprogress.news",
-      "summary": "After two years of success, our residential seminar for 18–22 year olds is returning again",
-      "word_count": 451,
-      "reading_time": "2 mins",
-      "published_date": "2026-04-10",
+      "id": "01knyqycrk1gzdyawqqzw8shks",
+      "title": "Saturday discussion post",
+      "author": "Halina Bennet",
+      "source_url": "https://www.slowboring.com/p/saturday-discussion-post-387",
+      "site_name": "slowboring.com",
+      "summary": "A dollhouse for your Saturday:",
+      "word_count": 7,
+      "reading_time": "1 min",
+      "published_date": "2026-04-11",
       "category": "rss",
       "location": "feed",
-      "image_url": "https://substack-post-media.s3.amazonaws.com/public/images/a28cbc4e-0126-469b-8000-0559eb313db4_1200x628.png",
-      "score": 15,
-      "reason": "Seminario residencial jóvenes talentos",
-      "tag": "políticas públicas"
+      "image_url": "https://substackcdn.com/image/fetch/$s_!G40K!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb53e4aa6-6f7f-4a1a-beea-8707c58ebac1_4306x3229.jpeg",
+      "score": 8,
+      "reason": "Hilo social sin contenido sustantivo",
+      "tag": "medios"
     },
     {
       "id": "01knsj1zyfst3q1vxqvackvgc2",
@@ -2014,6 +2235,23 @@
       "tag": "cultura"
     },
     {
+      "id": "01knx1vfzrvt0jamg1ft1j4474",
+      "title": "Artemis II Is HOME! Here’s What They Did.",
+      "author": "Cleo Abram",
+      "source_url": "https://www.youtube.com/shorts/qtTA9-ZJuro",
+      "site_name": "YouTube",
+      "summary": "Artemis II is officially home safe! These 4 humans went farther from Earth than ever before.\n\nThis is the second of three planned NASA missions to go BACK to the moon, in hopes of eventually establishing a moon colony.\n\nThis mission, Artemis II, is about testing the spacecraft, Orion, during a 10 day trip around earth and the moon while checking the ship’s life support, navigation, communication, and radiation shelter...\n\nTo see more about that, subscribe!\n\n#NASA #space #Artemis #moon #science",
+      "word_count": null,
+      "reading_time": null,
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://i.ytimg.com/vi/qtTA9-ZJuro/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AG2CIACgA-KAgwIABABGFIgYShlMA8=&rs=AOn4CLAb2hhePG4W6RvnfoeTQKrekgGDAQ",
+      "score": 5,
+      "reason": "Misión espacial sin relevancia económica",
+      "tag": "tecnología"
+    },
+    {
       "id": "01knsj1zv82ep70fxd24y2d028",
       "title": "Europeans say ceasefire must include Lebanon | FT #shorts",
       "author": "Financial Times",
@@ -2029,23 +2267,6 @@
       "score": 5,
       "reason": "Alto fuego debe incluir Líbano",
       "tag": "geopolítica"
-    },
-    {
-      "id": "01knw9t2d9yd5ksezx8c2feqc4",
-      "title": "Boletín Estadístico. Marzo 2026",
-      "author": "Últimas publicaciones - Publicaciones - Banco de España",
-      "source_url": "https://www.bde.es/wbe/es/publicaciones/informacion-estadistica/boletin-estadistico/marzo-2026.html",
-      "site_name": "Banco de España",
-      "summary": "Banco de España",
-      "word_count": 19,
-      "reading_time": "1 min",
-      "published_date": "2026-04-10",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://www.bde.es/f/webbe/INF/assets/images/favicon.ico",
-      "score": 4,
-      "reason": "Boletín estadístico Banco España",
-      "tag": "datos"
     },
     {
       "id": "01knq7tsmmk25k0jsq67m6md5c",
@@ -2065,6 +2286,23 @@
       "tag": "medios"
     },
     {
+      "id": "01knw317z7cse6750xdmx473cf",
+      "title": "Why the world is watching Hungary’s election | FT #shorts",
+      "author": "Financial Times",
+      "source_url": "https://www.youtube.com/shorts/gy5gI1PWS9o",
+      "site_name": "YouTube",
+      "summary": "Hungary is preparing for one of the country’s closest elections since Viktor Orbán swept to power almost 16 years ago. John Reed explains what’s at stake.\n\n#hungary #hungaryeurope #elections #orbán #politics #europe \n#shortsvideo #shortfeed #shorts #shortsviral #shortsyoutube #shortsvideos\n\n► Enjoying FT content? Get a daily slice of the very best FT journalism with FT Edit. Free for 30 days then just £4.99 a month\n\nSee if you get the FT for free as a student (http://ft.com/schoolsarefree) or start a £1 trial: https://subs.ft.com/spa3_trial?segmentId=3d4ba81b-96bb-cef0-9ece-29efd6ef2132.\n\n► Check out our Community tab for more stories: https://www.youtube.com/@FinancialTimes/community\n►  Listen to our podcasts: https://www.ft.com/podcasts\n►  Follow us on Instagram: https://www.instagram.com/financialtimes\n►  Follow us on Instagram: https://www.tiktok.com/@financialtimes",
+      "word_count": null,
+      "reading_time": null,
+      "published_date": "2026-04-09",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://i.ytimg.com/vi/gy5gI1PWS9o/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AG2CIACgA-KAgwIABABGEkgYShlMA8=&rs=AOn4CLCrw2HI30CBr5wLF6lrEJILH816bA",
+      "score": 3,
+      "reason": "Cobertura electoral superficial húngara",
+      "tag": "política europea"
+    },
+    {
       "id": "01knt540a4yjjwd4awdgqr69ke",
       "title": "Thursday discussion post",
       "author": "Halina Bennet",
@@ -2082,38 +2320,21 @@
       "tag": "políticas públicas"
     },
     {
-      "id": "01knwsneb06t5x8mr0wy5fzfht",
-      "title": "My Latest Dispatch Column And A Quick, Annoyed Response",
-      "author": "Jesse Singal",
-      "source_url": "https://jessesingal.substack.com/p/my-latest-dispatch-column-and-a-quick",
-      "site_name": "substack.com",
-      "summary": "“I am mad at you for being mad at the radical and unpopular policy I chose to champion”",
-      "word_count": 984,
-      "reading_time": "4 mins",
-      "published_date": "2026-04-10",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://substackcdn.com/image/fetch/$s_!YMKN!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9b7a70a8-a16a-4552-913c-f4fc7587bcd4_2117x1415.jpeg",
-      "score": 2,
-      "reason": "Respuesta molesta columna Dispatch",
-      "tag": "medios"
-    },
-    {
-      "id": "01knx1vfzrvt0jamg1ft1j4474",
-      "title": "Artemis II Is HOME! Here’s What They Did.",
-      "author": "Cleo Abram",
-      "source_url": "https://www.youtube.com/shorts/qtTA9-ZJuro",
+      "id": "01knw317ttqee20bn3q65badwe",
+      "title": "How the Middle East conflict is affecting Japan's economy | FT #shorts",
+      "author": "Financial Times",
+      "source_url": "https://www.youtube.com/shorts/Lu-jmvHOtt0",
       "site_name": "YouTube",
-      "summary": "Artemis II is officially home safe! These 4 humans went farther from Earth than ever before.\n\nThis is the second of three planned NASA missions to go BACK to the moon, in hopes of eventually establishing a moon colony.\n\nThis mission, Artemis II, is about testing the spacecraft, Orion, during a 10 day trip around earth and the moon while checking the ship’s life support, navigation, communication, and radiation shelter...\n\nTo see more about that, subscribe!\n\n#NASA #space #Artemis #moon #science",
+      "summary": "The ongoing conflict in the Middle East is creating significant economic challenges for Japan by disrupting energy supplies and impacting domestic businesses, the FT’s Harry Dempsey explains.⁠\n\n#shortfeed #shortsviral #shortsvideo #shortsyoutube #usiranwar #japan #economy \n\n► Enjoying FT content? Get a daily slice of the very best FT journalism with FT Edit. Free for 30 days then just £4.99 a month\n\nSee if you get the FT for free as a student (http://ft.com/schoolsarefree) or start a £1 trial: https://subs.ft.com/spa3_trial?segmentId=3d4ba81b-96bb-cef0-9ece-29efd6ef2132.\n\n► Check out our Community tab for more stories: https://www.youtube.com/@FinancialTimes/community\n►  Listen to our podcasts: https://www.ft.com/podcasts\n►  Follow us on Instagram: https://www.instagram.com/financialtimes\n►  Follow us on Instagram: https://www.tiktok.com/@financialtimes",
       "word_count": null,
       "reading_time": null,
       "published_date": "2026-04-10",
       "category": "rss",
       "location": "feed",
-      "image_url": "https://i.ytimg.com/vi/qtTA9-ZJuro/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AG2CIACgA-KAgwIABABGFIgYShlMA8=&rs=AOn4CLAb2hhePG4W6RvnfoeTQKrekgGDAQ",
+      "image_url": "https://i.ytimg.com/vi/Lu-jmvHOtt0/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AG2CIACgA-KAgwIABABGGUgUChDMA8=&rs=AOn4CLDBNtqLo4wXw8Hi2tPSKqcS3jZNNA",
       "score": 2,
-      "reason": "Artemis II regreso exitoso",
-      "tag": "tecnología"
+      "reason": "Impacto económico puntual y limitado",
+      "tag": "geopolítica"
     },
     {
       "id": "01knn09e3cv9vh8qx64sb8h29m",
@@ -2133,40 +2354,6 @@
       "tag": "medios"
     },
     {
-      "id": "01knw317z7cse6750xdmx473cf",
-      "title": "Why the world is watching Hungary’s election | FT #shorts",
-      "author": "Financial Times",
-      "source_url": "https://www.youtube.com/shorts/gy5gI1PWS9o",
-      "site_name": "YouTube",
-      "summary": "Hungary is preparing for one of the country’s closest elections since Viktor Orbán swept to power almost 16 years ago. John Reed explains what’s at stake.\n\n#hungary #hungaryeurope #elections #orbán #politics #europe \n#shortsvideo #shortfeed #shorts #shortsviral #shortsyoutube #shortsvideos\n\n► Enjoying FT content? Get a daily slice of the very best FT journalism with FT Edit. Free for 30 days then just £4.99 a month\n\nSee if you get the FT for free as a student (http://ft.com/schoolsarefree) or start a £1 trial: https://subs.ft.com/spa3_trial?segmentId=3d4ba81b-96bb-cef0-9ece-29efd6ef2132.\n\n► Check out our Community tab for more stories: https://www.youtube.com/@FinancialTimes/community\n►  Listen to our podcasts: https://www.ft.com/podcasts\n►  Follow us on Instagram: https://www.instagram.com/financialtimes\n►  Follow us on Instagram: https://www.tiktok.com/@financialtimes",
-      "word_count": null,
-      "reading_time": null,
-      "published_date": "2026-04-09",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://i.ytimg.com/vi/gy5gI1PWS9o/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AG2CIACgA-KAgwIABABGEkgYShlMA8=&rs=AOn4CLCrw2HI30CBr5wLF6lrEJILH816bA",
-      "score": 1,
-      "reason": "Elecciones Hungría observación mundial",
-      "tag": "política europea"
-    },
-    {
-      "id": "01knw317ttqee20bn3q65badwe",
-      "title": "How the Middle East conflict is affecting Japan's economy | FT #shorts",
-      "author": "Financial Times",
-      "source_url": "https://www.youtube.com/shorts/Lu-jmvHOtt0",
-      "site_name": "YouTube",
-      "summary": "The ongoing conflict in the Middle East is creating significant economic challenges for Japan by disrupting energy supplies and impacting domestic businesses, the FT’s Harry Dempsey explains.⁠\n\n#shortfeed #shortsviral #shortsvideo #shortsyoutube #usiranwar #japan #economy \n\n► Enjoying FT content? Get a daily slice of the very best FT journalism with FT Edit. Free for 30 days then just £4.99 a month\n\nSee if you get the FT for free as a student (http://ft.com/schoolsarefree) or start a £1 trial: https://subs.ft.com/spa3_trial?segmentId=3d4ba81b-96bb-cef0-9ece-29efd6ef2132.\n\n► Check out our Community tab for more stories: https://www.youtube.com/@FinancialTimes/community\n►  Listen to our podcasts: https://www.ft.com/podcasts\n►  Follow us on Instagram: https://www.instagram.com/financialtimes\n►  Follow us on Instagram: https://www.tiktok.com/@financialtimes",
-      "word_count": null,
-      "reading_time": null,
-      "published_date": "2026-04-10",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://i.ytimg.com/vi/Lu-jmvHOtt0/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AG2CIACgA-KAgwIABABGGUgUChDMA8=&rs=AOn4CLDBNtqLo4wXw8Hi2tPSKqcS3jZNNA",
-      "score": 1,
-      "reason": "Conflicto Medio Oriente economía Japón",
-      "tag": "geopolítica"
-    },
-    {
       "id": "01knvth74azq0yyk2ycjjwv7kg",
       "title": "What Time Is It In Antarctica?",
       "author": "Cleo Abram",
@@ -2180,8 +2367,8 @@
       "location": "feed",
       "image_url": "https://i.ytimg.com/vi/Hsz5zpoS2Uo/sddefault.jpg?sqp=-oaymwEoCIAFEOAD8quKqQMcGADwAQH4AbYIgAKAD4oCDAgAEAEYPyBYKHIwDw==&rs=AOn4CLBBz7Y4DZpvKWq-oDYOgi1LdVXhuQ",
       "score": 1,
-      "reason": "Husos horarios Antártida",
-      "tag": "tecnología"
+      "reason": "Curiosidad geográfica sin aplicación práctica",
+      "tag": "cultura"
     }
   ]
 }
