@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-04-12T04:51:37.219891+00:00",
-  "article_count_total": 26,
+  "generated_at": "2026-04-13T05:19:20.213057+00:00",
+  "article_count_total": 41,
   "thinktank": [
     {
-      "title": "Enterprise AI adoption slowing due to model performance degradation",
-      "source_url": "",
-      "site_name": "Alex Imas",
-      "reason": "Degradación modelos IA frena adopción empresarial",
-      "tag": "IA"
-    },
-    {
-      "title": "Statistical myths in public discourse: maternal mortality case study",
-      "source_url": "",
-      "site_name": "Saloni",
-      "reason": "Datos falsos dominan debates públicos importantes",
-      "tag": "metodología"
-    },
-    {
-      "title": "Housing strain replaces unemployment as Spain's main problem",
-      "source_url": "https://x.com/i/broadcasts/1vJpPrlYPYMJE",
-      "site_name": "POLITICO Europe",
-      "reason": "Vivienda sustituye desempleo como problema principal",
+      "title": "Evidencia causal: aumentar oferta de vivienda reduce precios de alquiler en Alemania",
+      "source_url": "https://www.journals.uchicago.edu/doi/full/10.1086/733977",
+      "site_name": "@JuanLuis_JG",
+      "reason": "Estimaciones causales oferta-precios vivienda",
       "tag": "vivienda"
     },
     {
-      "title": "Increasing housing supply reduces rental prices in Germany study",
-      "source_url": "https://www.journals.uchicago.edu/doi/full/10.1086/733977",
-      "site_name": "Juan Luis Jiménez",
-      "reason": "Evidencia causal oferta vivienda reduce alquileres",
-      "tag": "economía"
+      "title": "Degradación del rendimiento de modelos de IA ralentizará adopción empresarial",
+      "source_url": "",
+      "site_name": "@alexolegimas",
+      "reason": "Regresión modelos IA frena adopción",
+      "tag": "IA"
+    },
+    {
+      "title": "Debates públicos se basan en estadísticas que no son reales - ejemplo mortalidad materna",
+      "source_url": "",
+      "site_name": "@salonium",
+      "reason": "Estadísticas falsas en debates públicos",
+      "tag": "datos"
+    },
+    {
+      "title": "UE debe integrar más su mercado único o se desintegrará",
+      "source_url": "",
+      "site_name": "@POLITICOEurope",
+      "reason": "Integración o desintegración mercado único",
+      "tag": "política europea"
     }
   ],
   "abundance": [
     {
-      "title": "Magical systems thinking - Works in Progress Magazine",
-      "source_url": "https://worksinprogress.co/issue/magical-systems-thinking/",
+      "title": "Issue 17 | Works in Progress",
+      "source_url": "https://worksinprogress.co/issue-17/",
       "site_name": "Works in Progress",
-      "reason": "crítica al pensamiento sistémico dominante",
-      "tag": "metodología",
-      "snippet": "Systems thinking promises to give us a toolkit to design complex systems that work from the ground up. It fails because it ignores that systems fight back."
+      "reason": "alternativas sintéticas para experimentación animal",
+      "tag": "tecnología",
+      "snippet": "Works in Progress Website Horses bled for antivenom, crabs drained for endotoxin tests, and silkworms boiled for silk. Science can now replace these practices with synthetic alternatives — but we need to find ways to scale them."
     },
     {
-      "title": "How to Implement an Operation Warp Speed for Rare Earths",
-      "source_url": "https://ifp.org/how-to-implement-an-operation-warp-speed-for-rare-earths/",
-      "site_name": "ifp.org",
-      "reason": "Política industrial acelerada para tierras raras",
-      "tag": "política industrial",
-      "snippet": "The success of Operation Warp Speed teaches us how to effectively execute a high-urgency, lightning-speed government initiative. The Warp Speed model can be applied to rare earths by establishing clear, predetermined targets to structure competition and creating incentives for the market to scale production. Investment in rare earths faces compounding uncertainties: volatile prices, Chinese ..."
+      "title": "Immigration Policy Solutions to Shortages in Critical Sectors of ... - CSIS",
+      "source_url": "https://www.csis.org/analysis/immigration-policy-solutions-shortages-critical-sectors-us-economy",
+      "site_name": "csis.org",
+      "reason": "inmigración como solución a escasez laboral",
+      "tag": "mercado laboral",
+      "snippet": "Despite the influx of proposals and debate, optimism forimmigrationreformremains unlikely. Rather than address the details ofimmigrationlawreform, this paper explores the current state of the U.S. economy and the role migrants can play. The U.S.labormarket cooled in the first half of 2024, but critical sectors remain badly understaffed."
     },
     {
-      "title": "PDFTokyo's Zoning: Built for Density - abundanthousingla.org",
-      "source_url": "https://abundanthousingla.org/wp-content/uploads/2025/09/From-LA-to-Tokyo_-What-Zoning-Can-Teach-Us-About-Housing-Justice-1.pdf",
-      "site_name": "abundanthousingla.org",
-      "reason": "Zonificación japonesa pro-densidad urbana",
-      "tag": "urbanismo",
-      "snippet": "Lessonsfor Los Angeles The contrast between Los Angeles and Tokyo highlights an important truth: single-familyzoningdoesn't just limithousingsupply, it locks us into inequity, giving a disproportionate amount of influence to those alreadyhousing-secure."
+      "title": "Increasing housing supply | Treasury.gov.au",
+      "source_url": "https://treasury.gov.au/policy-topics/housing/increasing-housing-supply",
+      "site_name": "treasury.gov.au",
+      "reason": "reformas de planning y zoning australianas",
+      "tag": "vivienda",
+      "snippet": "Improvingplanningand zoning In August 2023, National Cabinet agreed to a NationalPlanningReformBlueprint to outlineplanning, zoning, land release and other measures to improvehousingsupplyand affordability. The Blueprint's measures include: updating state, regional, and local strategic plans to reflecthousingsupplytargets"
     }
   ],
   "articles": [
@@ -106,7 +106,7 @@
       "location": "feed",
       "image_url": "https://substackcdn.com/image/fetch/$s_!6gDm!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdf6947b1-4c58-4a9f-ae1e-40ce2806fcfa_5736x3824.jpeg",
       "score": 88,
-      "reason": "Estética urbana como barrera artificial al crecimiento",
+      "reason": "Estética como barrera a la abundancia habitacional",
       "tag": "vivienda"
     },
     {
@@ -124,6 +124,40 @@
       "image_url": "https://cepr.org/themes/custom/cepr/assets/favicon/apple-touch-icon.png?v=1",
       "score": 87,
       "reason": "Diferencias adopción IA Europa-EEUU productividad",
+      "tag": "IA"
+    },
+    {
+      "id": "01kp2jwsj3tj8n57hspek55njc",
+      "title": "Forecasting the Economic Effects of AI -- by Ezra Karger, Otto Kuusela, Jason Abaluck, Kevin A. Bryan, Basil Halperin, Todd R. Jones, Connacher Murphy, Philip Trammell, Matt Reynolds, Dan Mayland, Ria Viswanathan, Ananaya Mittal, Rebecca Ceppas de Castro, Josh Rosenberg, Philip Tetlock",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35046#fromrss",
+      "site_name": "NBER",
+      "summary": "We elicit forecasts of how AI will affect the U.S. economy, comparing the beliefs of five groups: academic economists, employees at AI companies, policy researchers focused on AI, highly accurate forecasters, and the general public. The median respondent in each group expects substantial advances in AI capabilities by 2030, small declines in labor force participation consistent with demographic shifts, and an annual GDP growth rate of 2.5%, which exceeds both the typical medium-run (2.0%) and long-run (1.7%) baseline forecasts from government agencies and private-sector forecasters. Conditional on a “rapid” AI progress scenario, in which AI systems surpass human performance on many cognitive and physical tasks, experts forecast substantial, though not historically unprecedented, economic shifts: annualized GDP growth rising to around 4% and the labor force participation rate falling from its current level of 62% to 55% by 2050, with roughly half of that decline—equivalent to around 10 million lost jobs—attributable to AI. A variance decomposition suggests that expert disagreement about these effects is driven primarily by different beliefs about the economic effects of highly capable AI systems rather than by disagreement about the pace of AI progress. These forecasts map onto notably different policy preferences across groups: experts strongly favor targeted measures such as worker retraining, whereas the general public supports both targeted programs and broader interventions, including a job guarantee and universal basic income.",
+      "word_count": 225,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
+      "score": 85,
+      "reason": "Predicciones expertas sobre impacto económico IA",
+      "tag": "IA"
+    },
+    {
+      "id": "01kp2jwhw3qse3pp1pzb6k9ymx",
+      "title": "Forecasting the Economic Effects of AI -- by Ezra Karger, Otto Kuusela, Jason Abaluck, Kevin A. Bryan, Basil Halperin, Todd R. Jones, Connacher Murphy, Philip Trammell, Matt Reynolds, Dan Mayland, Ria Viswanathan, Ananaya Mittal, Rebecca Ceppas de Castro, Josh Rosenberg, Philip Tetlock",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35046#fromrss",
+      "site_name": "NBER",
+      "summary": "We elicit forecasts of how AI will affect the U.S. economy, comparing the beliefs of five groups: academic economists, employees at AI companies, policy researchers focused on AI, highly accurate forecasters, and the general public. The median respondent in each group expects substantial advances in AI capabilities by 2030, small declines in labor force participation consistent with demographic shifts, and an annual GDP growth rate of 2.5%, which exceeds both the typical medium-run (2.0%) and long-run (1.7%) baseline forecasts from government agencies and private-sector forecasters. Conditional on a “rapid” AI progress scenario, in which AI systems surpass human performance on many cognitive and physical tasks, experts forecast substantial, though not historically unprecedented, economic shifts: annualized GDP growth rising to around 4% and the labor force participation rate falling from its current level of 62% to 55% by 2050, with roughly half of that decline—equivalent to around 10 million lost jobs—attributable to AI. A variance decomposition suggests that expert disagreement about these effects is driven primarily by different beliefs about the economic effects of highly capable AI systems rather than by disagreement about the pace of AI progress. These forecasts map onto notably different policy preferences across groups: experts strongly favor targeted measures such as worker retraining, whereas the general public supports both targeted programs and broader interventions, including a job guarantee and universal basic income.",
+      "word_count": 225,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/sites/default/files/2022-06/NBER-FB-Share-Tile-1200.jpg",
+      "score": 85,
+      "reason": "Predicciones expertas sobre impacto económico IA",
       "tag": "IA"
     },
     {
@@ -191,7 +225,7 @@
       "location": "feed",
       "image_url": "https://cepr.org/themes/custom/cepr/assets/favicon/apple-touch-icon.png?v=1",
       "score": 82,
-      "reason": "Impacto político cuantificado de flujos migratorios",
+      "reason": "Impacto electoral de flujos migratorios",
       "tag": "migración"
     },
     {
@@ -378,7 +412,7 @@
       "location": "feed",
       "image_url": "https://substackcdn.com/image/fetch/$s_!CwRn!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa0333d66-22e8-41fc-a301-35a37155e7ad_1930x1576.png",
       "score": 75,
-      "reason": "Modelos IA como nueva metodología de análisis",
+      "reason": "IA como herramienta metodológica electoral",
       "tag": "metodología"
     },
     {
@@ -465,6 +499,23 @@
       "score": 73,
       "reason": "Adopción empresarial de inteligencia artificial",
       "tag": "IA"
+    },
+    {
+      "id": "01kp2jwskz21dwyjqkqq04mh6m",
+      "title": "Tracking the Credibility Revolution across Fields -- by Paul Goldsmith-Pinkham",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35051#fromrss",
+      "site_name": "NBER",
+      "summary": "How far has the credibility revolution spread beyond applied microeconomics? I update Currie, Kleven, and Zwiers (2020b) using approximately 44,000 papers—31,500 NBER working papers (1982–2025) and 12,300 articles from eleven top economics and finance journals (2011–2024)—measuring mentions of empirical methods through keyword matching. Three findings emerge. First, finance and macro/other fields differ substantially from applied micro in their mention of credibility revolution methods: as of 2024, 63 percent of applied micro papers mention experimental or quasi-experimental methods, compared to 47 percent in finance and 39 percent in macro/other. The current levels in finance and macro/other are comparable to where applied micro was in 2008–2010, though the long-run trajectories may differ. Second, growth outside applied micro is driven overwhelmingly by difference-in-differences; including DiD raises the share of finance papers mentioning any experimental or quasi-experimental method by roughly 55 percent versus 30 percent for applied micro. Other quasi-experimental methods—instrumental variables, regression discontinuity, experiments—have seen far less growth. Third, I document a striking gap between the methods studied in the Journal of Econometrics—where nonparametric estimation and asymptotic theory dominate—and those used by applied researchers, where DiD and identification strategies dominate. Published journal articles confirm these patterns are not artifacts of the NBER sample.",
+      "word_count": 200,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
+      "score": 72,
+      "reason": "Revolución metodológica en ciencias sociales",
+      "tag": "metodología"
     },
     {
       "id": "01knm6ne71zpa4sr8j6hpmhr97",
@@ -684,7 +735,7 @@
       "location": "feed",
       "image_url": "https://images.ecestaticos.com/e_nORsWb6xpn1Hijp6u_SvXVxNM=/0x0:2272x1515/600x315/filters:fill(white):format(jpg):quality(99):watermark(f.elconfidencial.com/file/bae/eea/fde/baeeeafde1b3229287b0c008f7602058.png,0,275,1)/f.elconfidencial.com/original/2c9/727/123/2c97271233bda60265b8d904956b710d.jpg",
       "score": 65,
-      "reason": "Persistencia estructural de crisis energética global",
+      "reason": "Impacto económico crisis energética prolongada",
       "tag": "energía"
     },
     {
@@ -824,6 +875,40 @@
       "tag": "migración"
     },
     {
+      "id": "01kp2jwt0gam6sk3rpg2kf8jwa",
+      "title": "Birthright Citizenship and Youth Crime -- by Leander Andres, Stefan Bauernschuster, Gordon B. Dahl, Helmut Rainer, Simone Schüller",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35070#fromrss",
+      "site_name": "NBER",
+      "summary": "This paper studies the impact of birthright citizenship on youth crime. We leverage a German reform which automatically granted birthright citizenship to eligible immigrant children born in Germany after January 1, 2000 and administrative crime data from three federal states. We find that immigrant youth who acquired citizenship at birth are substantially less likely to engage in criminal activity, with estimates indicating a 70% reduction in crime. These results are particularly relevant in light of ongoing debates in the U.S. about abolishing birthright citizenship. Our findings suggest that inclusive citizenship policies can reduce crime and its associated costs, which in turn could strengthen social cohesion.",
+      "word_count": 105,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
+      "score": 62,
+      "reason": "Ciudadanía automática reduce criminalidad juvenil",
+      "tag": "migración"
+    },
+    {
+      "id": "01kp2jwspw4yzh5pshetrwer29",
+      "title": "Birthright Citizenship and Youth Crime -- by Leander Andres, Stefan Bauernschuster, Gordon B. Dahl, Helmut Rainer, Simone Schüller",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35070#fromrss",
+      "site_name": "NBER",
+      "summary": "This paper studies the impact of birthright citizenship on youth crime. We leverage a German reform which automatically granted birthright citizenship to eligible immigrant children born in Germany after January 1, 2000 and administrative crime data from three federal states. We find that immigrant youth who acquired citizenship at birth are substantially less likely to engage in criminal activity, with estimates indicating a 70% reduction in crime. These results are particularly relevant in light of ongoing debates in the U.S. about abolishing birthright citizenship. Our findings suggest that inclusive citizenship policies can reduce crime and its associated costs, which in turn could strengthen social cohesion.",
+      "word_count": 105,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
+      "score": 62,
+      "reason": "Ciudadanía automática reduce criminalidad juvenil",
+      "tag": "migración"
+    },
+    {
       "id": "01knxcqf1p7c2kbcx0g312sm13",
       "title": "Las bolsas disparan la riqueza financiera a ritmo de burbuja y agudizan la desigualdad",
       "author": "Javier Jorrín",
@@ -892,6 +977,23 @@
       "tag": "comercio"
     },
     {
+      "id": "01kp2jwhtxdb40saf31apr14ge",
+      "title": "Predicted Incrementality by Experimentation (PIE) for Ad Measurement -- by Brett R. Gordon, Robert Moakler, Florian Zettelmeyer",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35044#fromrss",
+      "site_name": "NBER",
+      "summary": "Randomized controlled trials (RCTs) provide the most credible estimates of advertising incrementality but are difficult to scale. We propose Predicted Incrementality by Experimentation (PIE), which reframes ad measurement as a campaign-level prediction problem. PIE uses a sample of RCTs to learn a mapping from campaign features to causal effects, then applies it to campaigns not run as RCTs. Because the RCTs identify the causal effects, PIE can incorporate post-determined features—campaign-level aggregates such as test-group outcomes, exposure rates, and last-click conversions, computed after campaign completion. These metrics reflect the consumer behaviors that generate treatment effects, so they carry predictive information about incrementality even though they would be invalid controls in a causal model. Using 2,226 Meta ad experiments, PIE achieves an out-of-sample R2 = 0.88 for incremental conversions per dollar, compared to R2 = 0.19 for industry-standard 7-day last-click attribution. In a decision-making framework, PIE disagrees with RCT-based decisions in only 8–12% of campaigns, compared to 12–20% for last-click attribution. We conclude that PIE can help scale causal measurement from a limited number of RCTs to a large set of non-experimental campaigns.",
+      "word_count": 181,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/sites/default/files/2022-06/NBER-FB-Share-Tile-1200.jpg",
+      "score": 60,
+      "reason": "Método híbrido para medir efectividad publicitaria",
+      "tag": "metodología"
+    },
+    {
       "id": "01knhyejp9v58q9jyd6e27hd2q",
       "title": "Análisis y valoración de las medidas de regulación energética del RDL 7/2026",
       "author": "Fedea – Fundación de Estudios de Economía Aplicada",
@@ -907,6 +1009,23 @@
       "score": 60,
       "reason": "Regulación energética y supervisión parlamentaria",
       "tag": "energía"
+    },
+    {
+      "id": "01kp25c899xwwbak2yjkwd5z99",
+      "title": "What if a few AI companies end up with all the money and power?",
+      "author": "Noah Smith",
+      "source_url": "https://www.noahpinion.blog/p/what-if-a-few-ai-companies-end-up",
+      "site_name": "noahpinion.blog",
+      "summary": "Contemplating the grim future of the \"Robot Lords\".",
+      "word_count": 900,
+      "reading_time": "4 mins",
+      "published_date": "2026-04-13",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!sQ3E!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8ba172f7-7c6f-4970-9777-3b1b3a6f962d_956x717.jpeg",
+      "score": 58,
+      "reason": "Concentración poder económico era IA",
+      "tag": "IA"
     },
     {
       "id": "01knw317xg2dvqg69t06yt7bfk",
@@ -1079,6 +1198,57 @@
       "tag": "productividad"
     },
     {
+      "id": "01kp2jwsz90xc54806f3nnyphv",
+      "title": "High Schools and the Uneven Rise in American Opportunity -- by Alison Doxey, Ezra Karger, Peter Nencka",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35068#fromrss",
+      "site_name": "NBER",
+      "summary": "Between 1850 and 1910, the share of young Americans living in towns with high schools increased from 17% to 46%—the fastest expansion of school access in U.S. history. Using new data on every high school in the United States, we show that this expansion transformed economic opportunities for many young adults but widened class and racial inequalities. We find sharp increases in school attendance rates for high school-aged children in towns that opened a high school relative to children in nearby towns without one. Linking children to adult outcomes, we show that high schools increased women's labor force participation and job quality, while reducing the probability of early marriage and childbearing. Increased access to high school accounts for a third of the increase in women's labor force participation between 1870 and 1930. High schools had the largest effects on children from already-wealthy families, and did not, on average, benefit Black children. While the high school movement substantially narrowed gender gaps in labor market outcomes, it also widened existing race- and class-based disparities.",
+      "word_count": 172,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
+      "score": 55,
+      "reason": "Expansión educativa como motor oportunidades",
+      "tag": "políticas públicas"
+    },
+    {
+      "id": "01kp2jwsny0bkv7j8dc5qzg8z3",
+      "title": "High Schools and the Uneven Rise in American Opportunity -- by Alison Doxey, Ezra Karger, Peter Nencka",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35068#fromrss",
+      "site_name": "NBER",
+      "summary": "Between 1850 and 1910, the share of young Americans living in towns with high schools increased from 17% to 46%—the fastest expansion of school access in U.S. history. Using new data on every high school in the United States, we show that this expansion transformed economic opportunities for many young adults but widened class and racial inequalities. We find sharp increases in school attendance rates for high school-aged children in towns that opened a high school relative to children in nearby towns without one. Linking children to adult outcomes, we show that high schools increased women's labor force participation and job quality, while reducing the probability of early marriage and childbearing. Increased access to high school accounts for a third of the increase in women's labor force participation between 1870 and 1930. High schools had the largest effects on children from already-wealthy families, and did not, on average, benefit Black children. While the high school movement substantially narrowed gender gaps in labor market outcomes, it also widened existing race- and class-based disparities.",
+      "word_count": 172,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
+      "score": 55,
+      "reason": "Expansión educativa como motor oportunidades",
+      "tag": "políticas públicas"
+    },
+    {
+      "id": "01kp2jwmhbekfg0h3gqqm4sfrm",
+      "title": "High Schools and the Uneven Rise in American Opportunity -- by Alison Doxey, Ezra Karger, Peter Nencka",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35068#fromrss",
+      "site_name": "NBER",
+      "summary": "Between 1850 and 1910, the share of young Americans living in towns with high schools increased from 17% to 46%—the fastest expansion of school access in U.S. history. Using new data on every high school in the United States, we show that this expansion transformed economic opportunities for many young adults but widened class and racial inequalities. We find sharp increases in school attendance rates for high school-aged children in towns that opened a high school relative to children in nearby towns without one. Linking children to adult outcomes, we show that high schools increased women's labor force participation and job quality, while reducing the probability of early marriage and childbearing. Increased access to high school accounts for a third of the increase in women's labor force participation between 1870 and 1930. High schools had the largest effects on children from already-wealthy families, and did not, on average, benefit Black children. While the high school movement substantially narrowed gender gaps in labor market outcomes, it also widened existing race- and class-based disparities.",
+      "word_count": 172,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/sites/default/files/2022-06/NBER-FB-Share-Tile-1200.jpg",
+      "score": 55,
+      "reason": "Expansión educativa como motor oportunidades",
+      "tag": "políticas públicas"
+    },
+    {
       "id": "01knvdp4r5v60r48r2pqba64e2",
       "title": "Most politicians are charming and persuasive in person",
       "author": "Matthew Yglesias",
@@ -1179,6 +1349,23 @@
       "score": 53,
       "reason": "Boom agrícola afecta formación humana",
       "tag": "economía"
+    },
+    {
+      "id": "01kp2jwhx62qjh57dkr7jw8nwy",
+      "title": "Beyond Demo Day: Sorting and Value Added in Startup Accelerators -- by Youn Baek, Deepak Hegde",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35063#fromrss",
+      "site_name": "NBER",
+      "summary": "We study who joins startup accelerators, how founders sort across programs, and which accelerators improve startup outcomes. Using a comprehensive sample of about 750,000 U.S. startups linked to 329 accelerators, we adapt the teacher value-added framework from education economics to estimate accelerator value added (AVA) while accounting for sorting. Selection is systematic: observably better ventures are more likely to enter accelerators and to sort into higher-AVA programs. Yet accelerator performance is highly dispersed. Most accelerators have negative value added relative to a no-accelerator benchmark, while a small right tail generates large gains. High-AVA accelerators predict better long-term outcomes, including acquisition, employment, revenue, and valuation, and are also more likely to accelerate the shutdown of weaker ventures. We validate AVA using internal applicant data from a large U.S. non-equity accelerator.",
+      "word_count": 129,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/sites/default/files/2022-06/NBER-FB-Share-Tile-1200.jpg",
+      "score": 52,
+      "reason": "Selección y valor añadido aceleradoras",
+      "tag": "productividad"
     },
     {
       "id": "01knttrw33fk4n21krt68b4any",
@@ -1283,6 +1470,23 @@
       "tag": "política europea"
     },
     {
+      "id": "01kp2jwsk0nja729gj3ev8jca2",
+      "title": "Identification and Estimation of Labor Supply Elasticities from Kinked Budget Sets -- by Deniz Dutz, Morten Håvarstein, Magne Mogstad, Alexander Torgovitsky",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35047#fromrss",
+      "site_name": "NBER",
+      "summary": "We study the identification of labor supply elasticities from kinked budget sets in a model with income effects and individual heterogeneity in the elasticities. We provide point and partial identification results for compensated elasticities, uncompensated elasticities, and income effects. We use administrative data to apply our results to the Norwegian tax system, which exhibits a kink for the self-employed. There is clear bunching around the kink point, suggesting that the self-employed respond to the change in incentives created by the kink. We find that the bounds are often tight even under weak assumptions. Our results show that uncompensated elasticities are close to zero and compensated elasticities are sufficiently small to conclude that the excess burden of taxation is low.",
+      "word_count": 119,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
+      "score": 50,
+      "reason": "Identificación elasticidades oferta laboral",
+      "tag": "mercado laboral"
+    },
+    {
       "id": "01knsx2b1re27snapt3715p0aa",
       "title": "Even Hungary’s skewed elections might not save Viktor Orban",
       "author": "Graphic detail",
@@ -1332,6 +1536,40 @@
       "score": 49,
       "reason": "Ecosistema tóxico de redes sociales",
       "tag": "medios"
+    },
+    {
+      "id": "01kp2hfvz4c2dx8fgj98j7vrpr",
+      "title": "Las cinco lecciones de la enorme derrota de Orbán",
+      "author": "Ramón González Férriz",
+      "source_url": "https://www.elconfidencial.com/espana/tiempos-dificiles/2026-04-12/derrota-orban-hungria-democracia-nacionalismo-1hms_4336936/",
+      "site_name": "elconfidencial.com",
+      "summary": "El resultado de las elecciones es una gran noticia para Hungría. Pero también ofrece aprendizajes que desmienten algunos lugares comunes que impulsan a la derecha nacionalista y dominan nuestra política",
+      "word_count": 929,
+      "reading_time": "4 mins",
+      "published_date": "2026-04-12",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://images.ecestaticos.com/nN8vFUA9B9ba1n2DQZJgP1eZ-gA=/0x0:2272x1534/600x315/filters:fill(white):format(jpg):quality(99):watermark(f.elconfidencial.com/file/bae/eea/fde/baeeeafde1b3229287b0c008f7602058.png,0,275,1)/f.elconfidencial.com/original/116/c1a/f8f/116c1af8f1fc1bdc7ac512d69f6f6b7b.jpg",
+      "score": 48,
+      "reason": "Derrota electoral del autoritarismo húngaro",
+      "tag": "política europea"
+    },
+    {
+      "id": "01kp229yase4kb6wmeg1mygrd6",
+      "title": "Peter Magyar defeats illiberal hero Viktor Orban in Hungary",
+      "author": "Europe",
+      "source_url": "https://www.economist.com/europe/2026/04/12/peter-magyar-defeats-illiberal-hero-viktor-orban-in-hungary",
+      "site_name": "The Economist",
+      "summary": "The upstart hands the populist a crushing defeat",
+      "word_count": 311,
+      "reading_time": "2 mins",
+      "published_date": "2026-04-12",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.economist.com/favicon.ico",
+      "score": 48,
+      "reason": "Derrota electoral del autoritarismo húngaro",
+      "tag": "política europea"
     },
     {
       "id": "01kns94dqvf1cbwzr8mv0f7cx3",
@@ -1417,6 +1655,23 @@
       "score": 46,
       "reason": "Métodos estadísticos con estimaciones marginales",
       "tag": "metodología"
+    },
+    {
+      "id": "01kp1cshmxr2246fa01crczdey",
+      "title": "The Not So Entrepreneurial State We're In",
+      "author": "Ben Ramanauskas",
+      "source_url": "https://opportunitylost.substack.com/p/the-not-so-entrepreneurial-state",
+      "site_name": "substack.com",
+      "summary": "We need more billionaires and more bankrupts",
+      "word_count": 2476,
+      "reading_time": "10 mins",
+      "published_date": "2026-04-12",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!4tx4!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb6023c29-c857-4baf-941b-0b35b10e0901_832x1248.jpeg",
+      "score": 45,
+      "reason": "Necesidad mayor dinamismo empresarial",
+      "tag": "abundancia"
     },
     {
       "id": "01kns94dk37edw4qf2nnbnfhq9",
@@ -1538,6 +1793,23 @@
       "tag": "metodología"
     },
     {
+      "id": "01kp2jwsqv73m127hn6xm6rmdr",
+      "title": "Risk Preferences and the Willingness to Relocate to Danger: Evidence from Wartime Ukraine -- by Yuriy Gorodnichenko, Marianna Kudlyak, Sophia Lobozynska, Iryna Skomorovych, Ulyana Vladychyn, Andriy Kovalyuk, Iryna Snovydovych",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35072#fromrss",
+      "site_name": "NBER",
+      "summary": "We elicit reservation wage premia for relocating to two Ukrainian cities, using a household survey conducted in mid-April to mid-July 2024 during the Russian invasion of Ukraine: high-risk Kharkiv (near the frontline) and moderate-risk Kyiv. Risk tolerance is a strong predictor of willingness to move to Kharkiv—the most risk-averse have roughly half the odds of the most risk-tolerant—but matters much less for Kyiv. This asymmetry is difficult to reconcile with the hypothesis that risk tolerance merely proxies for general mobility preferences. Separately estimating the elasticity of intertemporal substitution (EIS≈0.04), we find that including it renders risk tolerance insignificant for Kyiv but not for Kharkiv—a pattern illuminated by the Epstein-Zin separation of risk aversion and the EIS: risk aversion adds predictive power only when danger is high, while the EIS operates equally for both cities as a common relocation-cost channel. The very low EIS implies that relocation incentives structured as future benefits may be ineffective; front-loaded subsidies are more likely to influence behavior.",
+      "word_count": 162,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
+      "score": 42,
+      "reason": "Preferencias riesgo en contexto bélico",
+      "tag": "mercado laboral"
+    },
+    {
       "id": "01knybs1jb8j665qjvyg7jysem",
       "title": "Here’s a story from Australia:  There were so many problems with the survey that the government didn’t release the data.",
       "author": "Andrew",
@@ -1551,7 +1823,7 @@
       "location": "feed",
       "image_url": "https://statmodeling.stat.columbia.edu/favicon.ico",
       "score": 42,
-      "reason": "Fallos metodológicos en encuestas gubernamentales",
+      "reason": "Fallos metodológicos en encuestas oficiales",
       "tag": "metodología"
     },
     {
@@ -1604,6 +1876,23 @@
       "score": 41,
       "reason": "Vida trabajador en economía comunista",
       "tag": "cultura"
+    },
+    {
+      "id": "01kp2jwmg3eec71kktfr2akr9s",
+      "title": "Human Capital Markets -- by Jishnu Das, Cauê Dobbin",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35061#fromrss",
+      "site_name": "NBER",
+      "summary": "In many low- and middle-income countries, consumers access education and health services in environments characterized by substantial provider choice. In these settings, a dense landscape of fee-charging private providers has emerged, often located near public facilities and competing for the same clientele. We refer to these environments as human capital markets. This chapter begins by documenting that such markets are now pervasive. We present empirical evidence that human capital markets share many features with conventional product markets: households choose among a wide range of public and private providers with heterogeneous attributes, and providers respond strategically to policy interventions and competitive pressures. We then assess the extent to which canonical models from industrial organization can account for observed behavior, highlighting both their insights and their limitations. Next, we examine the key ways in which human capital markets depart from standard product-market benchmarks—most notably that education and health are both consumption goods and investments, and that quality is often difficult to observe—and review empirical and conceptual approaches developed to address these features. We conclude by outlining the major unresolved questions and promising directions for future research.",
+      "word_count": 184,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/sites/default/files/2022-06/NBER-FB-Share-Tile-1200.jpg",
+      "score": 40,
+      "reason": "Mercados educación salud países desarrollo",
+      "tag": "políticas públicas"
     },
     {
       "id": "01knrvz1hp3bhzyvs11fvj8amw",
@@ -1670,7 +1959,7 @@
       "location": "feed",
       "image_url": "https://substackcdn.com/image/fetch/$s_!hFmH!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd4bd694d-cdf4-4336-9d76-55a6e5030051_4096x2579.jpeg",
       "score": 38,
-      "reason": "Historia geográfica de exploración mundial",
+      "reason": "Historia cartografía y conocimiento geográfico",
       "tag": "cultura"
     },
     {
@@ -1722,6 +2011,23 @@
       "image_url": "https://i.ytimg.com/vi/QJ8AGOrM2Ow/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AHeBIACuAiKAgwIABABGEwgVChlMA8=&rs=AOn4CLCmDMHVobGVVmlCz_FYP88PZAmMvw",
       "score": 36,
       "reason": "Comunistas Kerala modelo desarrollo",
+      "tag": "política europea"
+    },
+    {
+      "id": "01kp0eax2b30y1z2f83ggw1v97",
+      "title": "La línea divisoria más importante en política actualmente.",
+      "author": "Antonio Ortiz",
+      "source_url": "https://causasyazares.substack.com/p/la-linea-divisoria-mas-importante",
+      "site_name": "substack.com",
+      "summary": "Sobre la nueva temporada del IRPF, la fascinante guerra civil entre chimpancés y la tendencia generalizada a identificarse como víctima o “dejado atrás”.",
+      "word_count": 1357,
+      "reading_time": "6 mins",
+      "published_date": "2026-04-12",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!SIMZ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1f684e5c-05ad-40b8-b015-a0d83365c7df_2528x1696.jpeg",
+      "score": 35,
+      "reason": "División política víctimas versus productores",
       "tag": "política europea"
     },
     {
@@ -1808,6 +2114,23 @@
       "score": 33,
       "reason": "ITER necesita expertise ruso",
       "tag": "energía"
+    },
+    {
+      "id": "01kp2jwsh1tgwjspx6pvera0ad",
+      "title": "Bad News and Policy Views: Expectations, Disappointment, and Opposition to Affirmative Action -- by Louis-Pierre Lepage, Heather Sarsons, Michael Thaler",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35045#fromrss",
+      "site_name": "NBER",
+      "summary": "There is widespread opposition to affirmative action policies. We study whether personal disappointments shape preferences for such policies. Specifically, we test whether individuals' college admissions outcomes, relative to their expectations, influence their attitudes toward affirmative action policies. Using a retrospective survey among recent White and Asian college applicants, we find that disappointed individuals—those who were admitted to fewer schools than anticipated—are relatively more likely to believe that affirmative action played an important role in their admissions outcomes, have the lowest support for affirmative action policies, and are more willing to donate to an anti-affirmative action organization. They also hold more negative views about the academic qualifications of under-represented minorities. To isolate the causal effect of \"bad news\" from selection, we conduct a complementary survey experiment with parents of future college applicants. We randomize whether parents receive information about their child's admissions prospects. Providing bad news to overconfident parents causes them to increase opposition to affirmative action and donate to an anti-affirmative action organization. Results suggest that some individuals attribute bad news to external factors, specifically policies that benefit out-groups.",
+      "word_count": 179,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
+      "score": 32,
+      "reason": "Decepción personal forma preferencias políticas",
+      "tag": "políticas públicas"
     },
     {
       "id": "01knwq0bxn0cj1dzgdpdt0e9wd",
@@ -1912,6 +2235,23 @@
       "tag": "mercado laboral"
     },
     {
+      "id": "01kp2fc0np01pj53mrz5vvbrtx",
+      "title": "Why?",
+      "author": "David Weakliem (noreply@blogger.com)",
+      "source_url": "http://justthesocialfacts.blogspot.com/2026/04/why.html",
+      "site_name": "justthesocialfacts.blogspot.com",
+      "summary": "One popular explanation of the rise and survival of Donald Trump is summarized by Senator Elissa Slotkin, who said that some of her constituents tell her \"it’s like I’m a Stage 4 cancer patient. My life has been getting worse, from my grandfather to my father, from my father to me, and my kids are going to do worse than me, so I need experimental chemo. Trump is my experimental chemo.\"  That is, things were getting worse for a long time, under both Democrats and mainstream Republicans, so they got desperate and turned to someone that promised to be completely different.  My last two posts have been directed against this analysis:  most people don't think that their lives have been getting worse, or that they're worse off than their parents.  Then how would I explain the rise and survival of Trump?  His initial success is mostly because of American political institutions.  First, it's possible for an outsider to become the leader of an existing party.  Members of Congress never had any special role in nominations, and state party leaders are weaker than they used to be.   You don't even have to appeal to the voters in general:  the Iowa caucuses and first few primaries have an outsize influence, so there's a good deal of unpredictability in who gets the nomination.  Second, the two party system is extremely strong, probably stronger than anywhere else in the world, and our system of electing the president helps to keep it that way.  Most nations which elect a president have a runoff if no one gets a majority in the first round.  The United States doesn't:  if no candidate gets a majority in the Electoral College, it goes to the House of Representatives.  That means that if a political party nominates a candidate who many members find unacceptable, it doesn't make sense for them to break away and nominate another candidate.  In 1912, the Republicans nominated William Howard Taft, but former President Theodore Roosevelt ran as an independent.  He ran ahead of Taft, ...",
+      "word_count": 809,
+      "reading_time": "4 mins",
+      "published_date": "2026-04-12",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "http://justthesocialfacts.blogspot.com/favicon.ico",
+      "score": 28,
+      "reason": "Explicaciones ascenso Trump y populismo",
+      "tag": "geopolítica"
+    },
+    {
       "id": "01knz9xfzpkkptk29j6w6xkynv",
       "title": "“The FTC does not have our backs, that much is clear”",
       "author": "Andrew",
@@ -1925,7 +2265,7 @@
       "location": "feed",
       "image_url": "https://statmodeling.stat.columbia.edu/favicon.ico",
       "score": 28,
-      "reason": "Crítica regulatoria a protección consumidor",
+      "reason": "Reguladores capturados por intereses privados",
       "tag": "regulación"
     },
     {
@@ -1978,6 +2318,23 @@
       "score": 26,
       "reason": "Regulación de redes sociales como tabaco",
       "tag": "regulación"
+    },
+    {
+      "id": "01kp0xdddsnsm876fbr2g9qpwp",
+      "title": "All graphs are comparisons, and the relevance of this principle to practical advice for producing better graphs",
+      "author": "Andrew",
+      "source_url": "https://statmodeling.stat.columbia.edu/2026/04/12/all-graphs-are-comparisons-and-the-relevance-of-this-principle-for-practical-advice-for-producing-better-graphs/",
+      "site_name": "columbia.edu",
+      "summary": "Following up on this discussion from a few years ago, John Kastellec offers some practical advice for producing better graphs: In this short paper I present a few practical tips for producing better published graphs. These include: making labels big … Continue reading →",
+      "word_count": 479,
+      "reading_time": "2 mins",
+      "published_date": "2026-04-12",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://statmodeling.stat.columbia.edu/favicon.ico",
+      "score": 25,
+      "reason": "Principios diseño gráfico para análisis",
+      "tag": "datos"
     },
     {
       "id": "01knvwyb69v07c3bmgjrm56ffa",
@@ -2048,6 +2405,23 @@
       "tag": "tecnología"
     },
     {
+      "id": "01kp12mxn59yqdmr4kyqw5zqzt",
+      "title": "Considerations for egg freezing: a practical guide",
+      "author": "Ruxandra Teslo",
+      "source_url": "https://www.writingruxandrabio.com/p/considerations-for-egg-freezing-a",
+      "site_name": "writingruxandrabio.com",
+      "summary": "Some additional notes on practical steps towards egg freezing",
+      "word_count": 2514,
+      "reading_time": "10 mins",
+      "published_date": "2026-04-12",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substack-post-media.s3.amazonaws.com/public/images/94aadbd8-2039-4968-a3c3-a76b34e61db5_942x1322.png",
+      "score": 22,
+      "reason": "Guía práctica congelación óvulos",
+      "tag": "demografía"
+    },
+    {
       "id": "01knwsneb06t5x8mr0wy5fzfht",
       "title": "My Latest Dispatch Column And A Quick, Annoyed Response",
       "author": "Jesse Singal",
@@ -2063,6 +2437,23 @@
       "score": 22,
       "reason": "Debate meta sobre posiciones políticas impopulares",
       "tag": "medios"
+    },
+    {
+      "id": "01kp143jkrja7e4axr008xh1qc",
+      "title": "America’s next Fed chair is caught in a vice",
+      "author": "Finance & economics",
+      "source_url": "https://www.economist.com/finance-and-economics/2026/04/12/americas-next-fed-chair-is-caught-in-a-vice",
+      "site_name": "The Economist",
+      "summary": "Inflation was heating up even before the war in Iran",
+      "word_count": 310,
+      "reading_time": "2 mins",
+      "published_date": "2026-04-12",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.economist.com/favicon.ico",
+      "score": 20,
+      "reason": "Presiones inflacionarias en contexto bélico",
+      "tag": "economía"
     },
     {
       "id": "01kns7t7j5znk13p35rtwmjcc0",
@@ -2116,6 +2507,23 @@
       "tag": "tecnología"
     },
     {
+      "id": "01kp2jwm2kmm7z8yrhv99qqymz",
+      "title": "The Impacts of Medicaid's Managed Long-Term Services and Supports on Health Outcomes in Medicare -- by Ajin Lee, Maya Rossin-Slater, Becky Staiger, Amanda Su",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35055#fromrss",
+      "site_name": "NBER",
+      "summary": "An aging US population has raised important questions regarding the organization, delivery, and funding of long-term services and supports (LTSS), prompting many state Medicaid programs to shift from fee-for-service to managed care models for LTSS delivery. We analyze the effects of transitioning to managed LTSS (MLTSS) on health outcomes among dual-eligible Medicare-Medicaid beneficiaries aged 65 and older in Florida and New York. Using Medicare claims data and a differences-in-differences design leveraging county-by-county MLTSS rollouts, we find that MLTSS leads to a 4.2 percent increase in hospitalizations in Florida, but no significant change in New York. Analysis of preventive care suggests that declining flu vaccination rates in Florida may have contributed to increased hospitalizations from respiratory causes. These findings highlight important differences in MLTSS effects across states and underscore the value of Medicare data for measuring health effects in the dual-eligible population.",
+      "word_count": 141,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
+      "score": 18,
+      "reason": "Gestión privada servicios atención dependencia",
+      "tag": "políticas públicas"
+    },
+    {
       "id": "01knw9t2d9yd5ksezx8c2feqc4",
       "title": "Boletín Estadístico. Marzo 2026",
       "author": "Últimas publicaciones - Publicaciones - Banco de España",
@@ -2167,6 +2575,74 @@
       "tag": "políticas públicas"
     },
     {
+      "id": "01kp2jwsy12hx76qrzqy5y0vmv",
+      "title": "Exploring Trends in Severe Maternal Morbidity in the U.S. -- by Pinka Chatterji, Fangning Li, Sara Markowitz",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35062#fromrss",
+      "site_name": "NBER",
+      "summary": "The incidence of severe maternal morbidity (SMM) in the U.S. has been rising among mothers over time, with especially pronounced increases among Black mothers.  In this paper, we examine why this might be happening.  Previous literature takes a limited-scope approach by focusing on select variables as determinants of SMM.  We take a broader approach and evaluate the contributions of a large set of variables over a long time span to let the data inform us what factors may be most influential in determining SMM.  We use inpatient data from 1998-2019 to see how maternal, hospital, and county-level characteristics may be associated with both the rising trends and the racial disparity in SMM.  Decomposition methods show that the observed characteristics explain very little of the overall variation of SMM, but account for a substantial share of the Black-White SMM gap.  Medical and pregnancy-related comorbid conditions are the largest drivers of the observed variations. The associational findings indicate that focusing on patients with comorbid conditions and delving more deeply into the features of hospital environments may help researchers identify policy-relevant drivers of SMM and SMM disparities.",
+      "word_count": 184,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
+      "score": 15,
+      "reason": "Morbilidad materna por grupos étnicos",
+      "tag": "desigualdad"
+    },
+    {
+      "id": "01kp2jwswknnp335q3zx47fw52",
+      "title": "Wellbeing, Youth and Survey Mode: Comparisons across 23 Countries Using Three International Datasets -- by David G. Blanchflower, Alex Bryson",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35058#fromrss",
+      "site_name": "NBER",
+      "summary": "Although there is growing evidence that the subjective wellbeing among the young declined in recent years, the evidence is not consistent across surveys. We examine the relationship between age and various measures of wellbeing and illbeing across three major surveys – the Gallup World Poll (GWP, Global Minds (GM) and the Global Flourishing Survey (GFS). The GWP is conducted via face-to-face and telephone surveys; GM surveys are web-based; and GFS uses both telephone and web-based surveys. We focus on 23 countries appearing in all three surveys.  The clearest evidence that wellbeing rises with age and illbeing declines with age comes from the web-based surveys in both GM and GFS. The age profiles look very different when surveys are conducted by telephone: the higher rates of illbeing among the young are far less apparent in these surveys. Because survey mode is not randomly assigned, we cannot be sure differences in age profiles of wellbeing and illbeing are causally affected by survey mode. Selection into survey mode, both across and within country, plus differential non-response by survey across the age range, may be playing a role. However, the evidence indicates very different age patterns in wellbeing and illbeing emerge across different survey modes.",
+      "word_count": 201,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
+      "score": 12,
+      "reason": "Bienestar juvenil según metodología encuesta",
+      "tag": "metodología"
+    },
+    {
+      "id": "01kp2jwsmx25wkvr0xjsrx3kgd",
+      "title": "Wellbeing, Youth and Survey Mode: Comparisons across 23 Countries Using Three International Datasets -- by David G. Blanchflower, Alex Bryson",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35058#fromrss",
+      "site_name": "NBER",
+      "summary": "Although there is growing evidence that the subjective wellbeing among the young declined in recent years, the evidence is not consistent across surveys. We examine the relationship between age and various measures of wellbeing and illbeing across three major surveys – the Gallup World Poll (GWP, Global Minds (GM) and the Global Flourishing Survey (GFS). The GWP is conducted via face-to-face and telephone surveys; GM surveys are web-based; and GFS uses both telephone and web-based surveys. We focus on 23 countries appearing in all three surveys.  The clearest evidence that wellbeing rises with age and illbeing declines with age comes from the web-based surveys in both GM and GFS. The age profiles look very different when surveys are conducted by telephone: the higher rates of illbeing among the young are far less apparent in these surveys. Because survey mode is not randomly assigned, we cannot be sure differences in age profiles of wellbeing and illbeing are causally affected by survey mode. Selection into survey mode, both across and within country, plus differential non-response by survey across the age range, may be playing a role. However, the evidence indicates very different age patterns in wellbeing and illbeing emerge across different survey modes.",
+      "word_count": 201,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
+      "score": 12,
+      "reason": "Bienestar juvenil según metodología encuesta",
+      "tag": "metodología"
+    },
+    {
+      "id": "01kp0wzbvm9bj3hpfkw5p99ckk",
+      "title": "Are voters warming to Starmer over his Iran war stance | FT #shorts",
+      "author": "Financial Times",
+      "source_url": "https://www.youtube.com/shorts/psQ8jEZ0nos",
+      "site_name": "YouTube",
+      "summary": "Lucy Fisher and Steven Bush discuss whether Keir Starmer’s stance on the Iran war could benefit his government — or if it could ultimately backfire.⁠\n⁠\n#keirstarmer #uk #ukpolitics #europe #shortsvideo #shortfeed #shorts #shortsviral #shortsyoutube #shortsvideos\n\n► Enjoying FT content? Get a daily slice of the very best FT journalism with FT Edit. Free for 30 days then just £4.99 a month\n\nSee if you get the FT for free as a student (http://ft.com/schoolsarefree) or start a £1 trial: https://subs.ft.com/spa3_trial?segmentId=3d4ba81b-96bb-cef0-9ece-29efd6ef2132.\n\n► Check out our Community tab for more stories: https://www.youtube.com/@FinancialTimes/community\n►  Listen to our podcasts: https://www.ft.com/podcasts\n►  Follow us on Instagram: https://www.instagram.com/financialtimes\n►  Follow us on Instagram: https://www.tiktok.com/@financialtimes",
+      "word_count": null,
+      "reading_time": null,
+      "published_date": "2026-04-12",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://i.ytimg.com/vi/psQ8jEZ0nos/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AHOBYACgAqKAgwIABABGFQgZShiMA8=&rs=AOn4CLANPWcvdbxp6_AyfWTsCmFtZd2gLQ",
+      "score": 10,
+      "reason": "Análisis político superficial formato corto",
+      "tag": "política europea"
+    },
+    {
       "id": "01knyqycrk1gzdyawqqzw8shks",
       "title": "Saturday discussion post",
       "author": "Halina Bennet",
@@ -2180,8 +2656,8 @@
       "location": "feed",
       "image_url": "https://substackcdn.com/image/fetch/$s_!G40K!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb53e4aa6-6f7f-4a1a-beea-8707c58ebac1_4306x3229.jpeg",
       "score": 8,
-      "reason": "Hilo social sin contenido sustantivo",
-      "tag": "medios"
+      "reason": "Hilo discusión sin contenido sustantivo",
+      "tag": "cultura"
     },
     {
       "id": "01knsj1zyfst3q1vxqvackvgc2",
@@ -2232,6 +2708,23 @@
       "image_url": "https://substack-post-media.s3.amazonaws.com/public/images/b1ef1003-eda0-4a97-9153-6ca9aee0f53f_271x131.jpeg",
       "score": 6,
       "reason": "Anuncio de evento sin contenido sustantivo",
+      "tag": "cultura"
+    },
+    {
+      "id": "01kp1c0pxcjz6bydrzpjyvbyy4",
+      "title": "Sunday Thread + Mailbag",
+      "author": "Halina Bennet",
+      "source_url": "https://www.slowboring.com/p/sunday-thread-mailbag-c84",
+      "site_name": "slowboring.com",
+      "summary": "Ask your questions below.",
+      "word_count": 6,
+      "reading_time": "1 min",
+      "published_date": "2026-04-12",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substack-post-media.s3.amazonaws.com/public/images/d7bae55d-d45c-4fa5-a3c1-b07e85ac0c0f_940x788.png",
+      "score": 5,
+      "reason": "Hilo discusión sin contenido sustantivo",
       "tag": "cultura"
     },
     {

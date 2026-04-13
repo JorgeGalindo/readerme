@@ -1,26 +1,16 @@
 {
-  "generated_at": "2026-04-12T04:53:24.579251+00:00",
+  "generated_at": "2026-04-13T05:21:02.936577+00:00",
   "intl": [],
   "spanish": [
     {
-      "title": "Tres días de juicio que refuerzan los indicios contra Ábalos: enchufes, casas y trasiego de dinero",
-      "link": "https://elpais.com/espana/2026-04-12/tres-dias-de-juicio-que-refuerzan-los-indicios-contra-abalos-enchufes-casas-y-trasiego-de-dinero.html",
+      "title": "El juicio a Ábalos se adentra en los contratos de las mascarillas",
+      "link": "https://elpais.com/espana/2026-04-13/el-juicio-a-abalos-se-adentra-en-los-contratos-de-las-mascarillas.html",
       "author": "Reyes Rincón ,Rocío Martínez Posada",
-      "summary": "Los testimonios de la expareja y una amiga del exministro y de dos empresarias que compraron una casa para él dejan tocada a la defensa",
-      "date": "Sun, 12 Apr 2026 03:30:01 GMT",
+      "summary": "La vista contra el exministro, su antiguo asesor y Aldama se reanuda este lunes con el testimonio de varios socios del empresario y de la exmujer de Koldo García",
+      "date": "Mon, 13 Apr 2026 03:30:01 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "El juicio a Ábalos por corrupción intensifica la presión política sobre el PSOE y el gobierno de Sánchez con testimonios comprometedores sobre enchufes y tráfico de influencias."
-    },
-    {
-      "title": "¿Se contagiará Vox del declive de la ultraderecha?",
-      "link": "https://elpais.com/opinion/2026-04-12/se-contagiara-vox-del-declive-de-la-ultraderecha.html",
-      "author": "Fernando Vallespín",
-      "summary": "El partido de Abascal corre el riesgo de sufrir más que un estancamiento: la entrada en una fase de declive electoral",
-      "date": "Sun, 12 Apr 2026 03:30:01 GMT",
-      "source": "El País (España)",
-      "scrapeable": false,
-      "risk_summary": "Análisis del posible declive electoral de Vox refleja cambios en la dinámica política española que podrían reconfigurar el equilibrio de fuerzas en el centro-derecha."
+      "risk_summary": "El juicio a Ábalos por corrupción en mascarillas amenaza la estabilidad del núcleo duro sanchista y erosiona la credibilidad gubernamental."
     },
     {
       "title": "Los riesgos de la improvisación regulatoria en materia de vivienda",
@@ -30,37 +20,27 @@
       "date": "Mon, 06 Apr 2026 03:30:01 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "La prórroga de alquileres sin respaldo parlamentario evidencia la fragilidad legislativa del gobierno y los riesgos de la improvisación regulatoria en política de vivienda."
+      "risk_summary": "La prórroga de alquileres sin respaldo parlamentario expone la debilidad legislativa del Gobierno y genera inseguridad jurídica."
     },
     {
-      "title": "La amnistía, en espera de la justicia europea",
-      "link": "https://elpais.com/espana/2026-03-31/la-amnistia-en-espera-de-la-justicia-europea.html",
-      "author": "José María Brunet",
-      "summary": "Es probable que en mayo el Tribunal de Justicia de la UE dé a conocer su sentencia sobre las cuestiones prejudiciales que el Tribunal de Cuentas y la Audiencia Nacional plantearon contra la aplicación de la ley a líderes del ‘procés’",
-      "date": "Tue, 31 Mar 2026 03:30:01 GMT",
+      "title": "Sánchez consolida su relación con Xi Jinping y apuesta por China como potencia estabilizadora frente a Trump",
+      "link": "https://elpais.com/espana/2026-04-12/sanchez-consolida-su-relacion-con-xi-jinping-y-apuesta-por-china-como-potencia-estabilizadora-frente-a-trump.html",
+      "author": "Inmaculada Carretero Castaño",
+      "summary": "La guerra marca la cuarta visita del presidente, que pretende que su fluida interlocución allane las inversiones chinas en España y la negociación comercial de la UE",
+      "date": "Sun, 12 Apr 2026 10:13:07 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "La decisión pendiente del TJUE sobre la ley de amnistía en mayo podría generar una crisis constitucional si invalida la aplicación de la norma."
+      "risk_summary": "Sánchez refuerza lazos con China como contrapeso a Trump, arriesgando tensiones con socios europeos y atlantistas."
     },
     {
-      "title": "El PP prescindirá de Aznar y Rajoy en la campaña de Andalucía",
-      "link": "https://elpais.com/espana/elecciones-andalucia/2026-04-12/el-pp-prescindira-de-aznar-y-rajoy-en-la-campana-de-andalucia.html",
-      "author": "Elsa García de Blas",
-      "summary": "Juanma Moreno plantea una “mínima presencia de dirigentes de fuera” para sus actos electorales, en “clave andaluza”. Rajoy declara en el `caso Kitchen’ una semana antes del comienzo de la campaña",
+      "title": "Tres días de juicio que refuerzan los indicios contra Ábalos: enchufes, casas y trasiego de dinero",
+      "link": "https://elpais.com/espana/2026-04-12/tres-dias-de-juicio-que-refuerzan-los-indicios-contra-abalos-enchufes-casas-y-trasiego-de-dinero.html",
+      "author": "Reyes Rincón ,Rocío Martínez Posada",
+      "summary": "Los testimonios de la expareja y una amiga del exministro y de dos empresarias que compraron una casa para él dejan tocada a la defensa",
       "date": "Sun, 12 Apr 2026 03:30:01 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "El PP margina a Aznar y Rajoy en Andalucía para minimizar el impacto del caso Kitchen, revelando tensiones internas y estrategia de distanciamiento de la corrupción."
-    },
-    {
-      "title": "El Gobierno acelera para aprobar este martes la regularización de inmigrantes",
-      "link": "https://elpais.com/espana/2026-04-11/el-gobierno-acelera-para-aprobar-este-martes-la-regularizacion-de-inmigrantes-tras-el-aval-de-fondo-del-consejo-de-estado.html",
-      "author": "Carlos E Cué",
-      "summary": "El Ejecutivo tiene previsto añadir las recomendaciones del Consejo de Estado, que según diversas fuentes será mejor de lo esperado",
-      "date": "Sat, 11 Apr 2026 03:30:01 GMT",
-      "source": "El País (España)",
-      "scrapeable": false,
-      "risk_summary": "El gobierno acelera la regularización migratoria tras el dictamen del Consejo de Estado, medida clave que podría generar tensiones territoriales y con la oposición."
+      "risk_summary": "Los testimonios contra Ábalos refuerzan la acusación de corrupción sistémica que debilita políticamente al PSOE."
     },
     {
       "title": "Los puntos discutibles del “infierno fiscal” que denuncia Feijóo",
@@ -70,27 +50,47 @@
       "date": "Sat, 11 Apr 2026 03:45:01 GMT",
       "source": "El País (Economía)",
       "scrapeable": false,
-      "risk_summary": "La disputa sobre las subidas fiscales entre PP y gobierno refleja la batalla política central sobre política tributaria que marcará el debate electoral."
+      "risk_summary": "El debate fiscal entre PP y Gobierno se intensifica como eje central de confrontación electoral y económica."
     },
     {
-      "title": "Sánchez y su alergia al debate del estado de la Nación: una sola vez frente a las 10 de Felipe",
-      "link": "https://www.elconfidencial.com/espana/2026-04-12/sanchez-alergia-debate-estado-nacion-una-vez_4335973/",
-      "author": "Borja Negrete",
-      "summary": "Pese a que se comprometió en el 'Plan de acción por la democracia' a celebrarlos cada año, solo ha convocado uno en 8 años de mandato frente a los 10 de Felipe o los 6 de Zapatero y Aznar",
-      "date": "2026-04-12T05:00:00+02:00",
+      "title": "Días decisivos del juicio a Ábalos: comisiones, obra pública y Pardo de Vera como testigo clave",
+      "link": "https://www.elconfidencial.com/espana/2026-04-12/juicio-abalos-comisiones-obras-pardo-vera_4335847/",
+      "author": "Cristina García Vázquez",
+      "summary": "Los movimientos de dinero en efectivo marcarán los próximos días de juicio en el Supremo, que amenaza a los arquitectos del sanchismo",
+      "date": "2026-04-12T16:30:00+02:00",
       "source": "El Confidencial",
       "scrapeable": false,
-      "risk_summary": "La evitación sistemática del debate del estado de la Nación por Sánchez debilita la transparencia democrática y la rendición de cuentas parlamentaria."
+      "risk_summary": "El juicio a Ábalos entra en fase crítica con testimonios sobre comisiones que comprometen al núcleo del sanchismo."
     },
     {
-      "title": "Temor en el PSOE a que el juicio a Ábalos afecte a Andalucía: \"Los primeros días han tenido morbo pero lo peor está por llegar\"",
-      "link": "https://www.elmundo.es/espana/2026/04/12/69da66e6e4d4d8a26a8b4583.html",
-      "author": "Lucía Méndez",
-      "summary": "Amantes, gatos, enchufes, poder, sexo, mentiras, corrupción... el 'reality' en el Tribunal Supremo ha amargado la Pascua a los socialistasLeer",
-      "date": "Sun, 12 Apr 2026 00:05:48 +0200",
+      "title": "El PP exige votar en el Congreso el acuerdo de la UE sobre Gibraltar",
+      "link": "https://www.elmundo.es/espana/2026/04/13/69da6bbdfc6c83e73d8b4574.html",
+      "author": "Marisa Cruz",
+      "summary": "Por afectar a la gestión migratoria, fiscal, fronteriza, aduanera y medioambientalLeer",
+      "date": "Mon, 13 Apr 2026 00:10:58 +0200",
       "source": "El Mundo",
       "scrapeable": false,
-      "risk_summary": "El juicio a Ábalos genera temor en el PSOE por su impacto electoral en Andalucía, evidenciando cómo la corrupción puede condicionar resultados electorales clave."
+      "risk_summary": "El PP exige control parlamentario sobre Gibraltar, cuestionando la gestión unilateral gubernamental de temas soberanía."
+    },
+    {
+      "title": "María Jesús Montero comparecerá en la comisión de investigación sobre la SEPI en el Senado el lunes 20 de abril",
+      "link": "https://www.elmundo.es/espana/2026/04/12/69dbb8a121efa00b3e8b4577.html",
+      "author": "Europa Press",
+      "summary": "El PP dice que no es como el PSOE, con la comparecencia de Feijóo en plena campaña aragonesa, y la cita a la ex presidenta un mes antes de que se celebren las elecciones andaluzasLeer",
+      "date": "Sun, 12 Apr 2026 17:27:05 +0200",
+      "source": "El Mundo",
+      "scrapeable": false,
+      "risk_summary": "La citación de Montero en investigación SEPI presiona al PSOE andaluz en plena precampaña electoral autonómica."
+    },
+    {
+      "title": "Sánchez ordena un desembarco de ministros en Andalucía para arropar a Montero en una campaña que reivindica el orgullo de la marca",
+      "link": "https://www.eldiario.es/politica/sanchez-ordena-desembarco-ministros-andalucia-arropar-montero-campana-reivindica-orgullo-marca_129_13134297.html",
+      "author": "Esther Palomera",
+      "summary": "El PSOE trata de sacar de la apatía a los alcaldes socialistas, cuya presión para que las generales sean antes que las municipales (marzo de 2027) empieza a ser una opción que se considera en Madrid. La elaboración de las listas electorales para el 17M abre de nuevo en canal a la federación andaluza",
+      "date": "Sat, 11 Apr 2026 20:18:47 +0000",
+      "source": "eldiario.es",
+      "scrapeable": true,
+      "risk_summary": "Sánchez moviliza ministros para blindar a Montero en Andalucía ante el riesgo de perder la comunidad más poblada."
     },
     {
       "title": "El PP se impacienta ante la falta de acuerdo con Vox dos semanas después de cumplirse el plazo dado por Feijóo",
@@ -100,7 +100,7 @@
       "date": "Fri, 10 Apr 2026 20:20:55 +0000",
       "source": "eldiario.es",
       "scrapeable": true,
-      "risk_summary": "El bloqueo en las negociaciones PP-Vox para formar gobiernos autonómicos genera inestabilidad política territorial y presión sobre el liderazgo de Feijóo."
+      "risk_summary": "La ruptura entre PP y Vox se enquista sin acuerdo, fragmentando la alternativa de derecha y beneficiando al PSOE."
     }
   ]
 }
