@@ -121,6 +121,7 @@
         {% if a.scrapeable %}
         <div class="card-actions">
           <button class="btn-expand" data-url="{{ a.link }}" onclick="toggleScrape(this)">Leer</button>
+          <button class="btn-listen" onclick="toggleListen(this)" style="display:none">Escuchar</button>
         </div>
         <div class="article-content" style="display:none"></div>
         {% endif %}
@@ -261,8 +262,11 @@
   async function toggleScrape(btn) {
     const card = btn.closest('.card');
     const contentDiv = card.querySelector('.article-content');
+    const listenBtn = card.querySelector('.btn-listen');
     if (contentDiv.style.display !== 'none') {
+      if (_ttsState.card === card) _stopTTS();
       contentDiv.style.display = 'none';
+      if (listenBtn) listenBtn.style.display = 'none';
       btn.textContent = 'Leer';
       return;
     }
@@ -287,8 +291,78 @@
       }
     }
     contentDiv.style.display = 'block';
+    if (listenBtn) listenBtn.style.display = '';
     btn.textContent = 'Cerrar';
   }
+
+  let _ttsState = { card: null, chunks: [], idx: 0, btn: null };
+
+  function _splitChunks(text) {
+    const clean = text.replace(/\s+/g, ' ').trim();
+    const sents = clean.match(/[^.!?]+[.!?]+(\s|$)|[^.!?]+$/g) || [clean];
+    const chunks = [];
+    let cur = '';
+    for (const s of sents) {
+      if ((cur + s).length > 200 && cur) { chunks.push(cur.trim()); cur = s; }
+      else cur += s;
+    }
+    if (cur.trim()) chunks.push(cur.trim());
+    return chunks;
+  }
+
+  function _stopTTS() {
+    speechSynthesis.cancel();
+    if (_ttsState.btn) {
+      _ttsState.btn.textContent = 'Escuchar';
+      _ttsState.btn.classList.remove('speaking');
+    }
+    _ttsState = { card: null, chunks: [], idx: 0, btn: null };
+  }
+
+  function toggleListen(btn) {
+    const card = btn.closest('.card');
+    const contentDiv = card.querySelector('.article-content');
+    if (!contentDiv || !contentDiv.textContent.trim()) return;
+
+    if (_ttsState.card === card) {
+      if (speechSynthesis.speaking && !speechSynthesis.paused) {
+        speechSynthesis.pause();
+        btn.textContent = 'Reanudar';
+        return;
+      }
+      if (speechSynthesis.paused) {
+        speechSynthesis.resume();
+        btn.textContent = 'Pausar';
+        return;
+      }
+    }
+
+    _stopTTS();
+    const chunks = _splitChunks(contentDiv.textContent);
+    if (!chunks.length) return;
+    _ttsState = { card, chunks, idx: 0, btn };
+    btn.textContent = 'Pausar';
+    btn.classList.add('speaking');
+
+    const speakNext = () => {
+      if (_ttsState.card !== card) return;
+      if (_ttsState.idx >= _ttsState.chunks.length) {
+        btn.textContent = 'Escuchar';
+        btn.classList.remove('speaking');
+        _ttsState = { card: null, chunks: [], idx: 0, btn: null };
+        return;
+      }
+      const u = new SpeechSynthesisUtterance(_ttsState.chunks[_ttsState.idx++]);
+      u.lang = 'es-ES';
+      u.rate = 1.0;
+      u.onend = speakNext;
+      u.onerror = speakNext;
+      speechSynthesis.speak(u);
+    };
+    speakNext();
+  }
+
+  window.addEventListener('beforeunload', () => speechSynthesis.cancel());
   </script>
 </body>
 </html>

@@ -533,6 +533,7 @@ main {
   border-top: 1px solid var(--border);
 }
 
+.btn-listen,
 .btn-share {
   padding: 5px 14px;
   border-radius: 20px;
@@ -547,13 +548,20 @@ main {
   -webkit-tap-highlight-color: transparent;
 }
 
+.btn-listen:hover,
 .btn-share:hover {
   border-color: var(--text);
   color: var(--text);
 }
 
+.btn-listen:disabled,
 .btn-share:disabled {
   opacity: 0.5;
+}
+
+.btn-listen.speaking {
+  border-color: var(--text);
+  color: var(--text);
 }
 
 .share-text {
