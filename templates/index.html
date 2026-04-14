@@ -136,6 +136,7 @@
       <div class="article-content" style="display:none"></div>
       <div class="card-bottom" style="display:none">
         <div class="card-actions">
+          <button class="btn-listen" onclick="toggleListen(this)">Escuchar</button>
           <button class="btn-share" data-title="{{ article.title }}" data-url="{{ article.source_url or '' }}" onclick="getShareText(this)">Compartir</button>
         </div>
         <div class="share-result"></div>
@@ -196,28 +197,43 @@
     });
   }
 
-  function sendFeedback(btn, liked) {
+  async function sendFeedback(btn, liked) {
     const container = btn.closest('.feedback');
+    const section = container.dataset.section;
+    const hasReaderSync = (section === 'feeds' && container.dataset.id) ||
+                          (section !== 'feeds' && liked && container.dataset.sourceUrl);
     const data = {
       title: container.dataset.title,
       tag: container.dataset.tag,
-      section: container.dataset.section,
+      section: section,
       id: container.dataset.id || '',
       source_url: container.dataset.sourceUrl || '',
       liked: liked
     };
-    fetch('/api/feedback', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(data)
-    });
     container.querySelectorAll('button').forEach(b => b.classList.add('done'));
     btn.classList.remove('done');
     btn.classList.add('active');
     container.dataset.marked = '1';
     const card = btn.closest('.card');
-    if (card && container.dataset.section === 'feeds') {
+    if (card && section === 'feeds') {
       setTimeout(() => { card.style.opacity = '0.3'; }, 600);
+    }
+    try {
+      const resp = await fetch('/api/feedback', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      });
+      const result = await resp.json();
+      if (hasReaderSync && result.reader_synced === false) {
+        btn.classList.add('sync-failed');
+        btn.title = 'No se pudo sincronizar con Reader';
+      }
+    } catch (e) {
+      if (hasReaderSync) {
+        btn.classList.add('sync-failed');
+        btn.title = 'No se pudo sincronizar con Reader';
+      }
     }
   }
 
