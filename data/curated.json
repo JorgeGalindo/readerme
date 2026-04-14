@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-04-13T05:19:20.213057+00:00",
-  "article_count_total": 41,
+  "generated_at": "2026-04-14T04:49:55.746625+00:00",
+  "article_count_total": 64,
   "thinktank": [
     {
-      "title": "Evidencia causal: aumentar oferta de vivienda reduce precios de alquiler en Alemania",
-      "source_url": "https://www.journals.uchicago.edu/doi/full/10.1086/733977",
-      "site_name": "@JuanLuis_JG",
-      "reason": "Estimaciones causales oferta-precios vivienda",
-      "tag": "vivienda"
+      "title": "Why do people prefer standard over more cost-effective market-based instruments?",
+      "source_url": "",
+      "site_name": "Joseph Shapiro",
+      "reason": "Preferencias irracionales en política ambiental",
+      "tag": "políticas públicas"
     },
     {
-      "title": "Degradación del rendimiento de modelos de IA ralentizará adopción empresarial",
-      "source_url": "",
-      "site_name": "@alexolegimas",
-      "reason": "Regresión modelos IA frena adopción",
-      "tag": "IA"
+      "title": "Did smart phones cause global test score declines? No, probably not. (It was school closures)",
+      "source_url": "https://parentdata.org/kids/smartphones-global-test-score-declines/",
+      "site_name": "Emily Oster",
+      "reason": "Análisis causal riguroso sobre educación",
+      "tag": "metodología"
     },
     {
-      "title": "Debates públicos se basan en estadísticas que no son reales - ejemplo mortalidad materna",
+      "title": "A full-scale US Waymo rollout would save around 35 thousand young American lives per year",
       "source_url": "",
-      "site_name": "@salonium",
-      "reason": "Estadísticas falsas en debates públicos",
-      "tag": "datos"
+      "site_name": "Nat McAleese",
+      "reason": "Beneficios masivos de vehículos autónomos",
+      "tag": "tecnología"
     },
     {
-      "title": "UE debe integrar más su mercado único o se desintegrará",
+      "title": "Maybe Viktor Orbán's Hungary isn't the model for American conservatism - economy grew mere 0.4% in 2025",
       "source_url": "",
-      "site_name": "@POLITICOEurope",
-      "reason": "Integración o desintegración mercado único",
+      "site_name": "Anders Åslund",
+      "reason": "Fracaso económico del modelo húngaro",
       "tag": "política europea"
     }
   ],
   "abundance": [
     {
-      "title": "Issue 17 | Works in Progress",
-      "source_url": "https://worksinprogress.co/issue-17/",
+      "title": "Archive - Works in Progress Magazine",
+      "source_url": "https://worksinprogress.co/archive/",
       "site_name": "Works in Progress",
-      "reason": "alternativas sintéticas para experimentación animal",
-      "tag": "tecnología",
-      "snippet": "Works in Progress Website Horses bled for antivenom, crabs drained for endotoxin tests, and silkworms boiled for silk. Science can now replace these practices with synthetic alternatives — but we need to find ways to scale them."
+      "reason": "erradicación global de la viruela",
+      "tag": "políticas públicas",
+      "snippet": "Although Viktor Zhdanov's name is little known today, he spearheaded one of the greatest projects in history. Who was he and what did he do?"
     },
     {
-      "title": "Immigration Policy Solutions to Shortages in Critical Sectors of ... - CSIS",
-      "source_url": "https://www.csis.org/analysis/immigration-policy-solutions-shortages-critical-sectors-us-economy",
-      "site_name": "csis.org",
-      "reason": "inmigración como solución a escasez laboral",
-      "tag": "mercado laboral",
-      "snippet": "Despite the influx of proposals and debate, optimism forimmigrationreformremains unlikely. Rather than address the details ofimmigrationlawreform, this paper explores the current state of the U.S. economy and the role migrants can play. The U.S.labormarket cooled in the first half of 2024, but critical sectors remain badly understaffed."
-    },
-    {
-      "title": "Increasing housing supply | Treasury.gov.au",
-      "source_url": "https://treasury.gov.au/policy-topics/housing/increasing-housing-supply",
-      "site_name": "treasury.gov.au",
-      "reason": "reformas de planning y zoning australianas",
+      "title": "New Zealand's YIMBY Success - And How We Can Learn From it - Reason.com",
+      "source_url": "https://reason.com/volokh/2024/04/03/new-zealands-yimby-success-and-how-we-can-learn-from-it/",
+      "site_name": "reason.com",
+      "reason": "Reforma zoning exitosa Nueva Zelanda",
       "tag": "vivienda",
-      "snippet": "Improvingplanningand zoning In August 2023, National Cabinet agreed to a NationalPlanningReformBlueprint to outlineplanning, zoning, land release and other measures to improvehousingsupplyand affordability. The Blueprint's measures include: updating state, regional, and local strategic plans to reflecthousingsupplytargets"
+      "snippet": "NewZealandNewZealand'sYIMBYSuccess - And How We Can Learn From itNewZealandalleviated a severehousingshortage by liberalizing regulations that had previously blocked mostnewconstruction."
+    },
+    {
+      "title": "More homes. Better homes - European Investment Bank",
+      "source_url": "https://www.eib.org/en/projects/topics/sustainable-cities-regions/urban-development/affordable-and-sustainable-housing",
+      "site_name": "eib.org",
+      "reason": "Estrategia europea construcción masiva vivienda",
+      "tag": "vivienda",
+      "snippet": "The European Union, through the European Commission and the EIB Group, is committed to strengtheningEurope'shousing sector by providing the finance and expertise needed to buildmoreinnovative, energy efficient and affordablehomes."
     }
   ],
   "articles": [
@@ -140,7 +140,7 @@
       "location": "feed",
       "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
       "score": 85,
-      "reason": "Predicciones expertas sobre impacto económico IA",
+      "reason": "Predicciones económicas de IA por expertos",
       "tag": "IA"
     },
     {
@@ -157,7 +157,7 @@
       "location": "feed",
       "image_url": "https://www.nber.org/sites/default/files/2022-06/NBER-FB-Share-Tile-1200.jpg",
       "score": 85,
-      "reason": "Predicciones expertas sobre impacto económico IA",
+      "reason": "Predicciones económicas de IA por expertos",
       "tag": "IA"
     },
     {
@@ -501,6 +501,23 @@
       "tag": "IA"
     },
     {
+      "id": "01kp3rsvfqghbtrwmvks39rtrw",
+      "title": "Tracking the Credibility Revolution across Fields -- by Paul Goldsmith-Pinkham",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35051#fromrss",
+      "site_name": "NBER",
+      "summary": "How far has the credibility revolution spread beyond applied microeconomics? I update Currie, Kleven, and Zwiers (2020b) using approximately 44,000 papers—31,500 NBER working papers (1982–2025) and 12,300 articles from eleven top economics and finance journals (2011–2024)—measuring mentions of empirical methods through keyword matching. Three findings emerge. First, finance and macro/other fields differ substantially from applied micro in their mention of credibility revolution methods: as of 2024, 63 percent of applied micro papers mention experimental or quasi-experimental methods, compared to 47 percent in finance and 39 percent in macro/other. The current levels in finance and macro/other are comparable to where applied micro was in 2008–2010, though the long-run trajectories may differ. Second, growth outside applied micro is driven overwhelmingly by difference-in-differences; including DiD raises the share of finance papers mentioning any experimental or quasi-experimental method by roughly 55 percent versus 30 percent for applied micro. Other quasi-experimental methods—instrumental variables, regression discontinuity, experiments—have seen far less growth. Third, I document a striking gap between the methods studied in the Journal of Econometrics—where nonparametric estimation and asymptotic theory dominate—and those used by applied researchers, where DiD and identification strategies dominate. Published journal articles confirm these patterns are not artifacts of the NBER sample.",
+      "word_count": 200,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/favicon.ico",
+      "score": 72,
+      "reason": "Revolución credibilidad en investigación económica",
+      "tag": "metodología"
+    },
+    {
       "id": "01kp2jwskz21dwyjqkqq04mh6m",
       "title": "Tracking the Credibility Revolution across Fields -- by Paul Goldsmith-Pinkham",
       "author": "National Bureau of Economic Research Working Papers",
@@ -514,7 +531,7 @@
       "location": "feed",
       "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
       "score": 72,
-      "reason": "Revolución metodológica en ciencias sociales",
+      "reason": "Revolución credibilidad en investigación económica",
       "tag": "metodología"
     },
     {
@@ -550,6 +567,23 @@
       "score": 72,
       "reason": "Aranceles carbono: efectos comerciales",
       "tag": "comercio"
+    },
+    {
+      "id": "01kp31qth97ph42parxttydp4n",
+      "title": "The secret behind Japan's railways",
+      "author": "Works in Progress",
+      "source_url": "https://www.worksinprogress.news/p/the-secret-behind-japans-railways",
+      "site_name": "worksinprogress.news",
+      "summary": "Japan's railways are the finest in the world. Other countries can copy its formula.",
+      "word_count": 4338,
+      "reading_time": "17 mins",
+      "published_date": "2026-04-13",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substack-post-media.s3.amazonaws.com/public/images/59027eac-3707-4297-a217-ab242ed67b96_2640x1588.jpeg",
+      "score": 70,
+      "reason": "Fórmula japonesa para ferrocarriles eficientes",
+      "tag": "urbanismo"
     },
     {
       "id": "01knw9eas2jyfgq07h858p47hw",
@@ -875,6 +909,23 @@
       "tag": "migración"
     },
     {
+      "id": "01kp3rsvrn5nxx62nta9z4wmt6",
+      "title": "Birthright Citizenship and Youth Crime -- by Leander Andres, Stefan Bauernschuster, Gordon B. Dahl, Helmut Rainer, Simone Schüller",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35070#fromrss",
+      "site_name": "NBER",
+      "summary": "This paper studies the impact of birthright citizenship on youth crime. We leverage a German reform which automatically granted birthright citizenship to eligible immigrant children born in Germany after January 1, 2000 and administrative crime data from three federal states. We find that immigrant youth who acquired citizenship at birth are substantially less likely to engage in criminal activity, with estimates indicating a 70% reduction in crime. These results are particularly relevant in light of ongoing debates in the U.S. about abolishing birthright citizenship. Our findings suggest that inclusive citizenship policies can reduce crime and its associated costs, which in turn could strengthen social cohesion.",
+      "word_count": 105,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/favicon.ico",
+      "score": 62,
+      "reason": "Ciudadanía por nacimiento reduce criminalidad juvenil",
+      "tag": "migración"
+    },
+    {
       "id": "01kp2jwt0gam6sk3rpg2kf8jwa",
       "title": "Birthright Citizenship and Youth Crime -- by Leander Andres, Stefan Bauernschuster, Gordon B. Dahl, Helmut Rainer, Simone Schüller",
       "author": "National Bureau of Economic Research Working Papers",
@@ -888,7 +939,7 @@
       "location": "feed",
       "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
       "score": 62,
-      "reason": "Ciudadanía automática reduce criminalidad juvenil",
+      "reason": "Ciudadanía por nacimiento reduce criminalidad juvenil",
       "tag": "migración"
     },
     {
@@ -905,7 +956,7 @@
       "location": "feed",
       "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
       "score": 62,
-      "reason": "Ciudadanía automática reduce criminalidad juvenil",
+      "reason": "Ciudadanía por nacimiento reduce criminalidad juvenil",
       "tag": "migración"
     },
     {
@@ -990,7 +1041,7 @@
       "location": "feed",
       "image_url": "https://www.nber.org/sites/default/files/2022-06/NBER-FB-Share-Tile-1200.jpg",
       "score": 60,
-      "reason": "Método híbrido para medir efectividad publicitaria",
+      "reason": "Medición publicitaria con experimentos escalables",
       "tag": "metodología"
     },
     {
@@ -1024,7 +1075,7 @@
       "location": "feed",
       "image_url": "https://substackcdn.com/image/fetch/$s_!sQ3E!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8ba172f7-7c6f-4970-9777-3b1b3a6f962d_956x717.jpeg",
       "score": 58,
-      "reason": "Concentración poder económico era IA",
+      "reason": "Concentración de poder en pocas empresas IA",
       "tag": "IA"
     },
     {
@@ -1198,6 +1249,23 @@
       "tag": "productividad"
     },
     {
+      "id": "01kp3rsvnwwh7ykpk12ex7rq9x",
+      "title": "High Schools and the Uneven Rise in American Opportunity -- by Alison Doxey, Ezra Karger, Peter Nencka",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35068#fromrss",
+      "site_name": "NBER",
+      "summary": "Between 1850 and 1910, the share of young Americans living in towns with high schools increased from 17% to 46%—the fastest expansion of school access in U.S. history. Using new data on every high school in the United States, we show that this expansion transformed economic opportunities for many young adults but widened class and racial inequalities. We find sharp increases in school attendance rates for high school-aged children in towns that opened a high school relative to children in nearby towns without one. Linking children to adult outcomes, we show that high schools increased women's labor force participation and job quality, while reducing the probability of early marriage and childbearing. Increased access to high school accounts for a third of the increase in women's labor force participation between 1870 and 1930. High schools had the largest effects on children from already-wealthy families, and did not, on average, benefit Black children. While the high school movement substantially narrowed gender gaps in labor market outcomes, it also widened existing race- and class-based disparities.",
+      "word_count": 172,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/favicon.ico",
+      "score": 55,
+      "reason": "Expansión histórica de educación secundaria americana",
+      "tag": "políticas públicas"
+    },
+    {
       "id": "01kp2jwsz90xc54806f3nnyphv",
       "title": "High Schools and the Uneven Rise in American Opportunity -- by Alison Doxey, Ezra Karger, Peter Nencka",
       "author": "National Bureau of Economic Research Working Papers",
@@ -1211,7 +1279,7 @@
       "location": "feed",
       "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
       "score": 55,
-      "reason": "Expansión educativa como motor oportunidades",
+      "reason": "Expansión histórica de educación secundaria americana",
       "tag": "políticas públicas"
     },
     {
@@ -1228,7 +1296,7 @@
       "location": "feed",
       "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
       "score": 55,
-      "reason": "Expansión educativa como motor oportunidades",
+      "reason": "Expansión histórica de educación secundaria americana",
       "tag": "políticas públicas"
     },
     {
@@ -1245,7 +1313,7 @@
       "location": "feed",
       "image_url": "https://www.nber.org/sites/default/files/2022-06/NBER-FB-Share-Tile-1200.jpg",
       "score": 55,
-      "reason": "Expansión educativa como motor oportunidades",
+      "reason": "Expansión histórica de educación secundaria americana",
       "tag": "políticas públicas"
     },
     {
@@ -1364,7 +1432,7 @@
       "location": "feed",
       "image_url": "https://www.nber.org/sites/default/files/2022-06/NBER-FB-Share-Tile-1200.jpg",
       "score": 52,
-      "reason": "Selección y valor añadido aceleradoras",
+      "reason": "Valor añadido de aceleradoras de startups",
       "tag": "productividad"
     },
     {
@@ -1470,6 +1538,23 @@
       "tag": "política europea"
     },
     {
+      "id": "01kp3rsvce3yn5rprxc66epsvq",
+      "title": "Identification and Estimation of Labor Supply Elasticities from Kinked Budget Sets -- by Deniz Dutz, Morten Håvarstein, Magne Mogstad, Alexander Torgovitsky",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35047#fromrss",
+      "site_name": "NBER",
+      "summary": "We study the identification of labor supply elasticities from kinked budget sets in a model with income effects and individual heterogeneity in the elasticities. We provide point and partial identification results for compensated elasticities, uncompensated elasticities, and income effects. We use administrative data to apply our results to the Norwegian tax system, which exhibits a kink for the self-employed. There is clear bunching around the kink point, suggesting that the self-employed respond to the change in incentives created by the kink. We find that the bounds are often tight even under weak assumptions. Our results show that uncompensated elasticities are close to zero and compensated elasticities are sufficiently small to conclude that the excess burden of taxation is low.",
+      "word_count": 119,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/favicon.ico",
+      "score": 50,
+      "reason": "Identificación elasticidades oferta laboral",
+      "tag": "mercado laboral"
+    },
+    {
       "id": "01kp2jwsk0nja729gj3ev8jca2",
       "title": "Identification and Estimation of Labor Supply Elasticities from Kinked Budget Sets -- by Deniz Dutz, Morten Håvarstein, Magne Mogstad, Alexander Torgovitsky",
       "author": "National Bureau of Economic Research Working Papers",
@@ -1551,7 +1636,7 @@
       "location": "feed",
       "image_url": "https://images.ecestaticos.com/nN8vFUA9B9ba1n2DQZJgP1eZ-gA=/0x0:2272x1534/600x315/filters:fill(white):format(jpg):quality(99):watermark(f.elconfidencial.com/file/bae/eea/fde/baeeeafde1b3229287b0c008f7602058.png,0,275,1)/f.elconfidencial.com/original/116/c1a/f8f/116c1af8f1fc1bdc7ac512d69f6f6b7b.jpg",
       "score": 48,
-      "reason": "Derrota electoral del autoritarismo húngaro",
+      "reason": "Lecciones de la derrota de Orbán",
       "tag": "política europea"
     },
     {
@@ -1568,7 +1653,7 @@
       "location": "feed",
       "image_url": "https://www.economist.com/favicon.ico",
       "score": 48,
-      "reason": "Derrota electoral del autoritarismo húngaro",
+      "reason": "Derrota del populista Orbán en Hungría",
       "tag": "política europea"
     },
     {
@@ -1670,7 +1755,7 @@
       "location": "feed",
       "image_url": "https://substackcdn.com/image/fetch/$s_!4tx4!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb6023c29-c857-4baf-941b-0b35b10e0901_832x1248.jpeg",
       "score": 45,
-      "reason": "Necesidad mayor dinamismo empresarial",
+      "reason": "Necesidad de más emprendimiento y riesgo",
       "tag": "abundancia"
     },
     {
@@ -1806,8 +1891,8 @@
       "location": "feed",
       "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
       "score": 42,
-      "reason": "Preferencias riesgo en contexto bélico",
-      "tag": "mercado laboral"
+      "reason": "Preferencias riesgo y relocalizaciones en guerra",
+      "tag": "geopolítica"
     },
     {
       "id": "01knybs1jb8j665qjvyg7jysem",
@@ -1891,7 +1976,7 @@
       "location": "feed",
       "image_url": "https://www.nber.org/sites/default/files/2022-06/NBER-FB-Share-Tile-1200.jpg",
       "score": 40,
-      "reason": "Mercados educación salud países desarrollo",
+      "reason": "Mercados capital humano en países desarrollo",
       "tag": "políticas públicas"
     },
     {
@@ -2027,7 +2112,7 @@
       "location": "feed",
       "image_url": "https://substackcdn.com/image/fetch/$s_!SIMZ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1f684e5c-05ad-40b8-b015-a0d83365c7df_2528x1696.jpeg",
       "score": 35,
-      "reason": "División política víctimas versus productores",
+      "reason": "Nueva línea divisoria política actual",
       "tag": "política europea"
     },
     {
@@ -2129,7 +2214,7 @@
       "location": "feed",
       "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
       "score": 32,
-      "reason": "Decepción personal forma preferencias políticas",
+      "reason": "Decepciones personales moldean preferencias políticas",
       "tag": "políticas públicas"
     },
     {
@@ -2235,6 +2320,23 @@
       "tag": "mercado laboral"
     },
     {
+      "id": "01kp353r932zqgkdn7k01fm22a",
+      "title": "The NBA's problems are so much bigger than tanking",
+      "author": "Matthew Yglesias",
+      "source_url": "https://www.slowboring.com/p/the-nbas-problems-are-so-much-bigger",
+      "site_name": "slowboring.com",
+      "summary": "A broad agenda to make the regular season interest",
+      "word_count": 414,
+      "reading_time": "2 mins",
+      "published_date": "2026-04-13",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!whXq!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9a20574d-770c-446f-aa45-be267fc44bca_5504x3670.jpeg",
+      "score": 28,
+      "reason": "Problemas estructurales NBA más allá tanking",
+      "tag": "cultura"
+    },
+    {
       "id": "01kp2fc0np01pj53mrz5vvbrtx",
       "title": "Why?",
       "author": "David Weakliem (noreply@blogger.com)",
@@ -2248,8 +2350,8 @@
       "location": "feed",
       "image_url": "http://justthesocialfacts.blogspot.com/favicon.ico",
       "score": 28,
-      "reason": "Explicaciones ascenso Trump y populismo",
-      "tag": "geopolítica"
+      "reason": "Explicaciones populares del trumpismo analizado",
+      "tag": "políticas públicas"
     },
     {
       "id": "01knz9xfzpkkptk29j6w6xkynv",
@@ -2333,8 +2435,42 @@
       "location": "feed",
       "image_url": "https://statmodeling.stat.columbia.edu/favicon.ico",
       "score": 25,
-      "reason": "Principios diseño gráfico para análisis",
+      "reason": "Principios prácticos para mejores gráficos",
       "tag": "datos"
+    },
+    {
+      "id": "01kp3k7psy1qpndcfbr5wgpp32",
+      "title": "The tech jobs bust is real. Don’t blame AI (yet)",
+      "author": "Finance & economics",
+      "source_url": "https://www.economist.com/finance-and-economics/2026/04/13/the-tech-jobs-bust-is-real-dont-blame-ai-yet",
+      "site_name": "The Economist",
+      "summary": "Why technology firms are shedding workers",
+      "word_count": 292,
+      "reading_time": "2 mins",
+      "published_date": "2026-04-13",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.economist.com/favicon.ico",
+      "score": 25,
+      "reason": "Crisis empleos tecnológicos sin culpar IA",
+      "tag": "tecnología"
+    },
+    {
+      "id": "01kp3hr7ayw974knq2eahjbp5n",
+      "title": "Which beliefs are considered acceptable and which are not?",
+      "author": "Andrew",
+      "source_url": "https://statmodeling.stat.columbia.edu/2026/04/13/which-beliefs-are-considered-acceptable-and-which-are-not/",
+      "site_name": "columbia.edu",
+      "summary": "Surveys consistently find that approximately 30% of Americans believe in ghosts. Belief in ghosts is an interesting example to me because it exists on its own, unlike other supernatural beliefs which are supported by organized religion (as with the belief … Continue reading →",
+      "word_count": 1254,
+      "reading_time": "5 mins",
+      "published_date": "2026-04-13",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://statmodeling.stat.columbia.edu/favicon.ico",
+      "score": 25,
+      "reason": "Qué creencias son socialmente aceptables",
+      "tag": "cultura"
     },
     {
       "id": "01knvwyb69v07c3bmgjrm56ffa",
@@ -2419,7 +2555,24 @@
       "image_url": "https://substack-post-media.s3.amazonaws.com/public/images/94aadbd8-2039-4968-a3c3-a76b34e61db5_942x1322.png",
       "score": 22,
       "reason": "Guía práctica congelación óvulos",
-      "tag": "demografía"
+      "tag": "políticas públicas"
+    },
+    {
+      "id": "01kp3rsv62rm21ebkh09bd21dt",
+      "title": "Profit Regulation and Strategic Transfer Pricing by Vertically Integrated Firms: Evidence from Health Care -- by Pragya Kakani, Eric Yde, Genevieve P. Kanter, Richard G. Frank, Amelia M. Bond",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35043#fromrss",
+      "site_name": "NBER",
+      "summary": "We provide evidence of strategic transfer pricing by vertically integrated health care firms in response to insurer profit regulations. Insurers increased prices at vertically integrated pharmacies by 9.5% following the introduction of caps on insurer profits in Medicare Part D. We detect larger price increases by insurers that were at greatest risk of exceeding the allowable profit level. More than one-fifth of these higher prices were borne by the federal government. Our analysis illustrates that vertically integrated firms can evade profit regulation by “tunneling” profits to unregulated subsidiaries, undermining regulatory intent and increasing health care spending.",
+      "word_count": 96,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/favicon.ico",
+      "score": 22,
+      "reason": "Precios estratégicos en sanidad vertical",
+      "tag": "regulación"
     },
     {
       "id": "01knwsneb06t5x8mr0wy5fzfht",
@@ -2452,8 +2605,25 @@
       "location": "feed",
       "image_url": "https://www.economist.com/favicon.ico",
       "score": 20,
-      "reason": "Presiones inflacionarias en contexto bélico",
+      "reason": "Próximo presidente Fed atrapado entre presiones",
       "tag": "economía"
+    },
+    {
+      "id": "01kp3rsvjzrss217a86tasxbn3",
+      "title": "When Policy Shapes Perception: The 2021 Child Tax Credit and Consumer Sentiment -- by Jacob Bastian, Melody Harvey",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35059#fromrss",
+      "site_name": "NBER",
+      "summary": "Consumer sentiment influences household behavior in important ways, yet we lack causal evidence on whether government policies themselves shape these perceptions. We help fill this gap by studying the expiration of the expanded 2021 Child Tax Credit (CTC), which abruptly reduced household income for millions of families. Using monthly microdata from the University of Michigan's Consumer Sentiment Survey and plausibly exogenous variation in benefit losses across households, we implement continuous difference-in-differences and instrumental variables strategies. We find that each $1,000 in lost CTC benefits reduces sentiment by 1.7 points (or about 2.4%), with largest effects among lower-income families with multiple children. These effects persist two years after expiration and remain robust to controls for inflation, interest rates, and macroeconomic conditions. The results suggest that fiscal policy impacts perceived economic well-being beyond contemporaneous income effects, with potential implications for household economic activity, political attitudes, and voting behavior.",
+      "word_count": 146,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/favicon.ico",
+      "score": 20,
+      "reason": "Crédito fiscal infantil moldea sentimiento consumidor",
+      "tag": "políticas públicas"
     },
     {
       "id": "01kns7t7j5znk13p35rtwmjcc0",
@@ -2520,7 +2690,24 @@
       "location": "feed",
       "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
       "score": 18,
-      "reason": "Gestión privada servicios atención dependencia",
+      "reason": "Gestión Medicaid mejora resultados Medicare",
+      "tag": "políticas públicas"
+    },
+    {
+      "id": "01kp2p61ssg54nsd906va0322y",
+      "title": "An end to cervical cancer is possible",
+      "author": "Hannah Ritchie",
+      "source_url": "https://hannahritchie.substack.com/p/hpv-vaccination",
+      "site_name": "sustainabilitybynumbers.com",
+      "summary": "And some countries are already on track to do so.",
+      "word_count": 1739,
+      "reading_time": "7 mins",
+      "published_date": "2026-04-13",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substack-post-media.s3.amazonaws.com/public/images/63064816-1395-4b69-b507-ac6e88050333_3400x2400.png",
+      "score": 18,
+      "reason": "Fin cáncer cervical es posible",
       "tag": "políticas públicas"
     },
     {
@@ -2575,6 +2762,23 @@
       "tag": "políticas públicas"
     },
     {
+      "id": "01kp3rsvw8vvdgdagwnw3b8yfh",
+      "title": "Understanding Support for Inefficient Environmental Policy Instruments -- by Chenxi Jiang, Maximiliano Lauletta, Ro’ee Levy, Joseph S. Shapiro, Dmitry Taubinsky",
+      "author": "National Bureau of Economic Research Working Papers",
+      "source_url": "https://www.nber.org/papers/w35073#fromrss",
+      "site_name": "NBER",
+      "summary": "Many governments use environmental standards rather than more cost-effective market-based instruments like pollution taxes or cap-and-trade markets. Using a nationally representative survey experiment, we study whether and why limited understanding of economic principles helps explain this practice. Holding environmental impacts constant, respondents prefer standards over market-based instruments, and prefer producer taxes and cap-and-trade over consumer taxes. These preferences reflect consumers’ beliefs about how these policies will affect electricity bills. Respondents also prefer the weakest environmental targets for consumer taxes and the strongest targets for standards, which suggests that policymakers face a tradeoff between policy stringency and cost effectiveness. A separate survey of environmental economists shows that they have strikingly different beliefs about the effects of environmental policies than the respondents in our representative survey. For example, typical respondents—in contrast to environmental economists—believe that environmental standards increase consumer energy bills less than market-based instruments do. Educational videos on pass-through and cost-effectiveness of policies affect policy support and close some of the gap between nationally representative respondents and experts, which suggests that economic literacy is a factor in voters’ preferences.",
+      "word_count": 178,
+      "reading_time": "1 min",
+      "published_date": "2026-04-10",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.nber.org/favicon.ico",
+      "score": 16,
+      "reason": "Apoyo a políticas ambientales ineficientes",
+      "tag": "regulación"
+    },
+    {
       "id": "01kp2jwsy12hx76qrzqy5y0vmv",
       "title": "Exploring Trends in Severe Maternal Morbidity in the U.S. -- by Pinka Chatterji, Fangning Li, Sara Markowitz",
       "author": "National Bureau of Economic Research Working Papers",
@@ -2588,8 +2792,42 @@
       "location": "feed",
       "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
       "score": 15,
-      "reason": "Morbilidad materna por grupos étnicos",
-      "tag": "desigualdad"
+      "reason": "Tendencias morbilidad materna severa EEUU",
+      "tag": "políticas públicas"
+    },
+    {
+      "id": "01kp54fhkna24je7mghq0wdcwd",
+      "title": "Deja de juzgar tu vida por las métricas que aparecen en el móvil",
+      "author": "Ramón González Férriz",
+      "source_url": "https://www.elconfidencial.com/cultura/el-erizo-y-el-zorro/2026-04-14/obsesion-metricas-cifras-cultura-1hms_4335766/",
+      "site_name": null,
+      "summary": "Vivimos en una cultura dominada por los datos. Sabemos cuántos pasos andamos, cómo se desglosan nuestros gastos y a cuánta gente le gusta un tuit. Las cifras son imprescindibles, pero son más subjetivas de lo que creemos",
+      "word_count": null,
+      "reading_time": null,
+      "published_date": "2026-04-14",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://images.ecestaticos.com/nN8vFUA9B9ba1n2DQZJgP1eZ-gA=/0x0:2272x1534/600x315/filters:fill(white):format(jpg):quality(99):watermark(f.elconfidencial.com/file/bae/eea/fde/baeeeafde1b3229287b0c008f7602058.png,0,275,1)/f.elconfidencial.com/original/116/c1a/f8f/116c1af8f1fc1bdc7ac512d69f6f6b7b.jpg",
+      "score": 15,
+      "reason": "Crítica cultura dominada por métricas móvil",
+      "tag": "cultura"
+    },
+    {
+      "id": "01kp3z75a97n2y04zmgmsj7tbj",
+      "title": "Why global imbalances matter again – and what to do about them",
+      "author": "VoxEU | CEPR",
+      "source_url": "https://cepr.org/voxeu/columns/why-global-imbalances-matter-again-and-what-do-about-them",
+      "site_name": "CEPR",
+      "summary": "Delivered by PolitePaul service",
+      "word_count": 2020,
+      "reading_time": "8 mins",
+      "published_date": "2026-04-13",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://cepr.org/themes/custom/cepr/assets/favicon/apple-touch-icon.png?v=1",
+      "score": 14,
+      "reason": "Por qué importan desequilibrios globales",
+      "tag": "comercio"
     },
     {
       "id": "01kp2jwswknnp335q3zx47fw52",
@@ -2605,7 +2843,7 @@
       "location": "feed",
       "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
       "score": 12,
-      "reason": "Bienestar juvenil según metodología encuesta",
+      "reason": "Bienestar juvenil según modo encuesta",
       "tag": "metodología"
     },
     {
@@ -2622,8 +2860,93 @@
       "location": "feed",
       "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
       "score": 12,
-      "reason": "Bienestar juvenil según metodología encuesta",
+      "reason": "Bienestar juvenil según modo encuesta",
       "tag": "metodología"
+    },
+    {
+      "id": "01kp3z75cb602ez0z6dh8bv1zg",
+      "title": "The weaker US job ladder has slowed wage growth",
+      "author": "VoxEU | CEPR",
+      "source_url": "https://cepr.org/voxeu/columns/weaker-us-job-ladder-has-slowed-wage-growth",
+      "site_name": "CEPR",
+      "summary": "Delivered by PolitePaul service",
+      "word_count": 1164,
+      "reading_time": "5 mins",
+      "published_date": "2026-04-13",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://cepr.org/themes/custom/cepr/assets/favicon/apple-touch-icon.png?v=1",
+      "score": 12,
+      "reason": "Escalera laboral débil ralentiza salarios",
+      "tag": "mercado laboral"
+    },
+    {
+      "id": "01kp54ex4b9hvzfh96bx33g1y4",
+      "title": "Global shocks are back: Emerging markets holding up",
+      "author": "VoxEU | CEPR",
+      "source_url": "https://cepr.org/voxeu/columns/global-shocks-are-back-emerging-markets-holding",
+      "site_name": null,
+      "summary": "Delivered by PolitePaul service",
+      "word_count": null,
+      "reading_time": null,
+      "published_date": "2026-04-14",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://cepr.org/themes/custom/cepr/assets/favicon/apple-touch-icon.png?v=1",
+      "score": 12,
+      "reason": "Mercados emergentes resisten shocks globales",
+      "tag": "economía"
+    },
+    {
+      "id": "01kp3z75fpqxdrtjqky3pwbh9e",
+      "title": "Global Imbalances Redux",
+      "author": "VoxEU | CEPR",
+      "source_url": "https://cepr.org/multimedia/global-imbalances-redux",
+      "site_name": "CEPR",
+      "summary": "Delivered by PolitePaul service",
+      "word_count": 211,
+      "reading_time": "1 min",
+      "published_date": "2026-04-13",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://cepr.org/themes/custom/cepr/assets/favicon/apple-touch-icon.png?v=1",
+      "score": 12,
+      "reason": "Desequilibrios globales de vuelta",
+      "tag": "comercio"
+    },
+    {
+      "id": "01kp3z75dp56pk4rdwza70r12r",
+      "title": "Stablecoins and Global Imbalances",
+      "author": "VoxEU | CEPR",
+      "source_url": "https://cepr.org/multimedia/stablecoins-and-global-imbalances",
+      "site_name": "CEPR",
+      "summary": "Delivered by PolitePaul service",
+      "word_count": 179,
+      "reading_time": "1 min",
+      "published_date": "2026-04-13",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://cepr.org/themes/custom/cepr/assets/favicon/apple-touch-icon.png?v=1",
+      "score": 12,
+      "reason": "Stablecoins y desequilibrios globales",
+      "tag": "comercio"
+    },
+    {
+      "id": "01kp54ez33j3v7tarybhqvq9jx",
+      "title": "The Hormuz Blockade Is as Much About China as Iran",
+      "author": "Javier Blas",
+      "source_url": "https://www.bloomberg.com/opinion/articles/2026-04-14/the-hormuz-blockade-is-as-much-about-china-as-iran",
+      "site_name": null,
+      "summary": "A map shows the Strait of Hormuz on a laptop computer screen in this photo illustration taken in Athens, Greece, on March 1, 2026. (Photo by Nikolas Kokovlis/NurPhoto via Getty Images)",
+      "word_count": null,
+      "reading_time": null,
+      "published_date": "2026-04-14",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/isy7ndnUZdLw/v1/piHJkQ_WoLj1E/-1x-1.jpg",
+      "score": 12,
+      "reason": "Bloqueo Hormuz conecta China e Irán",
+      "tag": "geopolítica"
     },
     {
       "id": "01kp0wzbvm9bj3hpfkw5p99ckk",
@@ -2639,8 +2962,110 @@
       "location": "feed",
       "image_url": "https://i.ytimg.com/vi/psQ8jEZ0nos/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AHOBYACgAqKAgwIABABGFQgZShiMA8=&rs=AOn4CLANPWcvdbxp6_AyfWTsCmFtZd2gLQ",
       "score": 10,
-      "reason": "Análisis político superficial formato corto",
+      "reason": "Posición Starmer guerra Irán afecta popularidad",
       "tag": "política europea"
+    },
+    {
+      "id": "01kp3z795w2pbtkzfs408x1ndb",
+      "title": "La paradoja de la protección contractual: Proteger al débil de hoy excluye al débil de mañana",
+      "author": "Fedea – Fundación de Estudios de Economía Aplicada",
+      "source_url": "https://documentos.fedea.net/pubs/ap/2026/ap2026-11.pdf?utm_source=wordpress&utm_medium=portada&utm_campaign=estudio",
+      "site_name": "fedea.net",
+      "summary": "Muchas políticas no fracasan por mala intención ni por torpeza técnica, sino porque responden a una demanda política miope. Este artículo examina una sola paradoja: proteger a la parte débil en los contratos en vigor suele perjudicar [...]                            \nDelivered by PolitePaul service",
+      "word_count": 5464,
+      "reading_time": "21 mins",
+      "published_date": "2026-04-13",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://fedea.net/wp-content/uploads/2016/10/CTF201610_twitterCard_00.png",
+      "score": 10,
+      "reason": "Protección contractual crea paradoja exclusión",
+      "tag": "regulación"
+    },
+    {
+      "id": "01kp3ep1nx9mt0d97pwjber6qr",
+      "title": "Open Thread 429",
+      "author": "Scott Alexander",
+      "source_url": "https://www.astralcodexten.com/p/open-thread-429",
+      "site_name": "astralcodexten.com",
+      "summary": "...",
+      "word_count": 143,
+      "reading_time": "1 min",
+      "published_date": "2026-04-13",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substack-post-media.s3.amazonaws.com/public/images/17f95ea0-b04e-4921-98e4-37ee222ded14_1536x1024.png",
+      "score": 8,
+      "reason": "Hilo abierto discusión general",
+      "tag": "cultura"
+    },
+    {
+      "id": "01kp3pwdmmw58p667gq4kk7rkw",
+      "title": "Are These Brain Cells Really Playing DOOM?",
+      "author": "Cleo Abram",
+      "source_url": "https://www.youtube.com/shorts/g-C5JOimppM",
+      "site_name": "YouTube",
+      "summary": "These brain cells on a dish look like they’re playing the video game DOOM. But are they actually? I emailed the scientists to find out…\n\nExperts think this could lead to efficient bio computers or ways to study neurological diseases!\n\nIf you think you could beat the brain cells, subscribe!\n\n#shorts #science #brain #cells #doom",
+      "word_count": null,
+      "reading_time": null,
+      "published_date": "2026-04-13",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://i.ytimg.com/vi/g-C5JOimppM/sddefault.jpg?sqp=-oaymwEoCIAFEOAD8quKqQMcGADwAQH4AbYIgAKAD4oCDAgAEAEYGyBkKGUwDw==&rs=AOn4CLAWUIMdu1cHjztqRV97EBK1dzWSzw",
+      "score": 8,
+      "reason": "Células cerebrales jugando videojuego DOOM",
+      "tag": "IA"
+    },
+    {
+      "id": "01kp444vzgrnds2cbyzb6k1p1k",
+      "title": "Teaching Progress Studies at Universities",
+      "author": "Ben Thomas",
+      "source_url": "https://newsletter.rootsofprogress.org/p/teaching-progress-workshop",
+      "site_name": "rootsofprogress.org",
+      "summary": "A workshop for professors, May 21–24 in DC, hosted by RPI & JHU",
+      "word_count": 593,
+      "reading_time": "3 mins",
+      "published_date": "2026-04-13",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!gP_X!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb3a12254-b5f8-42b4-83cf-3b84c35fa61c_2912x1632.png",
+      "score": 8,
+      "reason": "Taller Progress Studies para profesores",
+      "tag": "políticas públicas"
+    },
+    {
+      "id": "01kp41x72d9ywq2ntn9vachrn3",
+      "title": "In the Gulf, Ukraine flaunts its skill at intercepting drones",
+      "author": "Europe",
+      "source_url": "https://www.economist.com/europe/2026/04/13/in-the-gulf-ukraine-flaunts-its-skill-at-intercepting-drones",
+      "site_name": "The Economist",
+      "summary": "Deals with Saudi Arabia, Qatar and the United Arab Emirates show it is now a defence-industry power",
+      "word_count": 251,
+      "reading_time": "1 min",
+      "published_date": "2026-04-13",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.economist.com/favicon.ico",
+      "score": 8,
+      "reason": "Ucrania muestra habilidad interceptar drones",
+      "tag": "geopolítica"
+    },
+    {
+      "id": "01kp4e4dxf653qcdsr9tep5djp",
+      "title": "Good environment, bad party",
+      "author": "Halina Bennet",
+      "source_url": "https://www.slowboring.com/p/good-environment-bad-party",
+      "site_name": "slowboring.com",
+      "summary": "Trump’s approval rating is in the gutter, and Democrats lead the generic ballot. But Swalwell imploded, and a Senate primary devolved into a Hasan Piker debate. The midterms are Democrats’ to lose.",
+      "word_count": 56,
+      "reading_time": "1 min",
+      "published_date": "2026-04-13",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!lda3!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb181e11a-3718-4307-ab5c-391474e87465_5000x3335.jpeg",
+      "score": 8,
+      "reason": "Entorno favorable pero partido problemático",
+      "tag": "políticas públicas"
     },
     {
       "id": "01knyqycrk1gzdyawqqzw8shks",
@@ -2711,6 +3136,23 @@
       "tag": "cultura"
     },
     {
+      "id": "01kp4aq9t5k9582d6nwcx4y4hq",
+      "title": "Pope Leo says he has ‘no fear’ of Trump administration | FT #shorts",
+      "author": "Financial Times",
+      "source_url": "https://www.youtube.com/shorts/ZRpdXp80RqE",
+      "site_name": "YouTube",
+      "summary": "Speaking on Monday at the start of a trip to Africa, Pope Leo said he had 'no fear . . . of the Trump administration', adding that he would continue speaking out 'loudly against war'.⁠\n⁠\nThe declaration comes after Donald Trump accused Pope Leo, the first American pope, of being 'weak' on crime and 'terrible' for foreign policy.⁠\n\n#shortfeed #shortsviral #shortsvideo #shortsyoutube #usiranwar #pope #popeleoxiv #vatican \n\n► Enjoying FT content? Get a daily slice of the very best FT journalism with FT Edit. Free for 30 days then just £4.99 a month\n\nSee if you get the FT for free as a student (http://ft.com/schoolsarefree) or start a £1 trial: https://subs.ft.com/spa3_trial?segmentId=3d4ba81b-96bb-cef0-9ece-29efd6ef2132.\n\n► Check out our Community tab for more stories: https://www.youtube.com/@FinancialTimes/community\n►  Listen to our podcasts: https://www.ft.com/podcasts\n►  Follow us on Instagram: https://www.instagram.com/financialtimes\n►  Follow us on Instagram: https://www.tiktok.com/@financialtimes",
+      "word_count": null,
+      "reading_time": null,
+      "published_date": "2026-04-13",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://i.ytimg.com/vi/ZRpdXp80RqE/sd2.jpg?sqp=-oaymwEoCIAFEOAD8quKqQMcGADwAQH4AbYIgAKAD4oCDAgAEAEYZSBcKEowDw==&rs=AOn4CLAHNldH0_7lmbo9EBoev1o6ALHcJg",
+      "score": 5,
+      "reason": "Papa sin temor administración Trump",
+      "tag": "geopolítica"
+    },
+    {
       "id": "01kp1c0pxcjz6bydrzpjyvbyy4",
       "title": "Sunday Thread + Mailbag",
       "author": "Halina Bennet",
@@ -2724,8 +3166,93 @@
       "location": "feed",
       "image_url": "https://substack-post-media.s3.amazonaws.com/public/images/d7bae55d-d45c-4fa5-a3c1-b07e85ac0c0f_940x788.png",
       "score": 5,
-      "reason": "Hilo discusión sin contenido sustantivo",
+      "reason": "Hilo dominical y buzón preguntas",
       "tag": "cultura"
+    },
+    {
+      "id": "01kp3vcv224cwr39ctegjeyn6m",
+      "title": "China pushed the bounds of architecture with world's longest outdoor escalator | FT #shorts",
+      "author": "Financial Times",
+      "source_url": "https://www.youtube.com/shorts/3aDYmCyP8_U",
+      "site_name": "YouTube",
+      "summary": "China has pressed the start button on what is believed to be the world’s longest outdoor escalator system on the steep banks of the Yangtze River, in a mountainous region known for pushing the bounds of architecture.⁠\n⁠\nThe 'Goddess' escalator project in Wushan, a county in China’s western Chongqing municipality, stands out for its ambition even in a country where vast infrastructure has become ubiquitous. The almost 1km route took four years to complete, has more than two dozen individual escalators and lifts and takes 21 minutes to ascend, the FT's Thomas Hale explains.⁠\n\n#shortfeed #shortsviral #shortsvideo #shortsyoutube #china #architecture \n\n► Enjoying FT content? Get a daily slice of the very best FT journalism with FT Edit. Free for 30 days then just £4.99 a month\n\nSee if you get the FT for free as a student (http://ft.com/schoolsarefree) or start a £1 trial: https://subs.ft.com/spa3_trial?segmentId=3d4ba81b-96bb-cef0-9ece-29efd6ef2132.\n\n► Check out our Community tab for more stories: https://www.youtube.com/@FinancialTimes/community\n►  Listen to our podcasts: https://www.ft.com/podcasts\n►  Follow us on Instagram: https://www.instagram.com/financialtimes\n►  Follow us on Instagram: https://www.tiktok.com/@financialtimes",
+      "word_count": null,
+      "reading_time": null,
+      "published_date": "2026-04-13",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://i.ytimg.com/vi/3aDYmCyP8_U/sd2.jpg?sqp=-oaymwEoCIAFEOAD8quKqQMcGADwAQH4AbYIgAKAD4oCDAgAEAEYZSBlKGUwDw==&rs=AOn4CLCjmKWUXSncAv6oiyCiiz-_6fuPNA",
+      "score": 5,
+      "reason": "Escalera mecánica más larga mundo",
+      "tag": "urbanismo"
+    },
+    {
+      "id": "01kp3vctz6kyxst4ebj7acfbfv",
+      "title": "Donald Trump's towering presidential library project | FT #shorts",
+      "author": "Financial Times",
+      "source_url": "https://www.youtube.com/shorts/hX6Ixy6NYws",
+      "site_name": "YouTube",
+      "summary": "Donald Trump has revealed plans for his presidential library in central Miami, featuring a glass tower containing a decommissioned Air Force One and a golden statue of himself with his fist in the air, the FT's Alison Killing explains. ⁠\n⁠\nThe Donald J Trump Presidential Library foundation plans to raise almost $1bn to cover the cost of the project to the end of 2027, according to documents filed with the IRS and obtained by the FT.⁠\n\n#shortfeed #shortsviral #shortsvideo #shortsyoutube #usa \n\n► Enjoying FT content? Get a daily slice of the very best FT journalism with FT Edit. Free for 30 days then just £4.99 a month\n\nSee if you get the FT for free as a student (http://ft.com/schoolsarefree) or start a £1 trial: https://subs.ft.com/spa3_trial?segmentId=3d4ba81b-96bb-cef0-9ece-29efd6ef2132.\n\n► Check out our Community tab for more stories: https://www.youtube.com/@FinancialTimes/community\n►  Listen to our podcasts: https://www.ft.com/podcasts\n►  Follow us on Instagram: https://www.instagram.com/financialtimes\n►  Follow us on Instagram: https://www.tiktok.com/@financialtimes",
+      "word_count": null,
+      "reading_time": null,
+      "published_date": "2026-04-13",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://i.ytimg.com/vi/hX6Ixy6NYws/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AG2CIACgA-KAgwIABABGHIgRihLMA8=&rs=AOn4CLBvfmYdDFRKtsVbGEmiRb-IkusgmQ",
+      "score": 5,
+      "reason": "Biblioteca presidencial torre Trump",
+      "tag": "cultura"
+    },
+    {
+      "id": "01kp3by8nk1gt9pdqs5176g6z3",
+      "title": "India's transmission transformation | FT Energy Source",
+      "author": "Financial Times",
+      "source_url": "https://www.youtube.com/watch?v=yyDJkbRCKbc",
+      "site_name": "YouTube",
+      "summary": "► Enjoying FT content? Get a daily slice of the very best FT journalism with FT Edit. Free for 30 days then just £4.99 a month\n\nSee if you get the FT for free as a student (http://ft.com/schoolsarefree) or start a £1 trial: https://subs.ft.com/spa3_trial?segmentId=3d4ba81b-96bb-cef0-9ece-29efd6ef2132.\n\n► Check out our Community tab for more stories: https://www.youtube.com/@FinancialTimes/community\n►  Listen to our podcasts: https://www.ft.com/podcasts\n►  Follow us on Instagram: https://www.instagram.com/financialtimes\n►  Follow us on Instagram: https://www.tiktok.com/@financialtimes",
+      "word_count": null,
+      "reading_time": null,
+      "published_date": "2026-04-13",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://i.ytimg.com/vi/yyDJkbRCKbc/sddefault.jpg",
+      "score": 5,
+      "reason": "Transformación transmisión eléctrica India",
+      "tag": "energía"
+    },
+    {
+      "id": "01kp30t8mrw70gsha1xzwchkxq",
+      "title": "Why ‘pump anxiety’ as petrol prices soar promped surge in EV sales | FT Tech",
+      "author": "Financial Times",
+      "source_url": "https://www.youtube.com/watch?v=Da-SKX73MzA",
+      "site_name": "YouTube",
+      "summary": "Increased costs since outbreak of Middle East conflict prompt more test drives and advert views.\n\n► Enjoying FT content? Get a daily slice of the very best FT journalism with FT Edit. Free for 30 days then just £4.99 a month\n\nSee if you get the FT for free as a student (http://ft.com/schoolsarefree) or start a £1 trial: https://subs.ft.com/spa3_trial?segmentId=3d4ba81b-96bb-cef0-9ece-29efd6ef2132.\n\n► Check out our Community tab for more stories: https://www.youtube.com/@FinancialTimes/community\n►  Listen to our podcasts: https://www.ft.com/podcasts\n►  Follow us on Instagram: https://www.instagram.com/financialtimes\n►  Follow us on Instagram: https://www.tiktok.com/@financialtimes",
+      "word_count": null,
+      "reading_time": null,
+      "published_date": "2026-04-12",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://i.ytimg.com/vi/Da-SKX73MzA/sddefault.jpg",
+      "score": 5,
+      "reason": "Ansiedad gasolineras impulsa ventas coches eléctricos",
+      "tag": "energía"
+    },
+    {
+      "id": "01kp30t8jnyef8peygp0c3q2fg",
+      "title": "Hungary ousts longtime prime minister Viktor Orbán in landslide election | FT #shorts",
+      "author": "Financial Times",
+      "source_url": "https://www.youtube.com/shorts/VXfbIyZJHxU",
+      "site_name": "YouTube",
+      "summary": "Hungary’s Prime Minister Viktor Orbán conceded defeat in parliamentary elections after voters handed the opposition Tisza party a sweeping landslide victory set to reverberate around Europe.\n\n#hungary #orbán #magyar #europe #eu #politics #trumpsupporter #shortsvideo #shortfeed #shorts #shortsviral #shortsyoutube #shortsvideos\n\n► Enjoying FT content? Get a daily slice of the very best FT journalism with FT Edit. Free for 30 days then just £4.99 a month\n\nSee if you get the FT for free as a student (http://ft.com/schoolsarefree) or start a £1 trial: https://subs.ft.com/spa3_trial?segmentId=3d4ba81b-96bb-cef0-9ece-29efd6ef2132.\n\n► Check out our Community tab for more stories: https://www.youtube.com/@FinancialTimes/community\n►  Listen to our podcasts: https://www.ft.com/podcasts\n►  Follow us on Instagram: https://www.instagram.com/financialtimes\n►  Follow us on Instagram: https://www.tiktok.com/@financialtimes",
+      "word_count": null,
+      "reading_time": null,
+      "published_date": "2026-04-12",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://i.ytimg.com/vi/VXfbIyZJHxU/sddefault.jpg?sqp=-oaymwEoCIAFEOAD8quKqQMcGADwAQH4AbYIgAKAD4oCDAgAEAEYZSBNKFMwDw==&rs=AOn4CLDP3NuhzTiBK1WRwQ5x8aNjgzQE9w",
+      "score": 5,
+      "reason": "Hungría destituye primer ministro Orbán",
+      "tag": "política europea"
     },
     {
       "id": "01knx1vfzrvt0jamg1ft1j4474",
