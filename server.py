@@ -1,9 +1,10 @@
 """Minimal Flask server for the readerme microsite."""
 
+import base64
 import json
 import os
 import pathlib
-import subprocess
+import threading
 from datetime import datetime, timezone
 
 import httpx
@@ -14,20 +15,18 @@ from reader import archive_article, save_url, fetch_html_content
 
 DATA_DIR = pathlib.Path(__file__).parent / "data"
 FEEDBACK_FILE = DATA_DIR / "feedback.json"
-REPO_DIR = pathlib.Path(__file__).parent
 
+GITHUB_API = "https://api.github.com/repos/JorgeGalindo/readerme/contents/data/feedback.json"
 
 _feedback_timer = None
 
 
-def _git_push_feedback():
-    """Commit and push feedback.json so it survives Render redeploys.
+def _push_feedback_github():
+    """Push feedback.json to GitHub via the Contents API.
 
     Debounced: waits 5s after the last call before pushing, so bulk
     operations (mark-all-no) produce a single commit.
     """
-    import threading
-
     global _feedback_timer
     if _feedback_timer:
         _feedback_timer.cancel()
@@ -38,44 +37,36 @@ def _git_push_feedback():
             if not gh_token:
                 print("No GITHUB_TOKEN, skipping feedback push.")
                 return
-            remote_url = f"https://x-access-token:{gh_token}@github.com/JorgeGalindo/readerme.git"
-            # Ensure remote exists and points to the right URL
-            subprocess.run(
-                ["git", "remote", "remove", "origin"],
-                cwd=REPO_DIR, capture_output=True, timeout=5,
+            headers = {
+                "Authorization": f"token {gh_token}",
+                "Accept": "application/vnd.github.v3+json",
+            }
+            # Get current file SHA (required for update)
+            resp = httpx.get(GITHUB_API, headers=headers, timeout=15)
+            if resp.status_code != 200:
+                print(f"GitHub API get failed: {resp.status_code} {resp.text[:200]}")
+                return
+            sha = resp.json().get("sha", "")
+
+            # Upload updated content
+            content = FEEDBACK_FILE.read_text()
+            encoded = base64.b64encode(content.encode()).decode()
+            put_resp = httpx.put(
+                GITHUB_API,
+                headers=headers,
+                json={
+                    "message": "[skip render] feedback: " + datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+                    "content": encoded,
+                    "sha": sha,
+                },
+                timeout=15,
             )
-            subprocess.run(
-                ["git", "remote", "add", "origin", remote_url],
-                cwd=REPO_DIR, capture_output=True, timeout=5,
-            )
-            subprocess.run(
-                ["git", "config", "user.email", "readerme-bot@users.noreply.github.com"],
-                cwd=REPO_DIR, capture_output=True, timeout=5,
-            )
-            subprocess.run(
-                ["git", "config", "user.name", "readerme-bot"],
-                cwd=REPO_DIR, capture_output=True, timeout=5,
-            )
-            subprocess.run(
-                ["git", "add", str(FEEDBACK_FILE)],
-                cwd=REPO_DIR, capture_output=True, timeout=10,
-            )
-            result = subprocess.run(
-                ["git", "commit", "-m", "feedback: " + datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")],
-                cwd=REPO_DIR, capture_output=True, timeout=10,
-            )
-            if result.returncode != 0:
-                return  # nothing to commit
-            push = subprocess.run(
-                ["git", "push", "origin", "main"],
-                cwd=REPO_DIR, capture_output=True, timeout=30,
-            )
-            if push.returncode != 0:
-                print(f"Git push failed: {push.stderr.decode()}")
-            else:
+            if put_resp.status_code in (200, 201):
                 print("Feedback pushed to GitHub.")
+            else:
+                print(f"GitHub API put failed: {put_resp.status_code} {put_resp.text[:200]}")
         except Exception as e:
-            print(f"Git push feedback failed: {e}")
+            print(f"Feedback push failed: {e}")
 
     _feedback_timer = threading.Timer(5.0, _do_push)
     _feedback_timer.start()
@@ -248,7 +239,7 @@ def feedback():
     elif not liked and section == "feeds" and doc_id:
         reader_synced = archive_article(doc_id)
 
-    _git_push_feedback()
+    _push_feedback_github()
 
     return jsonify({"ok": True, "reader_synced": reader_synced})
 
