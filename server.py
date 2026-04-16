@@ -34,8 +34,20 @@ def _git_push_feedback():
 
     def _do_push():
         try:
-            env = os.environ.copy()
-            # Configure git identity if not set
+            gh_token = os.getenv("GITHUB_TOKEN", "")
+            if not gh_token:
+                print("No GITHUB_TOKEN, skipping feedback push.")
+                return
+            remote_url = f"https://x-access-token:{gh_token}@github.com/JorgeGalindo/readerme.git"
+            # Ensure remote exists and points to the right URL
+            subprocess.run(
+                ["git", "remote", "remove", "origin"],
+                cwd=REPO_DIR, capture_output=True, timeout=5,
+            )
+            subprocess.run(
+                ["git", "remote", "add", "origin", remote_url],
+                cwd=REPO_DIR, capture_output=True, timeout=5,
+            )
             subprocess.run(
                 ["git", "config", "user.email", "readerme-bot@users.noreply.github.com"],
                 cwd=REPO_DIR, capture_output=True, timeout=5,
@@ -54,20 +66,14 @@ def _git_push_feedback():
             )
             if result.returncode != 0:
                 return  # nothing to commit
-            # Use GITHUB_TOKEN for auth if available
-            gh_token = os.getenv("GITHUB_TOKEN", "")
-            if gh_token:
-                subprocess.run(
-                    ["git", "remote", "set-url", "origin",
-                     f"https://x-access-token:{gh_token}@github.com/JorgeGalindo/readerme.git"],
-                    cwd=REPO_DIR, capture_output=True, timeout=5,
-                )
             push = subprocess.run(
-                ["git", "push"],
+                ["git", "push", "origin", "main"],
                 cwd=REPO_DIR, capture_output=True, timeout=30,
             )
             if push.returncode != 0:
                 print(f"Git push failed: {push.stderr.decode()}")
+            else:
+                print("Feedback pushed to GitHub.")
         except Exception as e:
             print(f"Git push feedback failed: {e}")
 
