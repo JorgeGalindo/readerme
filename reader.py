@@ -101,6 +101,9 @@ def fetch_html_content(doc_id: str) -> str:
 
 def archive_article(doc_id: str) -> bool:
     """Move an article to archive in Reader."""
+    if not TOKEN:
+        print(f"Cannot archive {doc_id}: READWISE_TOKEN not set")
+        return False
     try:
         resp = httpx.patch(
             f"https://readwise.io/api/v3/update/{doc_id}/",
@@ -108,6 +111,9 @@ def archive_article(doc_id: str) -> bool:
             json={"location": "archive"},
             timeout=15,
         )
+        if resp.status_code == 404:
+            print(f"Archive 404 for {doc_id} — invalid doc ID?")
+            return False
         resp.raise_for_status()
         return True
     except Exception as e:

@@ -317,10 +317,31 @@ def curate(days: int = 2, top_n: int = 0) -> dict:
 
     # Merge with pending articles from previous run (not yet marked Sí/No)
     feedback_urls = set()
+    feedback_titles = set()
+    feedback_ids = set()
     if FEEDBACK_FILE.exists():
         for f in json.loads(FEEDBACK_FILE.read_text()):
             if f.get("source_url"):
                 feedback_urls.add(f["source_url"])
+            if f.get("title"):
+                feedback_titles.add(f["title"].strip().lower())
+            if f.get("id"):
+                feedback_ids.add(f["id"])
+
+    def _has_feedback(article):
+        """Check if an article was already marked with feedback."""
+        url = article.get("source_url", "")
+        title = (article.get("title") or "").strip().lower()
+        aid = article.get("id", "")
+        return (url and url in feedback_urls) or \
+               (title and title in feedback_titles) or \
+               (aid and aid in feedback_ids)
+
+    # Remove already-marked articles from new batch
+    before_fb = len(curated_articles)
+    curated_articles = [a for a in curated_articles if not _has_feedback(a)]
+    if len(curated_articles) < before_fb:
+        print(f"  Excluded {before_fb - len(curated_articles)} already-marked articles.")
 
     new_urls = {a.get("source_url", "") for a in curated_articles}
 
@@ -335,7 +356,7 @@ def curate(days: int = 2, top_n: int = 0) -> dict:
                 or blocked in (old_article.get("title") or "").lower()
                 for blocked in BLOCKED_SOURCES
             )
-            if old_url and old_url not in new_urls and old_url not in feedback_urls and not is_blocked:
+            if old_url and old_url not in new_urls and not _has_feedback(old_article) and not is_blocked:
                 curated_articles.append(old_article)
 
     # Deduplicate by source_url and normalized title
