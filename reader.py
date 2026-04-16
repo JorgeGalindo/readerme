@@ -14,7 +14,6 @@ load_dotenv()
 DATA_DIR = pathlib.Path(__file__).parent / "data"
 CACHE_FILE = DATA_DIR / "reader_articles.json"
 READER_API = "https://readwise.io/api/v3/list/"
-READER_SAVE_API = "https://readwise.io/api/v3/save/"
 TOKEN = os.getenv("READWISE_TOKEN", "")
 
 
@@ -98,49 +97,6 @@ def fetch_html_content(doc_id: str) -> str:
         print(f"Failed to fetch content for {doc_id}: {e}")
     return ""
 
-
-def archive_article(doc_id: str) -> bool:
-    """Move an article to archive in Reader."""
-    if not TOKEN:
-        print(f"Cannot archive {doc_id}: READWISE_TOKEN not set")
-        return False
-    try:
-        resp = httpx.patch(
-            f"https://readwise.io/api/v3/update/{doc_id}/",
-            headers=_headers(),
-            json={"location": "archive"},
-            timeout=15,
-        )
-        if resp.status_code == 404:
-            print(f"Archive 404 for {doc_id} — invalid doc ID?")
-            return False
-        resp.raise_for_status()
-        return True
-    except Exception as e:
-        print(f"Failed to archive {doc_id}: {e}")
-        return False
-
-
-def mark_as_seen(doc_id: str) -> bool:
-    """Mark an article as seen (move out of feed) in Reader."""
-    # Reader doesn't have a "seen" state — we archive it
-    return archive_article(doc_id)
-
-
-def save_url(url: str) -> bool:
-    """Save a new URL to Reader (goes to archive)."""
-    try:
-        resp = httpx.post(
-            READER_SAVE_API,
-            headers=_headers(),
-            json={"url": url, "location": "archive"},
-            timeout=15,
-        )
-        resp.raise_for_status()
-        return True
-    except Exception as e:
-        print(f"Failed to save URL {url}: {e}")
-        return False
 
 
 def load_feed(force_refresh: bool = False) -> list[dict]:

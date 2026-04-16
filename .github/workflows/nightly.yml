@@ -38,7 +38,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/curated.json data/spain.json data/polls.json data/markets.json \
-                  data/feedback.json data/scores_cache.json data/seen_intl.json \
-                  data/feedback_processed.json data/briefing.mp3 data/briefing.txt 2>/dev/null || true
+                  data/scores_cache.json data/seen_intl.json \
+                  data/briefing.mp3 data/briefing.txt 2>/dev/null || true
           git diff --cached --quiet || git commit -m "nightly: $(date -u '+%Y-%m-%d %H:%M') UTC"
           git push

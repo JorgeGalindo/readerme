@@ -54,10 +54,6 @@
           <button class="btn-expand" data-url="{{ b.source_url }}" onclick="toggleScrape(this)">Leer</button>
           {% endif %}
           <button class="btn-listen" onclick="toggleListen(this)" style="display:none">Escuchar</button>
-          <div class="feedback" data-title="{{ b.title }}" data-tag="{{ b.tag }}" data-section="thinktank" data-source-url="{{ b.source_url or '' }}">
-            <button class="btn-yes" onclick="sendFeedback(this, true)">Sí</button>
-            <button class="btn-no" onclick="sendFeedback(this, false)">No</button>
-          </div>
         </div>
         <div class="article-content" style="display:none"></div>
         <div class="card-bottom" style="display:none">
@@ -88,10 +84,6 @@
           <button class="btn-expand" data-url="{{ a.source_url }}" onclick="toggleScrape(this)">Leer</button>
           {% endif %}
           <button class="btn-listen" onclick="toggleListen(this)" style="display:none">Escuchar</button>
-          <div class="feedback" data-title="{{ a.title }}" data-tag="{{ a.tag }}" data-section="abundance" data-source-url="{{ a.source_url or '' }}">
-            <button class="btn-yes" onclick="sendFeedback(this, true)">Sí</button>
-            <button class="btn-no" onclick="sendFeedback(this, false)">No</button>
-          </div>
         </div>
         <div class="article-content" style="display:none"></div>
         <div class="card-bottom" style="display:none">
@@ -129,10 +121,6 @@
         <button class="btn-expand" data-id="{{ article.id }}" onclick="toggleExpand(this)">Leer</button>
         {% endif %}
         <button class="btn-listen" onclick="toggleListen(this)" style="display:none">Escuchar</button>
-        <div class="feedback" data-title="{{ article.title }}" data-tag="{{ article.tag }}" data-section="feeds" data-id="{{ article.id or '' }}" data-source-url="{{ article.source_url or '' }}">
-          <button class="btn-yes" onclick="sendFeedback(this, true)">Sí</button>
-          <button class="btn-no" onclick="sendFeedback(this, false)">No</button>
-        </div>
       </div>
       <div class="article-content" style="display:none"></div>
       <div class="card-bottom" style="display:none">
@@ -143,9 +131,6 @@
       </div>
     </article>
     {% endfor %}
-    <div class="mark-all-no">
-      <button class="btn-mark-all-no" onclick="markAllNo()">Marcar resto como No</button>
-    </div>
   </main>
 
   <footer>
@@ -153,24 +138,6 @@
   </footer>
 
   <script>
-  // Restore feedback visual state from server
-  (function() {
-    const fb = {{ today_feedback | tojson }};
-    document.querySelectorAll('.feedback[data-title]').forEach(container => {
-      const title = container.dataset.title;
-      if (title in fb) {
-        const liked = fb[title];
-        container.querySelectorAll('button').forEach(b => b.classList.add('done'));
-        const activeBtn = liked ? container.querySelector('.btn-yes') : container.querySelector('.btn-no');
-        if (activeBtn) { activeBtn.classList.remove('done'); activeBtn.classList.add('active'); }
-        container.dataset.marked = '1';
-        if (container.dataset.section === 'feeds') {
-          container.closest('.card').style.opacity = '0.3';
-        }
-      }
-    });
-  })();
-
   // Build tag filter from actual tags on page
   (function() {
     const tags = new Set();
@@ -195,59 +162,6 @@
       const visible = sec.querySelectorAll('.card[data-tag]:not([style*="display: none"])');
       sec.style.display = visible.length ? '' : 'none';
     });
-  }
-
-  async function sendFeedback(btn, liked) {
-    const container = btn.closest('.feedback');
-    const section = container.dataset.section;
-    const hasReaderSync = (section === 'feeds' && container.dataset.id) ||
-                          (section !== 'feeds' && liked && container.dataset.sourceUrl);
-    const data = {
-      title: container.dataset.title,
-      tag: container.dataset.tag,
-      section: section,
-      id: container.dataset.id || '',
-      source_url: container.dataset.sourceUrl || '',
-      liked: liked
-    };
-    container.querySelectorAll('button').forEach(b => b.classList.add('done'));
-    btn.classList.remove('done');
-    btn.classList.add('active');
-    container.dataset.marked = '1';
-    const card = btn.closest('.card');
-    if (card && section === 'feeds') {
-      setTimeout(() => { card.style.opacity = '0.3'; }, 600);
-    }
-    try {
-      const resp = await fetch('/api/feedback', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(data)
-      });
-      const result = await resp.json();
-      if (hasReaderSync && result.reader_synced === false) {
-        btn.classList.add('sync-failed');
-        btn.title = 'No se pudo sincronizar con Reader';
-      }
-    } catch (e) {
-      if (hasReaderSync) {
-        btn.classList.add('sync-failed');
-        btn.title = 'No se pudo sincronizar con Reader';
-      }
-    }
-  }
-
-  // Move feedback to card-bottom when expanded, back to top when collapsed
-  function _moveFeedback(card, toBottom) {
-    const fb = card.querySelector('.feedback');
-    if (!fb) return;
-    if (toBottom) {
-      const bottomActions = card.querySelector('.card-bottom .card-actions');
-      if (bottomActions) bottomActions.appendChild(fb);
-    } else {
-      const topActions = card.querySelector('.top-actions');
-      if (topActions) topActions.appendChild(fb);
-    }
   }
 
   async function _fetchContent(btn, contentDiv, url) {
@@ -278,7 +192,7 @@
       if (_ttsState.card === card) _stopTTS();
       contentDiv.style.display = 'none';
       card.querySelector('.card-bottom').style.display = 'none';
-      _moveFeedback(card, false);
+
       _showListenBtn(card, false);
       btn.textContent = 'Leer';
       return;
@@ -288,7 +202,7 @@
     }
     contentDiv.style.display = 'block';
     card.querySelector('.card-bottom').style.display = 'block';
-    _moveFeedback(card, true);
+
     _showListenBtn(card, true);
     btn.textContent = 'Cerrar';
   }
@@ -300,7 +214,7 @@
       if (_ttsState.card === card) _stopTTS();
       contentDiv.style.display = 'none';
       card.querySelector('.card-bottom').style.display = 'none';
-      _moveFeedback(card, false);
+
       _showListenBtn(card, false);
       btn.textContent = 'Leer';
       return;
@@ -310,7 +224,7 @@
     }
     contentDiv.style.display = 'block';
     card.querySelector('.card-bottom').style.display = 'block';
-    _moveFeedback(card, true);
+
     _showListenBtn(card, true);
     btn.textContent = 'Cerrar';
   }
@@ -443,15 +357,6 @@
     setTimeout(() => { btn.textContent = 'Copiar'; }, 1500);
   }
 
-  async function markAllNo() {
-    const unmarked = document.querySelectorAll('.feedback:not([data-marked])');
-    for (const fb of unmarked) {
-      const noBtn = fb.querySelector('.btn-no');
-      if (noBtn && !fb.dataset.marked) await sendFeedback(noBtn, false);
-    }
-    const btn = document.querySelector('.btn-mark-all-no');
-    if (btn) { btn.textContent = 'Hecho'; btn.disabled = true; }
-  }
   </script>
 </body>
 </html>

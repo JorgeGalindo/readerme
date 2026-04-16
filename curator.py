@@ -17,7 +17,6 @@ load_dotenv()
 DATA_DIR = pathlib.Path(__file__).parent / "data"
 PROFILE_FILE = DATA_DIR / "profile.json"
 CURATED_FILE = DATA_DIR / "curated.json"
-FEEDBACK_FILE = DATA_DIR / "feedback.json"
 
 client = anthropic.Anthropic(timeout=180.0, max_retries=3)
 
@@ -36,29 +35,6 @@ TAGS = [
 # Sources to always exclude (matched case-insensitively against author and site_name)
 BLOCKED_SOURCES = ["cleo abram", "ft shorts"]
 
-
-def _load_feedback_context() -> str:
-    """Load user feedback and format it as context for curation prompts."""
-    if not FEEDBACK_FILE.exists():
-        return ""
-    feedback = json.loads(FEEDBACK_FILE.read_text())
-    if not feedback:
-        return ""
-
-    liked = [f for f in feedback if f.get("liked")]
-    disliked = [f for f in feedback if not f.get("liked")]
-
-    lines = ["FEEDBACK PREVIO DEL USUARIO (usa esto para afinar tus recomendaciones):"]
-    if liked:
-        lines.append("Le gustaron:")
-        for f in liked[-15:]:  # last 15
-            lines.append(f"  + \"{f['title']}\" [{f.get('tag', '')}]")
-    if disliked:
-        lines.append("NO le gustaron:")
-        for f in disliked[-15:]:
-            lines.append(f"  - \"{f['title']}\" [{f.get('tag', '')}]")
-
-    return "\n".join(lines)
 
 
 def build_profile(force_refresh: bool = False) -> dict:
@@ -131,38 +107,9 @@ def _save_scores_cache(cache: dict):
     SCORES_CACHE_FILE.write_text(json.dumps(cache, ensure_ascii=False, indent=2))
 
 
-def _build_feedback_examples() -> str:
-    """Build concrete liked/disliked examples for calibration."""
-    if not FEEDBACK_FILE.exists():
-        return ""
-    feedback = json.loads(FEEDBACK_FILE.read_text())
-    if not feedback:
-        return ""
-
-    liked = [f for f in feedback if f.get("liked") and f.get("section") == "feeds"]
-    disliked = [f for f in feedback if not f.get("liked") and f.get("section") == "feeds"]
-
-    if not liked and not disliked:
-        return ""
-
-    lines = ["EJEMPLOS DE CALIBRACIÓN (basados en feedback real del usuario):"]
-    if liked:
-        lines.append("Artículos que al usuario LE GUSTARON (deberían puntuar alto):")
-        for f in liked[-8:]:
-            lines.append(f"  BUENO: \"{f['title']}\" [{f.get('tag', '')}]")
-    if disliked:
-        lines.append("Artículos que al usuario NO le gustaron (deberían puntuar bajo):")
-        for f in disliked[-8:]:
-            lines.append(f"  MALO: \"{f['title']}\" [{f.get('tag', '')}]")
-
-    return "\n".join(lines)
-
 
 def _score_batch(profile: dict, articles: list[dict], batch_indices: list[int], prev_scores: dict) -> list[dict]:
-    """Rank a batch of articles using rubric scoring + comparative ranking + feedback calibration."""
-    feedback_ctx = _load_feedback_context()
-    feedback_examples = _build_feedback_examples()
-
+    """Rank a batch of articles using rubric scoring + comparative ranking."""
     # Build article list with previous scores where available
     article_list = []
     for idx in batch_indices:
@@ -186,10 +133,6 @@ def _score_batch(profile: dict, articles: list[dict], batch_indices: list[int], 
             "content": f"""Eres un curador de contenido personal. Tu tarea es ORDENAR y PUNTUAR todos los artículos para un lector con perspectiva YIMBY y de abundancia.
 
 PERFIL: {json.dumps(profile, ensure_ascii=False)}
-
-{feedback_ctx}
-
-{feedback_examples}
 
 RÚBRICA DE PUNTUACIÓN (suma de 4 dimensiones):
 - Relevancia directa a core topics del perfil (0-30): ¿trata sus temas?
@@ -315,49 +258,27 @@ def curate(days: int = 2, top_n: int = 0) -> dict:
     thinktank = find_outside_bubble(profile, reader_urls, thinktank_ids)
     abundance = find_abundance(reader_urls)
 
-    # Merge with pending articles from previous run (not yet marked Sí/No)
-    feedback_urls = set()
-    feedback_titles = set()
-    feedback_ids = set()
-    if FEEDBACK_FILE.exists():
-        for f in json.loads(FEEDBACK_FILE.read_text()):
-            if f.get("source_url"):
-                feedback_urls.add(f["source_url"])
-            if f.get("title"):
-                feedback_titles.add(f["title"].strip().lower())
-            if f.get("id"):
-                feedback_ids.add(f["id"])
-
-    def _has_feedback(article):
-        """Check if an article was already marked with feedback."""
-        url = article.get("source_url", "")
-        title = (article.get("title") or "").strip().lower()
-        aid = article.get("id", "")
-        return (url and url in feedback_urls) or \
-               (title and title in feedback_titles) or \
-               (aid and aid in feedback_ids)
-
-    # Remove already-marked articles from new batch
-    before_fb = len(curated_articles)
-    curated_articles = [a for a in curated_articles if not _has_feedback(a)]
-    if len(curated_articles) < before_fb:
-        print(f"  Excluded {before_fb - len(curated_articles)} already-marked articles.")
-
-    new_urls = {a.get("source_url", "") for a in curated_articles}
-
+    # Exclude articles that appeared in the previous nightly
+    prev_urls = set()
+    prev_titles = set()
     if CURATED_FILE.exists():
         prev = json.loads(CURATED_FILE.read_text())
         for old_article in prev.get("articles", []):
-            old_url = old_article.get("source_url", "")
-            # Keep if: not already in new batch AND not yet marked with feedback AND not blocked
-            is_blocked = any(
-                blocked in (old_article.get("author") or "").lower()
-                or blocked in (old_article.get("site_name") or "").lower()
-                or blocked in (old_article.get("title") or "").lower()
-                for blocked in BLOCKED_SOURCES
-            )
-            if old_url and old_url not in new_urls and not _has_feedback(old_article) and not is_blocked:
-                curated_articles.append(old_article)
+            url = old_article.get("source_url", "")
+            title = (old_article.get("title") or "").strip().lower()
+            if url:
+                prev_urls.add(url)
+            if title:
+                prev_titles.add(title)
+
+    before_excl = len(curated_articles)
+    curated_articles = [
+        a for a in curated_articles
+        if (a.get("source_url", "") not in prev_urls) and
+           ((a.get("title") or "").strip().lower() not in prev_titles)
+    ]
+    if len(curated_articles) < before_excl:
+        print(f"  Excluded {before_excl - len(curated_articles)} articles from previous nightly.")
 
     # Deduplicate by source_url and normalized title
     seen_urls = set()
@@ -630,8 +551,6 @@ Criterios estrictos:
 - Los 2 deben ser de temas DIFERENTES (no repitas país ni temática)
 - Prioriza: think tanks (Niskanen, IFP, Works in Progress), casos europeos, reformas concretas
 - Evita repetir siempre los mismos países (varía entre EEUU, UK, Europa, Asia, LatAm)
-
-{_load_feedback_context()}
 
 {results_text}
 

@@ -1,88 +1,16 @@
 """Minimal Flask server for the readerme microsite."""
 
-import base64
 import json
-import os
 import pathlib
-import threading
 from datetime import datetime, timezone
 
 import httpx
 from bs4 import BeautifulSoup
 from flask import Flask, render_template, request, jsonify, send_file
 
-from reader import archive_article, save_url, fetch_html_content
+from reader import fetch_html_content
 
 DATA_DIR = pathlib.Path(__file__).parent / "data"
-FEEDBACK_FILE = DATA_DIR / "feedback.json"
-
-GITHUB_API = "https://api.github.com/repos/JorgeGalindo/readerme/contents/data/feedback.json"
-
-_feedback_timer = None
-
-
-def _push_feedback_github():
-    """Push feedback.json to GitHub via the Contents API.
-
-    Debounced: waits 5s after the last call before pushing, so bulk
-    operations (mark-all-no) produce a single commit.
-    """
-    global _feedback_timer
-    if _feedback_timer:
-        _feedback_timer.cancel()
-
-    def _do_push():
-        try:
-            gh_token = os.getenv("GITHUB_TOKEN", "")
-            if not gh_token:
-                print("No GITHUB_TOKEN, skipping feedback push.")
-                return
-            headers = {
-                "Authorization": f"token {gh_token}",
-                "Accept": "application/vnd.github.v3+json",
-            }
-            # Get current file SHA (required for update)
-            resp = httpx.get(GITHUB_API, headers=headers, timeout=15)
-            if resp.status_code != 200:
-                print(f"GitHub API get failed: {resp.status_code} {resp.text[:200]}")
-                return
-            sha = resp.json().get("sha", "")
-
-            # Upload updated content
-            content = FEEDBACK_FILE.read_text()
-            encoded = base64.b64encode(content.encode()).decode()
-            put_resp = httpx.put(
-                GITHUB_API,
-                headers=headers,
-                json={
-                    "message": "[skip render] feedback: " + datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
-                    "content": encoded,
-                    "sha": sha,
-                },
-                timeout=15,
-            )
-            if put_resp.status_code in (200, 201):
-                print("Feedback pushed to GitHub.")
-            else:
-                print(f"GitHub API put failed: {put_resp.status_code} {put_resp.text[:200]}")
-        except Exception as e:
-            print(f"Feedback push failed: {e}")
-
-    _feedback_timer = threading.Timer(5.0, _do_push)
-    _feedback_timer.start()
-
-
-def _today_feedback() -> dict:
-    """Return today's feedback as {title: liked} for UI restoration."""
-    if not FEEDBACK_FILE.exists():
-        return {}
-    feedback = json.loads(FEEDBACK_FILE.read_text())
-    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    marked = {}
-    for f in feedback:
-        if f.get("date", "").startswith(today):
-            marked[f["title"]] = f["liked"]
-    return marked
 
 app = Flask(__name__)
 
@@ -142,7 +70,6 @@ def index():
         abundance=data.get("abundance", []),
         generated_at=generated_at,
         total=data.get("article_count_total", 0),
-        today_feedback=_today_feedback(),
     )
 
 
@@ -206,42 +133,6 @@ def scrape():
         return jsonify({"ok": True, "html": html})
     return jsonify({"ok": False, "html": ""})
 
-
-@app.route("/api/feedback", methods=["POST"])
-def feedback():
-    data = request.get_json()
-    liked = data.get("liked", True)
-    doc_id = data.get("id", "")
-    source_url = data.get("source_url", "")
-    section = data.get("section", "")
-
-    entry = {
-        "title": data.get("title", ""),
-        "tag": data.get("tag", ""),
-        "section": section,
-        "liked": liked,
-        "id": doc_id,
-        "source_url": source_url,
-        "date": datetime.now(timezone.utc).isoformat(),
-    }
-
-    feedback_list = []
-    if FEEDBACK_FILE.exists():
-        feedback_list = json.loads(FEEDBACK_FILE.read_text())
-    feedback_list.append(entry)
-    FEEDBACK_FILE.write_text(json.dumps(feedback_list, ensure_ascii=False, indent=2))
-
-    reader_synced = False
-    if liked and section == "feeds" and doc_id:
-        reader_synced = archive_article(doc_id)
-    elif liked and section in ("thinktank", "abundance") and source_url:
-        reader_synced = save_url(source_url)
-    elif not liked and section == "feeds" and doc_id:
-        reader_synced = archive_article(doc_id)
-
-    _push_feedback_github()
-
-    return jsonify({"ok": True, "reader_synced": reader_synced})
 
 
 @app.route("/api/share-text", methods=["POST"])
