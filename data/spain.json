@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-16T04:57:25.544676+00:00",
+  "generated_at": "2026-04-16T08:42:22.128965+00:00",
   "intl": [],
   "spanish": [
     {
@@ -10,7 +10,7 @@
       "date": "Thu, 16 Apr 2026 03:30:01 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "La regularización de medio millón de migrantes intensifica la polarización política y refuerza la narrativa anti-inmigración del PP como estrategia electoral."
+      "risk_summary": "La regularización de medio millón de migrantes profundiza la polarización política y refuerza las narrativas antiinmigración de PP y Vox con potencial impacto electoral."
     },
     {
       "title": "Los riesgos de la improvisación regulatoria en materia de vivienda",
@@ -20,17 +20,7 @@
       "date": "Mon, 06 Apr 2026 03:30:01 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "La prórroga de alquileres sin respaldo parlamentario evidencia la vulnerabilidad del Gobierno ante decisiones regulatorias impopulares entre socios."
-    },
-    {
-      "title": "Montero elude comprometerse a eliminar las rebajas fiscales de Moreno",
-      "link": "https://elpais.com/espana/elecciones-andalucia/2026-04-15/montero-elude-comprometerse-a-eliminar-las-rebajas-fiscales-de-moreno.html",
-      "author": "Lourdes Lucio-Villegas Galán",
-      "summary": "La candidata socialista prohibirá a los jefes de servicio del SAS compatibilizar con la privada",
-      "date": "Wed, 15 Apr 2026 11:16:25 GMT",
-      "source": "El País (España)",
-      "scrapeable": false,
-      "risk_summary": "Montero evita comprometerse con la eliminación de rebajas fiscales andaluzas, señalando tensiones internas del PSOE sobre política fiscal autonómica."
+      "risk_summary": "El Gobierno prorroga medidas de alquileres sin respaldo parlamentario suficiente, evidenciando fragilidad de su mayoría y riesgo de inestabilidad legislativa."
     },
     {
       "title": "España encara la recta final de los fondos europeos con 27.000 millones pendientes de adjudicar",
@@ -40,7 +30,17 @@
       "date": "Thu, 16 Apr 2026 03:45:01 GMT",
       "source": "El País (Economía)",
       "scrapeable": false,
-      "risk_summary": "España enfrenta riesgo de infraejecución de fondos europeos con 27.000 millones pendientes a cinco meses del plazo límite."
+      "risk_summary": "España enfrenta presión temporal crítica con 27.000 millones de fondos europeos por adjudicar antes del vencimiento, amenazando credibilidad ante Bruselas."
+    },
+    {
+      "title": "Rusia envía a España el mayor cargamento de gas de la historia en el primer mes de guerra en Oriente Próximo",
+      "link": "https://elpais.com/economia/2026-04-16/rusia-envia-a-espana-el-mayor-cargamento-de-gas-de-la-historia-en-el-primer-mes-de-guerra-en-oriente-proximo.html",
+      "author": "Juan Cruz Peña",
+      "summary": "Las importaciones se duplican y alcanzan un récord histórico de casi 10.000 GWh de gas ruso en un mes, una cantidad que supera incluso los envíos de la crisis de precios de 2023",
+      "date": "Thu, 16 Apr 2026 03:15:00 GMT",
+      "source": "El País (Economía)",
+      "scrapeable": false,
+      "risk_summary": "España duplica importaciones de gas ruso a niveles récord durante crisis de Oriente Próximo, exponiendo contradicciones en política energética y dependencia estratégica."
     },
     {
       "title": "El Gobierno aprueba la resolución que oficializa las 35 horas para los 250.000 trabajadores de la Administración General del Estado",
@@ -50,7 +50,7 @@
       "date": "Wed, 15 Apr 2026 05:35:08 GMT",
       "source": "El País (Economía)",
       "scrapeable": false,
-      "risk_summary": "La oficialización de las 35 horas laborales para funcionarios estatales puede generar presión presupuestaria y demandas de extensión al sector privado."
+      "risk_summary": "La implementación de 35 horas laborales para 250.000 funcionarios estatales presiona a comunidades autónomas y genera tensiones competenciales entre administraciones."
     },
     {
       "title": "La Airef recorta el crecimiento económico y alerta de un alza de la inflación y el déficit por la guerra en Oriente Próximo",
@@ -60,47 +60,47 @@
       "date": "Wed, 15 Apr 2026 10:11:04 GMT",
       "source": "El País (Economía)",
       "scrapeable": false,
-      "risk_summary": "La Airef alerta de deterioro fiscal y inflacionario por la crisis de Oriente Próximo, cuestionando la sostenibilidad de las medidas anticrisis."
+      "risk_summary": "La Airef recorta previsiones de crecimiento y eleva déficit al 2,6% por gastos de guerra, cuestionando sostenibilidad fiscal del Gobierno."
     },
     {
-      "title": "Génova delega en sus CCAA la ofensiva jurídica contra la regularización pese a la incomodidad de Andalucía",
+      "title": "Barbón se sumerge en una crisis tras detectarse irregularidades en el control del servicio de minas",
+      "link": "https://www.elconfidencial.com/espana/2026-04-16/accidente-cerredo-barbon-asturias-mineria_4338801/",
+      "author": "Marta Nevot",
+      "summary": "La oposición exige la dimisión del socialista y que se reabra la comisión de investigación sobre el accidente de Cerredo. Barbón asegura que su voluntad es \"llegar hasta el final\" y sus socios esperan que asuma las responsabilidades",
+      "date": "2026-04-16T05:00:00+02:00",
+      "source": "El Confidencial",
+      "scrapeable": false,
+      "risk_summary": "La crisis del socialista Barbón por irregularidades mineras debilita al PSOE en Asturias y expone al partido a desgaste por corrupción sectorial."
+    },
+    {
+      "title": "Génova da vía libre a sus CCAA para recurrir la regularización pese a la incomodidad de Andalucía",
       "link": "https://www.elconfidencial.com/espana/2026-04-16/genova-delega-comunidades-ofensiva-juridica-regularizacion-incomodidad-andalucia_4338843/",
       "author": "Ana Belén Ramos",
       "summary": "La dirección apoyará \"con total intensidad\" a los territorios que acudan al Supremo, pero no forzará una estrategia conjunta. Moreno evita replicar la dureza de Feijóo y de otros barones del PP para no agitar el debate migratorio",
       "date": "2026-04-16T05:00:00+02:00",
       "source": "El Confidencial",
       "scrapeable": false,
-      "risk_summary": "El PP delega la oposición jurídica a la regularización en las CCAA para evitar desgaste electoral directo, especialmente en Andalucía."
+      "risk_summary": "La estrategia descentralizada del PP para recurrir la regularización revela tensiones internas, especialmente la incomodidad de Moreno Bonilla ante las elecciones andaluzas."
     },
     {
-      "title": "Vox confirma la expulsión de Ortega Smith tras resolver el último recurso que interpuso",
-      "link": "https://www.elmundo.es/espana/2026/04/15/69dff49b21efa0563e8b45d0.html",
-      "author": "Paloma H. Matellano",
-      "summary": "La formación también ratifica la expulsión de Ansaldo y Toscano, los dos concejales del Ayuntamiento de Madrid que le respaldaronLeer",
-      "date": "Wed, 15 Apr 2026 22:54:56 +0200",
+      "title": "Bolaños insiste en su crítica a Peinado: \"Lo voy a seguir haciendo; es mi obligación denunciar las injusticias\"",
+      "link": "https://www.elmundo.es/espana/2026/04/15/69df380f21efa06c278b45a2.html",
+      "author": "Marisa Cruz",
+      "summary": "El ministro de Presidencia y Justicia desliza sin concretar que también es legítimo presentar una denuncia ante el Consejo General del Poder Judicial contra las irregularidades de un juezLeer",
+      "date": "Wed, 15 Apr 2026 10:16:50 +0200",
       "source": "El Mundo",
       "scrapeable": false,
-      "risk_summary": "La expulsión definitiva de Ortega Smith consolida la purga interna en Vox y reduce su capacidad disruptiva institucional."
+      "risk_summary": "La escalada verbal de Bolaños contra el juez Peinado intensifica el enfrentamiento Gobierno-Poder Judicial con riesgo de crisis institucional."
     },
     {
-      "title": "Un diputado de Vox se encara con el vicepresidente del Congreso y con una letrada y es expulsado del pleno",
-      "link": "https://www.eldiario.es/politica/vicepresidente-congreso-expulsa-diputado-vox-pleno-encararse-letrada_1_13143197.html",
-      "author": "Daniel Ríos",
-      "summary": "El parlamentario José María Sánchez subió a la tribuna donde se ubica la Mesa de la Cámara Baja para confrontar con el vicepresidente Alfonso Rodríguez Gómez de Celis. Vox asegura que un diputado de ERC llamó \"criminal y asesino\" a Sánchez.El diputado de Vox José María Sánchez ha sido expulsado este",
-      "date": "Tue, 14 Apr 2026 18:23:23 +0000",
-      "source": "eldiario.es",
+      "title": "Vox confirma la expulsión definitiva de Ortega Smith al tumbar su último recurso interno",
+      "link": "https://www.democrata.es/politica/vox-confirma-la-expulsion-definitiva-de-ortega-smith-al-tumbar-su-ultimo-recurso-interno/",
+      "author": "Agencias",
+      "summary": "Vox cierra la puerta a Ortega Smith al rechazar su último recurso interno y deja al ex portavoz en Madrid solo con la opción de acudir a la Justicia.",
+      "date": "Thu, 16 Apr 2026 10:04:38 +0200",
+      "source": "democrata.es",
       "scrapeable": true,
-      "risk_summary": "El incidente del diputado de Vox en el Congreso evidencia la escalada de tensión institucional y polarización en la cámara legislativa."
-    },
-    {
-      "title": "Sánchez evita cargar contra el juez Peinado tras procesar a su mujer: \"Espero que la Justicia haga justicia\"",
-      "link": "https://www.eldiario.es/politica/sanchez-procesamiento-mujer-espero-justicia-haga-justicia_1_13140426.html",
-      "author": "elDiario.es",
-      "summary": "El presidente del Gobierno responde desde su viaje en China al encausamiento dictado por el juez Peinado contra su esposaEl juez Peinado propone llevar a juicio a Begoña Gómez por cuatro delitosEl presidente del Gobierno, Pedro Sánchez, ha evitado cargar este martes contra la decisión del juez Peina",
-      "date": "Tue, 14 Apr 2026 06:32:44 +0000",
-      "source": "eldiario.es",
-      "scrapeable": true,
-      "risk_summary": "El procesamiento de Begoña Gómez intensifica la presión judicial sobre Sánchez y puede debilitar su liderazgo político y estabilidad gubernamental."
+      "risk_summary": "La expulsión definitiva de Ortega Smith confirma la fragmentación interna de Vox y puede acelerar la erosión electoral de la ultraderecha."
     }
   ]
 }

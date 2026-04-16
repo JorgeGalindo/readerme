@@ -1,60 +1,60 @@
 {
-  "generated_at": "2026-04-16T04:55:41.383488+00:00",
-  "article_count_total": 46,
+  "generated_at": "2026-04-16T08:42:03.010226+00:00",
+  "article_count_total": 41,
   "thinktank": [
     {
-      "title": "Taiwan is decoupling from China more than any western economy, and still have a stronger GDP growth than most, at 8.6% last year",
-      "source_url": "",
-      "site_name": "@Noahpinion retweeted Jojje Olsson",
-      "reason": "Desacoplamiento económico exitoso de China",
-      "tag": "economía"
-    },
-    {
-      "title": "We propose a model of how a cell learns by running an evolutionary algorithm",
+      "title": "Cell learning model published in Nature - evolutionary algorithms in cellular processes",
       "source_url": "https://www.nature.com/articles/s41586-026-10269-1.epdf?sharing_token=Xaguunp0zVh2iNLJQTH3B9RgN0jAjWel9jnR3ZoTv0Mg9iKexslGcYreIQ2PLavfKBxglnC1z40Uz7uM5sXcY5Tz2DWBp6MnvxODyMk5-IYWIZBNBZmQRXzx2DyQMule4_R_l1lVQ-xLC7Bzo028mCOchXxMlyp1CTjVgNvQfkU%3D",
       "site_name": "@tylercowen retweeted Itai Yanai",
-      "reason": "Nuevo modelo biológico de aprendizaje celular",
+      "reason": "Células que aprenden mediante algoritmos evolutivos",
       "tag": "tecnología"
     },
     {
-      "title": "GPT-5.4 Pro solved an Erdős problem during a walk",
+      "title": "China's industrial policy relies on bank loans creating bad debt mountains",
       "source_url": "",
-      "site_name": "@Noahpinion retweeted Enrique Barschkis",
-      "reason": "IA resolviendo problemas matemáticos avanzados",
-      "tag": "IA"
+      "site_name": "Noah Smith @Noahpinion",
+      "reason": "Política industrial china genera deuda masiva",
+      "tag": "economía"
     },
     {
-      "title": "Iran secretly acquired Chinese-launched satellite giving IRGC capability to target US bases",
+      "title": "Waymos better for bike-friendly cities than bike lanes",
       "source_url": "",
-      "site_name": "Miles Johnson",
-      "reason": "Capacidades militares satelitales de Irán",
+      "site_name": "@Noahpinion retweeted Andrew Reed",
+      "reason": "Vehículos autónomos mejores que ciclovías",
+      "tag": "urbanismo"
+    },
+    {
+      "title": "Iran secretly acquired Chinese satellite for targeting US bases",
+      "source_url": "",
+      "site_name": "Miles Johnson @MilesMJohnson",
+      "reason": "Irán adquiere capacidad satelital ofensiva",
       "tag": "geopolítica"
     }
   ],
   "abundance": [
     {
-      "title": "Issue 13 | Works in Progress",
-      "source_url": "https://worksinprogress.co/issue-13/",
+      "title": "Archive - Works in Progress Magazine",
+      "source_url": "https://worksinprogress.co/archive/",
       "site_name": "Works in Progress",
-      "reason": "matemáticas impulsaron revolución industrial",
-      "tag": "tecnología",
-      "snippet": "Works in Progress Website Mathematics was the cornerstone of the Industrial Revolution. A new paradigm of measurement and calculation, more than scientific discovery, built industry, modernity, and the world we inhabit today."
+      "reason": "erradicación global de la viruela",
+      "tag": "políticas públicas",
+      "snippet": "Although Viktor Zhdanov's name is little known today, he spearheaded one of the greatest projects in history. Who was he and what did he do?"
     },
     {
-      "title": "New Zealand's YIMBY Success - And How We Can Learn From it - Reason.com",
-      "source_url": "https://reason.com/volokh/2024/04/03/new-zealands-yimby-success-and-how-we-can-learn-from-it/",
-      "site_name": "reason.com",
-      "reason": "Reformas de zonificación exitosas Auckland",
+      "title": "Upzoning New Zealand - Works in Progress Magazine",
+      "source_url": "https://worksinprogress.co/issue/upzoning-new-zealand/",
+      "site_name": "worksinprogress.co",
+      "reason": "Reformas upzoning exitosas Nueva Zelanda",
       "tag": "vivienda",
-      "snippet": "NewZealandNewZealand'sYIMBYSuccess - And How We Can Learn From itNewZealandalleviated a severehousingshortage by liberalizing regulations that had previously blocked mostnewconstruction."
+      "snippet": "Inrecentyears, New Zealand has been using some sticks. Major figures in the center-left Labour Party and the center-right National Party agree that the country desperately needs to build more houses. They've been united in their determination to change the system, even working together at times."
     },
     {
-      "title": "The Case for Pro-growth Progressivism - Progressive Policy Institute",
-      "source_url": "https://www.progressivepolicy.org/the-case-for-pro-growth-progressivism/",
-      "site_name": "progressivepolicy.org",
-      "reason": "Marco progresista pro-crecimiento económico",
-      "tag": "economía",
-      "snippet": "6. Foster innovation in government Government has an essential role to play inpro-growthprogressivism, providing the necessary safety net and the regulatory structure that makes the economy work. At the same time, progressives must focus on making government work better, so that it's felt as a positive force in people's lives."
+      "title": "YIMBYism started as a single-issue movement. It's time to think bigger.",
+      "source_url": "https://hypertext.niskanencenter.org/p/yimbyism-started-as-a-single-issue",
+      "site_name": "hypertext.niskanencenter.org",
+      "reason": "Agenda YIMBY más amplia reformas",
+      "tag": "políticas públicas",
+      "snippet": "A broaderYIMBYplatform should include electoralreformsthat make it easier for cross-issue factions to communicate their platforms and endorsements to the public. Given the nature of public opinion abouthousingdevelopment, the structure of our politics, and the openings created by electoralreforms, it's time forYIMBYsto party."
     }
   ],
   "articles": [
@@ -144,23 +144,6 @@
       "tag": "IA"
     },
     {
-      "id": "01kp2jwhw3qse3pp1pzb6k9ymx",
-      "title": "Forecasting the Economic Effects of AI -- by Ezra Karger, Otto Kuusela, Jason Abaluck, Kevin A. Bryan, Basil Halperin, Todd R. Jones, Connacher Murphy, Philip Trammell, Matt Reynolds, Dan Mayland, Ria Viswanathan, Ananaya Mittal, Rebecca Ceppas de Castro, Josh Rosenberg, Philip Tetlock",
-      "author": "National Bureau of Economic Research Working Papers",
-      "source_url": "https://www.nber.org/papers/w35046#fromrss",
-      "site_name": "NBER",
-      "summary": "We elicit forecasts of how AI will affect the U.S. economy, comparing the beliefs of five groups: academic economists, employees at AI companies, policy researchers focused on AI, highly accurate forecasters, and the general public. The median respondent in each group expects substantial advances in AI capabilities by 2030, small declines in labor force participation consistent with demographic shifts, and an annual GDP growth rate of 2.5%, which exceeds both the typical medium-run (2.0%) and long-run (1.7%) baseline forecasts from government agencies and private-sector forecasters. Conditional on a “rapid” AI progress scenario, in which AI systems surpass human performance on many cognitive and physical tasks, experts forecast substantial, though not historically unprecedented, economic shifts: annualized GDP growth rising to around 4% and the labor force participation rate falling from its current level of 62% to 55% by 2050, with roughly half of that decline—equivalent to around 10 million lost jobs—attributable to AI. A variance decomposition suggests that expert disagreement about these effects is driven primarily by different beliefs about the economic effects of highly capable AI systems rather than by disagreement about the pace of AI progress. These forecasts map onto notably different policy preferences across groups: experts strongly favor targeted measures such as worker retraining, whereas the general public supports both targeted programs and broader interventions, including a job guarantee and universal basic income.",
-      "word_count": 225,
-      "reading_time": "1 min",
-      "published_date": "2026-04-10",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://www.nber.org/sites/default/files/2022-06/NBER-FB-Share-Tile-1200.jpg",
-      "score": 85,
-      "reason": "Predicciones económicas del impacto de la IA",
-      "tag": "IA"
-    },
-    {
       "id": "01knxcqdv3dh3bw2bp52f70y4a",
       "title": "The great AI talent migration: Why universities are losing the future of innovation",
       "author": "VoxEU | CEPR",
@@ -212,6 +195,23 @@
       "tag": "tecnología"
     },
     {
+      "id": "01kp8ag34h82y12tk56rzbxnw5",
+      "title": "We should plan for success",
+      "author": "Matthew Yglesias",
+      "source_url": "https://www.slowboring.com/p/we-should-plan-for-success",
+      "site_name": "slowboring.com",
+      "summary": "Cities shouldn’t just settle for “enough” housing.",
+      "word_count": 260,
+      "reading_time": "1 min",
+      "published_date": "2026-04-15",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!C2Kj!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F94a33324-2f85-4c04-915b-9c17df41a7ec_3124x2376.jpeg",
+      "score": 82,
+      "reason": "Planificación urbana para el crecimiento abundante",
+      "tag": "vivienda"
+    },
+    {
       "id": "01knzyz2wta905c875vedcx0gj",
       "title": "Migration shocks and voting",
       "author": "VoxEU | CEPR",
@@ -244,23 +244,6 @@
       "score": 82,
       "reason": "Urbanización supera capacidad estatal",
       "tag": "urbanismo"
-    },
-    {
-      "id": "01knm23c7nvrgngw5pr5m6ktb6",
-      "title": "The Man Behind The Most Useful Thing AI Has Ever Done",
-      "author": "Cleo Abram",
-      "source_url": "https://www.youtube.com/watch?v=C0gErQtnNFE",
-      "site_name": "YouTube",
-      "summary": "He solved “the most important unsolved problem in science”… \nIf you need more optimistic science and tech stories, subscribe to support HUGE*!\n\nDemis Hassabis is a Nobel Prize winner and CEO of Google DeepMind. He is one of the most important people alive on what is quickly becoming the biggest technological advance of our lifetime. Because the biggest way AI is going to impact your life, you can’t see. \n\nIt’s not a chatbot or an image generator. It’s the tools he and his team are building that are invisible to you – in new drug design, nuclear fusion, natural disasters detection, quantum computers. \n\nSo who Demis is and what he chooses to build matters a lot. And he’s fascinating… \n\nHe’s a childhood chess prodigy who at 17 turned down a reportedly million dollar job offer from a gaming company to go to college instead, and then get a PhD in neuroscience. He founded his company DeepMind with a mission to “solve intelligence” – starting with beating video games. He sold that company to Google specifically because they promised to let DeepMind focus on scientific research.\n\nBut as this has turned into the most intense technological battle in recent history, Demis is now in charge of much much more. He’s now behind basically everything Google does in AI.\n\nHe’s making decisions that affect your life and millions of other lives every single day.\n\nSo what is he planning to do with all that power?\n\nMy goal is to show you the future Demis Hassabis wants to build, so you can decide for yourself what you think of it.\n\nWelcome to HUGE* Conversations.\n\nThis interview was recorded on March 5, 2026 in London.\n\nChapters\n00:00 What is the best use of AI?\n02:04 Who is Demis Hassabis? \n03:58 What is AlphaFold? \n06:15 Why did Demis win the Noble Prize?  \n12:30 How is AlphaFold accelerating science? \n16:47 What is the cutting edge of drug discovery? \n19:13 How close are we to AI DNA editing? \n21:52 What did Demis want AI to do?\n25:39 What does AI actually do like now? \n29:16 How can...",
-      "word_count": null,
-      "reading_time": null,
-      "published_date": "2026-04-07",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://i.ytimg.com/vi/C0gErQtnNFE/sddefault.jpg",
-      "score": 82,
-      "reason": "Revolución científica con AlphaFold y proteínas",
-      "tag": "IA"
     },
     {
       "id": "01kne454xs0ny9fx017zc5zgqp",
@@ -318,16 +301,16 @@
       "title": "La reforma laboral tenía un gran objetivo al margen de estabilizar el empleo y lo está logrando",
       "author": "Javier Jorrín",
       "source_url": "https://www.elconfidencial.com/economia/2026-04-15/reforma-laboral-objetivo-formacion-trabajadores-estabilidad_4338902/",
-      "site_name": null,
+      "site_name": "elconfidencial.com",
       "summary": "Un estudio detecta que la reducción de la temporalidad está incentivando que las empresas ofrezcan formación a sus trabajadores para competir en productividad",
-      "word_count": null,
-      "reading_time": null,
+      "word_count": 738,
+      "reading_time": "3 mins",
       "published_date": "2026-04-15",
       "category": "rss",
       "location": "feed",
       "image_url": "https://images.ecestaticos.com/e_nORsWb6xpn1Hijp6u_SvXVxNM=/0x0:2272x1515/600x315/filters:fill(white):format(jpg):quality(99):watermark(f.elconfidencial.com/file/bae/eea/fde/baeeeafde1b3229287b0c008f7602058.png,0,275,1)/f.elconfidencial.com/original/2c9/727/123/2c97271233bda60265b8d904956b710d.jpg",
       "score": 78,
-      "reason": "Reforma laboral impulsa productividad empresarial",
+      "reason": "Reforma laboral mejora productividad empresarial",
       "tag": "mercado laboral"
     },
     {
@@ -428,23 +411,6 @@
       "category": "rss",
       "location": "feed",
       "image_url": "https://www.nber.org/favicon.ico",
-      "score": 75,
-      "reason": "Revolución metodológica en economía aplicada",
-      "tag": "metodología"
-    },
-    {
-      "id": "01kp2jwskz21dwyjqkqq04mh6m",
-      "title": "Tracking the Credibility Revolution across Fields -- by Paul Goldsmith-Pinkham",
-      "author": "National Bureau of Economic Research Working Papers",
-      "source_url": "https://www.nber.org/papers/w35051#fromrss",
-      "site_name": "NBER",
-      "summary": "How far has the credibility revolution spread beyond applied microeconomics? I update Currie, Kleven, and Zwiers (2020b) using approximately 44,000 papers—31,500 NBER working papers (1982–2025) and 12,300 articles from eleven top economics and finance journals (2011–2024)—measuring mentions of empirical methods through keyword matching. Three findings emerge. First, finance and macro/other fields differ substantially from applied micro in their mention of credibility revolution methods: as of 2024, 63 percent of applied micro papers mention experimental or quasi-experimental methods, compared to 47 percent in finance and 39 percent in macro/other. The current levels in finance and macro/other are comparable to where applied micro was in 2008–2010, though the long-run trajectories may differ. Second, growth outside applied micro is driven overwhelmingly by difference-in-differences; including DiD raises the share of finance papers mentioning any experimental or quasi-experimental method by roughly 55 percent versus 30 percent for applied micro. Other quasi-experimental methods—instrumental variables, regression discontinuity, experiments—have seen far less growth. Third, I document a striking gap between the methods studied in the Journal of Econometrics—where nonparametric estimation and asymptotic theory dominate—and those used by applied researchers, where DiD and identification strategies dominate. Published journal articles confirm these patterns are not artifacts of the NBER sample.",
-      "word_count": 200,
-      "reading_time": "1 min",
-      "published_date": "2026-04-10",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
       "score": 75,
       "reason": "Revolución metodológica en economía aplicada",
       "tag": "metodología"
@@ -552,23 +518,6 @@
       "tag": "IA"
     },
     {
-      "id": "01kp8ag34h82y12tk56rzbxnw5",
-      "title": "We should plan for success",
-      "author": "Matthew Yglesias",
-      "source_url": "https://www.slowboring.com/p/we-should-plan-for-success",
-      "site_name": "slowboring.com",
-      "summary": "Cities shouldn’t just settle for “enough” housing.",
-      "word_count": 260,
-      "reading_time": "1 min",
-      "published_date": "2026-04-15",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://substackcdn.com/image/fetch/$s_!C2Kj!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F94a33324-2f85-4c04-915b-9c17df41a7ec_3124x2376.jpeg",
-      "score": 72,
-      "reason": "Planificar abundancia habitacional, no escasez",
-      "tag": "vivienda"
-    },
-    {
       "id": "01knm6ne71zpa4sr8j6hpmhr97",
       "title": "Emplois ponctuels et criminalité : les enseignements tirés des plateformes de livraison de repas en France",
       "author": "VoxEU | CEPR",
@@ -616,8 +565,8 @@
       "location": "feed",
       "image_url": "https://substackcdn.com/image/fetch/$s_!L0HS!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F253b5e6e-7318-4698-8e4d-4d41a67a1e1a_2121x1414.jpeg",
       "score": 70,
-      "reason": "Resistencias locales al crecimiento urbano",
-      "tag": "urbanismo"
+      "reason": "Resistencias locales al crecimiento habitacional",
+      "tag": "vivienda"
     },
     {
       "id": "01kp31qth97ph42parxttydp4n",
@@ -820,7 +769,7 @@
       "location": "feed",
       "image_url": "https://images.ecestaticos.com/e_nORsWb6xpn1Hijp6u_SvXVxNM=/0x0:2272x1515/600x315/filters:fill(white):format(jpg):quality(99):watermark(f.elconfidencial.com/file/bae/eea/fde/baeeeafde1b3229287b0c008f7602058.png,0,275,1)/f.elconfidencial.com/original/2c9/727/123/2c97271233bda60265b8d904956b710d.jpg",
       "score": 65,
-      "reason": "Desapalancamiento fiscal por crecimiento económico",
+      "reason": "Desapalancamiento fiscal español exitoso",
       "tag": "economía"
     },
     {
@@ -836,40 +785,6 @@
       "category": "rss",
       "location": "feed",
       "image_url": "https://www.nber.org/favicon.ico",
-      "score": 65,
-      "reason": "Ciudadanía automática reduce criminalidad juvenil",
-      "tag": "migración"
-    },
-    {
-      "id": "01kp2jwt0gam6sk3rpg2kf8jwa",
-      "title": "Birthright Citizenship and Youth Crime -- by Leander Andres, Stefan Bauernschuster, Gordon B. Dahl, Helmut Rainer, Simone Schüller",
-      "author": "National Bureau of Economic Research Working Papers",
-      "source_url": "https://www.nber.org/papers/w35070#fromrss",
-      "site_name": "NBER",
-      "summary": "This paper studies the impact of birthright citizenship on youth crime. We leverage a German reform which automatically granted birthright citizenship to eligible immigrant children born in Germany after January 1, 2000 and administrative crime data from three federal states. We find that immigrant youth who acquired citizenship at birth are substantially less likely to engage in criminal activity, with estimates indicating a 70% reduction in crime. These results are particularly relevant in light of ongoing debates in the U.S. about abolishing birthright citizenship. Our findings suggest that inclusive citizenship policies can reduce crime and its associated costs, which in turn could strengthen social cohesion.",
-      "word_count": 105,
-      "reading_time": "1 min",
-      "published_date": "2026-04-10",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
-      "score": 65,
-      "reason": "Ciudadanía automática reduce criminalidad juvenil",
-      "tag": "migración"
-    },
-    {
-      "id": "01kp2jwspw4yzh5pshetrwer29",
-      "title": "Birthright Citizenship and Youth Crime -- by Leander Andres, Stefan Bauernschuster, Gordon B. Dahl, Helmut Rainer, Simone Schüller",
-      "author": "National Bureau of Economic Research Working Papers",
-      "source_url": "https://www.nber.org/papers/w35070#fromrss",
-      "site_name": "NBER",
-      "summary": "This paper studies the impact of birthright citizenship on youth crime. We leverage a German reform which automatically granted birthright citizenship to eligible immigrant children born in Germany after January 1, 2000 and administrative crime data from three federal states. We find that immigrant youth who acquired citizenship at birth are substantially less likely to engage in criminal activity, with estimates indicating a 70% reduction in crime. These results are particularly relevant in light of ongoing debates in the U.S. about abolishing birthright citizenship. Our findings suggest that inclusive citizenship policies can reduce crime and its associated costs, which in turn could strengthen social cohesion.",
-      "word_count": 105,
-      "reading_time": "1 min",
-      "published_date": "2026-04-10",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
       "score": 65,
       "reason": "Ciudadanía automática reduce criminalidad juvenil",
       "tag": "migración"
@@ -1011,23 +926,6 @@
       "tag": "migración"
     },
     {
-      "id": "01kngsk545bv0b9699ccdtds99",
-      "title": "Immigrants at the Margin: Labor Market Effects of the Minimum Wage -- by Mark Borgschulte, Heepyung Cho, Darren Lubotsky",
-      "author": "National Bureau of Economic Research Working Papers",
-      "source_url": "https://www.nber.org/papers/w35038#fromrss",
-      "site_name": "NBER",
-      "summary": "We examine the differential effects of minimum wages on immigrant and native workers in the United States. We find that minimum wage increases lead to reduced hours of work among immigrants with no effect on their employment. The effects are concentrated among recently-arrived, likely-undocumented workers in high turnover industries. Native workers show no such response, even when examining native subgroups with similar characteristics to the most affected immigrants.  We conclude that affected immigrant labor markets feature low-surplus, low-investment employment relationships with flexible hours, but they are embedded in labor markets where replacement is unusually costly.",
-      "word_count": 116,
-      "reading_time": "1 min",
-      "published_date": "2026-04-02",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://www.nber.org/favicon.ico",
-      "score": 63,
-      "reason": "Salario mínimo afecta más inmigrantes",
-      "tag": "migración"
-    },
-    {
       "id": "01kp2jwhtxdb40saf31apr14ge",
       "title": "Predicted Incrementality by Experimentation (PIE) for Ad Measurement -- by Brett R. Gordon, Robert Moakler, Florian Zettelmeyer",
       "author": "National Bureau of Economic Research Working Papers",
@@ -1143,8 +1041,8 @@
       "location": "feed",
       "image_url": "https://images.ecestaticos.com/e_nORsWb6xpn1Hijp6u_SvXVxNM=/0x0:2272x1515/600x315/filters:fill(white):format(jpg):quality(99):watermark(f.elconfidencial.com/file/bae/eea/fde/baeeeafde1b3229287b0c008f7602058.png,0,275,1)/f.elconfidencial.com/original/2c9/727/123/2c97271233bda60265b8d904956b710d.jpg",
       "score": 58,
-      "reason": "Vulnerabilidad inflacionaria por estructura energética",
-      "tag": "energía"
+      "reason": "Vulnerabilidad inflacionaria comparada europea",
+      "tag": "economía"
     },
     {
       "id": "01kp3rsvnwwh7ykpk12ex7rq9x",
@@ -1159,57 +1057,6 @@
       "category": "rss",
       "location": "feed",
       "image_url": "https://www.nber.org/favicon.ico",
-      "score": 58,
-      "reason": "Expansión educativa y movilidad social americana",
-      "tag": "políticas públicas"
-    },
-    {
-      "id": "01kp2jwsz90xc54806f3nnyphv",
-      "title": "High Schools and the Uneven Rise in American Opportunity -- by Alison Doxey, Ezra Karger, Peter Nencka",
-      "author": "National Bureau of Economic Research Working Papers",
-      "source_url": "https://www.nber.org/papers/w35068#fromrss",
-      "site_name": "NBER",
-      "summary": "Between 1850 and 1910, the share of young Americans living in towns with high schools increased from 17% to 46%—the fastest expansion of school access in U.S. history. Using new data on every high school in the United States, we show that this expansion transformed economic opportunities for many young adults but widened class and racial inequalities. We find sharp increases in school attendance rates for high school-aged children in towns that opened a high school relative to children in nearby towns without one. Linking children to adult outcomes, we show that high schools increased women's labor force participation and job quality, while reducing the probability of early marriage and childbearing. Increased access to high school accounts for a third of the increase in women's labor force participation between 1870 and 1930. High schools had the largest effects on children from already-wealthy families, and did not, on average, benefit Black children. While the high school movement substantially narrowed gender gaps in labor market outcomes, it also widened existing race- and class-based disparities.",
-      "word_count": 172,
-      "reading_time": "1 min",
-      "published_date": "2026-04-10",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
-      "score": 58,
-      "reason": "Expansión educativa y movilidad social americana",
-      "tag": "políticas públicas"
-    },
-    {
-      "id": "01kp2jwsny0bkv7j8dc5qzg8z3",
-      "title": "High Schools and the Uneven Rise in American Opportunity -- by Alison Doxey, Ezra Karger, Peter Nencka",
-      "author": "National Bureau of Economic Research Working Papers",
-      "source_url": "https://www.nber.org/papers/w35068#fromrss",
-      "site_name": "NBER",
-      "summary": "Between 1850 and 1910, the share of young Americans living in towns with high schools increased from 17% to 46%—the fastest expansion of school access in U.S. history. Using new data on every high school in the United States, we show that this expansion transformed economic opportunities for many young adults but widened class and racial inequalities. We find sharp increases in school attendance rates for high school-aged children in towns that opened a high school relative to children in nearby towns without one. Linking children to adult outcomes, we show that high schools increased women's labor force participation and job quality, while reducing the probability of early marriage and childbearing. Increased access to high school accounts for a third of the increase in women's labor force participation between 1870 and 1930. High schools had the largest effects on children from already-wealthy families, and did not, on average, benefit Black children. While the high school movement substantially narrowed gender gaps in labor market outcomes, it also widened existing race- and class-based disparities.",
-      "word_count": 172,
-      "reading_time": "1 min",
-      "published_date": "2026-04-10",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
-      "score": 58,
-      "reason": "Expansión educativa y movilidad social americana",
-      "tag": "políticas públicas"
-    },
-    {
-      "id": "01kp2jwmhbekfg0h3gqqm4sfrm",
-      "title": "High Schools and the Uneven Rise in American Opportunity -- by Alison Doxey, Ezra Karger, Peter Nencka",
-      "author": "National Bureau of Economic Research Working Papers",
-      "source_url": "https://www.nber.org/papers/w35068#fromrss",
-      "site_name": "NBER",
-      "summary": "Between 1850 and 1910, the share of young Americans living in towns with high schools increased from 17% to 46%—the fastest expansion of school access in U.S. history. Using new data on every high school in the United States, we show that this expansion transformed economic opportunities for many young adults but widened class and racial inequalities. We find sharp increases in school attendance rates for high school-aged children in towns that opened a high school relative to children in nearby towns without one. Linking children to adult outcomes, we show that high schools increased women's labor force participation and job quality, while reducing the probability of early marriage and childbearing. Increased access to high school accounts for a third of the increase in women's labor force participation between 1870 and 1930. High schools had the largest effects on children from already-wealthy families, and did not, on average, benefit Black children. While the high school movement substantially narrowed gender gaps in labor market outcomes, it also widened existing race- and class-based disparities.",
-      "word_count": 172,
-      "reading_time": "1 min",
-      "published_date": "2026-04-10",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://www.nber.org/sites/default/files/2022-06/NBER-FB-Share-Tile-1200.jpg",
       "score": 58,
       "reason": "Expansión educativa y movilidad social americana",
       "tag": "políticas públicas"
@@ -1300,40 +1147,6 @@
       "tag": "metodología"
     },
     {
-      "id": "01knj01mmz3etbx3h86mm0mxzc",
-      "title": "Thinking versus Doing: Cognitive Capacity, Decision Making and Medical Diagnosis -- by Benjamin R. Handel, Louis-Jonas Heizlsperger, Jonas Knecht, Jonathan T. Kolstad, Ulrike Malmendier, Filip Matějka",
-      "author": "National Bureau of Economic Research Working Papers",
-      "source_url": "https://www.nber.org/papers/w35034#fromrss",
-      "site_name": "NBER",
-      "summary": "We study how situational fluctuations in cognitive capacity shape behavior in high-stakes, real-time decision-making. Drawing on recent advances in behavioral economics that revolve around inattention, cognition and complexity, we show that cognitive load influences how physicians in emergency departments allocate mental effort and attention when making diagnostic and treatment decisions. We use quasi-random variation in patient-physician pairings, along with granular electronic medical record and audit-log data from many clinical interactions, to show that, under higher cognitive load, physicians substitute mental deliberation with more numerous but less precise diagnostic actions. Specifically, we document that higher load (i) increases the total number of orders of diagnostic tests (ii) reduces the use of targeted, but more uncommon tests (iii) increases the use of common tests and (iv) increases uncertainty in diagnostic beliefs. Cognitive load impacts downstream inpatient admission from the emergency department: a physician in the highest cognitive load decile increases admissions by 28% relative to the same physician in the lowest cognitive load decile, for the exact same kind of patient. These results offer novel field-based evidence on the dynamics of attention and belief formation, and shed light on how cognitive constraints shape diagnostic behavior in complex, real-world environments.",
-      "word_count": 197,
-      "reading_time": "1 min",
-      "published_date": "2026-04-02",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
-      "score": 58,
-      "reason": "Capacidad cognitiva en decisiones críticas",
-      "tag": "metodología"
-    },
-    {
-      "id": "01kngh2a8190nhpvtw47t43rcy",
-      "title": "Thinking versus Doing: Cognitive Capacity, Decision Making and Medical Diagnosis -- by Benjamin R. Handel, Louis-Jonas Heizlsperger, Jonas Knecht, Jonathan T. Kolstad, Ulrike Malmendier, Filip Matějka",
-      "author": "National Bureau of Economic Research Working Papers",
-      "source_url": "https://www.nber.org/papers/w35034#fromrss",
-      "site_name": "NBER",
-      "summary": "We study how situational fluctuations in cognitive capacity shape behavior in high-stakes, real-time decision-making. Drawing on recent advances in behavioral economics that revolve around inattention, cognition and complexity, we show that cognitive load influences how physicians in emergency departments allocate mental effort and attention when making diagnostic and treatment decisions. We use quasi-random variation in patient-physician pairings, along with granular electronic medical record and audit-log data from many clinical interactions, to show that, under higher cognitive load, physicians substitute mental deliberation with more numerous but less precise diagnostic actions. Specifically, we document that higher load (i) increases the total number of orders of diagnostic tests (ii) reduces the use of targeted, but more uncommon tests (iii) increases the use of common tests and (iv) increases uncertainty in diagnostic beliefs. Cognitive load impacts downstream inpatient admission from the emergency department: a physician in the highest cognitive load decile increases admissions by 28% relative to the same physician in the lowest cognitive load decile, for the exact same kind of patient. These results offer novel field-based evidence on the dynamics of attention and belief formation, and shed light on how cognitive constraints shape diagnostic behavior in complex, real-world environments.",
-      "word_count": 197,
-      "reading_time": "1 min",
-      "published_date": "2026-04-02",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://www.nber.org/sites/default/files/2022-06/NBER-FB-Share-Tile-1200.jpg",
-      "score": 58,
-      "reason": "Capacidad cognitiva en decisiones críticas",
-      "tag": "metodología"
-    },
-    {
       "id": "01knezjvcp0k7m7gemm1c85sev",
       "title": "Los mapas del mes: Marzo 2026",
       "author": "Miguel García Álvarez",
@@ -1363,23 +1176,6 @@
       "category": "rss",
       "location": "feed",
       "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
-      "score": 57,
-      "reason": "Dinámicas subjetivas empleo y salarios",
-      "tag": "mercado laboral"
-    },
-    {
-      "id": "01kngsk51t13snrg8x5446tnbn",
-      "title": "Subjective Earnings and Employment Dynamics -- by Manuel Arellano, Orazio Attanasio, Margherita Borella, Mariacristina De Nardi, Gonzalo Paz-Pardo",
-      "author": "National Bureau of Economic Research Working Papers",
-      "source_url": "https://www.nber.org/papers/w35027#fromrss",
-      "site_name": "NBER",
-      "summary": "We develop a new approach to estimating earnings, job, and employment dynamics using subjective expectations data from the NY Fed Survey of Consumer Expectations. These data provide beliefs about future earnings offers and acceptance probabilities, offering direct information on counterfactual outcomes and enabling identification under weaker assumptions. Our framework avoids biases from selection and unobserved heterogeneity that affect models using realized outcomes. First-step fixed-effects regressions identify risk, persistence, and transition effects; second-step GMM recovers the covariance structure of unobserved heterogeneities such as ability, mobility, and match quality. We find lower risk and persistence of the individual productivity component than in prior work, but greater heterogeneity in ability and match quality. Simulations show that reduced-form estimates overstate persistence and volatility on individual-level productivity due to job transitions and sorting. After accounting for heterogeneity, volatility declines and becomes flat across the earnings distribution. These results underscore the value of expectations data.",
-      "word_count": 149,
-      "reading_time": "1 min",
-      "published_date": "2026-04-02",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://www.nber.org/favicon.ico",
       "score": 57,
       "reason": "Dinámicas subjetivas empleo y salarios",
       "tag": "mercado laboral"
@@ -1415,8 +1211,8 @@
       "location": "feed",
       "image_url": "https://substack-post-media.s3.amazonaws.com/public/images/51af5cb6-fa80-4123-8786-891caa322337_1600x900.png",
       "score": 55,
-      "reason": "Tecnología reproductiva aumenta opciones personales",
-      "tag": "tecnología"
+      "reason": "Tecnología reproductiva y datos demográficos",
+      "tag": "demografía"
     },
     {
       "id": "01kp2jwhx62qjh57dkr7jw8nwy",
@@ -1542,16 +1338,16 @@
       "title": "Rapid technology creation widened inequality across time and space",
       "author": "VoxEU | CEPR",
       "source_url": "https://cepr.org/voxeu/columns/rapid-technology-creation-widened-inequality-across-time-and-space",
-      "site_name": null,
+      "site_name": "CEPR",
       "summary": "Delivered by PolitePaul service",
-      "word_count": null,
-      "reading_time": null,
+      "word_count": 1655,
+      "reading_time": "7 mins",
       "published_date": "2026-04-16",
       "category": "rss",
       "location": "feed",
       "image_url": "https://cepr.org/themes/custom/cepr/assets/favicon/apple-touch-icon.png?v=1",
       "score": 52,
-      "reason": "Innovación tecnológica genera desigualdades espaciales",
+      "reason": "Tecnología como motor de desigualdad espacial",
       "tag": "desigualdad"
     },
     {
@@ -1567,23 +1363,6 @@
       "category": "rss",
       "location": "feed",
       "image_url": "https://www.nber.org/favicon.ico",
-      "score": 52,
-      "reason": "Elasticidades laborales con heterogeneidad individual",
-      "tag": "mercado laboral"
-    },
-    {
-      "id": "01kp2jwsk0nja729gj3ev8jca2",
-      "title": "Identification and Estimation of Labor Supply Elasticities from Kinked Budget Sets -- by Deniz Dutz, Morten Håvarstein, Magne Mogstad, Alexander Torgovitsky",
-      "author": "National Bureau of Economic Research Working Papers",
-      "source_url": "https://www.nber.org/papers/w35047#fromrss",
-      "site_name": "NBER",
-      "summary": "We study the identification of labor supply elasticities from kinked budget sets in a model with income effects and individual heterogeneity in the elasticities. We provide point and partial identification results for compensated elasticities, uncompensated elasticities, and income effects. We use administrative data to apply our results to the Norwegian tax system, which exhibits a kink for the self-employed. There is clear bunching around the kink point, suggesting that the self-employed respond to the change in incentives created by the kink. We find that the bounds are often tight even under weak assumptions. Our results show that uncompensated elasticities are close to zero and compensated elasticities are sufficiently small to conclude that the excess burden of taxation is low.",
-      "word_count": 119,
-      "reading_time": "1 min",
-      "published_date": "2026-04-10",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
       "score": 52,
       "reason": "Elasticidades laborales con heterogeneidad individual",
       "tag": "mercado laboral"
@@ -1704,7 +1483,7 @@
       "location": "feed",
       "image_url": "https://cepr.org/themes/custom/cepr/assets/favicon/apple-touch-icon.png?v=1",
       "score": 50,
-      "reason": "Redes empresariales difunden innovaciones globalmente",
+      "reason": "Difusión global de innovaciones tecnológicas",
       "tag": "tecnología"
     },
     {
@@ -1757,23 +1536,6 @@
       "score": 49,
       "reason": "Ecosistema tóxico de redes sociales",
       "tag": "medios"
-    },
-    {
-      "id": "01kp7qevktsj8sy5j0bxrapjss",
-      "title": "How new technologies travel: Evidence from global firm networks",
-      "author": "VoxEU | CEPR",
-      "source_url": "https://cepr.org/voxeu/columns/how-new-technologies-travel-evidence-global-firm-networks",
-      "site_name": "CEPR",
-      "summary": "Delivered by PolitePaul service",
-      "word_count": 1152,
-      "reading_time": "5 mins",
-      "published_date": "2026-04-15",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://cepr.org/themes/custom/cepr/assets/favicon/apple-touch-icon.png?v=1",
-      "score": 48,
-      "reason": "Difusión tecnológica por conexiones empresariales",
-      "tag": "tecnología"
     },
     {
       "id": "01kp2hfvz4c2dx8fgj98j7vrpr",
@@ -1908,7 +1670,7 @@
       "location": "feed",
       "image_url": "https://www.bde.es/f/webbe/INF/assets/images/favicon.ico",
       "score": 45,
-      "reason": "Protección operadores en mercado único",
+      "reason": "Protección empresarial y unidad de mercado",
       "tag": "regulación"
     },
     {
@@ -2027,7 +1789,7 @@
       "location": "feed",
       "image_url": "https://substackcdn.com/image/fetch/$s_!O6dp!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa92dead9-0fb3-4e3d-bae8-e359d4c036e8_8192x5464.jpeg",
       "score": 43,
-      "reason": "Construcción cultural frente a demolición ideológica",
+      "reason": "Construcción cultural vs destrucción simbólica",
       "tag": "cultura"
     },
     {
@@ -2180,7 +1942,7 @@
       "location": "feed",
       "image_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iMNmTzcNMBT8/v0/piHJkQ_WoLj1E/-1x-1.jpg",
       "score": 40,
-      "reason": "Burocracia militar frena energía renovable",
+      "reason": "Trabas burocráticas a energía renovable",
       "tag": "energía"
     },
     {
@@ -2248,7 +2010,7 @@
       "location": "feed",
       "image_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ig4TA_X2R75I/v1/piHJkQ_WoLj1E/-1x-1.jpg",
       "score": 38,
-      "reason": "Reposicionar petróleo en transición energética",
+      "reason": "Reposicionamiento político de extracción energética",
       "tag": "energía"
     },
     {
@@ -2350,7 +2112,7 @@
       "location": "feed",
       "image_url": "https://www.economist.com/favicon.ico",
       "score": 35,
-      "reason": "Reformas institucionales contra autoritarismo húngaro",
+      "reason": "Mecanismos institucionales contra autoritarismo europeo",
       "tag": "política europea"
     },
     {
@@ -2469,7 +2231,7 @@
       "location": "feed",
       "image_url": "https://substack-post-media.s3.amazonaws.com/public/images/089b5410-cd04-4707-8a76-13819f01aa6e_734x425.png",
       "score": 33,
-      "reason": "Análisis institucional del autoritarismo húngaro",
+      "reason": "Autoritarismo húngaro y definición institucional",
       "tag": "política europea"
     },
     {
@@ -2539,6 +2301,23 @@
       "score": 32,
       "reason": "Crisis petróleo impacto exponencial",
       "tag": "energía"
+    },
+    {
+      "id": "01kp6hjedstmhwsej8d8tgmp4r",
+      "title": "El INE revisa una décima al alza la inflación hasta el 3,4%, con subidas de precios generalizadas",
+      "author": "Javier Jorrín",
+      "source_url": "https://www.elconfidencial.com/economia/2026-04-14/ipc-marzo-guerra-iran-inflacion-carburantes-alimentos_4337677/",
+      "site_name": "elconfidencial.com",
+      "summary": "Estadística sube en dos décimas hasta el 2,9% la inflación subyacente, que excluye el precio de la energía y los alimentos frescos, lo que indica que la inflación está siendo generalizada",
+      "word_count": 578,
+      "reading_time": "3 mins",
+      "published_date": "2026-04-14",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://images.ecestaticos.com/e_nORsWb6xpn1Hijp6u_SvXVxNM=/0x0:2272x1515/600x315/filters:fill(white):format(jpg):quality(99):watermark(f.elconfidencial.com/file/bae/eea/fde/baeeeafde1b3229287b0c008f7602058.png,0,275,1)/f.elconfidencial.com/original/2c9/727/123/2c97271233bda60265b8d904956b710d.jpg",
+      "score": 30,
+      "reason": "Inflación generalizada en economía española",
+      "tag": "economía"
     },
     {
       "id": "01kp54ex4b9hvzfh96bx33g1y4",
@@ -2639,7 +2418,7 @@
       "location": "feed",
       "image_url": "https://cepr.org/themes/custom/cepr/assets/favicon/apple-touch-icon.png?v=1",
       "score": 28,
-      "reason": "Desequilibrios comerciales requieren políticas coordinadas",
+      "reason": "Desequilibrios comerciales globales estructurales",
       "tag": "comercio"
     },
     {
@@ -2749,16 +2528,16 @@
       "title": "The value of free health insurance: Evidence from Mexico’s Seguro Popular",
       "author": "VoxEU | CEPR",
       "source_url": "https://cepr.org/voxeu/columns/value-free-health-insurance-evidence-mexicos-seguro-popular",
-      "site_name": null,
+      "site_name": "CEPR",
       "summary": "Delivered by PolitePaul service",
-      "word_count": null,
-      "reading_time": null,
+      "word_count": 1192,
+      "reading_time": "5 mins",
       "published_date": "2026-04-16",
       "category": "rss",
       "location": "feed",
       "image_url": "https://cepr.org/themes/custom/cepr/assets/favicon/apple-touch-icon.png?v=1",
       "score": 25,
-      "reason": "Valor económico del seguro sanitario",
+      "reason": "Impacto cuantificado de seguro sanitario",
       "tag": "políticas públicas"
     },
     {
@@ -2864,40 +2643,6 @@
       "tag": "geopolítica"
     },
     {
-      "id": "01kp6hjedstmhwsej8d8tgmp4r",
-      "title": "El INE revisa una décima al alza la inflación hasta el 3,4%, con subidas de precios generalizadas",
-      "author": "Javier Jorrín",
-      "source_url": "https://www.elconfidencial.com/economia/2026-04-14/ipc-marzo-guerra-iran-inflacion-carburantes-alimentos_4337677/",
-      "site_name": "elconfidencial.com",
-      "summary": "Estadística sube en dos décimas hasta el 2,9% la inflación subyacente, que excluye el precio de la energía y los alimentos frescos, lo que indica que la inflación está siendo generalizada",
-      "word_count": 578,
-      "reading_time": "3 mins",
-      "published_date": "2026-04-14",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://images.ecestaticos.com/e_nORsWb6xpn1Hijp6u_SvXVxNM=/0x0:2272x1515/600x315/filters:fill(white):format(jpg):quality(99):watermark(f.elconfidencial.com/file/bae/eea/fde/baeeeafde1b3229287b0c008f7602058.png,0,275,1)/f.elconfidencial.com/original/2c9/727/123/2c97271233bda60265b8d904956b710d.jpg",
-      "score": 23,
-      "reason": "Inflación generalizada excluye energía",
-      "tag": "economía"
-    },
-    {
-      "id": "01knpst4xj3a19ehkme0kh75py",
-      "title": "The Scariest Part of Artemis II Hasn’t Happened Yet",
-      "author": "Cleo Abram",
-      "source_url": "https://www.youtube.com/shorts/fv-IpmNzHBY",
-      "site_name": "YouTube",
-      "summary": "The scariest part of the Artemis II mission hasn’t happened yet.\n\nThey’ve slingshotted around the moon and they’re headed back but now… \n\nIt’s incredible we can do this. If you think there should be more optimistic tech stories, subscribe!\n\n#shorts #space #engineer #artemis #moon",
-      "word_count": null,
-      "reading_time": null,
-      "published_date": "2026-04-08",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://i.ytimg.com/vi/fv-IpmNzHBY/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AG2CIACgA-KAgwIABABGEYgZSgPMA8=&rs=AOn4CLB7YB-gr1x7cP6Omm9uuI1V8OBtAw",
-      "score": 23,
-      "reason": "Riesgos técnicos misión lunar",
-      "tag": "tecnología"
-    },
-    {
       "id": "01kp3rsvjzrss217a86tasxbn3",
       "title": "When Policy Shapes Perception: The 2021 Child Tax Credit and Consumer Sentiment -- by Jacob Bastian, Melody Harvey",
       "author": "National Bureau of Economic Research Working Papers",
@@ -2953,16 +2698,16 @@
       "title": "Bank failures: The roles of solvency and liquidity",
       "author": "VoxEU | CEPR",
       "source_url": "https://cepr.org/voxeu/columns/bank-failures-roles-solvency-and-liquidity",
-      "site_name": null,
+      "site_name": "CEPR",
       "summary": "Delivered by PolitePaul service",
-      "word_count": null,
-      "reading_time": null,
+      "word_count": 1826,
+      "reading_time": "7 mins",
       "published_date": "2026-04-16",
       "category": "rss",
       "location": "feed",
       "image_url": "https://cepr.org/themes/custom/cepr/assets/favicon/apple-touch-icon.png?v=1",
       "score": 20,
-      "reason": "Crisis bancarias: liquidez versus solvencia",
+      "reason": "Mecánica técnica de quiebras bancarias",
       "tag": "economía"
     },
     {
@@ -2979,7 +2724,7 @@
       "location": "feed",
       "image_url": "https://www.economist.com/favicon.ico",
       "score": 20,
-      "reason": "Guerra drena fondos soberanos petroleros",
+      "reason": "Guerra como drenaje de riqueza energética",
       "tag": "geopolítica"
     },
     {
@@ -3068,23 +2813,6 @@
       "tag": "cultura"
     },
     {
-      "id": "01knhjyd1a6gq162w06q1snrxc",
-      "title": "Why Are These Mysterious Tubes on Mars?",
-      "author": "Cleo Abram",
-      "source_url": "https://www.youtube.com/shorts/A86Zlfz68iA",
-      "site_name": "YouTube",
-      "summary": "If you landed on Mars, you’d see a bunch of titanium tubes containing perfectly preserved ancient Martian rock or air.\n\nWhat are they, and why are they there? Turns out, they’re a very big deal… \n\nTo find out how we’re going to go get them, subscribe!\n\n#shorts #Mars #life #aliens #NASA #perseverance",
-      "word_count": null,
-      "reading_time": null,
-      "published_date": "2026-04-06",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://i.ytimg.com/vi/A86Zlfz68iA/sddefault.jpg?sqp=-oaymwEoCIAFEOAD8quKqQMcGADwAQH4AbYIgAKAD4oCDAgAEAEYciBQKD8wDw==&rs=AOn4CLBI2ctXsJZAclfyl-gVwZUk9YxsyQ",
-      "score": 20,
-      "reason": "Tubos misteriosos exploración Marte",
-      "tag": "tecnología"
-    },
-    {
       "id": "01kp65eba60cdph0a86pebc1rc",
       "title": "Nexo Europa (#1) - Autoestima europea",
       "author": "Nacho Alarcón",
@@ -3098,7 +2826,7 @@
       "location": "feed",
       "image_url": "https://substackcdn.com/image/fetch/$s_!V9pL!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89bbb3d2-b0b7-4acf-8f99-dbdfe4c4a4e9_5194x3463.jpeg",
       "score": 18,
-      "reason": "Autoestima europea ante presión americana",
+      "reason": "Autoestima europea en relaciones transatlánticas",
       "tag": "política europea"
     },
     {
@@ -3200,8 +2928,8 @@
       "location": "feed",
       "image_url": "https://substackcdn.com/image/fetch/$s_!8McX!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F84b9c8b5-c95c-4a99-8842-b81636180211_1024x1379.jpeg",
       "score": 16,
-      "reason": "Polarización política invade desarrollo tecnológico",
-      "tag": "IA"
+      "reason": "Politización violenta de desarrollo tecnológico",
+      "tag": "tecnología"
     },
     {
       "id": "01kp3rsvw8vvdgdagwnw3b8yfh",
@@ -3234,7 +2962,7 @@
       "location": "feed",
       "image_url": "https://substackcdn.com/image/fetch/$s_!jS1o!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6b801061-b7a3-4978-b643-c357af4664d1_1024x680.jpeg",
       "score": 15,
-      "reason": "Defensa evidencia frente ideología",
+      "reason": "Debate metodológico sobre progreso social",
       "tag": "metodología"
     },
     {
@@ -3272,23 +3000,6 @@
       "tag": "comercio"
     },
     {
-      "id": "01kpa912pfjptxh76gcq3gkkse",
-      "title": "Trump le ataca y Sánchez le defiende. ¿Tiene poder político el Papa?",
-      "author": "Ramón González Férriz",
-      "source_url": "https://www.elconfidencial.com/espana/tiempos-dificiles/2026-04-16/papa-politica-trump-sanchez-1hms_4338950/",
-      "site_name": null,
-      "summary": "León XIV ha hecho unas declaraciones juiciosas sobre la guerra. Esto le ha colocado en el centro de la polémica, pero no significa que el líder católico tenga poder político. La influencia de la religión es, pese a todo, cada vez menor",
-      "word_count": null,
-      "reading_time": null,
-      "published_date": "2026-04-16",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://images.ecestaticos.com/nN8vFUA9B9ba1n2DQZJgP1eZ-gA=/0x0:2272x1534/600x315/filters:fill(white):format(jpg):quality(99):watermark(f.elconfidencial.com/file/bae/eea/fde/baeeeafde1b3229287b0c008f7602058.png,0,275,1)/f.elconfidencial.com/original/116/c1a/f8f/116c1af8f1fc1bdc7ac512d69f6f6b7b.jpg",
-      "score": 12,
-      "reason": "Influencia papal sin poder político real",
-      "tag": "geopolítica"
-    },
-    {
       "id": "01kp624q5mca6gwwb3ss1akv9a",
       "title": "How to report a N=12 study?",
       "author": "Andrew",
@@ -3304,6 +3015,23 @@
       "score": 12,
       "reason": "Problemas estadísticos en estudios pequeños",
       "tag": "metodología"
+    },
+    {
+      "id": "01kpa912pfjptxh76gcq3gkkse",
+      "title": "Trump le ataca y Sánchez le defiende. ¿Tiene poder político el Papa?",
+      "author": "Ramón González Férriz",
+      "source_url": "https://www.elconfidencial.com/espana/tiempos-dificiles/2026-04-16/papa-politica-trump-sanchez-1hms_4338950/",
+      "site_name": "elconfidencial.com",
+      "summary": "León XIV ha hecho unas declaraciones juiciosas sobre la guerra. Esto le ha colocado en el centro de la polémica, pero no significa que el líder católico tenga poder político. La influencia de la religión es, pese a todo, cada vez menor",
+      "word_count": 857,
+      "reading_time": "4 mins",
+      "published_date": "2026-04-16",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://images.ecestaticos.com/nN8vFUA9B9ba1n2DQZJgP1eZ-gA=/0x0:2272x1534/600x315/filters:fill(white):format(jpg):quality(99):watermark(f.elconfidencial.com/file/bae/eea/fde/baeeeafde1b3229287b0c008f7602058.png,0,275,1)/f.elconfidencial.com/original/116/c1a/f8f/116c1af8f1fc1bdc7ac512d69f6f6b7b.jpg",
+      "score": 12,
+      "reason": "Influencia política limitada del papado",
+      "tag": "geopolítica"
     },
     {
       "id": "01kp3z75cb602ez0z6dh8bv1zg",
@@ -3340,23 +3068,6 @@
       "tag": "metodología"
     },
     {
-      "id": "01kp2jwsmx25wkvr0xjsrx3kgd",
-      "title": "Wellbeing, Youth and Survey Mode: Comparisons across 23 Countries Using Three International Datasets -- by David G. Blanchflower, Alex Bryson",
-      "author": "National Bureau of Economic Research Working Papers",
-      "source_url": "https://www.nber.org/papers/w35058#fromrss",
-      "site_name": "NBER",
-      "summary": "Although there is growing evidence that the subjective wellbeing among the young declined in recent years, the evidence is not consistent across surveys. We examine the relationship between age and various measures of wellbeing and illbeing across three major surveys – the Gallup World Poll (GWP, Global Minds (GM) and the Global Flourishing Survey (GFS). The GWP is conducted via face-to-face and telephone surveys; GM surveys are web-based; and GFS uses both telephone and web-based surveys. We focus on 23 countries appearing in all three surveys.  The clearest evidence that wellbeing rises with age and illbeing declines with age comes from the web-based surveys in both GM and GFS. The age profiles look very different when surveys are conducted by telephone: the higher rates of illbeing among the young are far less apparent in these surveys. Because survey mode is not randomly assigned, we cannot be sure differences in age profiles of wellbeing and illbeing are causally affected by survey mode. Selection into survey mode, both across and within country, plus differential non-response by survey across the age range, may be playing a role. However, the evidence indicates very different age patterns in wellbeing and illbeing emerge across different survey modes.",
-      "word_count": 201,
-      "reading_time": "1 min",
-      "published_date": "2026-04-10",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://www.nber.org/themes/custom/nber/favicon.ico",
-      "score": 12,
-      "reason": "Bienestar juvenil varía según metodología encuesta",
-      "tag": "metodología"
-    },
-    {
       "id": "01kp3z75dp56pk4rdwza70r12r",
       "title": "Stablecoins and Global Imbalances",
       "author": "VoxEU | CEPR",
@@ -3374,23 +3085,6 @@
       "tag": "economía"
     },
     {
-      "id": "01kp65g1st1mrtw467473tmjaa",
-      "title": "Epistemic Virtues for Science in the Age of Automation",
-      "author": "Jessica Hullman",
-      "source_url": "https://statmodeling.stat.columbia.edu/2026/04/14/epistemic-virtues-for-science-in-the-age-of-automation/",
-      "site_name": "columbia.edu",
-      "summary": "This is Jessica. Back in the 1980s, novelist Italo Calvino developed a series of six lectures describing literary virtues he felt should be enduring regardless of how the world changed: lightness, quickness, exactitude, visibility, mulitiplicity, and consistency. These were published … Continue reading →",
-      "word_count": 331,
-      "reading_time": "2 mins",
-      "published_date": "2026-04-14",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://statmodeling.stat.columbia.edu/favicon.ico",
-      "score": 10,
-      "reason": "Virtudes epistémicas en ciencia automatizada",
-      "tag": "metodología"
-    },
-    {
       "id": "01kp6fyy8rvx2hd97jt27935rt",
       "title": "How to build a portfolio when bonds fail to buffer stocks",
       "author": "Finance & economics",
@@ -3404,8 +3098,25 @@
       "location": "feed",
       "image_url": "https://www.economist.com/favicon.ico",
       "score": 10,
-      "reason": "Diversificación cuando bonos fallan",
+      "reason": "Estrategia financiera ante correlación assets",
       "tag": "economía"
+    },
+    {
+      "id": "01kp65g1st1mrtw467473tmjaa",
+      "title": "Epistemic Virtues for Science in the Age of Automation",
+      "author": "Jessica Hullman",
+      "source_url": "https://statmodeling.stat.columbia.edu/2026/04/14/epistemic-virtues-for-science-in-the-age-of-automation/",
+      "site_name": "columbia.edu",
+      "summary": "This is Jessica. Back in the 1980s, novelist Italo Calvino developed a series of six lectures describing literary virtues he felt should be enduring regardless of how the world changed: lightness, quickness, exactitude, visibility, mulitiplicity, and consistency. These were published … Continue reading →",
+      "word_count": 331,
+      "reading_time": "2 mins",
+      "published_date": "2026-04-14",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://statmodeling.stat.columbia.edu/favicon.ico",
+      "score": 10,
+      "reason": "Virtudes epistemológicas en ciencia automatizada",
+      "tag": "metodología"
     },
     {
       "id": "01kp3z795w2pbtkzfs408x1ndb",
@@ -3442,21 +3153,21 @@
       "tag": "política europea"
     },
     {
-      "id": "01kp6sefpnsb754w2ymmwgk692",
-      "title": "Survey Statistics: irrelevant alternatives ?",
-      "author": "shira",
-      "source_url": "https://statmodeling.stat.columbia.edu/2026/04/14/survey-statistics-irrelevant-alternatives/",
-      "site_name": "columbia.edu",
-      "summary": "Choice models are useful for modeling elections (or RuPaul’s Drag Race). Consider vote choice with candidates C = {Left, Right, Other}. “Other” can be a third party, not voting, or “don’t know” in a survey. A common choice model is … Continue reading →",
-      "word_count": 207,
-      "reading_time": "1 min",
-      "published_date": "2026-04-14",
+      "id": "01kpamthcd27mc41fskscy3xb4",
+      "title": "You are what you consume",
+      "author": "Noah Smith",
+      "source_url": "https://www.noahpinion.blog/p/you-are-what-you-consume",
+      "site_name": "noahpinion.blog",
+      "summary": "Personal identity should come from the things we get to choose for ourselves.",
+      "word_count": 2421,
+      "reading_time": "10 mins",
+      "published_date": "2026-04-16",
       "category": "rss",
       "location": "feed",
-      "image_url": "https://statmodeling.stat.columbia.edu/favicon.ico",
+      "image_url": "https://substackcdn.com/image/fetch/$s_!_yga!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F942ee4b4-1d8f-4d70-b08d-b1ddd2e27b74_960x640.jpeg",
       "score": 8,
-      "reason": "Modelos elección con alternativas irrelevantes",
-      "tag": "metodología"
+      "reason": "Identidad personal y elección de consumo",
+      "tag": "cultura"
     },
     {
       "id": "01kp4e4dxf653qcdsr9tep5djp",
@@ -3510,23 +3221,6 @@
       "tag": "geopolítica"
     },
     {
-      "id": "01kp3pwdmmw58p667gq4kk7rkw",
-      "title": "Are These Brain Cells Really Playing DOOM?",
-      "author": "Cleo Abram",
-      "source_url": "https://www.youtube.com/shorts/g-C5JOimppM",
-      "site_name": "YouTube",
-      "summary": "These brain cells on a dish look like they’re playing the video game DOOM. But are they actually? I emailed the scientists to find out…\n\nExperts think this could lead to efficient bio computers or ways to study neurological diseases!\n\nIf you think you could beat the brain cells, subscribe!\n\n#shorts #science #brain #cells #doom",
-      "word_count": null,
-      "reading_time": null,
-      "published_date": "2026-04-13",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://i.ytimg.com/vi/g-C5JOimppM/sddefault.jpg?sqp=-oaymwEoCIAFEOAD8quKqQMcGADwAQH4AbYIgAKAD4oCDAgAEAEYGyBkKGUwDw==&rs=AOn4CLAWUIMdu1cHjztqRV97EBK1dzWSzw",
-      "score": 8,
-      "reason": "Células cerebrales jugando videojuegos",
-      "tag": "tecnología"
-    },
-    {
       "id": "01kp3ep1nx9mt0d97pwjber6qr",
       "title": "Open Thread 429",
       "author": "Scott Alexander",
@@ -3541,23 +3235,6 @@
       "image_url": "https://substack-post-media.s3.amazonaws.com/public/images/17f95ea0-b04e-4921-98e4-37ee222ded14_1536x1024.png",
       "score": 8,
       "reason": "Hilo abierto discusión general",
-      "tag": "cultura"
-    },
-    {
-      "id": "01knyqycrk1gzdyawqqzw8shks",
-      "title": "Saturday discussion post",
-      "author": "Halina Bennet",
-      "source_url": "https://www.slowboring.com/p/saturday-discussion-post-387",
-      "site_name": "slowboring.com",
-      "summary": "A dollhouse for your Saturday:",
-      "word_count": 7,
-      "reading_time": "1 min",
-      "published_date": "2026-04-11",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://substackcdn.com/image/fetch/$s_!G40K!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb53e4aa6-6f7f-4a1a-beea-8707c58ebac1_4306x3229.jpeg",
-      "score": 8,
-      "reason": "Hilo discusión sin contenido sustantivo",
       "tag": "cultura"
     },
     {
@@ -3578,6 +3255,23 @@
       "tag": "economía"
     },
     {
+      "id": "01kp6sefpnsb754w2ymmwgk692",
+      "title": "Survey Statistics: irrelevant alternatives ?",
+      "author": "shira",
+      "source_url": "https://statmodeling.stat.columbia.edu/2026/04/14/survey-statistics-irrelevant-alternatives/",
+      "site_name": "columbia.edu",
+      "summary": "Choice models are useful for modeling elections (or RuPaul’s Drag Race). Consider vote choice with candidates C = {Left, Right, Other}. “Other” can be a third party, not voting, or “don’t know” in a survey. A common choice model is … Continue reading →",
+      "word_count": 207,
+      "reading_time": "1 min",
+      "published_date": "2026-04-14",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://statmodeling.stat.columbia.edu/favicon.ico",
+      "score": 6,
+      "reason": "Estadística electoral y alternativas irrelevantes",
+      "tag": "metodología"
+    },
+    {
       "id": "01kp8mk41t6ntbpvds4g79m5kk",
       "title": "Can you hit a home run off of Paul Skenes?",
       "author": "Andrew",
@@ -3591,7 +3285,7 @@
       "location": "feed",
       "image_url": "https://statmodeling.stat.columbia.edu/favicon.ico",
       "score": 6,
-      "reason": "Estadística deportiva aplicada",
+      "reason": "Probabilidad deportiva y análisis estadístico",
       "tag": "metodología"
     },
     {
@@ -3642,7 +3336,7 @@
       "location": "feed",
       "image_url": "https://i.ytimg.com/vi/cKCRMhaEUDI/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AHOBYACgAqKAgwIABABGGUgZShlMA8=&rs=AOn4CLC4QszXS0O1Bu0nwj9sYMSj1LbVEw",
       "score": 5,
-      "reason": "SpaceX como empresa espacial privada",
+      "reason": "IPO espacial como oportunidad financiera",
       "tag": "tecnología"
     },
     {
@@ -3659,76 +3353,8 @@
       "location": "feed",
       "image_url": "https://i.ytimg.com/vi/c_xNuTeSB9Q/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AG2CIACgA-KAgwIABABGGUgRShGMA8=&rs=AOn4CLBbYybOf5btEbirMA75WIIQJ04wTA",
       "score": 5,
-      "reason": "Beneficios corporativos pese guerra",
+      "reason": "Beneficios corporativos pese conflictos",
       "tag": "economía"
-    },
-    {
-      "id": "01kp8ts9teg3n9kpvan929q4xw",
-      "title": "Introducing: The Story of Money | FT #shorts",
-      "author": "Financial Times",
-      "source_url": "https://www.youtube.com/shorts/bzaewvYdq8I",
-      "site_name": "YouTube",
-      "summary": "Those who do not study history may be destined to repeat it . . . and lose money. FT columnist Gillian Tett and FT Alphaville editor Robin Wigglesworth explore the history of finance in The Story of Money, a new podcast from the Financial Times.⁠\n\n#shortsviral #shortfeed #shortsvideo #shortsyoutube #money #podcast #financialhistory \n\n► Enjoying FT content? Get a daily slice of the very best FT journalism with FT Edit. Free for 30 days then just £4.99 a month\n\nSee if you get the FT for free as a student (http://ft.com/schoolsarefree) or start a £1 trial: https://subs.ft.com/spa3_trial?segmentId=3d4ba81b-96bb-cef0-9ece-29efd6ef2132.\n\n► Check out our Community tab for more stories: https://www.youtube.com/@FinancialTimes/community\n►  Listen to our podcasts: https://www.ft.com/podcasts\n►  Follow us on Instagram: https://www.instagram.com/financialtimes\n►  Follow us on Instagram: https://www.tiktok.com/@financialtimes",
-      "word_count": null,
-      "reading_time": null,
-      "published_date": "2026-04-15",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://i.ytimg.com/vi/bzaewvYdq8I/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AG2CIACgA-KAgwIABABGH8gRCggMA8=&rs=AOn4CLCS02kfHNTf5AOUmEyp_nc_W5RO-Q",
-      "score": 5,
-      "reason": "Historia financiera para inversores",
-      "tag": "economía"
-    },
-    {
-      "id": "01kp696cbvpvpaakaad0gsvvhv",
-      "title": "Why Do Antarctic Ocean Animals Become GIANTS?",
-      "author": "Cleo Abram",
-      "source_url": "https://www.youtube.com/shorts/DmQP4_QHVUw",
-      "site_name": "YouTube",
-      "summary": "Something weird is happening deep in the freezing water at our poles. Animals consistently grow to ENORMOUS sizes. \n\nSpiders the size of dinner plates and squid larger than a school bus. \"Detecting multiple leviathan class organisms in this area…”\n\nWHY?\n\nSubscribe to learn more!\n\n#ocean #science #antarctica",
-      "word_count": null,
-      "reading_time": null,
-      "published_date": "2026-04-14",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://i.ytimg.com/vi/DmQP4_QHVUw/sddefault.jpg?sqp=-oaymwEoCIAFEOAD8quKqQMcGADwAQH4AbYIgAKAD4oCDAgAEAEYICAvKH8wDw==&rs=AOn4CLAmCNYIWsDcGH8j6i5i_IIy8MRtzA",
-      "score": 5,
-      "reason": "Gigantismo animal en océanos polares",
-      "tag": "cultura"
-    },
-    {
-      "id": "01kp663haen2h4bky3vpv0fr6x",
-      "title": "Can India quit coal? | FT #shorts",
-      "author": "Financial Times",
-      "source_url": "https://www.youtube.com/shorts/ERt7h5rEXt8",
-      "site_name": "YouTube",
-      "summary": "India is the fastest growing large economy in the world and to a great extent that growth is being fuelled by coal. At the same time, India’s air pollution is among the worst in the world and has a measurable impact upon life expectancy.⁠\n\n#shortfeed #shortsviral #shortsyoutube #shortsvideo #india #coal #energy \n\n► Enjoying FT content? Get a daily slice of the very best FT journalism with FT Edit. Free for 30 days then just £4.99 a month\n\nSee if you get the FT for free as a student (http://ft.com/schoolsarefree) or start a £1 trial: https://subs.ft.com/spa3_trial?segmentId=3d4ba81b-96bb-cef0-9ece-29efd6ef2132.\n\n► Check out our Community tab for more stories: https://www.youtube.com/@FinancialTimes/community\n►  Listen to our podcasts: https://www.ft.com/podcasts\n►  Follow us on Instagram: https://www.instagram.com/financialtimes\n►  Follow us on Instagram: https://www.tiktok.com/@financialtimes",
-      "word_count": null,
-      "reading_time": null,
-      "published_date": "2026-04-14",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://i.ytimg.com/vi/ERt7h5rEXt8/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AG2CIACgA-KAgwIABABGH8gWSgwMA8=&rs=AOn4CLBM2D12wOK3sDRUVj56VEsTE7ES7Q",
-      "score": 5,
-      "reason": "India entre carbón y contaminación",
-      "tag": "energía"
-    },
-    {
-      "id": "01kp5vkxe30kbxnsj0t7cqeg48",
-      "title": "Donald Trump's clash with Pope Leo intensifies | FT #shorts",
-      "author": "Financial Times",
-      "source_url": "https://www.youtube.com/shorts/2GiuhfcAFOk",
-      "site_name": "YouTube",
-      "summary": "The two most famous and powerful Americans have been at odds ever since Pope Leo’s elevation to the papacy last year. Now, tensions over the Iran war have pushed relations between Washington and the Vatican to a historic low, says Amy Kazmin.⁠\n\n#trump #popeleoxiv #shortsvideo #shortfeed #shorts #shortsviral #shortsyoutube #shortsvideos #vatican #rome \n\n► Enjoying FT content? Get a daily slice of the very best FT journalism with FT Edit. Free for 30 days then just £4.99 a month\n\nSee if you get the FT for free as a student (http://ft.com/schoolsarefree) or start a £1 trial: https://subs.ft.com/spa3_trial?segmentId=3d4ba81b-96bb-cef0-9ece-29efd6ef2132.\n\n► Check out our Community tab for more stories: https://www.youtube.com/@FinancialTimes/community\n►  Listen to our podcasts: https://www.ft.com/podcasts\n►  Follow us on Instagram: https://www.instagram.com/financialtimes\n►  Follow us on Instagram: https://www.tiktok.com/@financialtimes",
-      "word_count": null,
-      "reading_time": null,
-      "published_date": "2026-04-14",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://i.ytimg.com/vi/2GiuhfcAFOk/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AG2CIACgA-KAgwIABABGEUgWyhyMA8=&rs=AOn4CLC77a764Bp2UppaBjpq63DjxamqOg",
-      "score": 5,
-      "reason": "Tensión Trump-Papa sobre guerra Irán",
-      "tag": "geopolítica"
     },
     {
       "id": "01kp4aq9t5k9582d6nwcx4y4hq",
@@ -3833,40 +3459,6 @@
       "tag": "política europea"
     },
     {
-      "id": "01kp1c0pxcjz6bydrzpjyvbyy4",
-      "title": "Sunday Thread + Mailbag",
-      "author": "Halina Bennet",
-      "source_url": "https://www.slowboring.com/p/sunday-thread-mailbag-c84",
-      "site_name": "slowboring.com",
-      "summary": "Ask your questions below.",
-      "word_count": 6,
-      "reading_time": "1 min",
-      "published_date": "2026-04-12",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://substack-post-media.s3.amazonaws.com/public/images/d7bae55d-d45c-4fa5-a3c1-b07e85ac0c0f_940x788.png",
-      "score": 5,
-      "reason": "Hilo dominical y buzón preguntas",
-      "tag": "cultura"
-    },
-    {
-      "id": "01knx1vfzrvt0jamg1ft1j4474",
-      "title": "Artemis II Is HOME! Here’s What They Did.",
-      "author": "Cleo Abram",
-      "source_url": "https://www.youtube.com/shorts/qtTA9-ZJuro",
-      "site_name": "YouTube",
-      "summary": "Artemis II is officially home safe! These 4 humans went farther from Earth than ever before.\n\nThis is the second of three planned NASA missions to go BACK to the moon, in hopes of eventually establishing a moon colony.\n\nThis mission, Artemis II, is about testing the spacecraft, Orion, during a 10 day trip around earth and the moon while checking the ship’s life support, navigation, communication, and radiation shelter...\n\nTo see more about that, subscribe!\n\n#NASA #space #Artemis #moon #science",
-      "word_count": null,
-      "reading_time": null,
-      "published_date": "2026-04-10",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://i.ytimg.com/vi/qtTA9-ZJuro/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AG2CIACgA-KAgwIABABGFIgYShlMA8=&rs=AOn4CLAb2hhePG4W6RvnfoeTQKrekgGDAQ",
-      "score": 5,
-      "reason": "Misión espacial sin relevancia económica",
-      "tag": "tecnología"
-    },
-    {
       "id": "01knsj1zv82ep70fxd24y2d028",
       "title": "Europeans say ceasefire must include Lebanon | FT #shorts",
       "author": "Financial Times",
@@ -3884,23 +3476,6 @@
       "tag": "geopolítica"
     },
     {
-      "id": "01kpa911vjbmqsd6rpq9x15ee8",
-      "title": "Freedom Forever Files for Bankruptcy as Solar Industry Woes Deepen",
-      "author": "Dorothy Ma",
-      "source_url": "https://www.bloomberg.com/news/articles/2026-04-15/freedom-forever-files-bankruptcy-as-solar-industry-woes-deepen",
-      "site_name": null,
-      "summary": "",
-      "word_count": null,
-      "reading_time": null,
-      "published_date": "2026-04-15",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://www.bloomberg.com/favicon.ico",
-      "score": 4,
-      "reason": "Quiebra empresa solar profundiza crisis",
-      "tag": "energía"
-    },
-    {
       "id": "01kp8ts9yrj7jz60tzx3gyyhgx",
       "title": "Israel’s ‘Netanyahu doctrine’ | FT #shorts",
       "author": "Financial Times",
@@ -3914,25 +3489,76 @@
       "location": "feed",
       "image_url": "https://i.ytimg.com/vi/-gXAHGP7c2E/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AG2CIACgA-KAgwIABABGGUgZShlMA8=&rs=AOn4CLATJotq3bSWbHuwPEuT7hwpc5f9fg",
       "score": 4,
-      "reason": "Doctrina Netanyahu en guerra prolongada",
+      "reason": "Estrategia militar israeli prolongada",
       "tag": "geopolítica"
     },
     {
-      "id": "01kp8kcba94g2b6fk3gqketnej",
-      "title": "I Wrote a NEW Story with Project Hail Mary Author",
-      "author": "Cleo Abram",
-      "source_url": "https://www.youtube.com/watch?v=0g97kzzldgw",
+      "id": "01kp8ts9teg3n9kpvan929q4xw",
+      "title": "Introducing: The Story of Money | FT #shorts",
+      "author": "Financial Times",
+      "source_url": "https://www.youtube.com/shorts/bzaewvYdq8I",
       "site_name": "YouTube",
-      "summary": "I wrote a BRAND NEW sci-fi story with Project Hail Mary author Andy Weir.\n\nAndy is one of the most popular science fiction writers alive today. He also wrote The Martian. What’s special about his work is how real his fake stories are. He showed me the secret spreadsheets he uses to calculate the science in his writing (including my favorite, “wrong math”).\n\nThe reason that matters is that fiction can help you see the real world more clearly. Sci-fi is “huge if true”! \n\nThis show is about real science and tech, but we’ve done a little sci fi to explain complex things. So I wanted to learn from Andy. \n\nIn this conversation, we go deep inside Andy’s fictional worlds to see how exactly he makes them so real… \n\nAnd we play out a BRAND NEW sci fi story together in real time…\n\nWelcome to HUGE* Conversations.\n\nChapters \n00:00 Who is Andy Weir?\n03:10: The world’s largest meteorite\n06:04 Andy Weir’s secret spreadsheets\n10:04 How Rocky became Rocky\n13:02 Where Rocky’s story really began\n15:07 What didn’t make it into the book for Project Hail Mary\n17:22 How to create a true alien\n19:25 Rocky’s body v. your body\n23:38 Our new sci-fi story\n27:23 How to tell if a planet has alien life\n31:23 The biggest question if we do find aliens\n36:48 How do you talk to a new alien species\n41:16 The biggest changes in The Martian\n44:55 The secret sauce of HUGE* and Project Hail Mary\n48:15 Does sci-fi influence science\n51:17 Andy’s new book\n51:42 The biggest sci-fi changes in real life\n54:54 The optimistic future Andy sees coming\n57:35 What Andy Weir wants to be remembered for\n58:42 Sneak peek at our next video! \n58:53 :) \n\nYou can find me on Instagram here: https://www.instagram.com/cleoabram \nOn TikTok here: https://www.tiktok.com/@cleoabram \nOr on Twitter here: https://twitter.com/cleoabram \n\nBio:\nCleo Abram is an Emmy-nominated independent video journalist. On her show, HUGE* If True, Cleo explores complex technology topics with rigor and optimism, helping her audience understand the wor...",
+      "summary": "Those who do not study history may be destined to repeat it . . . and lose money. FT columnist Gillian Tett and FT Alphaville editor Robin Wigglesworth explore the history of finance in The Story of Money, a new podcast from the Financial Times.⁠\n\n#shortsviral #shortfeed #shortsvideo #shortsyoutube #money #podcast #financialhistory \n\n► Enjoying FT content? Get a daily slice of the very best FT journalism with FT Edit. Free for 30 days then just £4.99 a month\n\nSee if you get the FT for free as a student (http://ft.com/schoolsarefree) or start a £1 trial: https://subs.ft.com/spa3_trial?segmentId=3d4ba81b-96bb-cef0-9ece-29efd6ef2132.\n\n► Check out our Community tab for more stories: https://www.youtube.com/@FinancialTimes/community\n►  Listen to our podcasts: https://www.ft.com/podcasts\n►  Follow us on Instagram: https://www.instagram.com/financialtimes\n►  Follow us on Instagram: https://www.tiktok.com/@financialtimes",
       "word_count": null,
       "reading_time": null,
       "published_date": "2026-04-15",
       "category": "rss",
       "location": "feed",
-      "image_url": "https://i.ytimg.com/vi/0g97kzzldgw/sddefault.jpg",
+      "image_url": "https://i.ytimg.com/vi/bzaewvYdq8I/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AG2CIACgA-KAgwIABABGH8gRCggMA8=&rs=AOn4CLCS02kfHNTf5AOUmEyp_nc_W5RO-Q",
       "score": 4,
-      "reason": "Colaboración literaria ciencia ficción",
-      "tag": "cultura"
+      "reason": "Historia financiera como aprendizaje",
+      "tag": "economía"
+    },
+    {
+      "id": "01kp663haen2h4bky3vpv0fr6x",
+      "title": "Can India quit coal? | FT #shorts",
+      "author": "Financial Times",
+      "source_url": "https://www.youtube.com/shorts/ERt7h5rEXt8",
+      "site_name": "YouTube",
+      "summary": "India is the fastest growing large economy in the world and to a great extent that growth is being fuelled by coal. At the same time, India’s air pollution is among the worst in the world and has a measurable impact upon life expectancy.⁠\n\n#shortfeed #shortsviral #shortsyoutube #shortsvideo #india #coal #energy \n\n► Enjoying FT content? Get a daily slice of the very best FT journalism with FT Edit. Free for 30 days then just £4.99 a month\n\nSee if you get the FT for free as a student (http://ft.com/schoolsarefree) or start a £1 trial: https://subs.ft.com/spa3_trial?segmentId=3d4ba81b-96bb-cef0-9ece-29efd6ef2132.\n\n► Check out our Community tab for more stories: https://www.youtube.com/@FinancialTimes/community\n►  Listen to our podcasts: https://www.ft.com/podcasts\n►  Follow us on Instagram: https://www.instagram.com/financialtimes\n►  Follow us on Instagram: https://www.tiktok.com/@financialtimes",
+      "word_count": null,
+      "reading_time": null,
+      "published_date": "2026-04-14",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://i.ytimg.com/vi/ERt7h5rEXt8/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AG2CIACgA-KAgwIABABGH8gWSgwMA8=&rs=AOn4CLBM2D12wOK3sDRUVj56VEsTE7ES7Q",
+      "score": 4,
+      "reason": "Transición energética en economía emergente",
+      "tag": "energía"
+    },
+    {
+      "id": "01kp5vkxe30kbxnsj0t7cqeg48",
+      "title": "Donald Trump's clash with Pope Leo intensifies | FT #shorts",
+      "author": "Financial Times",
+      "source_url": "https://www.youtube.com/shorts/2GiuhfcAFOk",
+      "site_name": "YouTube",
+      "summary": "The two most famous and powerful Americans have been at odds ever since Pope Leo’s elevation to the papacy last year. Now, tensions over the Iran war have pushed relations between Washington and the Vatican to a historic low, says Amy Kazmin.⁠\n\n#trump #popeleoxiv #shortsvideo #shortfeed #shorts #shortsviral #shortsyoutube #shortsvideos #vatican #rome \n\n► Enjoying FT content? Get a daily slice of the very best FT journalism with FT Edit. Free for 30 days then just £4.99 a month\n\nSee if you get the FT for free as a student (http://ft.com/schoolsarefree) or start a £1 trial: https://subs.ft.com/spa3_trial?segmentId=3d4ba81b-96bb-cef0-9ece-29efd6ef2132.\n\n► Check out our Community tab for more stories: https://www.youtube.com/@FinancialTimes/community\n►  Listen to our podcasts: https://www.ft.com/podcasts\n►  Follow us on Instagram: https://www.instagram.com/financialtimes\n►  Follow us on Instagram: https://www.tiktok.com/@financialtimes",
+      "word_count": null,
+      "reading_time": null,
+      "published_date": "2026-04-14",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://i.ytimg.com/vi/2GiuhfcAFOk/sddefault.jpg?sqp=-oaymwEmCIAFEOAD8quKqQMa8AEB-AG2CIACgA-KAgwIABABGEUgWyhyMA8=&rs=AOn4CLC77a764Bp2UppaBjpq63DjxamqOg",
+      "score": 4,
+      "reason": "Tensiones diplomáticas vaticano-washington",
+      "tag": "geopolítica"
+    },
+    {
+      "id": "01kpa911vjbmqsd6rpq9x15ee8",
+      "title": "Freedom Forever Files for Bankruptcy as Solar Industry Woes Deepen",
+      "author": "Dorothy Ma",
+      "source_url": "https://www.bloomberg.com/news/articles/2026-04-15/freedom-forever-files-bankruptcy-as-solar-industry-woes-deepen",
+      "site_name": "Bloomberg.com",
+      "summary": "Freedom Forever, a once thriving residential solar installer, joins a growing list of bankruptcies as distress in the US clean energy sector deepens under an unfriendly Trump administration and hopes for buyouts fade.",
+      "word_count": 231,
+      "reading_time": "1 min",
+      "published_date": "2026-04-15",
+      "category": "rss",
+      "location": "feed",
+      "image_url": "https://www.bloomberg.com/favicon.ico",
+      "score": 4,
+      "reason": "Quiebra solar por hostilidad regulatoria",
+      "tag": "energía"
     },
     {
       "id": "01knq7tsmmk25k0jsq67m6md5c",
@@ -4018,40 +3644,6 @@
       "score": 2,
       "reason": "Impacto económico puntual y limitado",
       "tag": "geopolítica"
-    },
-    {
-      "id": "01knn09e3cv9vh8qx64sb8h29m",
-      "title": "Tuesday discussion post",
-      "author": "Halina Bennet",
-      "source_url": "https://www.slowboring.com/p/tuesday-discussion-post-693",
-      "site_name": "slowboring.com",
-      "summary": "Every day is unbelievable.",
-      "word_count": 24,
-      "reading_time": "1 min",
-      "published_date": "2026-04-07",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://substackcdn.com/image/fetch/$s_!gzxV!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fceeb681e-a14d-4bbb-a8fe-951c29603e3f_256x256.png",
-      "score": 2,
-      "reason": "Post de discusión vacío de contenido",
-      "tag": "medios"
-    },
-    {
-      "id": "01knvth74azq0yyk2ycjjwv7kg",
-      "title": "What Time Is It In Antarctica?",
-      "author": "Cleo Abram",
-      "source_url": "https://www.youtube.com/shorts/Hsz5zpoS2Uo",
-      "site_name": "YouTube",
-      "summary": "What time is it in Antarctica? All of the timezones meet here at the bottom of the world, so, could you run through all of them? Is it every time zone?\n\nI went to Antarctica! We’re making a longer episode all about what’s hidden underneath the ice… so subscribe to see it… \n\n#shorts #science #antarctica #time #southpole",
-      "word_count": null,
-      "reading_time": null,
-      "published_date": "2026-04-10",
-      "category": "rss",
-      "location": "feed",
-      "image_url": "https://i.ytimg.com/vi/Hsz5zpoS2Uo/sddefault.jpg?sqp=-oaymwEoCIAFEOAD8quKqQMcGADwAQH4AbYIgAKAD4oCDAgAEAEYPyBYKHIwDw==&rs=AOn4CLBBz7Y4DZpvKWq-oDYOgi1LdVXhuQ",
-      "score": 1,
-      "reason": "Curiosidad geográfica sin aplicación práctica",
-      "tag": "cultura"
     }
   ]
 }
