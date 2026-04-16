@@ -3,6 +3,7 @@
 import json
 import os
 import pathlib
+import subprocess
 from datetime import datetime, timezone
 
 import httpx
@@ -13,6 +14,65 @@ from reader import archive_article, save_url, fetch_html_content
 
 DATA_DIR = pathlib.Path(__file__).parent / "data"
 FEEDBACK_FILE = DATA_DIR / "feedback.json"
+REPO_DIR = pathlib.Path(__file__).parent
+
+
+_feedback_timer = None
+
+
+def _git_push_feedback():
+    """Commit and push feedback.json so it survives Render redeploys.
+
+    Debounced: waits 5s after the last call before pushing, so bulk
+    operations (mark-all-no) produce a single commit.
+    """
+    import threading
+
+    global _feedback_timer
+    if _feedback_timer:
+        _feedback_timer.cancel()
+
+    def _do_push():
+        try:
+            env = os.environ.copy()
+            # Configure git identity if not set
+            subprocess.run(
+                ["git", "config", "user.email", "readerme-bot@users.noreply.github.com"],
+                cwd=REPO_DIR, capture_output=True, timeout=5,
+            )
+            subprocess.run(
+                ["git", "config", "user.name", "readerme-bot"],
+                cwd=REPO_DIR, capture_output=True, timeout=5,
+            )
+            subprocess.run(
+                ["git", "add", str(FEEDBACK_FILE)],
+                cwd=REPO_DIR, capture_output=True, timeout=10,
+            )
+            result = subprocess.run(
+                ["git", "commit", "-m", "feedback: " + datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")],
+                cwd=REPO_DIR, capture_output=True, timeout=10,
+            )
+            if result.returncode != 0:
+                return  # nothing to commit
+            # Use GITHUB_TOKEN for auth if available
+            gh_token = os.getenv("GITHUB_TOKEN", "")
+            if gh_token:
+                subprocess.run(
+                    ["git", "remote", "set-url", "origin",
+                     f"https://x-access-token:{gh_token}@github.com/JorgeGalindo/readerme.git"],
+                    cwd=REPO_DIR, capture_output=True, timeout=5,
+                )
+            push = subprocess.run(
+                ["git", "push"],
+                cwd=REPO_DIR, capture_output=True, timeout=30,
+            )
+            if push.returncode != 0:
+                print(f"Git push failed: {push.stderr.decode()}")
+        except Exception as e:
+            print(f"Git push feedback failed: {e}")
+
+    _feedback_timer = threading.Timer(5.0, _do_push)
+    _feedback_timer.start()
 
 
 def _today_feedback() -> dict:
@@ -181,6 +241,8 @@ def feedback():
         reader_synced = save_url(source_url)
     elif not liked and section == "feeds" and doc_id:
         reader_synced = archive_article(doc_id)
+
+    _git_push_feedback()
 
     return jsonify({"ok": True, "reader_synced": reader_synced})
 
