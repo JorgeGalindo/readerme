@@ -45,7 +45,7 @@ def process_pending_feedback():
             # Both Sí and No → archive (removes from feed)
             synced = archive_article(doc_id)
             action = "archived" if liked else "marked seen"
-        elif liked and section in ("bubble", "abundance") and source_url:
+        elif liked and section in ("thinktank", "bubble", "abundance") and source_url:
             # Sí on web article → save to Reader
             synced = save_url(source_url)
             action = "saved to Reader"

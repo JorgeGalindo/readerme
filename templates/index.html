@@ -53,6 +53,7 @@
           {% if b.source_url %}
           <button class="btn-expand" data-url="{{ b.source_url }}" onclick="toggleScrape(this)">Leer</button>
           {% endif %}
+          <button class="btn-listen" onclick="toggleListen(this)" style="display:none">Escuchar</button>
           <div class="feedback" data-title="{{ b.title }}" data-tag="{{ b.tag }}" data-section="thinktank" data-source-url="{{ b.source_url or '' }}">
             <button class="btn-yes" onclick="sendFeedback(this, true)">Sí</button>
             <button class="btn-no" onclick="sendFeedback(this, false)">No</button>
@@ -61,7 +62,6 @@
         <div class="article-content" style="display:none"></div>
         <div class="card-bottom" style="display:none">
           <div class="card-actions">
-            <button class="btn-listen" onclick="toggleListen(this)">Escuchar</button>
             <button class="btn-share" data-title="{{ b.title }}" data-url="{{ b.source_url or '' }}" onclick="getShareText(this)">Compartir</button>
           </div>
           <div class="share-result"></div>
@@ -87,6 +87,7 @@
           {% if a.source_url %}
           <button class="btn-expand" data-url="{{ a.source_url }}" onclick="toggleScrape(this)">Leer</button>
           {% endif %}
+          <button class="btn-listen" onclick="toggleListen(this)" style="display:none">Escuchar</button>
           <div class="feedback" data-title="{{ a.title }}" data-tag="{{ a.tag }}" data-section="abundance" data-source-url="{{ a.source_url or '' }}">
             <button class="btn-yes" onclick="sendFeedback(this, true)">Sí</button>
             <button class="btn-no" onclick="sendFeedback(this, false)">No</button>
@@ -95,7 +96,6 @@
         <div class="article-content" style="display:none"></div>
         <div class="card-bottom" style="display:none">
           <div class="card-actions">
-            <button class="btn-listen" onclick="toggleListen(this)">Escuchar</button>
             <button class="btn-share" data-title="{{ a.title }}" data-url="{{ a.source_url or '' }}" onclick="getShareText(this)">Compartir</button>
           </div>
           <div class="share-result"></div>
@@ -128,6 +128,7 @@
         {% if article.id %}
         <button class="btn-expand" data-id="{{ article.id }}" onclick="toggleExpand(this)">Leer</button>
         {% endif %}
+        <button class="btn-listen" onclick="toggleListen(this)" style="display:none">Escuchar</button>
         <div class="feedback" data-title="{{ article.title }}" data-tag="{{ article.tag }}" data-section="feeds" data-id="{{ article.id or '' }}" data-source-url="{{ article.source_url or '' }}">
           <button class="btn-yes" onclick="sendFeedback(this, true)">Sí</button>
           <button class="btn-no" onclick="sendFeedback(this, false)">No</button>
@@ -136,7 +137,6 @@
       <div class="article-content" style="display:none"></div>
       <div class="card-bottom" style="display:none">
         <div class="card-actions">
-          <button class="btn-listen" onclick="toggleListen(this)">Escuchar</button>
           <button class="btn-share" data-title="{{ article.title }}" data-url="{{ article.source_url or '' }}" onclick="getShareText(this)">Compartir</button>
         </div>
         <div class="share-result"></div>
@@ -266,6 +266,11 @@
     return false;
   }
 
+  function _showListenBtn(card, show) {
+    const lb = card.querySelector('.top-actions .btn-listen');
+    if (lb) lb.style.display = show ? '' : 'none';
+  }
+
   async function toggleExpand(btn) {
     const card = btn.closest('.card');
     const contentDiv = card.querySelector('.article-content');
@@ -274,6 +279,7 @@
       contentDiv.style.display = 'none';
       card.querySelector('.card-bottom').style.display = 'none';
       _moveFeedback(card, false);
+      _showListenBtn(card, false);
       btn.textContent = 'Leer';
       return;
     }
@@ -283,6 +289,7 @@
     contentDiv.style.display = 'block';
     card.querySelector('.card-bottom').style.display = 'block';
     _moveFeedback(card, true);
+    _showListenBtn(card, true);
     btn.textContent = 'Cerrar';
   }
 
@@ -294,6 +301,7 @@
       contentDiv.style.display = 'none';
       card.querySelector('.card-bottom').style.display = 'none';
       _moveFeedback(card, false);
+      _showListenBtn(card, false);
       btn.textContent = 'Leer';
       return;
     }
@@ -303,6 +311,7 @@
     contentDiv.style.display = 'block';
     card.querySelector('.card-bottom').style.display = 'block';
     _moveFeedback(card, true);
+    _showListenBtn(card, true);
     btn.textContent = 'Cerrar';
   }
 
@@ -334,7 +343,7 @@
     btn.disabled = false;
   }
 
-  let _ttsState = { card: null, chunks: [], idx: 0, btn: null };
+  let _ttsState = { card: null, chunks: [], idx: 0, btn: null, keepAlive: null };
 
   function _splitChunks(text) {
     const clean = text.replace(/\s+/g, ' ').trim();
@@ -342,7 +351,7 @@
     const chunks = [];
     let cur = '';
     for (const s of sents) {
-      if ((cur + s).length > 200 && cur) { chunks.push(cur.trim()); cur = s; }
+      if ((cur + s).length > 180 && cur) { chunks.push(cur.trim()); cur = s; }
       else cur += s;
     }
     if (cur.trim()) chunks.push(cur.trim());
@@ -350,12 +359,19 @@
   }
 
   function _stopTTS() {
+    if (_ttsState.keepAlive) clearInterval(_ttsState.keepAlive);
     speechSynthesis.cancel();
     if (_ttsState.btn) {
       _ttsState.btn.textContent = 'Escuchar';
       _ttsState.btn.classList.remove('speaking');
     }
-    _ttsState = { card: null, chunks: [], idx: 0, btn: null };
+    _ttsState = { card: null, chunks: [], idx: 0, btn: null, keepAlive: null };
+  }
+
+  function _pickVoice() {
+    const voices = speechSynthesis.getVoices();
+    return voices.find(v => v.lang.startsWith('es') && v.localService) ||
+           voices.find(v => v.lang.startsWith('es')) || null;
   }
 
   function toggleListen(btn) {
@@ -379,29 +395,46 @@
     _stopTTS();
     const chunks = _splitChunks(contentDiv.textContent);
     if (!chunks.length) return;
-    _ttsState = { card, chunks, idx: 0, btn };
+
+    // Chrome bug workaround: pause/resume keeps synth alive
+    const keepAlive = setInterval(() => {
+      if (speechSynthesis.speaking && !speechSynthesis.paused) {
+        speechSynthesis.pause();
+        speechSynthesis.resume();
+      }
+    }, 10000);
+
+    _ttsState = { card, chunks, idx: 0, btn, keepAlive };
     btn.textContent = 'Pausar';
     btn.classList.add('speaking');
+
+    const voice = _pickVoice();
 
     const speakNext = () => {
       if (_ttsState.card !== card) return;
       if (_ttsState.idx >= _ttsState.chunks.length) {
-        btn.textContent = 'Escuchar';
-        btn.classList.remove('speaking');
-        _ttsState = { card: null, chunks: [], idx: 0, btn: null };
+        _stopTTS();
         return;
       }
       const u = new SpeechSynthesisUtterance(_ttsState.chunks[_ttsState.idx++]);
       u.lang = 'es-ES';
+      if (voice) u.voice = voice;
       u.rate = 1.0;
-      u.onend = speakNext;
-      u.onerror = speakNext;
+      u.onend = () => setTimeout(speakNext, 50);
+      u.onerror = (e) => {
+        if (e.error === 'canceled') return;
+        setTimeout(speakNext, 50);
+      };
       speechSynthesis.speak(u);
     };
     speakNext();
   }
 
-  window.addEventListener('beforeunload', () => speechSynthesis.cancel());
+  // Ensure voices are loaded (some browsers load async)
+  speechSynthesis.getVoices();
+  speechSynthesis.addEventListener('voiceschanged', () => {});
+
+  window.addEventListener('beforeunload', () => { _stopTTS(); });
 
   function copyShare(btn) {
     const pre = btn.previousElementSibling;
@@ -410,12 +443,12 @@
     setTimeout(() => { btn.textContent = 'Copiar'; }, 1500);
   }
 
-  function markAllNo() {
+  async function markAllNo() {
     const unmarked = document.querySelectorAll('.feedback:not([data-marked])');
-    unmarked.forEach(fb => {
+    for (const fb of unmarked) {
       const noBtn = fb.querySelector('.btn-no');
-      if (noBtn && !fb.dataset.marked) sendFeedback(noBtn, false);
-    });
+      if (noBtn && !fb.dataset.marked) await sendFeedback(noBtn, false);
+    }
     const btn = document.querySelector('.btn-mark-all-no');
     if (btn) { btn.textContent = 'Hecho'; btn.disabled = true; }
   }

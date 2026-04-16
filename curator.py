@@ -33,6 +33,9 @@ TAGS = [
     "cultura", "medios",
 ]
 
+# Sources to always exclude (matched case-insensitively against author and site_name)
+BLOCKED_SOURCES = ["cleo abram", "ft shorts"]
+
 
 def _load_feedback_context() -> str:
     """Load user feedback and format it as context for curation prompts."""
@@ -228,6 +231,20 @@ def curate(days: int = 2, top_n: int = 0) -> dict:
         print("No articles found in feed.")
         return {"articles": [], "generated_at": ""}
 
+    # Filter blocked sources
+    before = len(articles)
+    articles = [
+        a for a in articles
+        if not any(
+            blocked in (a.get("author") or "").lower()
+            or blocked in (a.get("site_name") or "").lower()
+            or blocked in (a.get("title") or "").lower()
+            for blocked in BLOCKED_SOURCES
+        )
+    ]
+    if len(articles) < before:
+        print(f"  Filtered {before - len(articles)} blocked sources.")
+
     # Load previous scores for stability
     prev_scores = _load_scores_cache()
 
@@ -311,9 +328,35 @@ def curate(days: int = 2, top_n: int = 0) -> dict:
         prev = json.loads(CURATED_FILE.read_text())
         for old_article in prev.get("articles", []):
             old_url = old_article.get("source_url", "")
-            # Keep if: not already in new batch AND not yet marked with feedback
-            if old_url and old_url not in new_urls and old_url not in feedback_urls:
+            # Keep if: not already in new batch AND not yet marked with feedback AND not blocked
+            is_blocked = any(
+                blocked in (old_article.get("author") or "").lower()
+                or blocked in (old_article.get("site_name") or "").lower()
+                or blocked in (old_article.get("title") or "").lower()
+                for blocked in BLOCKED_SOURCES
+            )
+            if old_url and old_url not in new_urls and old_url not in feedback_urls and not is_blocked:
                 curated_articles.append(old_article)
+
+    # Deduplicate by source_url and normalized title
+    seen_urls = set()
+    seen_titles = set()
+    deduped = []
+    for a in curated_articles:
+        url = a.get("source_url", "")
+        title_norm = (a.get("title") or "").strip().lower()
+        if url and url in seen_urls:
+            continue
+        if title_norm and title_norm in seen_titles:
+            continue
+        if url:
+            seen_urls.add(url)
+        if title_norm:
+            seen_titles.add(title_norm)
+        deduped.append(a)
+    if len(deduped) < len(curated_articles):
+        print(f"  Removed {len(curated_articles) - len(deduped)} duplicates.")
+    curated_articles = deduped
 
     # Re-sort everything by score
     curated_articles.sort(key=lambda a: a.get("score", 0), reverse=True)
