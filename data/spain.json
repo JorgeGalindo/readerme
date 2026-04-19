@@ -1,7 +1,27 @@
 {
-  "generated_at": "2026-04-18T04:38:40.371714+00:00",
+  "generated_at": "2026-04-19T04:56:45.496308+00:00",
   "intl": [],
   "spanish": [
+    {
+      "title": "La izquierda internacional consagra a Sánchez: “Ha hecho algo extraordinario”",
+      "link": "https://elpais.com/espana/2026-04-18/la-izquierda-internacional-consagra-a-sanchez-ha-hecho-algo-extraordinario.html",
+      "author": "Carlos E Cué",
+      "summary": "El presidente español rezuma optimismo en la cumbre de Barcelona: “El tiempo de la internacional ultraderechista ha llegado a su fin. Hay que recuperar el orgullo de ser de izquierdas“",
+      "date": "Sat, 18 Apr 2026 18:02:11 GMT",
+      "source": "El País (España)",
+      "scrapeable": false,
+      "risk_summary": "Sánchez busca legitimidad internacional ante su debilidad doméstica, posicionándose como líder progresista global frente a Trump y la ultraderecha."
+    },
+    {
+      "title": "“No se seguirá subvencionando a las ONG que acogen a inmigrantes irregulares, tampoco a las de la Iglesia”",
+      "link": "https://elpais.com/espana/2026-04-18/no-se-seguira-subvencionando-a-las-ong-que-acogen-a-inmigrantes-irregulares-tampoco-a-las-de-la-iglesia.html",
+      "author": "Elsa García de Blas,Miguel González López",
+      "summary": "José María Figaredo y Carlos H. Quero, negociadores de Vox, explican a EL PAÍS los entresijos del pacto con el PP en Extremadura",
+      "date": "Sat, 18 Apr 2026 22:32:35 GMT",
+      "source": "El País (España)",
+      "scrapeable": false,
+      "risk_summary": "Vox condiciona las políticas migratorias autonómicas, cortando ayudas a ONG que atienden inmigrantes irregulares en Extremadura."
+    },
     {
       "title": "La discriminación de los inmigrantes en el acceso a ayudas en Extremadura choca con el documento marco del PP",
       "link": "https://elpais.com/espana/2026-04-18/la-discriminacion-de-los-inmigrantes-en-el-acceso-a-ayudas-en-extremadura-choca-con-el-documento-marco-del-pp.html",
@@ -10,7 +30,7 @@
       "date": "Sat, 18 Apr 2026 03:30:01 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "El acuerdo PP-Vox en Extremadura discrimina a inmigrantes en ayudas sociales, contradiciendo las directrices del PP nacional y creando tensión interna."
+      "risk_summary": "El pacto PP-Vox en Extremadura contradice las directrices nacionales del PP sobre igualdad entre ciudadanos, evidenciando las tensiones internas del partido."
     },
     {
       "title": "La letra pequeña del acuerdo del PP y Vox en Extremadura",
@@ -20,37 +40,47 @@
       "date": "Sat, 18 Apr 2026 03:30:01 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "Las cláusulas del pacto PP-Vox evidencian obstáculos legales para implementar medidas restrictivas migratorias, sugiriendo limitaciones reales del poder autonómico."
+      "risk_summary": "Las limitaciones competenciales autonómicas reducen el impacto real de las medidas antiinmigración pactadas entre PP y Vox en Extremadura."
     },
     {
-      "title": "Vox logra que el PP se comprometa a reformar la ley de extranjería para acabar con la prohibición de discriminar a los inmigrantes",
-      "link": "https://elpais.com/espana/2026-04-17/vox-logra-que-el-pp-se-comprometa-a-reformar-la-ley-de-extranjeria-para-acabar-con-la-no-discriminacion-de-inmigrantes.html",
-      "author": "Miguel González López",
-      "summary": "El acuerdo de gobierno en Extremadura prevé crear una  unidad parapolicial para luchar contra las mafias de la inmigración",
-      "date": "Fri, 17 Apr 2026 07:33:47 GMT",
-      "source": "El País (España)",
-      "scrapeable": false,
-      "risk_summary": "Vox logra que el PP se comprometa a reformar la ley de extranjería eliminando prohibiciones antidiscriminatorias, marcando un giro radical en política migratoria."
-    },
-    {
-      "title": "Sánchez prepara la batalla contra el pacto PP-Vox en Extremadura: “Recurriremos sus leyes con toda la fuerza del Estado de derecho”",
-      "link": "https://elpais.com/espana/2026-04-17/el-gobierno-advierte-de-que-llevara-al-constitucional-las-medidas-discriminatorias-que-resulten-del-pacto-en-extremadura.html",
-      "author": "Carlos E Cué",
-      "summary": "El presidente recuerda que Extremadura es “tierra de emigrantes”, como el propio vicepresidente Cuerpo, y lamenta que PP y Vox vayan contra las renovables",
-      "date": "Fri, 17 Apr 2026 11:44:49 GMT",
-      "source": "El País (España)",
-      "scrapeable": false,
-      "risk_summary": "Sánchez anuncia recurrir judicialmente las leyes del pacto PP-Vox en Extremadura, escalando la confrontación institucional entre Estado y autonomía."
-    },
-    {
-      "title": "El PP rebaja el pacto con Vox en Extremadura: \"La partida de nacimiento no determinará las ayudas\"",
-      "link": "https://www.elmundo.es/espana/2026/04/17/69e2720ae4d4d80b6d8b459f.html",
-      "author": "Juanma Lamet",
-      "summary": "Génova aclara que los incentivos sociales y de vivienda no se otorgarán por nacionalidad. Los criterios serán el empadronamiento y \"la vinculación\" con el territorioLeer",
-      "date": "Fri, 17 Apr 2026 22:50:16 +0200",
+      "title": "Vox acusa al PP de estar en una \"estrategia suicida\" para doblegar a Abascal: \"Si sólo piensa en demonizarnos, la destrucción mutua está asegurada\"",
+      "link": "https://www.elmundo.es/espana/2026/04/18/69e39eb6e9cf4ac4368b459b.html",
+      "author": "Lucía Méndez",
+      "summary": "A pesar del acuerdo PP-Vox para gobernar en Extremadura, la desconfianza entre las direcciones nacionales de ambos partidos es totalLeer",
+      "date": "Sat, 18 Apr 2026 22:55:07 +0200",
       "source": "El Mundo",
       "scrapeable": false,
-      "risk_summary": "El PP rebaja públicamente el acuerdo con Vox sobre inmigración tras críticas, revelando fragilidad interna y dependencia problemática de la ultraderecha."
+      "risk_summary": "La desconfianza entre PP y Vox amenaza la estabilidad de la coalición pese al acuerdo extremeño, con riesgo de 'destrucción mutua' electoral."
+    },
+    {
+      "title": "Vox controlará 1.408 millones en Extremadura: pasa del 3,9% al 24% del presupuesto en tres años",
+      "link": "https://www.elmundo.es/espana/extremadura/2026/04/17/69e270d0e85ececf1c8b45c6.html",
+      "author": "David Vigario",
+      "summary": "El partido de Santiago Abascal se queda con la joya de la corona: el área de AgriculturaLeer",
+      "date": "Fri, 17 Apr 2026 22:49:54 +0200",
+      "source": "El Mundo",
+      "scrapeable": false,
+      "risk_summary": "Vox multiplica por seis su control presupuestario en Extremadura, gestionando 1.408 millones y accediendo al área clave de Agricultura."
+    },
+    {
+      "title": "El PP ya ve \"inevitable\" que el pacto a la extremeña se repita en las elecciones generales: \"Ya no hay fronteras entre Vox y el resto\"",
+      "link": "https://www.elmundo.es/espana/2026/04/19/69e3a90b21efa0bc1f8b4594.html",
+      "author": "Juanma Lamet",
+      "summary": "\"Lo fundamental es que Vox haya aceptado aprobar cuatro presupuestos. Eso es muy desmoralizante para el PSOE\", explican los 'populares'Leer",
+      "date": "Sun, 19 Apr 2026 02:41:04 +0200",
+      "source": "El Mundo",
+      "scrapeable": false,
+      "risk_summary": "El PP asume como inevitable gobernar con Vox en futuras generales tras el precedente extremeño, normalizando la coalición con la ultraderecha."
+    },
+    {
+      "title": "Vox se ve abocado a gobernar con el PP tras una sangría de casi 780.000 votos en la pugna de la derecha durante su peor mes por la guerra de Trump",
+      "link": "https://www.elmundo.es/espana/2026/04/18/69e39e47e9cf4aca618b4599.html",
+      "author": "Paloma H. Matellano",
+      "summary": "Abre una nueva etapa estratégica en un mes delicado, tras acusar su asociación con EEUU y la demora en cerrar acuerdosLeer",
+      "date": "Sat, 18 Apr 2026 22:55:30 +0200",
+      "source": "El Mundo",
+      "scrapeable": false,
+      "risk_summary": "Vox pierde 780.000 votos y se ve forzado a pactar con el PP tras su peor mes electoral, debilitando su capacidad de presión política."
     },
     {
       "title": "Feijóo asume en Extremadura su dependencia de Vox con un acuerdo de vocación \"nacional\"",
@@ -60,47 +90,17 @@
       "date": "Fri, 17 Apr 2026 20:22:27 +0000",
       "source": "eldiario.es",
       "scrapeable": true,
-      "risk_summary": "Feijóo rompe promesas electorales al pactar con Vox en Extremadura, certificando su dependencia absoluta de la ultraderecha para gobernar."
+      "risk_summary": "Feijóo rompe sus promesas de no pactar con Vox ante su dependencia absoluta de la ultraderecha para gobernar en autonomías clave."
     },
     {
-      "title": "La inflación y el tirón del mercado laboral disparan la fiscalidad sobre salarios y pensiones a niveles récord",
-      "link": "https://elpais.com/economia/2026-04-17/la-inflacion-y-el-tiron-del-mercado-laboral-disparan-la-fiscalidad-sobre-salarios-y-pensiones-a-niveles-record.html",
-      "author": "Pablo Sempere",
-      "summary": "El tipo efectivo del impuesto sobre la renta escala en 2025 hasta el 15,1%, el máximo de la serie histórica",
-      "date": "Fri, 17 Apr 2026 03:45:01 GMT",
-      "source": "El País (Economía)",
-      "scrapeable": false,
-      "risk_summary": "La presión fiscal sobre salarios alcanza máximos históricos del 15,1%, intensificando el malestar social y erosionando el apoyo al Gobierno."
-    },
-    {
-      "title": "Los riesgos de la improvisación regulatoria en materia de vivienda",
-      "link": "https://elpais.com/opinion/2026-04-06/los-riesgos-de-la-improvisacion-regulatoria-en-materia-de-vivienda.html",
-      "author": "Ana Carmona",
-      "summary": "La decisión del Consejo de Ministros de prorrogar los alquileres sin tener los apoyos para consolidarla es problemática desde el punto de vista jurídico y político",
-      "date": "Mon, 06 Apr 2026 03:30:01 GMT",
-      "source": "El País (España)",
-      "scrapeable": false,
-      "risk_summary": "La prórroga de alquileres sin respaldo parlamentario evidencia improvisación regulatoria problemática desde perspectiva jurídica y política."
-    },
-    {
-      "title": "Un vocal del CGPJ que aspira a ser el juez español en la Corte de Estrasburgo impugna el proceso de selección puesto en marcha por el Gobierno",
-      "link": "https://www.elmundo.es/espana/2026/04/17/69e2299f21efa0a9318b45b1.html",
-      "author": "Ángela Martialay",
-      "summary": "Carlos Hugo Preciado pide a la Audiencia Nacional que suspenda el proceso activado por el Ministerio de Justicia.Leer",
-      "date": "Fri, 17 Apr 2026 18:02:43 +0200",
-      "source": "El Mundo",
-      "scrapeable": false,
-      "risk_summary": "Un vocal del CGPJ impugna el proceso gubernamental para elegir juez español en Estrasburgo, escalando el conflicto entre poderes."
-    },
-    {
-      "title": "Los jueces de instrucción de Madrid salen en defensa de Peinado ante los “ataques” por la causa contra Begoña Gómez",
-      "link": "https://www.eldiario.es/politica/jueces-instruccion-madrid-salen-defensa-peinado-ataques-actuacion-causa-begona-gomez_1_13147272.html",
-      "author": "Elena Herrera",
-      "summary": "Los compañeros del magistrado en los juzgados de Plaza de Castilla le muestran su “apoyo” y critican el “cuestionamiento permanente” al que consideran que se ha visto sometidoEl Gobierno desoye los reproches de la derecha judicial y sale en tromba contra PeinadoLos jueces de instrucción de Madrid sa",
-      "date": "Thu, 16 Apr 2026 09:51:41 +0000",
+      "title": "Sánchez carga contra el acuerdo PP-Vox en Extremadura: “Traiciona la historia extremeña, que es tierra de migrantes”",
+      "link": "https://www.eldiario.es/politica/sanchez-carga-acuerdo-pp-vox-extremadura-traiciona-historia-extremena-tierra-migrantes_1_13151578.html",
+      "author": "José Enrique Monrosi",
+      "summary": "El líder del Ejecutivo advierte: \"El papel lo aguanta todo, pero sí le digo a la derecha y a la ultraderecha que el Gobierno de España va a recurrir a toda la fuerza del estado de derecho para velar por los derechos y libertades de los extremeños y extremeñas\"Reformar la ley de extranjería para dar ",
+      "date": "Fri, 17 Apr 2026 13:39:37 +0000",
       "source": "eldiario.es",
       "scrapeable": true,
-      "risk_summary": "Los jueces de Madrid defienden a Peinado contra críticas gubernamentales por el caso Begoña Gómez, intensificando la tensión entre Ejecutivo y Judicial."
+      "risk_summary": "Sánchez amenaza con usar 'toda la fuerza del estado de derecho' contra las políticas migratorias discriminatorias del pacto PP-Vox extremeño."
     }
   ]
 }
