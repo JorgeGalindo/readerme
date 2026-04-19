@@ -188,6 +188,17 @@ def curate(days: int = 2, top_n: int = 0) -> dict:
     if len(articles) < before:
         print(f"  Filtered {before - len(articles)} blocked sources.")
 
+    # Extract thinktank digest IDs before scoring (they don't need scores)
+    thinktank_ids = []
+    scoreable = []
+    for a in articles:
+        if "thinktank" in (a.get("title") or "").lower() and "twitter" in (a.get("title") or "").lower():
+            thinktank_ids.append(a.get("id", ""))
+        else:
+            scoreable.append(a)
+    articles = scoreable
+    print(f"  Found {len(thinktank_ids)} thinktank digests to process.")
+
     # Load previous scores for stability
     prev_scores = _load_scores_cache()
 
@@ -242,16 +253,6 @@ def curate(days: int = 2, top_n: int = 0) -> dict:
             article["reason"] = s["reason_es"]
             article["tag"] = s["tag"]
             curated_articles.append(article)
-
-    # Separate thinktank twitter lists from regular articles
-    thinktank_ids = []
-    regular_articles = []
-    for a in curated_articles:
-        if "thinktank" in (a.get("title") or "").lower() and "twitter" in (a.get("title") or "").lower():
-            thinktank_ids.append(a.get("id", ""))
-        else:
-            regular_articles.append(a)
-    curated_articles = regular_articles
 
     # Find outside-bubble (from thinktank lists) and abundance recommendations
     reader_urls = {a.get("source_url", "") for a in articles}
@@ -349,38 +350,57 @@ def _search_ddg(query: str, max_results: int = 8) -> list[dict]:
 
 
 def find_outside_bubble(profile: dict, reader_urls: set[str], thinktank_ids: list[str]) -> list[dict]:
-    """Extract interesting links from thinktank twitter list digests."""
+    """Extract interesting links shared in thinktank twitter list digests."""
     from reader import fetch_html_content
 
     if not thinktank_ids:
         print("No thinktank twitter lists found, skipping bubble.")
         return []
 
-    # Fetch HTML from the most recent thinktank lists and extract tweet content
-    all_tweet_text = []
-    for doc_id in thinktank_ids[:3]:  # Last 3 digests
+    # Fetch HTML from the most recent thinktank digests and extract tweets WITH links
+    tweets_with_links = []
+    tweets_without_links = []
+    seen_urls = set()
+
+    for doc_id in thinktank_ids[:4]:  # Last 4 digests
         try:
             html = fetch_html_content(doc_id)
-            if html:
-                soup = BeautifulSoup(html, "html.parser")
-                # Extract tweet text and any links
-                for tweet in soup.select(".rw-embedded-tweet"):
-                    text = tweet.get_text(separator=" ", strip=True)
-                    links = [a["href"] for a in tweet.select("a[href]")
-                             if a["href"].startswith("http") and "twitter.com" not in a["href"] and "t.co" not in a["href"]]
-                    if text:
-                        all_tweet_text.append({"text": text[:300], "links": links})
+            if not html:
+                continue
+            soup = BeautifulSoup(html, "html.parser")
+            for tweet in soup.select(".rw-embedded-tweet"):
+                text = tweet.get_text(separator=" ", strip=True)
+                if not text or len(text) < 30:
+                    continue
+                links = [a["href"] for a in tweet.select("a[href]")
+                         if a["href"].startswith("http")
+                         and "twitter.com" not in a["href"]
+                         and "x.com" not in a["href"]
+                         and "t.co" not in a["href"]]
+                # Deduplicate by first link
+                if links:
+                    if links[0] in seen_urls:
+                        continue
+                    seen_urls.add(links[0])
+                    tweets_with_links.append({"text": text[:400], "links": links})
+                else:
+                    tweets_without_links.append({"text": text[:400], "links": []})
         except Exception as e:
             print(f"  Failed to fetch thinktank list {doc_id}: {e}")
 
-    if not all_tweet_text:
+    # Prioritize tweets that share links — that's the actual content
+    # Fill with linkless tweets only if we don't have enough
+    candidates = tweets_with_links[:30] + tweets_without_links[:10]
+
+    if not candidates:
         print("No tweet content extracted from thinktank lists.")
         return []
 
-    # Have Claude pick the 2 most interesting shared items
+    print(f"  Extracted {len(tweets_with_links)} tweets with links, {len(tweets_without_links)} without.")
+
     tweets_summary = "\n\n".join(
-        f"[{i}] {t['text']}" + (f"\n  Links: {', '.join(t['links'][:3])}" if t['links'] else "")
-        for i, t in enumerate(all_tweet_text[:40])
+        f"[{i}] {t['text']}" + (f"\n  URL: {t['links'][0]}" if t['links'] else " [sin enlace]")
+        for i, t in enumerate(candidates)
     )
 
     response = client.messages.create(
@@ -388,21 +408,24 @@ def find_outside_bubble(profile: dict, reader_urls: set[str], thinktank_ids: lis
         max_tokens=800,
         messages=[{
             "role": "user",
-            "content": f"""Estos son tweets recientes de think tanks y analistas de políticas públicas. Selecciona los 4 más interesantes para un lector con perspectiva YIMBY/abundance que ya lee sobre economía, vivienda, IA y política europea.
+            "content": f"""Estos son tweets recientes de think tanks y analistas. Selecciona los 4 mejores ARTÍCULOS ENLAZADOS para un lector YIMBY/abundance interesado en economía, vivienda, IA y política europea.
 
-Prioriza: debates intelectuales sustantivos, datos nuevos, perspectivas inesperadas. NUNCA recomiendes contenido anti-crecimiento o pro-degrowth. Los 4 deben ser de temas DIFERENTES entre sí.
+REGLAS:
+- SOLO selecciona tweets que tengan URL (ignora los marcados [sin enlace])
+- Prioriza artículos con análisis sustantivo, datos nuevos, perspectivas inesperadas
+- NUNCA recomiendes contenido anti-crecimiento o pro-degrowth
+- Los 4 deben ser de temas DIFERENTES entre sí
 
 {tweets_summary}
 
-Para cada seleccionado, genera:
-- El título del contenido compartido (extraído o inferido del tweet)
-- La URL si hay link, o "" si no
-- La fuente (quién tuiteó)
+Para cada seleccionado, responde:
+- index: el [N] del tweet
+- title: título del artículo enlazado (extraído del tweet)
 - reason_es: concepto corto 3-8 palabras
 - tag: DEBE ser una de estas: {", ".join(TAGS)}
 
 Responde SOLO JSON array, sin markdown:
-[{{"title": "...", "url": "...", "source": "...", "reason_es": "...", "tag": "..."}}, ...]"""
+[{{"index": 0, "title": "...", "reason_es": "...", "tag": "..."}}, ...]"""
         }],
     )
 
@@ -413,14 +436,16 @@ Responde SOLO JSON array, sin markdown:
 
     bubble_articles = []
     for p in picks[:4]:
-        url = p.get("url", "")
-        bubble_articles.append({
-            "title": p.get("title", ""),
-            "source_url": url,
-            "site_name": p.get("source", "Twitter"),
-            "reason": p.get("reason_es", ""),
-            "tag": p.get("tag", ""),
-        })
+        idx = p.get("index", -1)
+        if 0 <= idx < len(candidates) and candidates[idx]["links"]:
+            t = candidates[idx]
+            bubble_articles.append({
+                "title": p.get("title", ""),
+                "source_url": t["links"][0],
+                "site_name": t["text"].split("@")[1].split()[0] if "@" in t["text"] else "Twitter",
+                "reason": p.get("reason_es", ""),
+                "tag": p.get("tag", ""),
+            })
 
     print(f"Found {len(bubble_articles)} thinktank articles.")
     return bubble_articles
