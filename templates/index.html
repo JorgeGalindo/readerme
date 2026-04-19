@@ -323,10 +323,18 @@
     _ttsState = { card: null, chunks: [], idx: 0, btn: null, keepAlive: null };
   }
 
-  function _pickVoice() {
+  function _detectLang(text) {
+    // Simple heuristic: count Spanish-specific patterns vs English
+    const sample = text.slice(0, 1000).toLowerCase();
+    const esWords = (sample.match(/\b(que|los|las|del|una|por|con|para|más|como|pero|esta|tiene|sobre|entre|desde|también|puede|este|según)\b/g) || []).length;
+    const enWords = (sample.match(/\b(the|and|that|with|for|from|this|have|are|was|will|been|which|their|would|about|into|could|than)\b/g) || []).length;
+    return esWords > enWords ? 'es' : 'en';
+  }
+
+  function _pickVoice(lang) {
     const voices = speechSynthesis.getVoices();
-    return voices.find(v => v.lang.startsWith('es') && v.localService) ||
-           voices.find(v => v.lang.startsWith('es')) || null;
+    return voices.find(v => v.lang.startsWith(lang) && v.localService) ||
+           voices.find(v => v.lang.startsWith(lang)) || null;
   }
 
   function toggleListen(btn) {
@@ -359,11 +367,12 @@
       }
     }, 10000);
 
+    const lang = _detectLang(contentDiv.textContent);
     _ttsState = { card, chunks, idx: 0, btn, keepAlive };
     btn.textContent = 'Pausar';
     btn.classList.add('speaking');
 
-    const voice = _pickVoice();
+    const voice = _pickVoice(lang);
 
     const speakNext = () => {
       if (_ttsState.card !== card) return;
@@ -372,7 +381,7 @@
         return;
       }
       const u = new SpeechSynthesisUtterance(_ttsState.chunks[_ttsState.idx++]);
-      u.lang = 'es-ES';
+      u.lang = lang === 'es' ? 'es-ES' : 'en-US';
       if (voice) u.voice = voice;
       u.rate = 1.0;
       u.onend = () => setTimeout(speakNext, 50);
