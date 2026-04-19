@@ -1,17 +1,7 @@
 {
-  "generated_at": "2026-04-19T04:56:45.496308+00:00",
+  "generated_at": "2026-04-19T11:35:44.519422+00:00",
   "intl": [],
   "spanish": [
-    {
-      "title": "La izquierda internacional consagra a Sánchez: “Ha hecho algo extraordinario”",
-      "link": "https://elpais.com/espana/2026-04-18/la-izquierda-internacional-consagra-a-sanchez-ha-hecho-algo-extraordinario.html",
-      "author": "Carlos E Cué",
-      "summary": "El presidente español rezuma optimismo en la cumbre de Barcelona: “El tiempo de la internacional ultraderechista ha llegado a su fin. Hay que recuperar el orgullo de ser de izquierdas“",
-      "date": "Sat, 18 Apr 2026 18:02:11 GMT",
-      "source": "El País (España)",
-      "scrapeable": false,
-      "risk_summary": "Sánchez busca legitimidad internacional ante su debilidad doméstica, posicionándose como líder progresista global frente a Trump y la ultraderecha."
-    },
     {
       "title": "“No se seguirá subvencionando a las ONG que acogen a inmigrantes irregulares, tampoco a las de la Iglesia”",
       "link": "https://elpais.com/espana/2026-04-18/no-se-seguira-subvencionando-a-las-ong-que-acogen-a-inmigrantes-irregulares-tampoco-a-las-de-la-iglesia.html",
@@ -20,7 +10,7 @@
       "date": "Sat, 18 Apr 2026 22:32:35 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "Vox condiciona las políticas migratorias autonómicas, cortando ayudas a ONG que atienden inmigrantes irregulares en Extremadura."
+      "risk_summary": "Vox radicaliza su agenda anti-inmigración en Extremadura eliminando subvenciones a ONG que acogen inmigrantes irregulares, incluyendo organizaciones eclesiásticas"
     },
     {
       "title": "La discriminación de los inmigrantes en el acceso a ayudas en Extremadura choca con el documento marco del PP",
@@ -30,7 +20,7 @@
       "date": "Sat, 18 Apr 2026 03:30:01 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "El pacto PP-Vox en Extremadura contradice las directrices nacionales del PP sobre igualdad entre ciudadanos, evidenciando las tensiones internas del partido."
+      "risk_summary": "El acuerdo PP-Vox en Extremadura contradice las directrices nacionales del PP sobre no discriminación por origen, evidenciando tensiones internas en la coalición conservadora"
     },
     {
       "title": "La letra pequeña del acuerdo del PP y Vox en Extremadura",
@@ -40,17 +30,27 @@
       "date": "Sat, 18 Apr 2026 03:30:01 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "Las limitaciones competenciales autonómicas reducen el impacto real de las medidas antiinmigración pactadas entre PP y Vox en Extremadura."
+      "risk_summary": "Las limitaciones competenciales en el pacto PP-Vox de Extremadura sugieren posibles conflictos jurídicos y de implementación que podrían debilitar la alianza"
     },
     {
-      "title": "Vox acusa al PP de estar en una \"estrategia suicida\" para doblegar a Abascal: \"Si sólo piensa en demonizarnos, la destrucción mutua está asegurada\"",
+      "title": "El sindicato de Vox no consigue penetrar en las empresas más de cinco años después de su fundación",
+      "link": "https://elpais.com/economia/2026-04-17/el-sindicato-de-vox-no-consigue-penetrar-en-las-empresas-mas-de-cinco-anos-despues-de-su-fundacion.html",
+      "author": "Emilio Sánchez Hidalgo",
+      "summary": "Solidaridad solo participó en la firma de dos del millar de convenios colectivos suscritos en España en 2025, según la estadística oficial del Ministerio de Trabajo",
+      "date": "Fri, 17 Apr 2026 03:45:01 GMT",
+      "source": "El País (Economía)",
+      "scrapeable": false,
+      "risk_summary": "El fracaso del sindicato de Vox para penetrar en el tejido empresarial limita su capacidad de movilización social y su influencia en la política laboral"
+    },
+    {
+      "title": "Vox denuncia una campaña de Feijóo contra Abascal y advierte: \"Si nos presentan como el demonio, la destrucción mutua está asegurada\"",
       "link": "https://www.elmundo.es/espana/2026/04/18/69e39eb6e9cf4ac4368b459b.html",
       "author": "Lucía Méndez",
       "summary": "A pesar del acuerdo PP-Vox para gobernar en Extremadura, la desconfianza entre las direcciones nacionales de ambos partidos es totalLeer",
       "date": "Sat, 18 Apr 2026 22:55:07 +0200",
       "source": "El Mundo",
       "scrapeable": false,
-      "risk_summary": "La desconfianza entre PP y Vox amenaza la estabilidad de la coalición pese al acuerdo extremeño, con riesgo de 'destrucción mutua' electoral."
+      "risk_summary": "Las tensiones entre las direcciones nacionales de PP y Vox amenazan la estabilidad de sus pactos autonómicos pese a los acuerdos locales como Extremadura"
     },
     {
       "title": "Vox controlará 1.408 millones en Extremadura: pasa del 3,9% al 24% del presupuesto en tres años",
@@ -60,7 +60,17 @@
       "date": "Fri, 17 Apr 2026 22:49:54 +0200",
       "source": "El Mundo",
       "scrapeable": false,
-      "risk_summary": "Vox multiplica por seis su control presupuestario en Extremadura, gestionando 1.408 millones y accediendo al área clave de Agricultura."
+      "risk_summary": "Vox multiplica por seis su control presupuestario en Extremadura hasta 1.408 millones, consolidando su poder de veto y capacidad de chantaje político"
+    },
+    {
+      "title": "¿Qué fue del 'pin parental' y de la 'violencia intrafamiliar'? Así han cambiado los pactos entre PP y Vox desde 2022",
+      "link": "https://www.elmundo.es/espana/2026/04/17/69e274dce4d4d8b7628b457f.html",
+      "author": "Inma Lidón",
+      "summary": "La inmigración aparece como asunto bandera del partido y los 'populares' lo aceptan en los pactos y con medidas legislativas aprobadas en los parlamentos donde sostienen las mayoríasLeer",
+      "date": "Fri, 17 Apr 2026 22:50:06 +0200",
+      "source": "El Mundo",
+      "scrapeable": false,
+      "risk_summary": "La inmigración se consolida como eje central de los pactos PP-Vox, desplazando otras demandas ultraconservadoras y redefiniendo las prioridades de la derecha"
     },
     {
       "title": "El PP ya ve \"inevitable\" que el pacto a la extremeña se repita en las elecciones generales: \"Ya no hay fronteras entre Vox y el resto\"",
@@ -70,17 +80,7 @@
       "date": "Sun, 19 Apr 2026 02:41:04 +0200",
       "source": "El Mundo",
       "scrapeable": false,
-      "risk_summary": "El PP asume como inevitable gobernar con Vox en futuras generales tras el precedente extremeño, normalizando la coalición con la ultraderecha."
-    },
-    {
-      "title": "Vox se ve abocado a gobernar con el PP tras una sangría de casi 780.000 votos en la pugna de la derecha durante su peor mes por la guerra de Trump",
-      "link": "https://www.elmundo.es/espana/2026/04/18/69e39e47e9cf4aca618b4599.html",
-      "author": "Paloma H. Matellano",
-      "summary": "Abre una nueva etapa estratégica en un mes delicado, tras acusar su asociación con EEUU y la demora en cerrar acuerdosLeer",
-      "date": "Sat, 18 Apr 2026 22:55:30 +0200",
-      "source": "El Mundo",
-      "scrapeable": false,
-      "risk_summary": "Vox pierde 780.000 votos y se ve forzado a pactar con el PP tras su peor mes electoral, debilitando su capacidad de presión política."
+      "risk_summary": "El PP asume como inevitable extender el modelo de coalición con Vox a las generales, normalizando la dependencia de la ultraderecha en su estrategia nacional"
     },
     {
       "title": "Feijóo asume en Extremadura su dependencia de Vox con un acuerdo de vocación \"nacional\"",
@@ -90,17 +90,17 @@
       "date": "Fri, 17 Apr 2026 20:22:27 +0000",
       "source": "eldiario.es",
       "scrapeable": true,
-      "risk_summary": "Feijóo rompe sus promesas de no pactar con Vox ante su dependencia absoluta de la ultraderecha para gobernar en autonomías clave."
+      "risk_summary": "Feijóo rompe sus promesas electorales al formalizar coaliciones con Vox, consolidando la dependencia estructural del PP de la ultraderecha para gobernar"
     },
     {
-      "title": "Sánchez carga contra el acuerdo PP-Vox en Extremadura: “Traiciona la historia extremeña, que es tierra de migrantes”",
-      "link": "https://www.eldiario.es/politica/sanchez-carga-acuerdo-pp-vox-extremadura-traiciona-historia-extremena-tierra-migrantes_1_13151578.html",
-      "author": "José Enrique Monrosi",
-      "summary": "El líder del Ejecutivo advierte: \"El papel lo aguanta todo, pero sí le digo a la derecha y a la ultraderecha que el Gobierno de España va a recurrir a toda la fuerza del estado de derecho para velar por los derechos y libertades de los extremeños y extremeñas\"Reformar la ley de extranjería para dar ",
-      "date": "Fri, 17 Apr 2026 13:39:37 +0000",
+      "title": "Reformar la ley de extranjería para dar \"prioridad nacional\": el pacto de PP y Vox en Extremadura incluye medidas que no son de su competencia",
+      "link": "https://www.eldiario.es/politica/reformar-ley-extranjeria-dar-prioridad-nacional-pacto-pp-vox-extremadura-incluye-medidas-no-son-competencia_1_13150203.html",
+      "author": "elDiario.es",
+      "summary": "Abascal ha asegurado que en Extremadura va a haber \"prioridad de los españoles en el acceso a las ayudas”, pero la ley recoge que los extranjeros residentes tienen derecho a las prestaciones en las mismas condiciones. En el documento no hablan de prioridad para los españoles sino de \"arraigo verific",
+      "date": "Fri, 17 Apr 2026 10:07:02 +0000",
       "source": "eldiario.es",
       "scrapeable": true,
-      "risk_summary": "Sánchez amenaza con usar 'toda la fuerza del estado de derecho' contra las políticas migratorias discriminatorias del pacto PP-Vox extremeño."
+      "risk_summary": "El pacto PP-Vox incluye reformas competencialmente inviables que podrían generar conflictos jurídicos con el Estado y la legislación europea de extranjería"
     }
   ]
 }

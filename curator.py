@@ -3,6 +3,7 @@
 import json
 import pathlib
 import re
+from datetime import datetime, timezone, timedelta
 
 import anthropic
 import httpx
@@ -258,9 +259,11 @@ def curate(days: int = 2, top_n: int = 0) -> dict:
         idx = s["index"]
         if 0 <= idx < len(articles):
             article = articles[idx].copy()
-            article["score"] = s["score"]
-            article["reason"] = s["reason_es"]
-            article["tag"] = s["tag"]
+            article["score"] = s.get("score", 0)
+            article["reason"] = s.get("reason_es", s.get("reason", ""))
+            article["tag"] = s.get("tag", "")
+            if not article.get("_added_at"):
+                article["_added_at"] = datetime.now(timezone.utc).isoformat()
             curated_articles.append(article)
 
     # Find outside-bubble (from thinktank lists) and abundance recommendations
@@ -268,13 +271,18 @@ def curate(days: int = 2, top_n: int = 0) -> dict:
     thinktank = find_outside_bubble(profile, reader_urls, thinktank_ids)
     abundance = find_abundance(reader_urls)
 
-    # Merge with previous curated articles (carry over unread ones)
+    # Merge with previous curated articles (carry over unread ones, max 7 days old)
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=7)).isoformat()
     if CURATED_FILE.exists():
         prev = json.loads(CURATED_FILE.read_text())
         new_urls = {a.get("source_url", "") for a in curated_articles}
         new_titles = {(a.get("title") or "").strip().lower() for a in curated_articles}
         carried = 0
         for old_article in prev.get("articles", []):
+            # Skip articles older than 7 days
+            pub = old_article.get("published_date") or old_article.get("_added_at", "")
+            if pub and pub < cutoff:
+                continue
             old_url = old_article.get("source_url", "")
             old_title = (old_article.get("title") or "").strip().lower()
             is_blocked = any(
@@ -312,7 +320,6 @@ def curate(days: int = 2, top_n: int = 0) -> dict:
     # Re-sort everything by score
     curated_articles.sort(key=lambda a: a.get("score", 0), reverse=True)
 
-    from datetime import datetime, timezone
     result = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "article_count_total": len(articles),

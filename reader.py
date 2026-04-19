@@ -56,8 +56,8 @@ def _parse_doc(doc: dict) -> dict:
     }
 
 
-def fetch_feed(max_items: int = 2000) -> list[dict]:
-    """Fetch ALL articles currently in the Reader feed (location=feed)."""
+def fetch_feed(max_items: int = 300) -> list[dict]:
+    """Fetch articles currently in the Reader feed (location=feed)."""
     articles = []
 
     for category in ("rss", "email"):
