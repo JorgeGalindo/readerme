@@ -23,7 +23,6 @@ FEEDS_INTL = {
     "The Economist": "https://www.economist.com/europe/rss.xml",
     "Financial Times": "https://www.ft.com/spain?format=rss",
     "Politico Europe": "https://www.politico.eu/feed/",
-    "Reuters Europe": "https://www.reuters.com/arc/outboundfeeds/v3/all/section/world/europe/?outputType=xml&size=20",
     "The Guardian Europe": "https://www.theguardian.com/world/europe-news/rss",
 }
 
