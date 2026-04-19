@@ -22,6 +22,9 @@ client = anthropic.Anthropic(timeout=180.0, max_retries=3)
 FEEDS_INTL = {
     "The Economist": "https://www.economist.com/europe/rss.xml",
     "Financial Times": "https://www.ft.com/spain?format=rss",
+    "Politico Europe": "https://www.politico.eu/feed/",
+    "Reuters Europe": "https://www.reuters.com/arc/outboundfeeds/v3/all/section/world/europe/?outputType=xml&size=20",
+    "The Guardian Europe": "https://www.theguardian.com/world/europe-news/rss",
 }
 
 FEEDS_ES = {
@@ -145,15 +148,16 @@ def fetch_intl_spain() -> list[dict]:
                 continue
 
             if source == "Financial Times":
+                # FT has a Spain-specific feed, no keyword filter needed
                 ft_count = sum(1 for a in spain_articles if a["source"] == "Financial Times")
                 if ft_count >= 3:
                     continue
                 spain_articles.append(item)
                 seen.add(item["link"])
             else:
-                # Economist Europe feed — filter for Spain mentions
+                # General Europe feeds — filter for Spain mentions
                 text = f"{item['title']} {item['summary']}".lower()
-                if any(kw in text for kw in ("spain", "spanish", "españa", "madrid", "barcelona", "sánchez", "sanchez")):
+                if any(kw in text for kw in ("spain", "spanish", "españa", "madrid", "barcelona", "sánchez", "sanchez", "rajoy", "vox ", "podemos", "catalon")):
                     spain_articles.append(item)
                     seen.add(item["link"])
         time.sleep(0.5)
@@ -293,6 +297,12 @@ def generate_audio_briefing(intl: list[dict], spanish: list[dict]):
     if markets_file.exists():
         markets = json.loads(markets_file.read_text())
 
+    # Load polls data if available
+    polls_file = DATA_DIR / "polls.json"
+    polls = {}
+    if polls_file.exists():
+        polls = json.loads(polls_file.read_text())
+
     # Build context for Claude
     intl_lines = [f"- {a['title']} ({a['source']}): {a.get('risk_summary', '')}" for a in intl]
     spanish_lines = [f"- {a['title']} ({a['source']}): {a.get('risk_summary', '')}" for a in spanish]
@@ -301,7 +311,24 @@ def generate_audio_briefing(intl: list[dict], spanish: list[dict]):
     for m in markets.values():
         markets_lines.append(f"- {m['title']}: {m['current']}%")
 
-    prompt = f"""Genera un briefing de audio sobre riesgo político en España. Será leído por un TTS, así que escribe como se habla: frases claras, ritmo natural, sin bullet points ni formato.
+    polls_lines = []
+    if polls.get("bloc"):
+        bloc = polls["bloc"]
+        avgs = polls.get("averages", {})
+        # Get latest value for each party
+        for party in ["PP", "PSOE", "VOX", "SUMAR", "PODEMOS"]:
+            vals = avgs.get(party, [])
+            latest = next((v for v in reversed(vals) if v is not None), None)
+            if latest is not None:
+                polls_lines.append(f"- {party}: {latest}%")
+        polls_lines.append(f"- Bloque derecha (PP+VOX): {bloc.get('right_bloc', '?')}%")
+        polls_lines.append(f"- Bloque izquierda (PSOE+Sumar+Podemos+regionales): {bloc.get('left_bloc', '?')}%")
+        polls_lines.append(f"- Diferencia: {bloc.get('gap_label', '?')}")
+
+    prompt = f"""Genera un briefing de audio sobre la situación política en España. Será leído por un TTS, así que escribe como se habla: frases claras, ritmo natural, sin bullet points ni formato.
+
+ENCUESTAS DE INTENCIÓN DE VOTO (media de encuestas):
+{chr(10).join(polls_lines) if polls_lines else "No disponibles."}
 
 MERCADOS DE PREDICCIÓN:
 {chr(10).join(markets_lines) if markets_lines else "No disponibles."}
@@ -309,15 +336,16 @@ MERCADOS DE PREDICCIÓN:
 PRENSA INTERNACIONAL SOBRE ESPAÑA:
 {chr(10).join(intl_lines) if intl_lines else "Sin artículos hoy."}
 
-RADAR DE RIESGO POLÍTICO (prensa española):
+PRENSA ESPAÑOLA:
 {chr(10).join(spanish_lines)}
 
 INSTRUCCIONES:
-- Tono: analista de Eurasia Group haciendo un briefing matutino para un cliente. Profesional pero no robótico.
-- Estructura: empieza con los mercados de predicción (probabilidad de anticipadas), luego las señales clave del radar, luego la perspectiva internacional si hay.
-- Conecta las noticias entre sí cuando tenga sentido (ej: "esto se suma a..." o "en paralelo...").
-- Cierra con una valoración de riesgo general: ¿la situación se calienta, se enfría, o está estable?
-- Longitud: ~800-1200 palabras (para ~4 minutos de audio).
+- Tono: periodista de agencia de noticias. Factual, directo, sin opinión.
+- SOLO reporta hechos. NO interpretes, NO saques conclusiones, NO hagas valoraciones de riesgo, NO digas si la situación "se calienta" o "se enfría".
+- Estructura: empieza con las encuestas (cifras de cada partido y bloques), luego mercados de predicción, luego las noticias más relevantes de la prensa.
+- Cada noticia: qué ha pasado, quién lo ha dicho o hecho, y un dato concreto si lo hay. Nada más.
+- NO conectes noticias entre sí con interpretaciones causales.
+- Longitud: ~600-900 palabras (para ~3 minutos de audio).
 - Idioma: español.
 - NO uses encabezados, asteriscos, guiones ni ningún formato. Solo texto corrido con párrafos."""
 
