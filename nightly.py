@@ -38,6 +38,11 @@ def run_nightly():
     spain = curate_spain()
     print(f"  España: {len(spain.get('intl', []))} intl + {len(spain.get('spanish', []))} national")
 
+    print(f"\n4. Fetching thinktanks...")
+    from thinktanks import curate_thinktanks
+    tt = curate_thinktanks()
+    print(f"  Thinktanks: {len(tt.get('articles', []))} publications")
+
 
 if __name__ == "__main__":
     run_nightly()

@@ -109,6 +109,31 @@ def espana():
     )
 
 
+@app.route("/thinktanks")
+def thinktanks():
+    tt_file = DATA_DIR / "thinktanks.json"
+    tt_data = {}
+    if tt_file.exists():
+        tt_data = json.loads(tt_file.read_text())
+
+    generated_at = tt_data.get("generated_at", "")
+    if generated_at:
+        dt = datetime.fromisoformat(generated_at)
+        generated_at = dt.strftime("%d %b %Y, %H:%M")
+
+    # Group by source
+    by_source = {}
+    for a in tt_data.get("articles", []):
+        src = a.get("source", "Other")
+        by_source.setdefault(src, []).append(a)
+
+    return render_template(
+        "thinktanks.html",
+        by_source=by_source,
+        generated_at=generated_at,
+    )
+
+
 @app.route("/api/briefing.mp3")
 def briefing_audio():
     audio_file = DATA_DIR / "briefing.mp3"

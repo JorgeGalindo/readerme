@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>readerme — thinktanks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>readerme <span class="meta">{{ generated_at }}</span></h1>
+    <nav class="page-nav">
+      <a href="/">Mundo</a>
+      <a href="/espana">España</a>
+      <a href="/thinktanks" class="active">Thinktanks</a>
+    </nav>
+  </header>
+
+  <main>
+    {% if not by_source %}
+    <div class="empty">
+      <p>No hay publicaciones de thinktanks todavía.</p>
+    </div>
+    {% endif %}
+
+    {% for source, articles in by_source.items() %}
+    <section class="bubble-section">
+      <h2 class="section-title">{{ source }}</h2>
+      {% for a in articles %}
+      <article class="card bubble-card" data-url="{{ a.url }}">
+        <h2>
+          <a href="{{ a.url }}" target="_blank" rel="noopener">{{ a.title }}</a>
+        </h2>
+        {% if a.summary %}
+        <p class="source-reason"><span class="reason">{{ a.summary[:150] }}</span></p>
+        {% endif %}
+        <div class="card-actions top-actions">
+          <button class="btn-read" onclick="markRead(this)">Leído</button>
+        </div>
+      </article>
+      {% endfor %}
+    </section>
+    {% endfor %}
+  </main>
+
+  <footer>
+    <p>readerme &middot; Elcano, Fedea, BBVA Research</p>
+  </footer>
+
+  <script>
+  const READ_KEY = 'readerme_read';
+  function _getRead() {
+    try { return new Set(JSON.parse(localStorage.getItem(READ_KEY) || '[]')); }
+    catch { return new Set(); }
+  }
+  function _saveRead(readSet) {
+    localStorage.setItem(READ_KEY, JSON.stringify([...readSet]));
+  }
+  function markRead(btn) {
+    const card = btn.closest('.card');
+    const key = card.dataset.url;
+    if (!key) return;
+    const readSet = _getRead();
+    readSet.add(key);
+    _saveRead(readSet);
+    card.style.display = 'none';
+  }
+  (function() {
+    const readSet = _getRead();
+    document.querySelectorAll('.card[data-url]').forEach(card => {
+      if (readSet.has(card.dataset.url)) card.style.display = 'none';
+    });
+  })();
+  </script>
+</body>
+</html>
