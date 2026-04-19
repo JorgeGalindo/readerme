@@ -13,7 +13,7 @@
 </head>
 <body>
   <header>
-    <h1>readerme <span class="meta">{{ generated_at }}</span></h1>
+    <h1>readerme <span class="meta">{{ generated_at }} &middot; <span id="unreadCount">{{ (articles|length) + (thinktank|length) + (abundance|length) }}</span> sin leer</span></h1>
     <nav class="page-nav">
       <a href="/" class="active">Mundo</a>
       <a href="/espana">España</a>
@@ -37,7 +37,7 @@
     <section class="bubble-section" data-section="thinktank">
       <h2 class="section-title">Thinktank</h2>
       {% for b in thinktank %}
-      <article class="card bubble-card" data-tag="{{ b.tag }}">
+      <article class="card bubble-card" data-tag="{{ b.tag }}" data-url="{{ b.source_url or b.title }}">
         <div class="card-header">
           <span class="tag">{{ b.tag }}</span>
         </div>
@@ -54,6 +54,7 @@
           <button class="btn-expand" data-url="{{ b.source_url }}" onclick="toggleScrape(this)">Leer</button>
           {% endif %}
           <button class="btn-listen" onclick="toggleListen(this)" style="display:none">Escuchar</button>
+          <button class="btn-read" onclick="markRead(this)">Leído</button>
         </div>
         <div class="article-content" style="display:none"></div>
         <div class="card-bottom" style="display:none">
@@ -71,7 +72,7 @@
     <section class="abundance-section" data-section="abundance">
       <h2 class="section-title">Mundo abundancia</h2>
       {% for a in abundance %}
-      <article class="card abundance-card" data-tag="{{ a.tag }}">
+      <article class="card abundance-card" data-tag="{{ a.tag }}" data-url="{{ a.source_url or a.title }}">
         <div class="card-header">
           <span class="tag">{{ a.tag }}</span>
         </div>
@@ -84,6 +85,7 @@
           <button class="btn-expand" data-url="{{ a.source_url }}" onclick="toggleScrape(this)">Leer</button>
           {% endif %}
           <button class="btn-listen" onclick="toggleListen(this)" style="display:none">Escuchar</button>
+          <button class="btn-read" onclick="markRead(this)">Leído</button>
         </div>
         <div class="article-content" style="display:none"></div>
         <div class="card-bottom" style="display:none">
@@ -102,7 +104,7 @@
     {% endif %}
 
     {% for article in articles %}
-    <article class="card" data-tag="{{ article.tag }}">
+    <article class="card" data-tag="{{ article.tag }}" data-url="{{ article.source_url or article.title }}">
       <div class="card-header">
         <span class="tag">{{ article.tag }}</span>
         <span class="score">{{ article.score }}</span>
@@ -121,6 +123,7 @@
         <button class="btn-expand" data-id="{{ article.id }}" onclick="toggleExpand(this)">Leer</button>
         {% endif %}
         <button class="btn-listen" onclick="toggleListen(this)" style="display:none">Escuchar</button>
+        <button class="btn-read" onclick="markRead(this)">Leído</button>
       </div>
       <div class="article-content" style="display:none"></div>
       <div class="card-bottom" style="display:none">
@@ -138,6 +141,44 @@
   </footer>
 
   <script>
+  // Read state: localStorage-based, no server needed
+  const READ_KEY = 'readerme_read';
+  function _getRead() {
+    try { return new Set(JSON.parse(localStorage.getItem(READ_KEY) || '[]')); }
+    catch { return new Set(); }
+  }
+  function _saveRead(readSet) {
+    localStorage.setItem(READ_KEY, JSON.stringify([...readSet]));
+  }
+
+  function markRead(btn) {
+    const card = btn.closest('.card');
+    const key = card.dataset.url;
+    if (!key) return;
+    const readSet = _getRead();
+    readSet.add(key);
+    _saveRead(readSet);
+    card.style.display = 'none';
+    _updateUnreadCount();
+  }
+
+  function _updateUnreadCount() {
+    const visible = document.querySelectorAll('.card:not([style*="display: none"])').length;
+    const counter = document.getElementById('unreadCount');
+    if (counter) counter.textContent = visible;
+  }
+
+  // Restore read state on page load
+  (function() {
+    const readSet = _getRead();
+    document.querySelectorAll('.card[data-url]').forEach(card => {
+      if (readSet.has(card.dataset.url)) {
+        card.style.display = 'none';
+      }
+    });
+    _updateUnreadCount();
+  })();
+
   // Build tag filter from actual tags on page
   (function() {
     const tags = new Set();

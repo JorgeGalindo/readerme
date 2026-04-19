@@ -85,6 +85,33 @@ def fetch_feed(max_items: int = 2000) -> list[dict]:
     return articles
 
 
+def archive_article(doc_id: str) -> bool:
+    """Move an article to archive in Reader (marks as seen)."""
+    if not TOKEN:
+        return False
+    try:
+        resp = httpx.patch(
+            f"https://readwise.io/api/v3/update/{doc_id}/",
+            headers=_headers(),
+            json={"location": "archive"},
+            timeout=15,
+        )
+        resp.raise_for_status()
+        return True
+    except Exception:
+        return False
+
+
+def archive_all(doc_ids: list[str]) -> int:
+    """Archive a list of articles. Returns count of successfully archived."""
+    archived = 0
+    for doc_id in doc_ids:
+        if archive_article(doc_id):
+            archived += 1
+        time.sleep(0.5)  # Gentle rate limiting
+    return archived
+
+
 def fetch_html_content(doc_id: str) -> str:
     """Fetch full HTML content for a specific document."""
     try:

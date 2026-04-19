@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
 from substack import load_articles
-from reader import load_feed, load_recent
+from reader import load_feed, load_recent, fetch_feed
 
 load_dotenv()
 
@@ -166,12 +166,21 @@ Responde SOLO JSON array con TODOS los artículos ordenados de mayor a menor sco
 
 
 def curate(days: int = 2, top_n: int = 0) -> dict:
-    """Score and rank Reader feed articles against the author profile."""
+    """Score and rank Reader feed articles against the author profile.
+
+    Fetches ALL articles from the Reader feed, scores them, and merges
+    with previously curated articles that haven't been marked as read.
+    """
     profile = build_profile()
-    articles = load_recent(days=days, force_refresh=True)
+    articles = fetch_feed()
+    fetched_ids = [a.get("id", "") for a in articles if a.get("id")]
+    print(f"Fetched {len(articles)} articles from Reader feed.")
 
     if not articles:
-        print("No articles found in feed.")
+        print("No new articles in Reader feed.")
+        # Still return previous curated data if it exists
+        if CURATED_FILE.exists():
+            return json.loads(CURATED_FILE.read_text())
         return {"articles": [], "generated_at": ""}
 
     # Filter blocked sources
@@ -259,27 +268,26 @@ def curate(days: int = 2, top_n: int = 0) -> dict:
     thinktank = find_outside_bubble(profile, reader_urls, thinktank_ids)
     abundance = find_abundance(reader_urls)
 
-    # Exclude articles that appeared in the previous nightly
-    prev_urls = set()
-    prev_titles = set()
+    # Merge with previous curated articles (carry over unread ones)
     if CURATED_FILE.exists():
         prev = json.loads(CURATED_FILE.read_text())
+        new_urls = {a.get("source_url", "") for a in curated_articles}
+        new_titles = {(a.get("title") or "").strip().lower() for a in curated_articles}
+        carried = 0
         for old_article in prev.get("articles", []):
-            url = old_article.get("source_url", "")
-            title = (old_article.get("title") or "").strip().lower()
-            if url:
-                prev_urls.add(url)
-            if title:
-                prev_titles.add(title)
-
-    before_excl = len(curated_articles)
-    curated_articles = [
-        a for a in curated_articles
-        if (a.get("source_url", "") not in prev_urls) and
-           ((a.get("title") or "").strip().lower() not in prev_titles)
-    ]
-    if len(curated_articles) < before_excl:
-        print(f"  Excluded {before_excl - len(curated_articles)} articles from previous nightly.")
+            old_url = old_article.get("source_url", "")
+            old_title = (old_article.get("title") or "").strip().lower()
+            is_blocked = any(
+                blocked in (old_article.get("author") or "").lower()
+                or blocked in (old_article.get("site_name") or "").lower()
+                or blocked in (old_article.get("title") or "").lower()
+                for blocked in BLOCKED_SOURCES
+            )
+            if not is_blocked and old_url not in new_urls and old_title not in new_titles:
+                curated_articles.append(old_article)
+                carried += 1
+        if carried:
+            print(f"  Carried over {carried} articles from previous nightly.")
 
     # Deduplicate by source_url and normalized title
     seen_urls = set()
@@ -315,6 +323,9 @@ def curate(days: int = 2, top_n: int = 0) -> dict:
 
     CURATED_FILE.write_text(json.dumps(result, ensure_ascii=False, indent=2))
     print(f"Curated {len(curated_articles)} articles from {len(articles)} candidates.")
+
+    # Return fetched IDs for archiving (not saved to JSON)
+    result["_fetched_ids"] = fetched_ids
     return result
 
 

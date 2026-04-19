@@ -533,6 +533,7 @@ main {
   border-top: 1px solid var(--border);
 }
 
+.btn-read,
 .btn-listen,
 .btn-share {
   padding: 5px 14px;
@@ -548,6 +549,7 @@ main {
   -webkit-tap-highlight-color: transparent;
 }
 
+.btn-read:hover,
 .btn-listen:hover,
 .btn-share:hover {
   border-color: var(--text);
