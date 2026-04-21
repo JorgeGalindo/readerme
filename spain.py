@@ -32,11 +32,10 @@ FEEDS_ES = {
     "El Confidencial": "https://rss.elconfidencial.com/espana/",
     "El Mundo": "https://e00-elmundo.uecdn.es/elmundo/rss/espana.xml",
     "eldiario.es": "https://www.eldiario.es/rss/politica/",
-    "democrata.es": "https://www.democrata.es/uploads/feeds/feed_democrata_es.xml",
 }
 
-# eldiario and democrata support inline reading
-SCRAPEABLE_DOMAINS = {"eldiario.es", "democrata.es"}
+# eldiario supports inline reading
+SCRAPEABLE_DOMAINS = {"eldiario.es"}
 
 NS = {
     "dc": "http://purl.org/dc/elements/1.1/",
@@ -184,8 +183,6 @@ def fetch_spanish_media() -> list[dict]:
             domain = ""
             if "eldiario.es" in (item.get("link") or ""):
                 domain = "eldiario.es"
-            elif "democrata.es" in (item.get("link") or ""):
-                domain = "democrata.es"
             item["scrapeable"] = domain in SCRAPEABLE_DOMAINS and domain != ""
 
         all_articles.extend(items[:20])  # Max 20 per source
