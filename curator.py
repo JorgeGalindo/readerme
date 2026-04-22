@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
 from substack import load_articles
-from reader import load_feed, load_recent, fetch_feed
+from reader import fetch_feed
 
 load_dotenv()
 
@@ -35,6 +35,9 @@ TAGS = [
 
 # Sources to always exclude (matched case-insensitively against author and site_name)
 BLOCKED_SOURCES = ["cleo abram", "ft shorts"]
+
+# Articles below this score get dropped — removes noise, spam, off-topic
+MIN_SCORE = 20
 
 
 
@@ -271,7 +274,8 @@ def curate(days: int = 2, top_n: int = 0) -> dict:
     thinktank = find_outside_bubble(profile, reader_urls, thinktank_ids)
     abundance = find_abundance(reader_urls)
 
-    # Merge with previous curated articles (carry over unread ones, max 7 days old)
+    # Merge with previous curated articles (carry over unread ones, max 7 days since first seen)
+    now_iso = datetime.now(timezone.utc).isoformat()
     cutoff = (datetime.now(timezone.utc) - timedelta(days=7)).isoformat()
     if CURATED_FILE.exists():
         prev = json.loads(CURATED_FILE.read_text())
@@ -279,9 +283,11 @@ def curate(days: int = 2, top_n: int = 0) -> dict:
         new_titles = {(a.get("title") or "").strip().lower() for a in curated_articles}
         carried = 0
         for old_article in prev.get("articles", []):
-            # Skip articles older than 7 days
-            pub = old_article.get("published_date") or old_article.get("_added_at", "")
-            if pub and pub < cutoff:
+            # Backfill _added_at for articles from before this field existed
+            if not old_article.get("_added_at"):
+                old_article["_added_at"] = old_article.get("published_date") or now_iso
+            # Age is measured from when we first saw it, not from its publish date
+            if old_article["_added_at"] < cutoff:
                 continue
             old_url = old_article.get("source_url", "")
             old_title = (old_article.get("title") or "").strip().lower()
@@ -316,6 +322,12 @@ def curate(days: int = 2, top_n: int = 0) -> dict:
     if len(deduped) < len(curated_articles):
         print(f"  Removed {len(curated_articles) - len(deduped)} duplicates.")
     curated_articles = deduped
+
+    # Drop low-score articles (spam, off-topic)
+    before_score = len(curated_articles)
+    curated_articles = [a for a in curated_articles if a.get("score", 0) >= MIN_SCORE]
+    if len(curated_articles) < before_score:
+        print(f"  Dropped {before_score - len(curated_articles)} articles below score {MIN_SCORE}.")
 
     # Re-sort everything by score
     curated_articles.sort(key=lambda a: a.get("score", 0), reverse=True)

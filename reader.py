@@ -1,18 +1,13 @@
 """Readwise Reader API: fetch feed, archive articles, save URLs."""
 
-import json
 import os
-import pathlib
 import time
-from datetime import datetime, timedelta, timezone
 
 import httpx
 from dotenv import load_dotenv
 
 load_dotenv()
 
-DATA_DIR = pathlib.Path(__file__).parent / "data"
-CACHE_FILE = DATA_DIR / "reader_articles.json"
 READER_API = "https://readwise.io/api/v3/list/"
 TOKEN = os.getenv("READWISE_TOKEN", "")
 
@@ -126,67 +121,8 @@ def fetch_html_content(doc_id: str) -> str:
 
 
 
-def load_feed(force_refresh: bool = False) -> list[dict]:
-    """Load feed from cache or fetch."""
-    if CACHE_FILE.exists() and not force_refresh:
-        cache_age = datetime.now().timestamp() - CACHE_FILE.stat().st_mtime
-        if cache_age < 7200:
-            return json.loads(CACHE_FILE.read_text())
-
-    DATA_DIR.mkdir(exist_ok=True)
-    articles = fetch_feed()
-    CACHE_FILE.write_text(json.dumps(articles, ensure_ascii=False, indent=2))
-    print(f"Fetched {len(articles)} feed articles from Reader.")
-    return articles
-
-
-def fetch_recent(days: int = 2, max_items: int = 300) -> list[dict]:
-    """Fetch recent articles from Reader (last N days, feed location)."""
-    since = (datetime.now(timezone.utc) - timedelta(days=days)).isoformat()
-    articles = []
-
-    for category in ("rss", "email"):
-        cursor = None
-        while len(articles) < max_items:
-            params = {
-                "updatedAfter": since,
-                "location": "feed",
-                "category": category,
-                "page_size": 100,
-            }
-            if cursor:
-                params["pageCursor"] = cursor
-
-            resp = _request_with_retry("get", READER_API, headers=_headers(), params=params)
-            data = resp.json()
-
-            for doc in data.get("results", []):
-                articles.append(_parse_doc(doc))
-
-            cursor = data.get("nextPageCursor")
-            if not cursor:
-                break
-            time.sleep(1)
-
-    return articles
-
-
-def load_recent(days: int = 2, force_refresh: bool = False) -> list[dict]:
-    """Load recent articles from cache or fetch."""
-    if CACHE_FILE.exists() and not force_refresh:
-        cache_age = datetime.now().timestamp() - CACHE_FILE.stat().st_mtime
-        if cache_age < 7200:
-            return json.loads(CACHE_FILE.read_text())
-
-    DATA_DIR.mkdir(exist_ok=True)
-    articles = fetch_recent(days=days)
-    CACHE_FILE.write_text(json.dumps(articles, ensure_ascii=False, indent=2))
-    print(f"Fetched {len(articles)} recent Reader articles.")
-    return articles
-
-
 if __name__ == "__main__":
-    arts = load_feed(force_refresh=True)
+    arts = fetch_feed()
     print(f"{len(arts)} articles in Reader feed.")
     for a in arts[:10]:
         print(f"  - [{a['site_name']}] {a['title']}")

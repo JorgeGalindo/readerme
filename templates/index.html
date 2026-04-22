@@ -142,23 +142,59 @@
   </footer>
 
   <script>
-  // Read state: localStorage-based, no server needed
+  // Read state: localStorage, per-device. Stored as {normalizedUrl: timestamp}.
   const READ_KEY = 'readerme_read';
-  function _getRead() {
-    try { return new Set(JSON.parse(localStorage.getItem(READ_KEY) || '[]')); }
-    catch { return new Set(); }
+  const READ_TTL_DAYS = 60;
+  const MIN_TAG_COUNT = 3;
+
+  // Normalize URL so marketing params and trailing slashes don't break matching.
+  // Keep meaningful params (e.g. ?v= on YouTube) so different posts stay distinct.
+  function _normUrl(raw) {
+    if (!raw) return '';
+    try {
+      const u = new URL(raw);
+      const TRACKING = /^(utm_|fbclid|gclid|mc_cid|mc_eid|ref_|ref$|_hsenc|_hsmi)/i;
+      const keys = [...u.searchParams.keys()].filter(k => !TRACKING.test(k)).sort();
+      const query = keys.length ? '?' + keys.map(k => k + '=' + u.searchParams.get(k)).join('&') : '';
+      const path = u.pathname.replace(/\/+$/, '') || '/';
+      return u.protocol + '//' + u.host.toLowerCase() + path + query;
+    } catch {
+      return raw.trim().toLowerCase();
+    }
   }
-  function _saveRead(readSet) {
-    localStorage.setItem(READ_KEY, JSON.stringify([...readSet]));
+
+  function _loadRead() {
+    try {
+      const raw = JSON.parse(localStorage.getItem(READ_KEY) || '{}');
+      // Migrate legacy array format [url, url, ...] → {normalized: now}
+      if (Array.isArray(raw)) {
+        const now = Date.now();
+        const migrated = {};
+        for (const url of raw) migrated[_normUrl(url)] = now;
+        localStorage.setItem(READ_KEY, JSON.stringify(migrated));
+        return migrated;
+      }
+      // Prune entries older than TTL
+      const cutoff = Date.now() - READ_TTL_DAYS * 86400000;
+      let changed = false;
+      for (const k of Object.keys(raw)) {
+        if (raw[k] < cutoff) { delete raw[k]; changed = true; }
+      }
+      if (changed) localStorage.setItem(READ_KEY, JSON.stringify(raw));
+      return raw;
+    } catch { return {}; }
+  }
+
+  function _isRead(read, url) {
+    return !!read[_normUrl(url)];
   }
 
   function markRead(btn) {
     const card = btn.closest('.card');
-    const key = card.dataset.url;
-    if (!key) return;
-    const readSet = _getRead();
-    readSet.add(key);
-    _saveRead(readSet);
+    if (!card.dataset.url) return;
+    const read = _loadRead();
+    read[_normUrl(card.dataset.url)] = Date.now();
+    localStorage.setItem(READ_KEY, JSON.stringify(read));
     card.style.display = 'none';
     _updateUnreadCount();
   }
@@ -169,23 +205,25 @@
     if (counter) counter.textContent = visible;
   }
 
-  // Restore read state on page load
-  (function() {
-    const readSet = _getRead();
-    document.querySelectorAll('.card[data-url]').forEach(card => {
-      if (readSet.has(card.dataset.url)) {
-        card.style.display = 'none';
-      }
-    });
-    _updateUnreadCount();
-  })();
+  const _read = _loadRead();
 
-  // Build tag filter from actual tags on page
+  // Hide read cards on first render
+  document.querySelectorAll('.card[data-url]').forEach(card => {
+    if (_isRead(_read, card.dataset.url)) card.style.display = 'none';
+  });
+  _updateUnreadCount();
+
+  // Build tag filter — only tags with MIN_TAG_COUNT unread cards, to avoid clutter
   (function() {
-    const tags = new Set();
-    document.querySelectorAll('.card[data-tag]').forEach(c => tags.add(c.dataset.tag));
+    const tagCounts = {};
+    document.querySelectorAll('.card[data-tag]').forEach(c => {
+      if (_isRead(_read, c.dataset.url)) return;
+      const t = c.dataset.tag;
+      if (t) tagCounts[t] = (tagCounts[t] || 0) + 1;
+    });
     const bar = document.getElementById('tagFilter');
-    [...tags].sort().forEach(tag => {
+    Object.keys(tagCounts).sort().forEach(tag => {
+      if (tagCounts[tag] < MIN_TAG_COUNT) return;
       const btn = document.createElement('button');
       btn.className = 'tag-btn';
       btn.dataset.tag = tag;
@@ -197,13 +235,16 @@
 
   function filterTag(tag) {
     document.querySelectorAll('.tag-btn').forEach(b => b.classList.toggle('active', b.dataset.tag === tag));
+    const read = _loadRead();
     document.querySelectorAll('.card[data-tag]').forEach(card => {
-      card.style.display = (tag === 'all' || card.dataset.tag === tag) ? '' : 'none';
+      const hidden = _isRead(read, card.dataset.url) || (tag !== 'all' && card.dataset.tag !== tag);
+      card.style.display = hidden ? 'none' : '';
     });
     document.querySelectorAll('section[data-section]').forEach(sec => {
       const visible = sec.querySelectorAll('.card[data-tag]:not([style*="display: none"])');
       sec.style.display = visible.length ? '' : 'none';
     });
+    _updateUnreadCount();
   }
 
   async function _fetchContent(btn, contentDiv, url) {

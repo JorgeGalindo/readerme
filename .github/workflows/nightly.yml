@@ -29,7 +29,6 @@ jobs:
           READWISE_TOKEN: ${{ secrets.READWISE_TOKEN }}
         run: |
           python nightly.py
-          python spain.py
           python polls.py
           python markets.py
 

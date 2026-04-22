@@ -2,7 +2,7 @@
 
 import json
 import pathlib
-from datetime import datetime, timezone
+from datetime import datetime
 
 import httpx
 from bs4 import BeautifulSoup
@@ -206,9 +206,3 @@ INSTRUCCIONES:
 
     text = response.content[0].text.strip()
     return jsonify({"ok": True, "text": text})
-
-
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5555))
-    debug = os.environ.get("RAILWAY_ENVIRONMENT") is None
-    app.run(host="0.0.0.0", port=port, debug=debug)

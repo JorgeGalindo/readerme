@@ -53,27 +53,57 @@
   </footer>
 
   <script>
+  // Read state: localStorage, per-device. Same format as Mundo: {normalizedUrl: ts}.
   const READ_KEY = 'readerme_read';
-  function _getRead() {
-    try { return new Set(JSON.parse(localStorage.getItem(READ_KEY) || '[]')); }
-    catch { return new Set(); }
+  const READ_TTL_DAYS = 60;
+
+  function _normUrl(raw) {
+    if (!raw) return '';
+    try {
+      const u = new URL(raw);
+      const TRACKING = /^(utm_|fbclid|gclid|mc_cid|mc_eid|ref_|ref$|_hsenc|_hsmi)/i;
+      const keys = [...u.searchParams.keys()].filter(k => !TRACKING.test(k)).sort();
+      const query = keys.length ? '?' + keys.map(k => k + '=' + u.searchParams.get(k)).join('&') : '';
+      const path = u.pathname.replace(/\/+$/, '') || '/';
+      return u.protocol + '//' + u.host.toLowerCase() + path + query;
+    } catch {
+      return raw.trim().toLowerCase();
+    }
   }
-  function _saveRead(readSet) {
-    localStorage.setItem(READ_KEY, JSON.stringify([...readSet]));
+
+  function _loadRead() {
+    try {
+      const raw = JSON.parse(localStorage.getItem(READ_KEY) || '{}');
+      if (Array.isArray(raw)) {
+        const now = Date.now();
+        const migrated = {};
+        for (const url of raw) migrated[_normUrl(url)] = now;
+        localStorage.setItem(READ_KEY, JSON.stringify(migrated));
+        return migrated;
+      }
+      const cutoff = Date.now() - READ_TTL_DAYS * 86400000;
+      let changed = false;
+      for (const k of Object.keys(raw)) {
+        if (raw[k] < cutoff) { delete raw[k]; changed = true; }
+      }
+      if (changed) localStorage.setItem(READ_KEY, JSON.stringify(raw));
+      return raw;
+    } catch { return {}; }
   }
+
   function markRead(btn) {
     const card = btn.closest('.card');
-    const key = card.dataset.url;
-    if (!key) return;
-    const readSet = _getRead();
-    readSet.add(key);
-    _saveRead(readSet);
+    if (!card.dataset.url) return;
+    const read = _loadRead();
+    read[_normUrl(card.dataset.url)] = Date.now();
+    localStorage.setItem(READ_KEY, JSON.stringify(read));
     card.style.display = 'none';
   }
+
   (function() {
-    const readSet = _getRead();
+    const read = _loadRead();
     document.querySelectorAll('.card[data-url]').forEach(card => {
-      if (readSet.has(card.dataset.url)) card.style.display = 'none';
+      if (read[_normUrl(card.dataset.url)]) card.style.display = 'none';
     });
   })();
   </script>
