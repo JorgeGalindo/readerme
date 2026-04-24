@@ -1,6 +1,34 @@
 {
-  "generated_at": "2026-04-23T05:00:14.278639+00:00",
-  "intl": [],
+  "generated_at": "2026-04-24T05:19:07.283587+00:00",
+  "intl": [
+    {
+      "title": "Populist party Vox demands ‘Spaniards first’ in coalition talks",
+      "link": "https://www.ft.com/content/c9e6ba6d-11ab-46f3-ba4e-54140a3b3a4b",
+      "author": "",
+      "summary": "Anti-immigration party wants people with ‘ties’ to the country be first in line for public assistance",
+      "date": "Thu, 23 Apr 2026 14:19:50 GMT",
+      "source": "Financial Times",
+      "risk_summary": "Anti-immigration party wants people with ‘ties’ to the country be first in line for public assistance"
+    },
+    {
+      "title": "Slovenia to air films about Palestine instead of Eurovision song contest",
+      "link": "https://www.theguardian.com/tv-and-radio/2026/apr/23/slovenia-to-air-films-about-palestine-instead-of-eurovision-song-contest",
+      "author": "Philip Oltermann European culture editor",
+      "summary": "Ireland and Spain will also not broadcast Eurovision after decision to boycott live event over Israel’s participationNational broadcasters in Ireland, Spain and Slovenia will not air the Eurovision song contest this year, after they decided to boycott the event over Israel’s participation.Having ann",
+      "date": "Thu, 23 Apr 2026 18:35:10 GMT",
+      "source": "The Guardian Europe",
+      "risk_summary": "Ireland and Spain will also not broadcast Eurovision after decision to boycott live event over Israel’s participationNational broadcasters in Ireland, Spain and Slovenia will not air the Eurovision song contest this year, after they decided to boycott the event over Israel’s participation.Having ann"
+    },
+    {
+      "title": "The international right has CPAC. Has the left finally found its answer? | Owen Jones",
+      "link": "https://www.theguardian.com/commentisfree/2026/apr/23/cpac-pedro-sanchez-international-left-global-progressive-mobilisation",
+      "author": "Owen Jones",
+      "summary": "Spain’s PM, Pedro Sánchez, hosted the inaugural meeting of the Global Progressive Mobilisation. Keir Starmer and other social democrats were notable by their absenceCan progressives push back the rising tide of authoritarianism? Thousands of people gathered in Barcelona this weekend in search of an ",
+      "date": "Thu, 23 Apr 2026 10:00:07 GMT",
+      "source": "The Guardian Europe",
+      "risk_summary": "Spain’s PM, Pedro Sánchez, hosted the inaugural meeting of the Global Progressive Mobilisation. Keir Starmer and other social democrats were notable by their absenceCan progressives push back the rising tide of authoritarianism? Thousands of people gathered in Barcelona this weekend in search of an "
+    }
+  ],
   "spanish": [
     {
       "title": "Junts choca con el Gobierno por la regularización de inmigrantes y reclama elecciones anticipadas",
@@ -10,67 +38,27 @@
       "date": "Wed, 22 Apr 2026 07:41:18 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "Junts escala su presión sobre Sánchez pidiendo elecciones anticipadas, poniendo en riesgo la estabilidad gubernamental tras el choque por inmigración."
+      "risk_summary": "Junts rompe con el Gobierno Sánchez por corrupción e incumplimientos fiscales, exigiendo por primera vez elecciones anticipadas y amenazando con tumbar el decreto de alquileres."
     },
     {
-      "title": "Bustinduy envía una carta a Feijóo ante el no del PP a la prórroga de los alquileres: “Reconsidere su posición”",
-      "link": "https://elpais.com/espana/2026-04-22/bustinduy-envia-una-carta-a-feijoo-ante-el-no-del-pp-a-la-prorroga-de-los-alquileres-reconsidere-su-posicion.html",
-      "author": "Paula Chouza Candeira",
-      "summary": "Sumar aumenta la presión sobre el PP a seis días de la votación del decreto en el Congreso, que no cuenta con los apoyos para su convalidación",
-      "date": "Wed, 22 Apr 2026 09:33:39 GMT",
-      "source": "El País (España)",
-      "scrapeable": false,
-      "risk_summary": "El decreto de prórroga de alquileres enfrenta rechazo del PP y carece de apoyos suficientes, amenazando una derrota parlamentaria clave para el Gobierno."
-    },
-    {
-      "title": "El PP propone bajar de 1.800 a 900 euros la renta para declarar a una familia vulnerable",
-      "link": "https://elpais.com/espana/2026-04-21/el-pp-propone-bajar-de-1800-a-900-euros-la-renta-para-declarar-a-una-familia-vulnerable.html",
-      "author": "Xosé  Hermida",
-      "summary": "Los populares impulsan una reforma urbanística para eliminar trámites y facilitar desahucios",
-      "date": "Tue, 21 Apr 2026 18:15:09 GMT",
-      "source": "El País (España)",
-      "scrapeable": false,
-      "risk_summary": "El PP propone reducir a la mitad el umbral de vulnerabilidad habitacional e impulsa reformas que faciliten desahucios, marcando agenda social alternativa."
-    },
-    {
-      "title": "Los sindicatos rechazan la nueva oferta de empleo público del Gobierno por considerarla insuficiente y diseñada sin transparencia",
-      "link": "https://elpais.com/economia/2026-04-22/los-sindicatos-rechazan-la-oferta-de-empleo-publico-del-gobierno-para-2026-por-considerarla-insuficiente-y-disenada-sin-transparencia.html",
-      "author": "Raquel Cortés Pascual",
-      "summary": "Reprochan al Ejecutivo, entre otras cosas, que no cubra adecuadamente las plazas para gestionar la regularización de inmigrantes",
-      "date": "Wed, 22 Apr 2026 13:10:21 GMT",
-      "source": "El País (Economía)",
-      "scrapeable": false,
-      "risk_summary": "Los sindicatos rechazan la oferta de empleo público del Gobierno por insuficiente cobertura para gestionar la regularización migratoria, evidenciando tensiones laborales."
-    },
-    {
-      "title": "Moncloa circunscribe la andanada de Junts al cabreo porque Yolanda Díaz les llamó \"racistas\"",
-      "link": "https://www.elconfidencial.com/espana/2026-04-23/moncloa-andanada-junts-cabreo-yolanda-diaz-racistas_4343042/",
-      "author": "Marisol Hernández",
-      "summary": "El Gobierno no cree que la relación haya empeorado, aunque los de Puigdemont instan a Sánchez a convocar elecciones. Recuerdan que aún votan con el PSOE y ven \"obvio\" que la tensión actual es fruto de la crisis con Sumar",
-      "date": "2026-04-23T05:00:00+02:00",
-      "source": "El Confidencial",
-      "scrapeable": false,
-      "risk_summary": "Moncloa minimiza la crisis con Junts atribuyéndola a declaraciones de Díaz sobre racismo, pero persiste la amenaza de ruptura del apoyo parlamentario."
-    },
-    {
-      "title": "Sánchez presionado por Feijóo y Nogueras habla en el Congreso de Cataluña y España como \"países\" y acusa al PP de violar la Constitución  con el pacto de Extremadura",
-      "link": "https://www.elmundo.es/espana/2026/04/22/69e87b6b21efa090168b457f.html",
-      "author": "Marisa Cruz",
-      "summary": "El presidente arremete contra los populares por oponerse a la regularización de inmigrantes y les reprocha que quieran \"trabajadores en B\"; el popular le replica: \"Usted gobierna contra los españoles\"Leer",
-      "date": "Wed, 22 Apr 2026 11:09:23 +0200",
+      "title": "Junts abandona definitivamente a Sánchez por la corrupción y los incumplimientos fiscales:  \"¿Qué hacemos aquí? Disuelva\"",
+      "link": "https://www.elmundo.es/cataluna/2026/04/23/69e8ffeffdddff0a5c8b4583.html",
+      "author": "Víctor Mondelo, Raúl Piña",
+      "summary": "Le conmina por primera vez a adelantar elecciones tras no aplicar sus últimos acuerdos en materia tributaria. La semana próxima tumbará el decreto de alquileres para escenificar su plante: \"Tiene que elegir entre nuestra vía o la de Sumar y Podemos\"Leer",
+      "date": "Thu, 23 Apr 2026 03:00:18 +0200",
       "source": "El Mundo",
       "scrapeable": false,
-      "risk_summary": "Sánchez usa referencias a 'países' para Cataluña y España en el Congreso mientras ataca el pacto PP-Vox en Extremadura, intensificando la polarización territorial."
+      "risk_summary": "Junts abandona definitivamente el apoyo a Sánchez por corrupción e incumplimientos fiscales, conminándole a disolver las Cortes tras no aplicar acuerdos tributarios."
     },
     {
-      "title": "Vox desata una operación para desgastar a Feijóo mientras acumula poder autonómico con el PP",
-      "link": "https://www.elmundo.es/espana/2026/04/22/69e914a9fc6c83cf6d8b45ae.html",
-      "author": "Paloma H. Matellano",
-      "summary": "Mantiene el tono duro contra Génova a la vez que defiende los pactos con barones, marcando su discurso para la nueva etapaLeer",
-      "date": "Wed, 22 Apr 2026 22:53:41 +0200",
-      "source": "El Mundo",
+      "title": "Preguntas y respuestas sobre la “prioridad nacional”: qué dicen los pactos más allá de las declaraciones de PP y Vox",
+      "link": "https://elpais.com/espana/2026-04-24/preguntas-y-respuestas-sobre-la-prioridad-nacional-que-dicen-los-pactos-mas-alla-de-las-declaraciones-de-pp-y-vox.html",
+      "author": "Virginia Martínez",
+      "summary": "Las direcciones nacionales de ambos partidos están enfrentadas por el alcance del principio. El baremo del lugar de nacimiento no se incluye en los textos",
+      "date": "Fri, 24 Apr 2026 03:30:01 GMT",
+      "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "Vox despliega estrategia dual de desgaste a Feijóo a nivel nacional mientras consolida poder autonómico mediante pactos, redefiniendo dinámicas de la derecha."
+      "risk_summary": "Las direcciones nacionales de PP y Vox se enfrentan por el alcance de la 'prioridad nacional', evidenciando tensiones internas en la coalición conservadora."
     },
     {
       "title": "El alcance de la \"prioridad nacional\" pactada por PP y Vox en Extremadura y Aragón enfrenta a sus direcciones estatales",
@@ -80,27 +68,67 @@
       "date": "Wed, 22 Apr 2026 19:52:12 +0000",
       "source": "eldiario.es",
       "scrapeable": true,
-      "risk_summary": "Los pactos de 'prioridad nacional' entre PP y Vox en Extremadura y Aragón generan tensiones internas y exponen fracturas en las direcciones estatales."
+      "risk_summary": "El pacto de 'prioridad nacional' entre PP y Vox en Extremadura y Aragón enfrenta a sus direcciones estatales, con Vox queriendo extenderlo como ley nacional."
     },
     {
-      "title": "Junts da un paso más en su choque con el Gobierno y pide a Sánchez que convoque elecciones",
-      "link": "https://www.eldiario.es/politica/junts-da-paso-choque-gobierno-le-pide-sanchez-convoque-elecciones_1_13162336.html",
-      "author": "José Enrique Monrosi, Daniel Ríos, Aitor Riveiro",
-      "summary": "El presidente responde en la sesión de control que la existencia del Ejecutivo progresista \"también se fundamenta en la respuesta a los gobiernos de PP y Vox\" e insiste en que piensa agotar la legislatura y cumplir con los acuerdos pendientes con sus sociosLas comunidades del PP amenazan con boicote",
-      "date": "Wed, 22 Apr 2026 07:50:35 +0000",
-      "source": "eldiario.es",
-      "scrapeable": true,
-      "risk_summary": "Junts formaliza su petición de elecciones anticipadas mientras Sánchez insiste en agotar la legislatura, cristalizando la crisis de gobernabilidad."
+      "title": "Bustinduy envía una carta a Feijóo ante el no del PP a la prórroga de los alquileres: “Reconsidere su posición”",
+      "link": "https://elpais.com/espana/2026-04-22/bustinduy-envia-una-carta-a-feijoo-ante-el-no-del-pp-a-la-prorroga-de-los-alquileres-reconsidere-su-posicion.html",
+      "author": "Paula Chouza Candeira",
+      "summary": "Sumar aumenta la presión sobre el PP a seis días de la votación del decreto en el Congreso, que no cuenta con los apoyos para su convalidación",
+      "date": "Wed, 22 Apr 2026 09:33:39 GMT",
+      "source": "El País (España)",
+      "scrapeable": false,
+      "risk_summary": "Sumar presiona al PP para que reconsidere su rechazo a la prórroga de alquileres, advirtiendo que el decreto no cuenta con apoyos suficientes para su convalidación."
     },
     {
-      "title": "PP, Vox y Junts se alían para tramitar una ley que aceleraría los desahucios de vulnerables y tumbaría el tope al alquiler",
-      "link": "https://www.eldiario.es/politica/pp-vox-junts-alian-tramitar-ley-aceleraria-desahucios-vulnerables-tumbaria-tope-alquiler_1_13160777.html",
-      "author": "Daniel Ríos",
-      "summary": "Las tres formaciones, junto a UPN, suman sus votos en el Congreso para tomar en consideración una iniciativa del PP para agilizar los desarrollos urbanísticos, pero que también recorta la protección a las familias con menos ingresos. PNV y Coalición Canaria se abstienen y el resto vota en contraClav",
-      "date": "Tue, 21 Apr 2026 18:04:20 +0000",
+      "title": "La moción de censura más polémica: una tránsfuga del PSOE, que llegó al gobierno tras la muerte de tres compañeros, dará Lugo al PP 27 años después",
+      "link": "https://www.elmundo.es/galicia/2026/04/23/69e90eea21efa06e6a8b4586.html",
+      "author": "Juan B. Cañellas",
+      "summary": "El PP defiende la «legitimidad» de la moción y niega cualquier intercambio de favores, mientras PSOE y BNG la tachan de «indecente»Leer",
+      "date": "Thu, 23 Apr 2026 03:00:07 +0200",
+      "source": "El Mundo",
+      "scrapeable": false,
+      "risk_summary": "Una moción de censura polémica con una tránsfuga del PSOE dará Lugo al PP tras 27 años, generando acusaciones de 'indecencia' por parte de la oposición."
+    },
+    {
+      "title": "La Fiscalía pide el archivo de la causa contra Begoña Gómez: “No hay delito. La retribución es cero”",
+      "link": "https://www.eldiario.es/politica/fiscalia-pide-archivo-causa-begona-gomez-propuesta-peinado-llevarla-juicio_1_13164039.html",
+      "author": "Elena Herrera, Javier Lillo",
+      "summary": "El Ministerio Público critica que Peinado haya tachado de “corrupta” cualquier actividad realizada por la esposa de Pedro Sánchez “como si de una trama u organización criminal se tratara\"Begoña Gómez pide anular el auto de Peinado para llevarla a juicio y ve “inaceptable” que compare a Sánchez con F",
+      "date": "Wed, 22 Apr 2026 13:49:57 +0000",
       "source": "eldiario.es",
       "scrapeable": true,
-      "risk_summary": "PP, Vox y Junts se alían para acelerar desahucios y eliminar controles de alquiler, configurando mayoría alternativa en política de vivienda contra el Gobierno."
+      "risk_summary": "La Fiscalía pide el archivo de la causa contra Begoña Gómez al no encontrar delito, criticando al juez Peinado por tachar cualquier actividad suya como 'corrupta'."
+    },
+    {
+      "title": "Cuerpo asegura que el fondo soberano España Crece estará listo antes de julio",
+      "link": "https://elpais.com/economia/2026-04-23/cuerpo-asegura-que-el-fondo-soberano-espana-crece-estara-listo-antes-de-julio.html",
+      "author": "Denisse López",
+      "summary": "El Tesoro empezará a transferir dinero al fondo en las “próximas semanas”, según ha confirmado el ministro de Economía",
+      "date": "Thu, 23 Apr 2026 17:15:17 GMT",
+      "source": "El País (Economía)",
+      "scrapeable": false,
+      "risk_summary": "El fondo soberano España Crece estará operativo antes de julio con transferencias del Tesoro en las próximas semanas, según anuncia el ministro Cuerpo."
+    },
+    {
+      "title": "Abascal pone a prueba su negacionismo climático: controlará Medio Ambiente y decidirá sobre las energías renovables",
+      "link": "https://www.elmundo.es/espana/2026/04/23/69ea661cfdddff992a8b45b8.html",
+      "author": "Paloma H. Matellano",
+      "summary": "Aragón es la primera comunidad donde Vox asume esta consejería, y lo hace con un programa de gobierno que recoge sus tesis en esta materiaLeer",
+      "date": "Thu, 23 Apr 2026 22:52:27 +0200",
+      "source": "El Mundo",
+      "scrapeable": false,
+      "risk_summary": "Vox controlará por primera vez una consejería de Medio Ambiente en Aragón, pudiendo implementar sus tesis negacionistas climáticas y sobre energías renovables."
+    },
+    {
+      "title": "Illa reivindica su fomento del catalán en Sant Jordi en medio de las críticas de la oposición",
+      "link": "https://elpais.com/espana/catalunya/2026-04-24/illa-reivindica-su-fomento-del-catalan-en-sant-jordi-en-medio-de-las-criticas-de-la-oposicion.html",
+      "author": "Àngels Piñol ,Camilo S. Baquero ,Bernat Coll",
+      "summary": "Junts y ERC acusan al Govern de desatender la política lingüística y Comuns reclama más cursos para aprender el idioma",
+      "date": "Fri, 24 Apr 2026 03:30:01 GMT",
+      "source": "El País (España)",
+      "scrapeable": false,
+      "risk_summary": "Illa reivindica su política de fomento del catalán en Sant Jordi mientras la oposición catalana (Junts, ERC y Comuns) critica su desatención a la política lingüística."
     }
   ]
 }
