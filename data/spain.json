@@ -1,16 +1,6 @@
 {
-  "generated_at": "2026-04-25T04:45:40.612492+00:00",
-  "intl": [
-    {
-      "title": "Costa del Sol vs the Algarve: which golf destination is best for property buyers?",
-      "link": "https://www.ft.com/content/fb3c20da-1425-4d21-abe0-f391ad1a2c04",
-      "author": "",
-      "summary": "With the end of golden visa schemes, the regions are looking to attract second-home owners by refining golf offerings and upping the luxury lifestyle ante",
-      "date": "Sat, 25 Apr 2026 04:00:10 GMT",
-      "source": "Financial Times",
-      "risk_summary": "With the end of golden visa schemes, the regions are looking to attract second-home owners by refining golf offerings and upping the luxury lifestyle ante"
-    }
-  ],
+  "generated_at": "2026-04-26T05:22:36.500095+00:00",
+  "intl": [],
   "spanish": [
     {
       "title": "Sánchez, sobre la “prioridad nacional” de los acuerdos del PP y Vox: “Hablan de ciudadanos de primera y segunda clase”",
@@ -20,7 +10,7 @@
       "date": "Fri, 24 Apr 2026 07:56:52 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "Sánchez eleva la tensión política contra PP-Vox amenazando con medidas contundentes por la 'prioridad nacional', polarizando el debate migratorio."
+      "risk_summary": "Escalada de tensión entre Sánchez y la coalición PP-Vox por políticas discriminatorias que amenazan la cohesión social y pueden generar conflicto institucional."
     },
     {
       "title": "El PP tiene a su alcance la mayoría absoluta en Andalucía, según el CIS",
@@ -30,47 +20,47 @@
       "date": "Fri, 24 Apr 2026 10:46:21 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "El CIS proyecta mayoría absoluta del PP en Andalucía, consolidando el dominio territorial conservador y debilitando la posición del PSOE."
+      "risk_summary": "El CIS confirma el dominio electoral del PP en Andalucía con mayoría absoluta potencial, consolidando el poder territorial conservador frente al PSOE."
     },
     {
-      "title": "España se suma a Italia y pide a Bruselas suspender las reglas fiscales por la crisis energética",
-      "link": "https://elpais.com/economia/2026-04-24/espana-se-suma-a-italia-y-pide-a-bruselas-suspender-las-reglas-fiscales-por-la-crisis-energetica.html",
-      "author": "Silvia Ayuso ,Manuel Vicente Gómez Gómez",
-      "summary": "Sánchez también reclama prorrogar los fondos de recuperación y se une a otros líderes europeos que piden más ambición en la respuesta de la Comisión a la subida de los combustibles",
-      "date": "Fri, 24 Apr 2026 11:36:59 GMT",
+      "title": "El PSOE se reactiva contra los pactos “de la infamia” de PP y Vox en Extremadura y Aragón",
+      "link": "https://elpais.com/espana/2026-04-25/el-psoe-se-reactiva-contra-los-pactos-de-la-infamia-de-pp-y-vox-en-extremadura-y-aragon.html",
+      "author": "José Marcos García,José Emiliano  Barrena",
+      "summary": "Zapatero advierte que la “prioridad nacional” acordada con la ultraderecha “no es compatible con la legalidad” y “lanza un mensaje anticonvivencia”. La federación extremeña cierra las heridas con una ejecutiva de integración",
+      "date": "Sat, 25 Apr 2026 13:53:02 GMT",
+      "source": "El País (España)",
+      "scrapeable": false,
+      "risk_summary": "Movilización del PSOE contra los pactos PP-Vox marca una estrategia de polarización que puede intensificar la fragmentación política territorial."
+    },
+    {
+      "title": "Belarra dice que sería una “humillación” esperar a que Trump eche a España de la OTAN “en vez de irnos”",
+      "link": "https://elpais.com/espana/2026-04-24/belarra-dice-que-seria-una-humillacion-esperar-a-que-trump-eche-a-espana-de-la-otan-en-vez-de-irnos.html",
+      "author": "Paula Chouza Candeira",
+      "summary": "La líder de Podemos denuncia que Sánchez ha construido una imagen internacional “muy fuerte” para “distraer” de los problemas domésticos",
+      "date": "Fri, 24 Apr 2026 09:45:52 GMT",
+      "source": "El País (España)",
+      "scrapeable": false,
+      "risk_summary": "Podemos radicaliza su posición geopolítica exigiendo salida de la OTAN, presionando la estabilidad de la coalición gubernamental."
+    },
+    {
+      "title": "Sumar apura “hasta el último segundo” el intento de salvar la prórroga de alquileres",
+      "link": "https://elpais.com/espana/2026-04-26/sumar-apura-hasta-el-ultimo-segundo-el-intento-de-salvar-la-prorroga-de-alquileres.html",
+      "author": "Xosé  Hermida",
+      "summary": "Concentraciones, 75.000 cartas a los diputados y avalancha de burofaxes a los caseros para aumentar la presión",
+      "date": "Sun, 26 Apr 2026 03:45:00 GMT",
       "source": "El País (Economía)",
       "scrapeable": false,
-      "risk_summary": "España se alinea con Italia pidiendo suspender reglas fiscales europeas, evidenciando fracturas en la disciplina presupuestaria de la UE."
+      "risk_summary": "Sumar presiona hasta el límite para salvar la regulación de alquileres, evidenciando fisuras en la coalición sobre políticas sociales clave."
     },
     {
-      "title": "Consumo intensifica la presión y envía más de 500 cartas a grandes tenedores para que acepten la prórroga de los alquileres",
-      "link": "https://elpais.com/economia/vivienda/2026-04-24/consumo-intensifica-la-presion-y-envia-mas-de-500-cartas-a-grandes-tenedores-para-que-acepten-la-prorroga-de-los-alquileres.html",
-      "author": "Gorka R. Pérez",
-      "summary": "El departamento que dirige Bustinduy envía de nuevo notificaciones por correo, cuatro días antes de que se vote la continuidad de la norma en el Congreso",
-      "date": "Fri, 24 Apr 2026 06:00:00 GMT",
-      "source": "El País (Economía)",
-      "scrapeable": false,
-      "risk_summary": "Consumo intensifica presión sobre grandes tenedores antes de la votación parlamentaria del control de alquileres, test clave para la estabilidad gubernamental."
-    },
-    {
-      "title": "Los repartidores de Glovo, convocados a huelga este fin de semana para protestar contra el ERE",
-      "link": "https://elpais.com/economia/2026-04-24/los-repartidores-de-glovo-convocados-a-huelga-este-fin-de-semana-para-protestar-contra-el-ere.html",
-      "author": "Emilio Sánchez Hidalgo",
-      "summary": "CC OO llama a los ‘riders’ a parar por el despido colectivo de 750 personas que prevé la compañía. Es la primera huelga en la empresa",
-      "date": "Fri, 24 Apr 2026 14:19:50 GMT",
-      "source": "El País (Economía)",
-      "scrapeable": false,
-      "risk_summary": "Primera huelga de repartidores de Glovo señala escalada de conflictividad laboral en sectores de nueva economía."
-    },
-    {
-      "title": "El antecedente de Alegría en Aragón desata el debate de si Morant debe seguir en el Gobierno",
-      "link": "https://www.elconfidencial.com/espana/comunidad-valenciana/2026-04-25/alegria-aragon-desata-debate-diana-morant_4344715/",
-      "author": "Marisol Hernández",
-      "summary": "Cuadros de la federación valenciana discrepan sobre el momento en que debe producirse la \"desconexión\" de la Moncloa. La titular de Ciencia mantiene su hoja de ruta y planea continuar hasta la convocatoria de las autonómicas",
-      "date": "2026-04-25T05:00:00+02:00",
+      "title": "El paso adelante de Mónica García agita a la izquierda y complica los planes de Óscar López",
+      "link": "https://www.elconfidencial.com/espana/madrid/2026-04-26/el-paso-adelante-de-monica-garcia-contra-ayuso-agita-a-la-izquierda-y-complica-los-planes-de-oscar-lopez_4345003/",
+      "author": "Ignacio S. Calleja",
+      "summary": "La ministra de Sanidad toma la delantera por el liderazgo de Más Madrid frente a la corriente alternativa y abre un pulso desde el Consejo de Ministros para encabezar la oposición a Ayuso",
+      "date": "2026-04-26T05:00:00+02:00",
       "source": "El Confidencial",
       "scrapeable": false,
-      "risk_summary": "El precedente de Alegría genera debate interno en el PSOE valenciano sobre la permanencia de Morant en el Gobierno, evidenciando tensiones territoriales."
+      "risk_summary": "Pugna interna en Más Madrid entre Mónica García y Óscar López por el liderazgo autonómico fragmenta la oposición a Ayuso."
     },
     {
       "title": "Sánchez engorda con 12.000 millones el gasto en Defensa para sobrevivir a Trump en la OTAN",
@@ -80,7 +70,27 @@
       "date": "Fri, 24 Apr 2026 22:43:39 +0200",
       "source": "El Mundo",
       "scrapeable": false,
-      "risk_summary": "Sánchez aumenta 12.000 millones el gasto en Defensa para esquivar presiones de Trump en la OTAN, ajuste presupuestario significativo."
+      "risk_summary": "Sánchez aumenta 12.000 millones el gasto en Defensa bajo presión de Trump, arriesgando tensiones con sus socios de izquierda pacifistas."
+    },
+    {
+      "title": "Moncloa cambia de ánimo con el choque con Trump: \"Íbamos perdiendo 7-0 y ahora vemos más incómodo a Feijóo\"",
+      "link": "https://www.elmundo.es/espana/2026/04/25/69ecf0c721efa0401f8b45a4.html",
+      "author": "Lucía Méndez",
+      "summary": "La investidura de Sánchez como líder mundial anti Trump le ha dado aire para llegar a julio de 2027. El PSOE cree que la \"prioridad nacional\" del pacto PP-Vox y los ataques entre ambos partidos le favorecenLeer",
+      "date": "Sat, 25 Apr 2026 22:52:37 +0200",
+      "source": "El Mundo",
+      "scrapeable": false,
+      "risk_summary": "Moncloa ve oportunidad electoral en el conflicto con Trump y la controversia PP-Vox, apostando por resistir hasta 2027."
+    },
+    {
+      "title": "Sánchez aguanta el pulso frente a Trump mientras Feijóo sucumbe al marco ultra de la “prioridad nacional”",
+      "link": "https://www.eldiario.es/politica/sanchez-aguanta-pulso-frente-trump-feijoo-sucumbe-marco-ultra-prioridad-nacional_129_13170241.html",
+      "author": "Esther Palomera",
+      "summary": "La Moncloa persiste en su defensa de la igualdad y los derechos humanos, pese al algoritmo que mueve al mundo contra la inmigración y sitúa al PP ante una estrategia para no ser devorado por VoxEl PP intenta acotar la “prioridad nacional” de su pacto con Vox para no contagiar a las andaluzasSostiene",
+      "date": "Sat, 25 Apr 2026 20:30:15 +0000",
+      "source": "eldiario.es",
+      "scrapeable": true,
+      "risk_summary": "La polarización migratoria sitúa a Sánchez en resistencia democrática frente a Trump mientras el PP cede terreno ideológico a Vox."
     },
     {
       "title": "El nuevo pulso de Junts a Moncloa, otro choque de cara a la galería a días de un pleno incómodo para Puigdemont",
@@ -90,27 +100,7 @@
       "date": "Fri, 24 Apr 2026 20:09:07 +0000",
       "source": "eldiario.es",
       "scrapeable": true,
-      "risk_summary": "Junts escala su pulso independentista exigiendo elecciones, aunque sin capacidad real de tumbar el Gobierno, manteniendo inestabilidad calculada."
-    },
-    {
-      "title": "Rajoy niega la guerra sucia de su Gobierno con una afirmación sin pruebas y numerosos olvidos",
-      "link": "https://www.eldiario.es/politica/rajoy-niega-guerra-sucia-gobierno-afirmacion-pruebas-numerosos-olvidos_1_13167833.html",
-      "author": "Pedro Águeda",
-      "summary": "El expresidente sale en defensa de su ministro del Interior y el resto de los acusados al sostener su tesis de que la Policía no intentó sabotear el caso de la caja B del PP sino que buscaba un dinero de Bárcenas que en realidad ya había aparecido en SuizaRajoy niega que destruyera pruebas de la caj",
-      "date": "Thu, 23 Apr 2026 19:47:16 +0000",
-      "source": "eldiario.es",
-      "scrapeable": true,
-      "risk_summary": "Rajoy niega la guerra sucia en el juicio Kitchen, confrontación que reactiva debates sobre corrupción y legitimidad del PP de Feijóo."
-    },
-    {
-      "title": "El PP veta que el Senado se persone en la causa que investiga el espionaje interno",
-      "link": "https://www.eldiario.es/politica/pp-veta-senado-persone-causa-investiga-espionaje-interno_1_13167438.html",
-      "author": "Aitor Riveiro",
-      "summary": "La Mesa de la Cámara Alta rechaza una petición del PSOE para que que la institución reclame ser parte del procedimiento judicial abierto contra dos exempleados despedidos por espiar supuestamente a parlamentarios y al personalUna jueza imputa a los dos informáticos despedidos por espiar a senadoresE",
-      "date": "Thu, 23 Apr 2026 14:22:36 +0000",
-      "source": "eldiario.es",
-      "scrapeable": true,
-      "risk_summary": "El PP veta la personación del Senado en la causa de espionaje interno, escalada institucional que evidencia bloqueo del control parlamentario."
+      "risk_summary": "Junts intensifica la presión sobre Sánchez exigiendo elecciones, aumentando la inestabilidad parlamentaria del Gobierno de coalición."
     }
   ]
 }
