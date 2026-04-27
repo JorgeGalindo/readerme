@@ -1,7 +1,27 @@
 {
-  "generated_at": "2026-04-26T05:22:36.500095+00:00",
+  "generated_at": "2026-04-27T05:36:04.986695+00:00",
   "intl": [],
   "spanish": [
+    {
+      "title": "La “prioridad nacional” pactada con Vox divide al PP: “Nos han colado un gol”",
+      "link": "https://elpais.com/espana/2026-04-26/la-prioridad-nacional-pactada-con-vox-divide-al-pp-nos-han-colado-un-gol.html",
+      "author": "Elsa García de Blas,Virginia Martínez",
+      "summary": "Génova defiende que la cesión es “barata” y la entiende su electorado, mientras dirigentes populares la ven como un “sapo” que no se calibró bien. Juanma Moreno y Ayuso se distancian del pacto que tuteló la cúpula",
+      "date": "Sun, 26 Apr 2026 03:30:01 GMT",
+      "source": "El País (España)",
+      "scrapeable": false,
+      "risk_summary": "Pacto PP-Vox sobre 'prioridad nacional' genera división interna en el PP con críticas desde sectores moderados y distanciamiento de Moreno y Ayuso."
+    },
+    {
+      "title": "Sánchez aprovecha el error de la “prioridad nacional” para girar la campaña",
+      "link": "https://elpais.com/espana/2026-04-26/sanchez-aprovecha-el-error-de-la-identidad-nacional-para-girar-la-campana.html",
+      "author": "Carlos E Cué",
+      "summary": "El Gobierno cree que el PP se ha metido en el agujero de Vox como en 2023, redobla su apuesta proinmigración y reivindica su “prioridad”: paz, salud, salarios dignos",
+      "date": "Sun, 26 Apr 2026 03:30:01 GMT",
+      "source": "El País (España)",
+      "scrapeable": false,
+      "risk_summary": "Sánchez aprovecha el error táctico del PP con Vox para reposicionarse y girar la campaña hacia temas progresistas, debilitando la estrategia conservadora."
+    },
     {
       "title": "Sánchez, sobre la “prioridad nacional” de los acuerdos del PP y Vox: “Hablan de ciudadanos de primera y segunda clase”",
       "link": "https://elpais.com/espana/2026-04-24/sanchez-sobre-la-prioridad-nacional-de-los-acuerdos-del-pp-y-vox-hablan-de-ciudadanos-de-primera-y-segunda-clase.html",
@@ -10,87 +30,67 @@
       "date": "Fri, 24 Apr 2026 07:56:52 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "Escalada de tensión entre Sánchez y la coalición PP-Vox por políticas discriminatorias que amenazan la cohesión social y pueden generar conflicto institucional."
+      "risk_summary": "Sánchez eleva la tensión institucional al calificar los pactos PP-Vox como discriminatorios y amenazar con respuesta contundente del Ejecutivo."
     },
     {
-      "title": "El PP tiene a su alcance la mayoría absoluta en Andalucía, según el CIS",
-      "link": "https://elpais.com/espana/2026-04-24/el-pp-tiene-a-su-alcance-la-mayoria-absoluta-en-andalucia-segun-el-cis.html",
-      "author": "Natalia Junquera Añón",
-      "summary": "El estudio preelectoral estima que la opción más plausible es que Juan Manuel Moreno obtenga 55 escaños, el PSOE 31 y Vox, 13",
-      "date": "Fri, 24 Apr 2026 10:46:21 GMT",
-      "source": "El País (España)",
-      "scrapeable": false,
-      "risk_summary": "El CIS confirma el dominio electoral del PP en Andalucía con mayoría absoluta potencial, consolidando el poder territorial conservador frente al PSOE."
-    },
-    {
-      "title": "El PSOE se reactiva contra los pactos “de la infamia” de PP y Vox en Extremadura y Aragón",
-      "link": "https://elpais.com/espana/2026-04-25/el-psoe-se-reactiva-contra-los-pactos-de-la-infamia-de-pp-y-vox-en-extremadura-y-aragon.html",
-      "author": "José Marcos García,José Emiliano  Barrena",
-      "summary": "Zapatero advierte que la “prioridad nacional” acordada con la ultraderecha “no es compatible con la legalidad” y “lanza un mensaje anticonvivencia”. La federación extremeña cierra las heridas con una ejecutiva de integración",
-      "date": "Sat, 25 Apr 2026 13:53:02 GMT",
-      "source": "El País (España)",
-      "scrapeable": false,
-      "risk_summary": "Movilización del PSOE contra los pactos PP-Vox marca una estrategia de polarización que puede intensificar la fragmentación política territorial."
-    },
-    {
-      "title": "Belarra dice que sería una “humillación” esperar a que Trump eche a España de la OTAN “en vez de irnos”",
-      "link": "https://elpais.com/espana/2026-04-24/belarra-dice-que-seria-una-humillacion-esperar-a-que-trump-eche-a-espana-de-la-otan-en-vez-de-irnos.html",
-      "author": "Paula Chouza Candeira",
-      "summary": "La líder de Podemos denuncia que Sánchez ha construido una imagen internacional “muy fuerte” para “distraer” de los problemas domésticos",
-      "date": "Fri, 24 Apr 2026 09:45:52 GMT",
-      "source": "El País (España)",
-      "scrapeable": false,
-      "risk_summary": "Podemos radicaliza su posición geopolítica exigiendo salida de la OTAN, presionando la estabilidad de la coalición gubernamental."
-    },
-    {
-      "title": "Sumar apura “hasta el último segundo” el intento de salvar la prórroga de alquileres",
-      "link": "https://elpais.com/espana/2026-04-26/sumar-apura-hasta-el-ultimo-segundo-el-intento-de-salvar-la-prorroga-de-alquileres.html",
-      "author": "Xosé  Hermida",
-      "summary": "Concentraciones, 75.000 cartas a los diputados y avalancha de burofaxes a los caseros para aumentar la presión",
-      "date": "Sun, 26 Apr 2026 03:45:00 GMT",
+      "title": "El apagón deja un año de choques entre Gobierno, REE, la CNMC y las eléctricas",
+      "link": "https://elpais.com/economia/2026-04-27/el-apagon-deja-un-ano-de-choques-entre-gobierno-ree-la-cnmc-y-las-electricas.html",
+      "author": "Juan Cruz Peña",
+      "summary": "El histórico incidente ha tensado las relaciones en el ya de por sí conflictivo sector eléctrico: todos acusan a los demás y ninguno asume responsabilidades. Nadie ha pagado indemnizaciones y los consumidores sufren una factura más cara",
+      "date": "Mon, 27 Apr 2026 03:15:00 GMT",
       "source": "El País (Economía)",
       "scrapeable": false,
-      "risk_summary": "Sumar presiona hasta el límite para salvar la regulación de alquileres, evidenciando fisuras en la coalición sobre políticas sociales clave."
+      "risk_summary": "Crisis en el sector eléctrico tras el apagón histórico con enfrentamientos entre Gobierno, regulador y empresas sin resolución de responsabilidades."
     },
     {
-      "title": "El paso adelante de Mónica García agita a la izquierda y complica los planes de Óscar López",
-      "link": "https://www.elconfidencial.com/espana/madrid/2026-04-26/el-paso-adelante-de-monica-garcia-contra-ayuso-agita-a-la-izquierda-y-complica-los-planes-de-oscar-lopez_4345003/",
-      "author": "Ignacio S. Calleja",
-      "summary": "La ministra de Sanidad toma la delantera por el liderazgo de Más Madrid frente a la corriente alternativa y abre un pulso desde el Consejo de Ministros para encabezar la oposición a Ayuso",
+      "title": "Isabel Rodríguez: “Hemos ganado; quienes defienden el pelotazo ya no se atreven a decirlo en público”",
+      "link": "https://elpais.com/economia/vivienda/2026-04-26/isabel-rodriguez-hemos-ganado-quienes-defienden-el-pelotazo-ya-no-se-atreven-a-decirlo-en-publico.html",
+      "author": "José Luis Aranda,Gorka R. Pérez",
+      "summary": "La ministra de Vivienda defiende la eficacia del plan estatal que acaba de aprobar el Gobierno y cree que las comunidades no se opondrán",
+      "date": "Sun, 26 Apr 2026 03:45:01 GMT",
+      "source": "El País (Economía)",
+      "scrapeable": false,
+      "risk_summary": "Ministra de Vivienda reivindica victoria política en políticas habitacionales y confía en que las CCAA no se opondrán al plan estatal."
+    },
+    {
+      "title": "De Mas a Puigdemont para volver a Artur Mas: el plan para recuperar Convergència",
+      "link": "https://www.elconfidencial.com/espana/cataluna/2026-04-27/mas-puigdemont-plan-recuperar-convergencia_4343296/",
+      "author": "Marcos Lamelas. Barcelona",
+      "summary": "La refundación de Junts para recuperar el espacio político de la antigua Convergència pasaría por que Artur Mas asumiese la presidencia del partido, aunque no sería el candidato",
+      "date": "2026-04-27T05:00:00+02:00",
+      "source": "El Confidencial",
+      "scrapeable": false,
+      "risk_summary": "Operación interna en Junts para refundar el partido con Artur Mas como presidente, recuperando el espacio político de la antigua Convergència."
+    },
+    {
+      "title": "Pablo Pombo: \"La pulsión de cambio es irreversible\"",
+      "link": "https://www.elconfidencial.com/espana/2026-04-26/pombo-pulsion-cambio-bra_4344454/",
+      "author": "Isabel Rodríguez",
+      "summary": "El consultor político advierte de que el desgaste institucional, la polarización y las brechas sociales alimentan un cambio de ciclo que las encuestas -menos las del CIS- ya reflejan con claridad.",
       "date": "2026-04-26T05:00:00+02:00",
       "source": "El Confidencial",
       "scrapeable": false,
-      "risk_summary": "Pugna interna en Más Madrid entre Mónica García y Óscar López por el liderazgo autonómico fragmenta la oposición a Ayuso."
-    },
-    {
-      "title": "Sánchez engorda con 12.000 millones el gasto en Defensa para sobrevivir a Trump en la OTAN",
-      "link": "https://www.elmundo.es/espana/2026/04/24/69eb9ab2e4d4d8347e8b457c.html",
-      "author": "Marina Pina, Raúl Piña",
-      "summary": "El Gobierno hace equilibrios para contentar a sus socios y a la OTAN a pocas semanas de la cumbre de AnkaraLeer",
-      "date": "Fri, 24 Apr 2026 22:43:39 +0200",
-      "source": "El Mundo",
-      "scrapeable": false,
-      "risk_summary": "Sánchez aumenta 12.000 millones el gasto en Defensa bajo presión de Trump, arriesgando tensiones con sus socios de izquierda pacifistas."
+      "risk_summary": "Consultor político advierte de cambio de ciclo irreversible por desgaste institucional y polarización que ya reflejan las encuestas."
     },
     {
       "title": "Moncloa cambia de ánimo con el choque con Trump: \"Íbamos perdiendo 7-0 y ahora vemos más incómodo a Feijóo\"",
       "link": "https://www.elmundo.es/espana/2026/04/25/69ecf0c721efa0401f8b45a4.html",
       "author": "Lucía Méndez",
       "summary": "La investidura de Sánchez como líder mundial anti Trump le ha dado aire para llegar a julio de 2027. El PSOE cree que la \"prioridad nacional\" del pacto PP-Vox y los ataques entre ambos partidos le favorecenLeer",
-      "date": "Sat, 25 Apr 2026 22:52:37 +0200",
+      "date": "Sun, 26 Apr 2026 10:58:15 +0200",
       "source": "El Mundo",
       "scrapeable": false,
-      "risk_summary": "Moncloa ve oportunidad electoral en el conflicto con Trump y la controversia PP-Vox, apostando por resistir hasta 2027."
+      "risk_summary": "Moncloa ve oportunidad política en el conflicto con Trump y los errores del PP con Vox para recuperar iniciativa hasta 2027."
     },
     {
-      "title": "Sánchez aguanta el pulso frente a Trump mientras Feijóo sucumbe al marco ultra de la “prioridad nacional”",
-      "link": "https://www.eldiario.es/politica/sanchez-aguanta-pulso-frente-trump-feijoo-sucumbe-marco-ultra-prioridad-nacional_129_13170241.html",
-      "author": "Esther Palomera",
-      "summary": "La Moncloa persiste en su defensa de la igualdad y los derechos humanos, pese al algoritmo que mueve al mundo contra la inmigración y sitúa al PP ante una estrategia para no ser devorado por VoxEl PP intenta acotar la “prioridad nacional” de su pacto con Vox para no contagiar a las andaluzasSostiene",
-      "date": "Sat, 25 Apr 2026 20:30:15 +0000",
-      "source": "eldiario.es",
-      "scrapeable": true,
-      "risk_summary": "La polarización migratoria sitúa a Sánchez en resistencia democrática frente a Trump mientras el PP cede terreno ideológico a Vox."
+      "title": "Juanma Moreno llega a la campaña con mayoría absoluta pese a los pactos del PP con Vox",
+      "link": "https://www.elmundo.es/elecciones/elecciones-andalucia/2026/04/25/69eb8a48e9cf4a5e4a8b45b3.html",
+      "author": "Chema Rodríguez",
+      "summary": "La nueva encuesta de Sigma Dos para EL MUNDO confirma sus opciones de reeditar la mayoría absoluta, con entre 55 y 57 escaños, y apunta a que Vox pierde fuelle en Andalucía y apenas creceLeer",
+      "date": "Sun, 26 Apr 2026 14:10:26 +0200",
+      "source": "El Mundo",
+      "scrapeable": false,
+      "risk_summary": "Juanma Moreno mantiene mayoría absoluta en Andalucía pese a pactos PP-Vox, mientras Vox pierde fuelle electoral en la región."
     },
     {
       "title": "El nuevo pulso de Junts a Moncloa, otro choque de cara a la galería a días de un pleno incómodo para Puigdemont",
@@ -100,7 +100,7 @@
       "date": "Fri, 24 Apr 2026 20:09:07 +0000",
       "source": "eldiario.es",
       "scrapeable": true,
-      "risk_summary": "Junts intensifica la presión sobre Sánchez exigiendo elecciones, aumentando la inestabilidad parlamentaria del Gobierno de coalición."
+      "risk_summary": "Junts eleva presión sobre Sánchez exigiendo elecciones, aunque carece de capacidad real para forzarlas o dañar legislativamente al Gobierno."
     }
   ]
 }
