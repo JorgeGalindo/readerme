@@ -1,6 +1,13 @@
 {
-  "generated_at": "2026-04-28T05:42:49.237397+00:00",
+  "generated_at": "2026-04-29T05:38:37.244186+00:00",
   "articles": [
+    {
+      "title": "Mythos, automatización y concentración de la ciberseguridad",
+      "url": "https://www.realinstitutoelcano.org/comentarios/mythos-automatizacion-y-concentracion-de-la-ciberseguridad/",
+      "source": "Real Instituto Elcano",
+      "summary": "El software como columna vertebral de la economía Los sistemas energéticos, sanitarios, financieros y de defensa de los Estados modernos descansan sobre capas de código. El error de actualización de CrowdStrike en julio de 2024 bastó para tumbar los sistemas Windows durante más de una hora y gene",
+      "date": "Tue, 28 Apr 2026 14:07:52 +0000"
+    },
     {
       "title": "Alto el fuego en el Líbano: cuando todos sacan algo",
       "url": "https://www.realinstitutoelcano.org/comentarios/alto-el-fuego-en-el-libano-cuando-todos-sacan-algo/",
@@ -63,13 +70,6 @@
       "source": "Real Instituto Elcano",
       "summary": "Mensajes clave[1] Análisis Iniciativas de seguridad de la IA frente a la presión competitiva En el panorama geopolítico actual, la carrera por el dominio de la IA entre Estados y empresas gira en torno al liderazgo y las capacidades tecnológicas, no en torno a la seguridad o la gestión de riesgos",
       "date": "Tue, 14 Apr 2026 14:00:00 +0000"
-    },
-    {
-      "title": "Por la paz en Oriente Medio y contra la guerra en Irán",
-      "url": "https://www.realinstitutoelcano.org/comentarios/por-la-paz-en-oriente-medio-y-contra-la-guerra-en-iran/",
-      "source": "Real Instituto Elcano",
-      "summary": "El alto el fuego de la guerra de Irán ha abierto un espacio de esperanza para Oriente Medio de dos semanas y de alivio para toda la humanidad que contenía el aliento ante una guerra y una escalada a la que no debió llegarse jamás. La posición que siempre ha defendido España, y la que […]",
-      "date": "Tue, 14 Apr 2026 09:00:00 +0000"
     },
     {
       "title": "Boletín Fedea no. 28: Situación económica, riesgos internacionales y medidas paliativas",
@@ -142,6 +142,13 @@
       "date": "Mon, 23 Mar 2026 07:30:00 +0000"
     },
     {
+      "title": "EPA 1T26: El empleo sorprendió a la baja y la tasa de paro se estabilizó",
+      "url": "https://www.bbvaresearch.com/publicaciones/espana-epa-1t26-el-empleo-sorprendio-a-la-baja-y-la-tasa-de-paro-se-estabilizo/",
+      "source": "BBVA Research",
+      "summary": "",
+      "date": ""
+    },
+    {
       "title": "Emisiones de Gases de Efecto Invernadero. Un análisis regional",
       "url": "https://www.bbvaresearch.com/publicaciones/espana-emisiones-de-gases-de-efecto-invernadero-en-espana-un-analisis-regional/",
       "source": "BBVA Research",
@@ -200,13 +207,6 @@
     {
       "title": "Más resilientes al gas, pero no más competitivos",
       "url": "https://www.bbvaresearch.com/publicaciones/espana-mas-resilientes-al-gas-pero-no-mas-competitivos/",
-      "source": "BBVA Research",
-      "summary": "",
-      "date": ""
-    },
-    {
-      "title": "Regulación Financiera: Actualización Semanal. 10 de abril 2026",
-      "url": "https://www.bbvaresearch.com/publicaciones/global-regulacion-financiera-actualizacion-semanal-10-de-abril-2026/",
       "source": "BBVA Research",
       "summary": "",
       "date": ""

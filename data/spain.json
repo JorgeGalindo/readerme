@@ -1,76 +1,96 @@
 {
-  "generated_at": "2026-04-28T05:42:02.635947+00:00",
-  "intl": [
-    {
-      "title": "Blame game continues to fester a year on from Iberian power failure",
-      "link": "https://www.ft.com/content/aa93c93a-1463-4ee2-8c72-1158a603a3ea",
-      "author": "",
-      "summary": "Also in this newsletter: Could the Mercosur trade deal actually harm growth?",
-      "date": "Mon, 27 Apr 2026 05:00:03 GMT",
-      "source": "Financial Times",
-      "risk_summary": "Also in this newsletter: Could the Mercosur trade deal actually harm growth?"
-    }
-  ],
+  "generated_at": "2026-04-29T05:37:44.599681+00:00",
+  "intl": [],
   "spanish": [
     {
-      "title": "El PP encarga una encuesta para medir el impacto de la “prioridad nacional” ante el ruido de su pacto con Vox",
-      "link": "https://elpais.com/espana/2026-04-28/el-pp-encarga-una-encuesta-para-medir-el-impacto-de-la-prioridad-nacional-ante-el-ruido-de-su-pacto-con-vox.html",
-      "author": "Elsa García de Blas",
-      "summary": "Según los populares, el estudio de opinión concluye que la iniciativa concita el respaldo de parte del electorado del PSOE y no abre una brecha significativa entre sus simpatizantes",
-      "date": "Tue, 28 Apr 2026 03:30:01 GMT",
-      "source": "El País (España)",
-      "scrapeable": false,
-      "risk_summary": "El PP mide electoralmente su estrategia de 'prioridad nacional' acordada con Vox, revelando apoyo transversal que refuerza su deriva hacia posiciones más duras en inmigración."
-    },
-    {
-      "title": "PP, Vox y Junts se preparan para tumbar la prórroga de alquileres pese al último esfuerzo de Sumar",
-      "link": "https://elpais.com/espana/2026-04-28/pp-vox-y-junts-se-preparan-para-tumbar-la-prorroga-de-alquileres-pese-al-ultimo-esfuerzo-de-sumar.html",
-      "author": "Javier Casqueiro Barreiro,Paula Chouza Candeira",
-      "summary": "El grupo de Yolanda Díaz cede ante el partido de Puigdemont y acepta mejoras para los autónomos y los caseros",
-      "date": "Tue, 28 Apr 2026 03:30:01 GMT",
-      "source": "El País (España)",
-      "scrapeable": false,
-      "risk_summary": "La alianza PP-Vox-Junts amenaza con tumbar la prórroga de alquileres, evidenciando la fragilidad parlamentaria del Gobierno y su dependencia de negociaciones con independentistas."
-    },
-    {
-      "title": "Una trama con dos jefes: la UCO sitúa a Ábalos y Aldama en la cúspide de una “organización criminal”",
-      "link": "https://elpais.com/espana/2026-04-27/el-jefe-de-la-uco-declara-en-el-supremo-que-abalos-era-el-jefe-instrumental-de-la-trama-y-aldama-el-que-paga-y-exige.html",
-      "author": "Reyes Rincón",
-      "summary": "El teniente coronel Balas sobre el exministro: “Es un miembro cualificado de la organización, por eso cobra lo que cobra”",
-      "date": "Mon, 27 Apr 2026 22:29:57 GMT",
-      "source": "El País (España)",
-      "scrapeable": false,
-      "risk_summary": "La UCO sitúa al exministro Ábalos en la cúspide de una organización criminal junto a Aldama, intensificando la crisis de corrupción que golpea al núcleo del Gobierno de Sánchez."
-    },
-    {
-      "title": "Junts confirma su rechazo en el Congreso al decreto que prorroga los alquileres",
-      "link": "https://elpais.com/espana/2026-04-27/sumar-se-abre-a-concesiones-a-junts-y-pide-al-psoe-que-se-implique-en-la-negociacion-sobre-el-decreto-de-vivienda.html",
+      "title": "Sumar se reafirma en su estrategia en vivienda a pesar de la derrota del decreto: “Hicimos lo que había que hacer”",
+      "link": "https://elpais.com/espana/2026-04-29/sumar-se-reafirma-en-su-estrategia-en-vivienda-a-pesar-de-la-derrota-del-decreto-hicimos-lo-que-habia-que-hacer.html",
       "author": "Paula Chouza Candeira",
-      "summary": "Sumar, que se ha abierto en las últimas horas a concesiones a los independentistas, reclama al PSOE mayor implicación en las negociaciones",
-      "date": "Mon, 27 Apr 2026 12:51:02 GMT",
+      "summary": "El socio minoritario del Gobierno, que mantuvo hasta el final que la prórroga de los alquileres saldría adelante, cierra filas tras el rechazo en el Congreso",
+      "date": "Wed, 29 Apr 2026 03:30:01 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "Junts confirma su rechazo al decreto de alquileres pese a las concesiones de Sumar, consolidando su estrategia de presión máxima al Gobierno en temas sociales clave."
+      "risk_summary": "La derrota parlamentaria del decreto de vivienda evidencia la fragilidad de la coalición gubernamental y la capacidad de la oposición para bloquear reformas sociales clave."
     },
     {
-      "title": "Cuerpo anuncia una revisión de las previsiones económicas para actualizar a Bruselas el cumplimiento del Plan Fiscal",
-      "link": "https://elpais.com/economia/2026-04-27/cuerpo-anuncia-una-revision-de-las-previsiones-economicas-por-la-incertidumbre-de-la-guerra.html",
-      "author": "Carlos Molina Infante",
-      "summary": "El Gobierno aprueba mañana una revisión de las cifras, pero pide meses para modificar el cuadro macroeconómico que sirve de base a los Presupuestos",
-      "date": "Mon, 27 Apr 2026 11:29:32 GMT",
+      "title": "Sánchez intervendrá para limar asperezas con el PNV tras la crisis con el PSE por una burla con IA sobre Aitor Esteban",
+      "link": "https://elpais.com/espana/2026-04-29/sanchez-intervendra-para-limar-asperezas-con-el-pnv-tras-la-crisis-con-el-pse-por-una-burla-con-ia-sobre-aitor-esteban.html",
+      "author": "Carlos E Cué ,José Marcos García",
+      "summary": "El presidente tiene este miércoles en la pregunta del PNV una ocasión para reconducir la tensión que canceló una cita con el enviado del presidente, con el uso del euskera de trasfondo",
+      "date": "Wed, 29 Apr 2026 03:30:01 GMT",
+      "source": "El País (España)",
+      "scrapeable": false,
+      "risk_summary": "Las tensiones entre PSOE y PNV por el uso político del euskera amenazan la estabilidad de los apoyos parlamentarios necesarios para la gobernabilidad."
+    },
+    {
+      "title": "Las derechas tumban el decreto del alquiler entre reproches al PSOE desde su izquierda",
+      "link": "https://elpais.com/espana/2026-04-28/las-derechas-tumban-el-decreto-del-alquiler-entre-reproches-al-psoe-desde-su-izquierda.html",
+      "author": "Xosé  Hermida",
+      "summary": "El ministro Bustinduy y varios socios parlamentarios piden a los socialistas que lo presenten de nuevo",
+      "date": "Tue, 28 Apr 2026 19:20:56 GMT",
+      "source": "El País (España)",
+      "scrapeable": false,
+      "risk_summary": "El rechazo conjunto de PP, Vox y Junts al decreto de alquiler demuestra la consolidación de una mayoría alternativa que puede paralizar la agenda legislativa del Gobierno."
+    },
+    {
+      "title": "España invitará a Delcy Rodríguez a la Cumbre Iberoamericana de noviembre en Madrid",
+      "link": "https://elpais.com/espana/2026-04-28/espana-invitara-a-delcy-rodriguez-a-la-cumbre-iberoamericana-de-noviembre.html",
+      "author": "Miguel González López,María Martín",
+      "summary": "La presidenta encargada de Venezuela está sancionada por la UE y no puede viajar a Europa, aunque caben excepciones a esa restricción",
+      "date": "Tue, 28 Apr 2026 19:42:39 GMT",
+      "source": "El País (España)",
+      "scrapeable": false,
+      "risk_summary": "La invitación a la vicepresidenta venezolana sancionada por la UE genera tensiones diplomáticas que podrían afectar las relaciones de España con Bruselas."
+    },
+    {
+      "title": "PP y Vox vuelven a chocar en el Congreso por la “prioridad nacional” tras sus pactos",
+      "link": "https://elpais.com/espana/2026-04-28/pp-y-vox-vuelven-a-chocar-en-el-congreso-por-la-prioridad-nacional-tras-sus-pactos.html",
+      "author": "Elsa García de Blas",
+      "summary": "Los populares enmiendan una iniciativa de los de Abascal, aunque también están de acuerdo en restringir la atención sanitaria a los irregulares",
+      "date": "Tue, 28 Apr 2026 17:35:20 GMT",
+      "source": "El País (España)",
+      "scrapeable": false,
+      "risk_summary": "Las divisiones entre PP y Vox sobre inmigración en el Congreso contrastan con sus pactos autonómicos, revelando tensiones internas en la oposición conservadora."
+    },
+    {
+      "title": "Azcón niega en su investidura que la “prioridad nacional” del PP discrimine por nacionalidad",
+      "link": "https://elpais.com/espana/2026-04-28/azcon-niega-en-su-investidura-que-la-prioridad-nacional-del-pp-discrimine-por-nacionalidad.html",
+      "author": "Virginia Martínez",
+      "summary": "El candidato popular asegura tras el pacto con Vox que Aragón “necesita seguir recibiendo de forma legal y ordenada a personas de otros países”",
+      "date": "Tue, 28 Apr 2026 09:51:48 GMT",
+      "source": "El País (España)",
+      "scrapeable": false,
+      "risk_summary": "El pacto PP-Vox en Aragón con la 'prioridad nacional' consolida un modelo de gobierno de coalición conservadora que puede extenderse a otras autonomías."
+    },
+    {
+      "title": "La tasa de paro crece hasta el 10,8% en el primer trimestre y la ocupación cae el doble que el año pasado",
+      "link": "https://elpais.com/economia/2026-04-28/la-tasa-de-paro-crece-hasta-el-108-en-el-primer-trimestre-y-la-ocupacion-cae-el-doble-que-el-ano-pasado.html",
+      "author": "Emilio Sánchez Hidalgo",
+      "summary": "España perdió 170.300 empleados en el que suele ser el peor periodo para la economía española. El número de parados crece en 231.500, la cifra más negativa desde 2013",
+      "date": "Tue, 28 Apr 2026 07:00:19 GMT",
       "source": "El País (Economía)",
       "scrapeable": false,
-      "risk_summary": "El Gobierno revisa sus previsiones económicas para Bruselas pero retrasa meses la actualización del cuadro macro de los Presupuestos, generando incertidumbre fiscal."
+      "risk_summary": "El deterioro del mercado laboral con 170.300 empleos perdidos y paro al 10,8% erosiona uno de los principales activos políticos del Gobierno de Sánchez."
     },
     {
-      "title": "Los 'whatsapps' de la purga de Ortega Smith: expulsado en 13 minutos por \"daño a Vox\"",
-      "link": "https://www.elmundo.es/espana/2026/04/27/69ee1df7fdddff9a0b8b457c.html",
-      "author": "Juanma Lamet",
-      "summary": "EL MUNDO accede a los mensajes del Comité Ejecutivo Nacional que acordó cortarle la cabeza al ex secretario generalLeer",
-      "date": "Mon, 27 Apr 2026 02:04:40 +0200",
+      "title": "El Gobierno contempla un impacto de hasta cuatro décimas en el crecimiento económico por la guerra en Irán",
+      "link": "https://elpais.com/economia/2026-04-28/el-gobierno-contempla-un-impacto-de-hasta-cuatro-decimas-en-el-crecimiento-economico-por-la-guerra-en-iran.html",
+      "author": "Pablo Sempere",
+      "summary": "Economía mantiene el crecimiento oficial del PIB en el 2,2%, aunque lo actualizará próximamente y no descarta la revisión de hasta ocho décimas que prevé el Banco de España",
+      "date": "Tue, 28 Apr 2026 11:38:47 GMT",
+      "source": "El País (Economía)",
+      "scrapeable": false,
+      "risk_summary": "El Gobierno reconoce un impacto económico significativo por el conflicto en Irán que podría obligar a revisar las previsiones de crecimiento y presupuestarias."
+    },
+    {
+      "title": "El Gobierno ya deja abierta la puerta a no tener Presupuestos tampoco en 2026",
+      "link": "https://www.elmundo.es/espana/2026/04/28/69f0b03dfc6c831b598b4593.html",
+      "author": "Raúl Piña",
+      "summary": "Los ministros de Economía y Hacienda dicen estar centrados en lo importante, las consecuencias de la guerra y que habrá que decidir para qué \"periodo presupuestario\" se hacen los númerosLeer",
+      "date": "Tue, 28 Apr 2026 15:04:02 +0200",
       "source": "El Mundo",
       "scrapeable": false,
-      "risk_summary": "La purga de Ortega Smith expone las tensiones internas en Vox entre moderados y línea dura, debilitando la cohesión del partido ultraderechista."
+      "risk_summary": "La admisión gubernamental de posibles dificultades presupuestarias hasta 2026 revela la precariedad parlamentaria que compromete la capacidad de planificación económica."
     },
     {
       "title": "Alivio en el PP sobre la \"prioridad nacional\": su primera encuesta interna revela que el 40% de los votantes del PSOE también la apoya",
@@ -80,37 +100,7 @@
       "date": "Mon, 27 Apr 2026 22:58:44 +0200",
       "source": "El Mundo",
       "scrapeable": false,
-      "risk_summary": "La encuesta interna del PP sobre 'prioridad nacional' revela apoyo del 40% de votantes socialistas, validando la estrategia de ocupar espacios discursivos de Vox."
-    },
-    {
-      "title": "El Gobierno afronta la derrota del decreto de alquileres pero Junts le señala la vía para reactivarlo: \"Sumar lo ha entendido\"",
-      "link": "https://www.eldiario.es/politica/gobierno-afronta-derrota-decreto-alquileres-junts-le-senala-via-reactivarlo-sumar-entendido_1_13176388.html",
-      "author": "Daniel Ríos",
-      "summary": "Fuentes de la formación independentista confirman el 'no' al texto que afecta a un millón de alquileres y se preguntan \"qué hará el PSOE\" y si aceptará exigencias como más ayudas fiscales a caseros o el IVA franquiciado para los autónomos, lo que abre la puerta a negociar un nuevo paqueteJunts antic",
-      "date": "Mon, 27 Apr 2026 20:21:09 +0000",
-      "source": "eldiario.es",
-      "scrapeable": true,
-      "risk_summary": "El Gobierno afronta una derrota parlamentaria segura en el decreto de alquileres, evidenciando su debilidad estructural y la capacidad de chantaje de sus socios."
-    },
-    {
-      "title": "Junts anticipa su 'no' al decreto de los alquileres y deja al Gobierno sin los apoyos necesarios para convalidarlo",
-      "link": "https://www.eldiario.es/politica/sumar-abre-dar-ayudas-fiscales-caseros-iva-franquiciado-junts-salve-decreto-alquileres_1_13174675.html",
-      "author": "Daniel Ríos",
-      "summary": "Sumar se había abierto a dar ayudas fiscales a caseros y al IVA franquiciado para que los independentistas salvaran el texto, pero el partido de Puigdemont ya ha dejado claro que no lo respaldaráEl silencio de los caseros y la presión al PP y a Junts marcan la cuenta atrás para enviar el burofax de ",
-      "date": "Mon, 27 Apr 2026 08:12:24 +0000",
-      "source": "eldiario.es",
-      "scrapeable": true,
-      "risk_summary": "Junts anticipa su veto definitivo al decreto de alquileres, dejando al Gobierno sin margen de maniobra y forzando una retirada estratégica en política de vivienda."
-    },
-    {
-      "title": "Feijóo sucumbe al discurso ultra de Vox",
-      "link": "https://www.eldiario.es/politica/feijoo-sucumbe-discurso-ultra-vox_1_13171084.html",
-      "author": "Aitor Riveiro",
-      "summary": "El concepto de “prioridad nacional” se incluyó en los acuerdos de Extremadura y Aragón como una concesión a los de Abascal sin repercusiones legales directas, pero ha ocupado la centralidad del debate ante la inminente cita con las urnas en Andalucía, donde la extrema derecha podrá comprobar cómo ca",
-      "date": "Sun, 26 Apr 2026 20:59:40 +0000",
-      "source": "eldiario.es",
-      "scrapeable": true,
-      "risk_summary": "Feijóo adopta plenamente el marco ultra de Vox con la 'prioridad nacional', marcando un giro ideológico del PP hacia posiciones más radicales en inmigración."
+      "risk_summary": "Las encuestas internas del PP muestran apoyo transversal a la 'prioridad nacional' incluso entre votantes socialistas, validando la estrategia conservadora en inmigración."
     }
   ]
 }
