@@ -3,7 +3,7 @@
 import json
 import pathlib
 import re
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone
 
 import anthropic
 import httpx
@@ -172,8 +172,10 @@ Responde SOLO JSON array con TODOS los artículos ordenados de mayor a menor sco
 def curate(days: int = 2, top_n: int = 0) -> dict:
     """Score and rank Reader feed articles against the author profile.
 
-    Fetches ALL articles from the Reader feed, scores them, and merges
-    with previously curated articles that haven't been marked as read.
+    The curated list is a snapshot of Reader's current UNSEEN feed (location=feed):
+    each run replaces curated.json with what's currently unseen in Reader. No carry-over
+    from previous runs — Reader is the source of truth. Read state in the UI is tracked
+    per-URL in localStorage, so it survives even when an article leaves the snapshot.
     """
     profile = build_profile()
     articles = fetch_feed()
@@ -273,35 +275,6 @@ def curate(days: int = 2, top_n: int = 0) -> dict:
     reader_urls = {a.get("source_url", "") for a in articles}
     thinktank = find_outside_bubble(profile, reader_urls, thinktank_ids)
     abundance = find_abundance(reader_urls)
-
-    # Merge with previous curated articles (carry over unread ones, max 7 days since first seen)
-    now_iso = datetime.now(timezone.utc).isoformat()
-    cutoff = (datetime.now(timezone.utc) - timedelta(days=7)).isoformat()
-    if CURATED_FILE.exists():
-        prev = json.loads(CURATED_FILE.read_text())
-        new_urls = {a.get("source_url", "") for a in curated_articles}
-        new_titles = {(a.get("title") or "").strip().lower() for a in curated_articles}
-        carried = 0
-        for old_article in prev.get("articles", []):
-            # Backfill _added_at for articles from before this field existed
-            if not old_article.get("_added_at"):
-                old_article["_added_at"] = old_article.get("published_date") or now_iso
-            # Age is measured from when we first saw it, not from its publish date
-            if old_article["_added_at"] < cutoff:
-                continue
-            old_url = old_article.get("source_url", "")
-            old_title = (old_article.get("title") or "").strip().lower()
-            is_blocked = any(
-                blocked in (old_article.get("author") or "").lower()
-                or blocked in (old_article.get("site_name") or "").lower()
-                or blocked in (old_article.get("title") or "").lower()
-                for blocked in BLOCKED_SOURCES
-            )
-            if not is_blocked and old_url not in new_urls and old_title not in new_titles:
-                curated_articles.append(old_article)
-                carried += 1
-        if carried:
-            print(f"  Carried over {carried} articles from previous nightly.")
 
     # Deduplicate by source_url and normalized title
     seen_urls = set()
