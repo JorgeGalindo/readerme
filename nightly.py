@@ -32,7 +32,12 @@ def run_nightly():
     tt = curate_thinktanks()
     print(f"  Thinktanks: {len(tt.get('articles', []))} publications")
 
-    print("\n5. Audio briefings (Main + Thinktanks)…")
+    print("\n5. Papers…")
+    from papers import curate_papers
+    pp = curate_papers()
+    print(f"  Papers: {len(pp.get('articles', []))} publications")
+
+    print("\n6. Audio briefings (Main + Thinktanks)…")
     from briefing import generate_main, generate_thinktanks
     try:
         generate_main()

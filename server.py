@@ -147,6 +147,26 @@ def thinktanks():
     )
 
 
+@app.route("/papers")
+def papers():
+    papers_file = DATA_DIR / "papers.json"
+    if not papers_file.exists():
+        return render_template("papers.html", by_source={}, generated_at="")
+
+    data = json.loads(papers_file.read_text())
+    generated_at = data.get("generated_at", "")
+    if generated_at:
+        dt = datetime.fromisoformat(generated_at)
+        generated_at = dt.strftime("%d %b %Y, %H:%M")
+
+    # Group by source, preserving insertion order from feeds.json.
+    by_source: dict[str, list] = {}
+    for a in data.get("articles", []):
+        by_source.setdefault(a.get("source", "Other"), []).append(a)
+
+    return render_template("papers.html", by_source=by_source, generated_at=generated_at)
+
+
 @app.route("/api/briefing.mp3")
 def briefing_audio():
     """Legacy route — España briefing."""

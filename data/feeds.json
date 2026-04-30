@@ -49,5 +49,12 @@
   {"site_name": "Abundance Institute", "rss_url": "https://abundance.institute/articles/feed", "tag": "thinktank", "subtag": "abundance"},
   {"site_name": "Center for Growth and Opportunity", "rss_url": "https://www.thecgo.org/news/feed/", "tag": "thinktank", "subtag": "abundance"},
   {"site_name": "Tony Blair Institute", "rss_url": "https://institute.global/sitemap.xml", "tag": "thinktank", "subtag": "classic", "feed_type": "sitemap_tbi"},
-  {"site_name": "European Policy Centre", "rss_url": "https://www.epc.eu/publications/", "tag": "thinktank", "subtag": "classic", "feed_type": "scrape_epc"}
+  {"site_name": "European Policy Centre", "rss_url": "https://www.epc.eu/publications/", "tag": "thinktank", "subtag": "classic", "feed_type": "scrape_epc"},
+
+  {"site_name": "NBER – Education", "rss_url": "https://back.nber.org/rss/newed.xml", "tag": "papers"},
+  {"site_name": "NBER – Children", "rss_url": "https://back.nber.org/rss/newch.xml", "tag": "papers"},
+  {"site_name": "NBER – Political Economy", "rss_url": "https://back.nber.org/rss/newpe.xml", "tag": "papers"},
+  {"site_name": "VoxEU / CEPR", "rss_url": "https://politepol.com/fd/nDJFHbjMLqmT", "tag": "papers"},
+  {"site_name": "IZA Discussion Papers", "rss_url": "https://politepol.com/fd/8fhmwuMt90cZ", "tag": "papers"},
+  {"site_name": "Banco de España – Publicaciones", "rss_url": "https://politepol.com/fd/g0YZzVgD5RZp.xml", "tag": "papers"}
 ]
