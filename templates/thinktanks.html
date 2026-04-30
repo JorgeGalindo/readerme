@@ -15,41 +15,46 @@
   <header>
     <h1>readerme <span class="meta">{{ generated_at }}</span></h1>
     <nav class="page-nav">
-      <a href="/">Mundo</a>
+      <a href="/">Main</a>
       <a href="/espana">España</a>
       <a href="/thinktanks" class="active">Thinktanks</a>
     </nav>
   </header>
 
   <main>
-    {% if not by_source %}
+    {% if not sections %}
     <div class="empty">
       <p>No hay publicaciones de thinktanks todavía.</p>
     </div>
     {% endif %}
 
-    {% for source, articles in by_source.items() %}
-    <section class="bubble-section">
-      <h2 class="section-title">{{ source }}</h2>
-      {% for a in articles %}
-      <article class="card bubble-card" data-url="{{ a.url }}">
-        <h2>
-          <a href="{{ a.url }}" target="_blank" rel="noopener">{{ a.title }}</a>
-        </h2>
-        {% if a.summary %}
-        <p class="source-reason"><span class="reason">{{ a.summary[:150] }}</span></p>
-        {% endif %}
-        <div class="card-actions top-actions">
-          <button class="btn-read" onclick="markRead(this)">Leído</button>
-        </div>
-      </article>
+    {% for section in sections %}
+    <section class="tt-subsection" data-subtag="{{ section.key }}">
+      <h2 class="subsection-title">{{ section.label }}</h2>
+      {% for source, articles in section.by_source.items() %}
+      <section class="bubble-section">
+        <h3 class="section-title">{{ source }}</h3>
+        {% for a in articles %}
+        <article class="card bubble-card" data-url="{{ a.url }}">
+          <h2>
+            <a href="{{ a.url }}" target="_blank" rel="noopener">{{ a.title }}</a>
+          </h2>
+          {% if a.summary %}
+          <p class="source-reason"><span class="reason">{{ a.summary[:150] }}</span></p>
+          {% endif %}
+          <div class="card-actions top-actions">
+            <button class="btn-read" onclick="markRead(this)">Leído</button>
+          </div>
+        </article>
+        {% endfor %}
+      </section>
       {% endfor %}
     </section>
     {% endfor %}
   </main>
 
   <footer>
-    <p>readerme &middot; Elcano, Fedea, BBVA Research</p>
+    <p>readerme &middot; thinktanks RSS</p>
   </footer>
 
   <script>

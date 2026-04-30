@@ -117,15 +117,23 @@ def thinktanks():
         dt = datetime.fromisoformat(generated_at)
         generated_at = dt.strftime("%d %b %Y, %H:%M")
 
-    # Group by source
-    by_source = {}
+    # Group by subtag, then by source. Subtags ordered: classic, spain, abundance.
+    SUBTAG_ORDER = ["classic", "spain", "abundance"]
+    SUBTAG_LABEL = {"classic": "Classic", "spain": "España", "abundance": "Abundance"}
+    grouped: dict[str, dict[str, list]] = {}
     for a in tt_data.get("articles", []):
+        sub = a.get("subtag") or "classic"
         src = a.get("source", "Other")
-        by_source.setdefault(src, []).append(a)
+        grouped.setdefault(sub, {}).setdefault(src, []).append(a)
+
+    sections = []
+    for sub in SUBTAG_ORDER:
+        if sub in grouped:
+            sections.append({"key": sub, "label": SUBTAG_LABEL[sub], "by_source": grouped[sub]})
 
     return render_template(
         "thinktanks.html",
-        by_source=by_source,
+        sections=sections,
         generated_at=generated_at,
     )
 

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-30T06:35:49.165903+00:00",
-  "article_count_total": 929,
+  "generated_at": "2026-04-30T06:53:02.306896+00:00",
+  "article_count_total": 40,
   "articles": [
     {
       "id": "https://worksinprogress.co/issue/the-housing-theory-of-everything/",
@@ -71,6 +71,20 @@
       "reason": "Reforma upzoning más ambiciosa del mundo",
       "tag": "urbanismo",
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
+    },
+    {
+      "id": "https://www.statecraft.pub/p/is-the-senate-fixing-housing-policy",
+      "title": "Is the Senate Fixing Housing Policy?",
+      "source_url": "https://www.statecraft.pub/p/is-the-senate-fixing-housing-policy",
+      "site_name": "Statecraft",
+      "summary": "\"You can’t solve the problem by subsidizing demand and constraining supply\"",
+      "author": "Santi Ruiz",
+      "published_date": "2025-10-16T11:31:42+00:00",
+      "_feed": "https://www.statecraft.pub/feed",
+      "score": 88,
+      "reason": "Políticas de vivienda basadas en oferta",
+      "tag": "vivienda",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
     },
     {
       "id": "https://www.apricitas.io/p/americas-1t-ai-gamble",
@@ -183,6 +197,20 @@
       "reason": "Washington evita crisis precios con TOD",
       "tag": "urbanismo",
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
+    },
+    {
+      "id": "https://www.construction-physics.com/p/the-elusive-cost-savings-of-the-prefabricated",
+      "title": "The Elusive Cost Savings of the Prefabricated Home",
+      "source_url": "https://www.construction-physics.com/p/the-elusive-cost-savings-of-the-prefabricated",
+      "site_name": "Construction Physics",
+      "summary": "It’s long been believed the constantly rising costs of new home construction, and lackluster improvements in construction productivity more generally, are fundamentally a problem of production methods.",
+      "author": "Brian Potter",
+      "published_date": "2026-03-12T12:03:45+00:00",
+      "_feed": "https://www.construction-physics.com/feed",
+      "score": 85,
+      "reason": "Productividad en construcción de viviendas",
+      "tag": "vivienda",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
     },
     {
       "id": "https://www.apricitas.io/p/taiwans-modern-miracle",
@@ -339,6 +367,20 @@
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
     },
     {
+      "id": "https://www.construction-physics.com/p/a-history-of-operation-breakthrough",
+      "title": "A History of Operation Breakthrough",
+      "source_url": "https://www.construction-physics.com/p/a-history-of-operation-breakthrough",
+      "site_name": "Construction Physics",
+      "summary": "Many who look at the high and rising cost of housing see the problem as fundamentally one of production methods; more specifically, that homes could be built more cheaply if they were made using factories and industrialized processes, instead of assembling them on site using manual labor and hand-held tools.",
+      "author": "Brian Potter",
+      "published_date": "2026-03-06T13:03:16+00:00",
+      "_feed": "https://www.construction-physics.com/feed",
+      "score": 83,
+      "reason": "Métodos industriales para construcción masiva",
+      "tag": "vivienda",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
+    },
+    {
       "id": "https://www.siliconcontinent.com/p/european-nuclear-could-be-cheap",
       "title": "European nuclear could be cheap",
       "source_url": "https://www.siliconcontinent.com/p/european-nuclear-could-be-cheap",
@@ -365,6 +407,20 @@
       "reason": "Paradoja autocracia con escasez habitacional",
       "tag": "vivienda",
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
+    },
+    {
+      "id": "https://www.construction-physics.com/p/construction-costs-rarely-fall",
+      "title": "Construction Costs Rarely Fall",
+      "source_url": "https://www.construction-physics.com/p/construction-costs-rarely-fall",
+      "site_name": "Construction Physics",
+      "summary": "Not long ago we looked at construction productivity trends for the US and for countries around the world. We found that in the U.S., and in most other large, wealthy countries, construction productivity is stagnant or declining. Unlike manufacturing and agriculture, or the economy overall, which generally show improving productivity over time, in the field of construction we find that productivity",
+      "author": "Brian Potter",
+      "published_date": "2026-04-23T12:02:35+00:00",
+      "_feed": "https://www.construction-physics.com/feed",
+      "score": 82,
+      "reason": "Análisis estructural de costes construcción",
+      "tag": "abundancia",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
     },
     {
       "id": "https://albertogonzalezsanchez.substack.com/p/half-baked-ideas-i-increasing-the",
@@ -491,6 +547,20 @@
       "reason": "Presión fiscal récord sobre salarios",
       "tag": "economía",
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
+    },
+    {
+      "id": "https://www.construction-physics.com/p/trends-in-us-construction-productivity",
+      "title": "Trends in US Construction Productivity",
+      "source_url": "https://www.construction-physics.com/p/trends-in-us-construction-productivity",
+      "site_name": "Construction Physics",
+      "summary": "(This is a chapter of a longer report I’m working on that summarizes and expands the last several years of my work on construction productivity.",
+      "author": "Brian Potter",
+      "published_date": "2026-02-12T13:03:20+00:00",
+      "_feed": "https://www.construction-physics.com/feed",
+      "score": 81,
+      "reason": "Tendencias productividad construcción con datos",
+      "tag": "productividad",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
     },
     {
       "id": "https://www.siliconcontinent.com/p/why-sweden-has-so-many-unicorns",
@@ -675,6 +745,20 @@
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
     },
     {
+      "id": "https://www.statecraft.pub/p/how-to-run-new-york-city",
+      "title": "How to Run New York City",
+      "source_url": "https://www.statecraft.pub/p/how-to-run-new-york-city",
+      "site_name": "Statecraft",
+      "summary": "Maria Torres-Springer's lessons from three mayoral administrations",
+      "author": "Santi Ruiz",
+      "published_date": "2025-10-31T11:10:36+00:00",
+      "_feed": "https://www.statecraft.pub/feed",
+      "score": 78,
+      "reason": "Gestión urbana para crecimiento",
+      "tag": "urbanismo",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
+    },
+    {
       "id": "https://www.apricitas.io/p/america-is-flying-blind-on-immigration",
       "title": "America is Flying Blind on Immigration",
       "source_url": "https://www.apricitas.io/p/america-is-flying-blind-on-immigration",
@@ -829,6 +913,20 @@
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
     },
     {
+      "id": "https://www.statecraft.pub/p/how-to-rewire-city-hall",
+      "title": "How to Rewire City Hall",
+      "source_url": "https://www.statecraft.pub/p/how-to-rewire-city-hall",
+      "site_name": "Statecraft",
+      "summary": "“Mayors have a lot of FOMO”",
+      "author": "Santi Ruiz",
+      "published_date": "2026-02-13T17:34:36+00:00",
+      "_feed": "https://www.statecraft.pub/feed",
+      "score": 76,
+      "reason": "Reforma institucional para eficiencia",
+      "tag": "políticas públicas",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
+    },
+    {
       "id": "https://www.oneusefulthing.org/p/three-years-from-gpt-3-to-gemini",
       "title": "Three Years from GPT-3 to Gemini 3",
       "source_url": "https://www.oneusefulthing.org/p/three-years-from-gpt-3-to-gemini",
@@ -939,6 +1037,20 @@
       "reason": "Marco teórico moderno sobre inflación",
       "tag": "economía",
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
+    },
+    {
+      "id": "https://www.construction-physics.com/p/is-the-future-aws-for-everything",
+      "title": "Is the Future “AWS for Everything”?",
+      "source_url": "https://www.construction-physics.com/p/is-the-future-aws-for-everything",
+      "site_name": "Construction Physics",
+      "summary": "A theme running through my book is the idea that efficiency improvements, and the various methods for making products cheaper over time, have historically been dependent on some degree of repetition, on running your production process over and over again.",
+      "author": "Brian Potter",
+      "published_date": "2026-02-19T13:01:06+00:00",
+      "_feed": "https://www.construction-physics.com/feed",
+      "score": 75,
+      "reason": "Escalabilidad industrial como servicio",
+      "tag": "abundancia",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
     },
     {
       "id": "https://www.apricitas.io/p/the-no-hire-economy",
@@ -1053,6 +1165,20 @@
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
     },
     {
+      "id": "https://www.construction-physics.com/p/how-much-computing-power-is-in-a",
+      "title": "How Much Computing Power is in a Data Center?",
+      "source_url": "https://www.construction-physics.com/p/how-much-computing-power-is-in-a",
+      "site_name": "Construction Physics",
+      "summary": "Every day there’s some new story about the enormous amounts of investment in building AI data centers.",
+      "author": "Brian Potter",
+      "published_date": "2026-03-19T12:01:33+00:00",
+      "_feed": "https://www.construction-physics.com/feed",
+      "score": 74,
+      "reason": "Capacidad computacional e infraestructura",
+      "tag": "IA",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
+    },
+    {
       "id": "https://www.derekthompson.org/p/yes-ai-is-a-bubble-there-is-no-question",
       "title": "‘Yes, AI Is a Bubble. There Is No Question.’",
       "source_url": "https://www.derekthompson.org/p/yes-ai-is-a-bubble-there-is-no-question",
@@ -1151,6 +1277,20 @@
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
     },
     {
+      "id": "https://www.construction-physics.com/p/information-and-technological-evolution",
+      "title": "Information and Technological Evolution",
+      "source_url": "https://www.construction-physics.com/p/information-and-technological-evolution",
+      "site_name": "Construction Physics",
+      "summary": "I spend a lot of time reading about the nature of technological progress, and I’ve found that the literature on technology is somewhat uneven.",
+      "author": "Brian Potter",
+      "published_date": "2026-04-02T12:16:08+00:00",
+      "_feed": "https://www.construction-physics.com/feed",
+      "score": 73,
+      "reason": "Evolución tecnológica y progreso",
+      "tag": "tecnología",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
+    },
+    {
       "id": "https://www.apricitas.io/p/america-is-losing-blue-collar-jobs",
       "title": "America is Losing Blue Collar Jobs",
       "source_url": "https://www.apricitas.io/p/america-is-losing-blue-collar-jobs",
@@ -1233,6 +1373,20 @@
       "reason": "Economía del mercado inmobiliario residencial",
       "tag": "vivienda",
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
+    },
+    {
+      "id": "https://www.construction-physics.com/p/the-age-of-the-amplifier",
+      "title": "The Age of the Amplifier",
+      "source_url": "https://www.construction-physics.com/p/the-age-of-the-amplifier",
+      "site_name": "Construction Physics",
+      "summary": "As we’ve noted more than a few times before, for most of the 20th century AT&T’s Bell Labs was the premier industrial research lab in the US.",
+      "author": "Brian Potter",
+      "published_date": "2026-03-27T12:00:44+00:00",
+      "_feed": "https://www.construction-physics.com/feed",
+      "score": 72,
+      "reason": "Innovación tecnológica industrial",
+      "tag": "tecnología",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
     },
     {
       "id": "https://www.oneusefulthing.org/p/management-as-ai-superpower",
@@ -1403,6 +1557,20 @@
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
     },
     {
+      "id": "https://www.construction-physics.com/p/helium-is-hard-to-replace",
+      "title": "Helium Is Hard to Replace",
+      "source_url": "https://www.construction-physics.com/p/helium-is-hard-to-replace",
+      "site_name": "Construction Physics",
+      "summary": "The war in Iran, and the subsequent closure of the Strait of Hormuz, has unfortunately made us all familiar with details of the petroleum supply chain that we could formerly happily ignore.",
+      "author": "Brian Potter",
+      "published_date": "2026-04-09T12:03:42+00:00",
+      "_feed": "https://www.construction-physics.com/feed",
+      "score": 70,
+      "reason": "Escasez de recursos críticos",
+      "tag": "abundancia",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
+    },
+    {
       "id": "https://www.apricitas.io/p/california-keeps-losing-tech-jobs",
       "title": "California Keeps Losing Tech Jobs",
       "source_url": "https://www.apricitas.io/p/california-keeps-losing-tech-jobs",
@@ -1529,6 +1697,20 @@
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
     },
     {
+      "id": "https://www.statecraft.pub/p/did-the-chips-everything-bagelwork",
+      "title": "Did the CHIPS \"Everything Bagel\"...Work?",
+      "source_url": "https://www.statecraft.pub/p/did-the-chips-everything-bagelwork",
+      "site_name": "Statecraft",
+      "summary": "“Nobody on the team thought we were going to get all these deals done”",
+      "author": "Santi Ruiz",
+      "published_date": "2025-12-12T13:03:46+00:00",
+      "_feed": "https://www.statecraft.pub/feed",
+      "score": 69,
+      "reason": "Política industrial y semiconductores",
+      "tag": "tecnología",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
+    },
+    {
       "id": "https://www.derekthompson.org/p/the-most-important-chart-in-ai-is",
       "title": "The Most Important Chart in AI Is Also the Most Misunderstood",
       "source_url": "https://www.derekthompson.org/p/the-most-important-chart-in-ai-is",
@@ -1597,6 +1779,20 @@
       "reason": "IA transformando producción capital humano",
       "tag": "IA",
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
+    },
+    {
+      "id": "https://www.statecraft.pub/p/ten-thoughts-on-government-data",
+      "title": "Ten Thoughts on Government Data",
+      "source_url": "https://www.statecraft.pub/p/ten-thoughts-on-government-data",
+      "site_name": "Statecraft",
+      "summary": "Government data often underpins policy debates.",
+      "author": "Santi Ruiz",
+      "published_date": "2026-03-05T12:06:06+00:00",
+      "_feed": "https://www.statecraft.pub/feed",
+      "score": 68,
+      "reason": "Datos para políticas basadas evidencia",
+      "tag": "datos",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
     },
     {
       "id": "https://www.apricitas.io/p/trumps-blockade-of-america",
@@ -1723,6 +1919,20 @@
       "reason": "Desconexión percepción-realidad económica",
       "tag": "economía",
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
+    },
+    {
+      "id": "https://www.statecraft.pub/p/should-the-feds-bail-out-chicago",
+      "title": "Should the Feds Bail Out Chicago?",
+      "source_url": "https://www.statecraft.pub/p/should-the-feds-bail-out-chicago",
+      "site_name": "Statecraft",
+      "summary": "“Municipal debt is the history of America”",
+      "author": "Santi Ruiz",
+      "published_date": "2025-11-25T12:11:37+00:00",
+      "_feed": "https://www.statecraft.pub/feed",
+      "score": 67,
+      "reason": "Crisis fiscal urbana",
+      "tag": "políticas públicas",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
     },
     {
       "id": "https://www.oneusefulthing.org/p/real-ai-agents-and-real-work",
@@ -1935,6 +2145,20 @@
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
     },
     {
+      "id": "https://www.statecraft.pub/p/998-of-federal-employees-get-good",
+      "title": "99.8% of Federal Employees Get Good Performance Reviews. Why?",
+      "source_url": "https://www.statecraft.pub/p/998-of-federal-employees-get-good",
+      "site_name": "Statecraft",
+      "summary": "Trump's head of talent, on the federal workforce.",
+      "author": "Santi Ruiz",
+      "published_date": "2025-12-16T11:33:17+00:00",
+      "_feed": "https://www.statecraft.pub/feed",
+      "score": 65,
+      "reason": "Reforma función pública",
+      "tag": "políticas públicas",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
+    },
+    {
       "id": "https://www.apricitas.io/p/how-tariffs-are-breaking-us-trade",
       "title": "How Tariffs Are Breaking US Trade",
       "source_url": "https://www.apricitas.io/p/how-tariffs-are-breaking-us-trade",
@@ -2059,6 +2283,20 @@
       "reason": "Dilema estratégico iraní guerra-paz",
       "tag": "geopolítica",
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
+    },
+    {
+      "id": "https://www.statecraft.pub/p/when-fafsa-broke-they-called-this",
+      "title": "When FAFSA Broke, They Called This Guy",
+      "source_url": "https://www.statecraft.pub/p/when-fafsa-broke-they-called-this",
+      "site_name": "Statecraft",
+      "summary": "“Two moms can’t produce a baby in 4.5 months”",
+      "author": "Santi Ruiz",
+      "published_date": "2026-02-26T12:05:56+00:00",
+      "_feed": "https://www.statecraft.pub/feed",
+      "score": 64,
+      "reason": "Gestión crisis sistemas complejos",
+      "tag": "políticas públicas",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
     },
     {
       "id": "https://www.oneusefulthing.org/p/claude-code-and-what-comes-next",
@@ -2187,6 +2425,20 @@
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
     },
     {
+      "id": "https://www.statecraft.pub/p/whats-wrong-with-nih-grants",
+      "title": "What’s Wrong with NIH Grants?",
+      "source_url": "https://www.statecraft.pub/p/whats-wrong-with-nih-grants",
+      "site_name": "Statecraft",
+      "summary": "“Science is fundamentally different than remodeling a kitchen”",
+      "author": "Santi Ruiz",
+      "published_date": "2026-01-09T12:34:34+00:00",
+      "_feed": "https://www.statecraft.pub/feed",
+      "score": 63,
+      "reason": "Reforma financiación investigación",
+      "tag": "políticas públicas",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
+    },
+    {
       "id": "https://www.writingruxandrabio.com/p/the-bureaucracy-blocking-the-chance",
       "title": "The Bureaucracy Blocking the Chance at a Cure",
       "source_url": "https://www.writingruxandrabio.com/p/the-bureaucracy-blocking-the-chance",
@@ -2297,6 +2549,20 @@
       "reason": "Irán cambia estrategia defensiva a ofensiva",
       "tag": "geopolítica",
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
+    },
+    {
+      "id": "https://www.statecraft.pub/p/how-to-save-science-funding",
+      "title": "How to Save Science Funding",
+      "source_url": "https://www.statecraft.pub/p/how-to-save-science-funding",
+      "site_name": "Statecraft",
+      "summary": "“The first time you apply for grant funding, it comes as a bit of a shock.”",
+      "author": "Santi Ruiz",
+      "published_date": "2025-12-04T11:50:37+00:00",
+      "_feed": "https://www.statecraft.pub/feed",
+      "score": 62,
+      "reason": "Optimización fondos investigación",
+      "tag": "políticas públicas",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
     },
     {
       "id": "https://www.error500.net/p/el-loro-estocastico-ha-muerto",
@@ -2521,6 +2787,20 @@
       "reason": "Guerra cambio régimen Israel-EEUU contra Irán",
       "tag": "geopolítica",
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
+    },
+    {
+      "id": "https://www.statecraft.pub/p/how-a-congressional-office-actually",
+      "title": "How a Congressional Office Actually Works",
+      "source_url": "https://www.statecraft.pub/p/how-a-congressional-office-actually",
+      "site_name": "Statecraft",
+      "summary": "“You need zen”",
+      "author": "Santi Ruiz",
+      "published_date": "2026-02-19T12:25:29+00:00",
+      "_feed": "https://www.statecraft.pub/feed",
+      "score": 60,
+      "reason": "Funcionamiento instituciones políticas",
+      "tag": "políticas públicas",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
     },
     {
       "id": "https://www.writingruxandrabio.com/p/a-manifesto-for-reviving-biopharma",
@@ -2759,6 +3039,20 @@
       "reason": "Omán como mediador preferido de Irán",
       "tag": "geopolítica",
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
+    },
+    {
+      "id": "https://www.statecraft.pub/p/whats-wrong-with-nonprofits",
+      "title": "What’s Wrong with Nonprofits?",
+      "source_url": "https://www.statecraft.pub/p/whats-wrong-with-nonprofits",
+      "site_name": "Statecraft",
+      "summary": "“It’s one sign of just how far nonprofits have fallen”",
+      "author": "Santi Ruiz",
+      "published_date": "2026-02-04T12:03:47+00:00",
+      "_feed": "https://www.statecraft.pub/feed",
+      "score": 58,
+      "reason": "Eficiencia organizaciones sin ánimo",
+      "tag": "políticas públicas",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
     },
     {
       "id": "tag:blogger.com,1999:blog-35658622.post-8731550316761335311",
@@ -3125,6 +3419,20 @@
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
     },
     {
+      "id": "https://www.statecraft.pub/p/one-year-of-trumps-economic-statecraft",
+      "title": "One Year of Trump’s Economic Statecraft",
+      "source_url": "https://www.statecraft.pub/p/one-year-of-trumps-economic-statecraft",
+      "site_name": "Statecraft",
+      "summary": "Three thoughtful liberal observers, one mega-episode.",
+      "author": "Santi Ruiz",
+      "published_date": "2026-01-27T11:31:15+00:00",
+      "_feed": "https://www.statecraft.pub/feed",
+      "score": 55,
+      "reason": "Política económica y comercio",
+      "tag": "economía",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
+    },
+    {
       "id": "https://albertogonzalezsanchez.substack.com/p/ports-electrification-and-the-quest",
       "title": "Ports electrification and the quest for European energy autonomy",
       "source_url": "https://albertogonzalezsanchez.substack.com/p/ports-electrification-and-the-quest",
@@ -3361,6 +3669,20 @@
       "reason": "Desapalancamiento público español exitoso",
       "tag": "economía",
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
+    },
+    {
+      "id": "https://www.statecraft.pub/p/how-diplomacy-works-in-africa",
+      "title": "How Diplomacy Works in Africa",
+      "source_url": "https://www.statecraft.pub/p/how-diplomacy-works-in-africa",
+      "site_name": "Statecraft",
+      "summary": "“The NSC is like the emperor with no clothes”",
+      "author": "Santi Ruiz",
+      "published_date": "2025-11-12T12:31:35+00:00",
+      "_feed": "https://www.statecraft.pub/feed",
+      "score": 53,
+      "reason": "Diplomacia y relaciones internacionales",
+      "tag": "geopolítica",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
     },
     {
       "id": "https://www.apricitas.io/p/the-supreme-court-ruled-against-trumps",
@@ -3671,6 +3993,20 @@
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
     },
     {
+      "id": "https://www.statecraft.pub/p/how-the-national-security-strategy",
+      "title": "How the National Security Strategy Gets Made",
+      "source_url": "https://www.statecraft.pub/p/how-the-national-security-strategy",
+      "site_name": "Statecraft",
+      "summary": "“Leverage is the favorite verb of the Washington policy community.”",
+      "author": "Santi Ruiz",
+      "published_date": "2026-03-12T11:05:40+00:00",
+      "_feed": "https://www.statecraft.pub/feed",
+      "score": 50,
+      "reason": "Proceso estrategia seguridad nacional",
+      "tag": "geopolítica",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
+    },
+    {
       "id": "https://www.apricitas.io/p/a-detailed-look-at-trumps-car-tariffs",
       "title": "A Detailed Look at Trump's Car Tariffs",
       "source_url": "https://www.apricitas.io/p/a-detailed-look-at-trumps-car-tariffs",
@@ -3895,6 +4231,20 @@
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
     },
     {
+      "id": "https://www.construction-physics.com/p/reading-list-031426",
+      "title": "Reading List 03/14/26",
+      "source_url": "https://www.construction-physics.com/p/reading-list-031426",
+      "site_name": "Construction Physics",
+      "summary": "Closure of the Strait of Hormuz, banning build-to-rent homes in the US, Honda’s EV losses, Travis Kalanick’s new company, Corpus Christi’s water crisis, and more.",
+      "author": "Brian Potter",
+      "published_date": "2026-03-14T12:02:30+00:00",
+      "_feed": "https://www.construction-physics.com/feed",
+      "score": 48,
+      "reason": "Crisis energética global",
+      "tag": "energía",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
+    },
+    {
       "id": "https://www.apricitas.io/p/trumps-retreat-still-leaves-tariffs",
       "title": "Trump's Retreat Still Leaves Tariffs at 90-Year Highs",
       "source_url": "https://www.apricitas.io/p/trumps-retreat-still-leaves-tariffs",
@@ -4021,6 +4371,20 @@
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
     },
     {
+      "id": "https://www.construction-physics.com/p/reading-list-022826",
+      "title": "Reading List 02/28/26",
+      "source_url": "https://www.construction-physics.com/p/reading-list-022826",
+      "site_name": "Construction Physics",
+      "summary": "LA permitting costs, trickle-down housing, Panasonic stops making TVs, robotaxi remote operators, geothermal progress.",
+      "author": "Brian Potter",
+      "published_date": "2026-02-28T13:54:39+00:00",
+      "_feed": "https://www.construction-physics.com/feed",
+      "score": 47,
+      "reason": "Costes permisos y vivienda",
+      "tag": "vivienda",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
+    },
+    {
       "id": "https://www.error500.net/p/claude-se-niega-a-obedecer-si-no",
       "title": "Claude se niega a obedecer si no le tratas bien",
       "source_url": "https://www.error500.net/p/claude-se-niega-a-obedecer-si-no",
@@ -4103,6 +4467,20 @@
       "reason": "Minorías étnicas fuera clase media",
       "tag": "desigualdad",
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
+    },
+    {
+      "id": "https://www.construction-physics.com/p/reading-list-032126",
+      "title": "Reading List 03/21/26",
+      "source_url": "https://www.construction-physics.com/p/reading-list-032126",
+      "site_name": "Construction Physics",
+      "summary": "Damage to the Ras Laffan LNG facility, housing bubble risks, North Korea’s naval production, Bezos’ $100 billion for manufacturing automation, and more.",
+      "author": "Brian Potter",
+      "published_date": "2026-03-21T12:03:50+00:00",
+      "_feed": "https://www.construction-physics.com/feed",
+      "score": 46,
+      "reason": "Impactos geopolíticos en energía",
+      "tag": "geopolítica",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
     },
     {
       "id": "https://www.derekthompson.org/p/how-metrics-make-us-miserable",
@@ -4215,6 +4593,20 @@
       "reason": "Economía del mercado de citas",
       "tag": "cultura",
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
+    },
+    {
+      "id": "https://www.construction-physics.com/p/reading-list-032826",
+      "title": "Reading List 03/28/26",
+      "source_url": "https://www.construction-physics.com/p/reading-list-032826",
+      "site_name": "Construction Physics",
+      "summary": "Plastic price jumps, crypto-backed mortgages, a proposed AI data center pause, US battery manufacturing, and more.",
+      "author": "Brian Potter",
+      "published_date": "2026-03-28T12:02:28+00:00",
+      "_feed": "https://www.construction-physics.com/feed",
+      "score": 45,
+      "reason": "Disrupciones cadenas suministro",
+      "tag": "economía",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
     },
     {
       "id": "https://www.apricitas.io/p/the-economic-legacy-of-doge",
@@ -4343,6 +4735,20 @@
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
     },
     {
+      "id": "https://www.construction-physics.com/p/reading-list-04042026",
+      "title": "Reading List 04/04/2026",
+      "source_url": "https://www.construction-physics.com/p/reading-list-04042026",
+      "site_name": "Construction Physics",
+      "summary": "Aluminum disruptions, the EV rust belt, the ongoing transformer shortage, SpaceX’s IPO, and more",
+      "author": "Brian Potter",
+      "published_date": "2026-04-04T12:01:48+00:00",
+      "_feed": "https://www.construction-physics.com/feed",
+      "score": 44,
+      "reason": "Disrupciones aluminio y transformadores",
+      "tag": "economía",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
+    },
+    {
       "id": "https://www.derekthompson.org/p/is-the-smartphone-theory-of-everything",
       "title": "Is the Smartphone Theory of Everything Wrong? A Comprehensive Investigation",
       "source_url": "https://www.derekthompson.org/p/is-the-smartphone-theory-of-everything",
@@ -4469,6 +4875,20 @@
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
     },
     {
+      "id": "https://www.construction-physics.com/p/reading-list-03072026",
+      "title": "Reading List 03/07/2026",
+      "source_url": "https://www.construction-physics.com/p/reading-list-03072026",
+      "site_name": "Construction Physics",
+      "summary": "Data centers disconnecting from the grid, solar PV efficiency records, repairs for the Strategic Petroleum Reserve, Ford’s EV missteps, former OpenAI CTO’s new startup.",
+      "author": "Brian Potter",
+      "published_date": "2026-03-07T13:03:12+00:00",
+      "_feed": "https://www.construction-physics.com/feed",
+      "score": 43,
+      "reason": "Infraestructura energética y datos",
+      "tag": "energía",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
+    },
+    {
       "id": "https://www.writingruxandrabio.com/p/what-will-it-take-for-ai-to-change",
       "title": "What will it take for AI to change drug discovery?",
       "source_url": "https://www.writingruxandrabio.com/p/what-will-it-take-for-ai-to-change",
@@ -4565,6 +4985,20 @@
       "reason": "Aniversario especial noche en circo",
       "tag": "cultura",
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
+    },
+    {
+      "id": "https://www.construction-physics.com/p/reading-list-04112026",
+      "title": "Reading List 04/11/2026",
+      "source_url": "https://www.construction-physics.com/p/reading-list-04112026",
+      "site_name": "Construction Physics",
+      "summary": "Is the Strait of Hormuz open yet, building code cost benefit analysis, Intel joining Terafab, sponge cities, and more.",
+      "author": "Brian Potter",
+      "published_date": "2026-04-11T12:02:56+00:00",
+      "_feed": "https://www.construction-physics.com/feed",
+      "score": 42,
+      "reason": "Análisis coste-beneficio regulación",
+      "tag": "regulación",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
     },
     {
       "id": "https://www.derekthompson.org/p/if-americas-so-rich-howd-it-get-so",
@@ -4693,6 +5127,20 @@
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
     },
     {
+      "id": "https://www.construction-physics.com/p/reading-list-04182026",
+      "title": "Reading List 04/18/2026",
+      "source_url": "https://www.construction-physics.com/p/reading-list-04182026",
+      "site_name": "Construction Physics",
+      "summary": "A quadruped welding robot, the China Shock 2.0, transformer startups, China’s mysteriously moving satellites, and more.",
+      "author": "Brian Potter",
+      "published_date": "2026-04-18T12:00:53+00:00",
+      "_feed": "https://www.construction-physics.com/feed",
+      "score": 41,
+      "reason": "Robots construcción y China",
+      "tag": "tecnología",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
+    },
+    {
       "id": "https://www.derekthompson.org/p/how-zombie-flow-took-over-culture",
       "title": "How ‘Zombie Flow’ Took Over Culture",
       "source_url": "https://www.derekthompson.org/p/how-zombie-flow-took-over-culture",
@@ -4789,6 +5237,20 @@
       "reason": "Desaparición cambio climático agenda política",
       "tag": "políticas públicas",
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
+    },
+    {
+      "id": "https://www.construction-physics.com/p/reading-list-042526",
+      "title": "Reading List 04/25/26",
+      "source_url": "https://www.construction-physics.com/p/reading-list-042526",
+      "site_name": "Construction Physics",
+      "summary": "Transformer steel manufacturing, textile engineering, bringing power plants online quickly, infrasound, and more.",
+      "author": "Brian Potter",
+      "published_date": "2026-04-25T14:16:17+00:00",
+      "_feed": "https://www.construction-physics.com/feed",
+      "score": 40,
+      "reason": "Ingeniería textil y infrasonidos",
+      "tag": "tecnología",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
     },
     {
       "id": "https://albertogonzalezsanchez.substack.com/p/three-lenses-to-read-the-new-european",
@@ -5029,6 +5491,20 @@
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
     },
     {
+      "id": "https://www.construction-physics.com/p/reading-list-022126",
+      "title": "Reading List 02/21/26",
+      "source_url": "https://www.construction-physics.com/p/reading-list-022126",
+      "site_name": "Construction Physics",
+      "summary": "Welcome to the reading list, a weekly roundup of news and links related to buildings, infrastructure, and industrial technology.",
+      "author": "Brian Potter",
+      "published_date": "2026-02-21T13:37:44+00:00",
+      "_feed": "https://www.construction-physics.com/feed",
+      "score": 38,
+      "reason": "Resumen semanal construcción",
+      "tag": "abundancia",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
+    },
+    {
       "id": "https://www.elconfidencial.com/cultura/el-erizo-y-el-zorro/2026-04-21/juguetes-adultos-crisis-natalidad-1hms_4341158/",
       "title": "La crisis de fertilidad está convirtiendo a los adultos en niños",
       "source_url": "https://www.elconfidencial.com/cultura/el-erizo-y-el-zorro/2026-04-21/juguetes-adultos-crisis-natalidad-1hms_4341158/",
@@ -5167,6 +5643,20 @@
       "reason": "Claude IA momento tecnofeudal vida",
       "tag": "IA",
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
+    },
+    {
+      "id": "https://www.construction-physics.com/p/reading-list-021426",
+      "title": "Reading list 02/14/26",
+      "source_url": "https://www.construction-physics.com/p/reading-list-021426",
+      "site_name": "Construction Physics",
+      "summary": "Welcome to the reading list, a weekly list of news and links related to buildings, infrastructure, and industrial technology.",
+      "author": "Brian Potter",
+      "published_date": "2026-02-14T13:01:32+00:00",
+      "_feed": "https://www.construction-physics.com/feed",
+      "score": 37,
+      "reason": "Resumen semanal construcción",
+      "tag": "abundancia",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
     },
     {
       "id": "https://www.oneusefulthing.org/p/an-opinionated-guide-to-using-ai",
@@ -5391,6 +5881,20 @@
       "reason": "Trabajo duro versus holgazanería moderna",
       "tag": "cultura",
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
+    },
+    {
+      "id": "https://www.statecraft.pub/p/a-statecraft-fall-roundup",
+      "title": "A Statecraft Fall Roundup",
+      "source_url": "https://www.statecraft.pub/p/a-statecraft-fall-roundup",
+      "site_name": "Statecraft",
+      "summary": "The Recoding America Fund, Progress Conference, & a conversation with OSTP Director Michael Kratsios",
+      "author": "Santi Ruiz",
+      "published_date": "2025-10-23T16:13:05+00:00",
+      "_feed": "https://www.statecraft.pub/feed",
+      "score": 35,
+      "reason": "Resumen iniciativas políticas",
+      "tag": "políticas públicas",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
     },
     {
       "id": "https://www.ageofinvention.xyz/p/age-of-invention-why-scotland-succeeded",
@@ -5643,6 +6147,20 @@
       "reason": "Ideas maltusianas populares entre élites",
       "tag": "cultura",
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
+    },
+    {
+      "id": "https://www.statecraft.pub/p/a-statecraft-table-of-contents",
+      "title": "A Statecraft Table of Contents",
+      "source_url": "https://www.statecraft.pub/p/a-statecraft-table-of-contents",
+      "site_name": "Statecraft",
+      "summary": "And nice PDFs!",
+      "author": "Santi Ruiz",
+      "published_date": "2026-01-27T00:50:07+00:00",
+      "_feed": "https://www.statecraft.pub/feed",
+      "score": 33,
+      "reason": "Índice contenidos políticas",
+      "tag": "políticas públicas",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
     },
     {
       "id": "https://www.ageofinvention.xyz/p/age-of-invention-how-to-steal-technology",
@@ -5939,6 +6457,20 @@
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
     },
     {
+      "id": "https://www.statecraft.pub/p/statecraft-gift-guide-2025",
+      "title": "Statecraft Gift Guide 2025",
+      "source_url": "https://www.statecraft.pub/p/statecraft-gift-guide-2025",
+      "site_name": "Statecraft",
+      "summary": "For the wonk in your life.",
+      "author": "Santi Ruiz",
+      "published_date": "2025-11-28T13:02:58+00:00",
+      "_feed": "https://www.statecraft.pub/feed",
+      "score": 30,
+      "reason": "Recomendaciones libros políticas",
+      "tag": "cultura",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
+    },
+    {
       "id": "https://vallecana.substack.com/p/fuck-cars",
       "title": "Fuck cars",
       "source_url": "https://vallecana.substack.com/p/fuck-cars",
@@ -6161,6 +6693,20 @@
       "reason": "Republicanos confiaron Trump por antibelicismo",
       "tag": "cultura",
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
+    },
+    {
+      "id": "https://www.statecraft.pub/p/statecraft-in-2026",
+      "title": "Statecraft in 2026",
+      "source_url": "https://www.statecraft.pub/p/statecraft-in-2026",
+      "site_name": "Statecraft",
+      "summary": "Also: we're hiring!",
+      "author": "Santi Ruiz",
+      "published_date": "2026-01-16T12:22:30+00:00",
+      "_feed": "https://www.statecraft.pub/feed",
+      "score": 28,
+      "reason": "Planes futuros medio",
+      "tag": "medios",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
     },
     {
       "id": "https://vallecana.substack.com/p/asi-fue-la-junta-de-vecinos-para",
@@ -6497,6 +7043,20 @@
       "reason": "Erosión democrática economía versus política",
       "tag": "cultura",
       "_added_at": "2026-04-30T06:35:49.165033+00:00"
+    },
+    {
+      "id": "https://www.statecraft.pub/p/how-to-track-santa-fcf",
+      "title": "How to Track Santa",
+      "source_url": "https://www.statecraft.pub/p/how-to-track-santa-fcf",
+      "site_name": "Statecraft",
+      "summary": "\"Rudolph's nose does show up on the infrared spectrum\"",
+      "author": "Santi Ruiz",
+      "published_date": "2025-12-23T13:57:16+00:00",
+      "_feed": "https://www.statecraft.pub/feed",
+      "score": 25,
+      "reason": "Tecnología seguimiento navideño",
+      "tag": "tecnología",
+      "_added_at": "2026-04-30T06:53:02.306652+00:00"
     },
     {
       "id": "https://www.ageofinvention.xyz/p/age-of-invention-does-history-have",

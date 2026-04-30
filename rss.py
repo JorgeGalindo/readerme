@@ -189,6 +189,34 @@ def _fetch_one(rss_url: str, site_name: str, last_seen_id: Optional[str]) -> tup
     return new_items, new_top_id
 
 
+def fetch_latest_by_tag(tag: str, max_per_feed: int = 10, sleep_between: float = 0.3) -> list[dict]:
+    """Fetch the latest N items from each feed with the given tag, ignoring state.
+
+    Used by sections like Thinktanks where we always want the freshest items
+    rather than only deltas-since-last-run. Each item carries the feed's `subtag`
+    if defined in feeds.json.
+    """
+    feeds = [f for f in _load_feeds() if f.get("tag") == tag]
+    out = []
+    for f in feeds:
+        rss_url = f["rss_url"]
+        site = f.get("site_name") or rss_url
+        subtag = f.get("subtag", "")
+        try:
+            r = httpx.get(rss_url, headers={"User-Agent": UA}, timeout=20, follow_redirects=True)
+            r.raise_for_status()
+            articles = _parse_feed(r.text, site, rss_url)
+        except Exception as e:
+            print(f"  [skip] {site}: {e}")
+            time.sleep(sleep_between)
+            continue
+        for a in articles[:max_per_feed]:
+            a["subtag"] = subtag
+            out.append(a)
+        time.sleep(sleep_between)
+    return out
+
+
 def fetch_by_tag(tag: str, sleep_between: float = 0.3) -> list[dict]:
     """Fetch all feeds with the given tag, return new items since last run.
 

@@ -39,5 +39,11 @@
   {"site_name": "No es Economía", "rss_url": "https://www.noeseconomia.com/feed", "tag": "main"},
   {"site_name": "Iran Analytica", "rss_url": "https://www.irananalytica.org/feed", "tag": "main"},
   {"site_name": "Some Unpleasant", "rss_url": "https://someunpleasant.substack.com/feed", "tag": "main"},
-  {"site_name": "Jorge Guitián", "rss_url": "https://jorgeguitian.substack.com/feed", "tag": "main"}
+  {"site_name": "Jorge Guitián", "rss_url": "https://jorgeguitian.substack.com/feed", "tag": "main"},
+  {"site_name": "Statecraft", "rss_url": "https://www.statecraft.pub/feed", "tag": "main"},
+  {"site_name": "Construction Physics", "rss_url": "https://www.construction-physics.com/feed", "tag": "main"},
+
+  {"site_name": "Real Instituto Elcano", "rss_url": "https://www.realinstitutoelcano.org/feed/", "tag": "thinktank", "subtag": "spain"},
+  {"site_name": "Fedea", "rss_url": "https://fedea.net/feed/", "tag": "thinktank", "subtag": "spain"},
+  {"site_name": "Progress Ireland", "rss_url": "https://progressireland.substack.com/feed", "tag": "thinktank", "subtag": "abundance"}
 ]
