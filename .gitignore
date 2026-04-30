@@ -9,3 +9,4 @@ data/reader_articles.json
 data/substack_articles.json
 data/launchd.log
 data/nightly.log
+feed*.png

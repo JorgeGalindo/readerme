@@ -13,8 +13,6 @@
 
   --bubble-color: #8B7B2D;
   --bubble-bg: #F5F0D8;
-  --abundance-color: #C4782A;
-  --abundance-bg: #FAEBD7;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,8 +27,6 @@
 
     --bubble-color: #D4C46B;
     --bubble-bg: #3A3720;
-    --abundance-color: #E8A84C;
-    --abundance-bg: #3A2E1A;
   }
 }
 
@@ -98,42 +94,6 @@ header .meta {
 
 /* Tag filter bar */
 
-.tag-filter {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 24px 20px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.tag-btn {
-  font-family: "Roboto Mono", monospace;
-  font-size: 0.7rem;
-  font-weight: 300;
-  padding: 4px 10px;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--text-secondary);
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.15s ease;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.tag-btn.active {
-  background: var(--text-secondary);
-  color: var(--bg);
-  border-color: var(--text-secondary);
-}
-
-.tag-btn:not(.active):hover {
-  border-color: var(--text-secondary);
-}
-
 main {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -170,8 +130,7 @@ main {
 
 /* Shared section spacing */
 
-.bubble-section,
-.abundance-section {
+.bubble-section {
   margin-bottom: 32px;
 }
 
@@ -184,17 +143,6 @@ main {
 
 .bubble-card .source-reason .reason {
   color: var(--bubble-color);
-}
-
-/* Mundo abundancia — naranja */
-
-.abundance-card .tag {
-  color: var(--abundance-color);
-  background: var(--abundance-bg);
-}
-
-.abundance-card .source-reason .reason {
-  color: var(--abundance-color);
 }
 
 /* Audio briefing */
@@ -403,14 +351,6 @@ main {
   background: var(--accent-light);
   padding: 3px 10px;
   border-radius: 20px;
-}
-
-.score {
-  font-size: 0.8rem;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-  min-width: 28px;
-  text-align: center;
 }
 
 .card h2 {

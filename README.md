@@ -1,51 +1,61 @@
 # readerme
 
-Curador personal de contenido que aprende de lo que escribes y filtra lo que lees. Reemplaza Readwise Reader como interfaz diaria de lectura.
+Lector de feeds RSS personal con cuatro pestañas (Main, España, Thinktanks, Papers), audio briefings y mercados de predicción.
 
 ## Cómo funciona
 
 ```
-Tu Substack (90+ artículos) → perfil de escritor → sesgo YIMBY/abundance
-                                                          ↓
-Readwise Reader (feed RSS + newsletters) ──→ Claude rankea todo ──→ microsite
-                                                          ↑
-Thinktank Twitter Lists ──→ sección Thinktank      Botón "Leído" (localStorage)
-DuckDuckGo + WiP ──→ sección Mundo Abundancia
-RSS medios españoles ──→ sección España             Audio briefing diario
-Politico/Economist/FT/Guardian ──→ prensa intl      Encuestas + mercados
-Elcano/Fedea/BBVA Research ──→ pestaña Thinktanks
+data/feeds.json (RSS taggeados main / thinktank / papers)
+        │
+        ├─► rss.py (delta por feed) ─────► curator.py ────► main.json   ─┐
+        │                                  (sin scoring)                 │
+        │                                                                ├─► /
+        ├─► fetch_latest_by_tag (sin estado) ──► thinktanks.py ─► thinktanks.json ─► /thinktanks
+        │                                       papers.py    ─► papers.json     ─► /papers
+        │
+        └─► spain.py (RSS medios + Claude political-risk pick) ─► spain.json ─► /espana
+
+markets.py (Polymarket CLOB API) ──► markets.json + markets_main.json
+polls.py   (colmenadedatos)      ──► polls.json
+briefing.py (Claude Opus 4.7 + edge-tts) ─► briefing_main.mp3, briefing_thinktanks.mp3
+spain.py también escribe briefing.mp3 (legacy path)
 ```
 
-## Tres pestañas
+## Pestañas
 
-### Mundo (`/`)
-- **Thinktank** — artículos enlazados en tu lista de Twitter de think tanks (extraídos de los digests de Reader)
-- **Mundo abundancia** — búsqueda web en el ecosistema YIMBY/abundance (siempre 1 de Works in Progress)
-- **Desde tus fuentes** — todo tu feed de Reader, rankeado por relevancia
-
-Cada card tiene:
-- Botón **Leer** para contenido inline (Reader API o scraping)
-- Botón **Escuchar** (aparece al expandir) — TTS con detección automática de idioma (español/inglés)
-- Botón **Compartir** genera texto listo para LinkedIn/X con link
-- Botón **Leído** oculta el artículo (persiste en localStorage)
+### Main (`/`)
+- **Briefing de hoy** — ~3 min, generado con Claude Opus 4.7 + edge-tts.
+- **Mercados de predicción (Polymarket)** — Iran régimen, Russia-Ukraine, Fed cut, China-Taiwan.
+- **Artículos** — orden cronológico. No hay scoring: lo que entra por RSS aparece aquí.
+- Cada card: **Leer** (scrape vía `/api/scrape`), **Escuchar** (TTS browser-side), **Compartir** (LinkedIn/X), **Leído** (oculta + localStorage).
 
 ### España (`/espana`)
-- **Briefing de hoy** — audio de ~3 min generado con Claude + edge-tts. Factual: encuestas, mercados de predicción, noticias clave
-- **Cómo va el voto** — gráfico de tendencias electorales (datos de colmenadedatos.com)
-- **Mercados de predicción** — Polymarket: probabilidad de elecciones anticipadas
-- **Lo que se dice fuera** — Economist, FT, Politico Europe, The Guardian sobre España
-- **Radar político** — 10 noticias de medios españoles curadas con Claude
+- **Briefing** factual (encuestas, mercados, noticias).
+- **Cómo va el voto** — Chart.js con datos de colmenadedatos.
+- **Mercados** — elecciones anticipadas (Polymarket).
+- **Lo que se dice fuera** — Economist, FT, Politico Europe, Guardian (filtro España).
+- **Radar político** — 10 noticias picadas con Claude Sonnet desde RSS de medios españoles.
 
 ### Thinktanks (`/thinktanks`)
-- **Real Instituto Elcano** — geopolítica, política exterior, seguridad
-- **Fedea** — economía, políticas públicas, mercado laboral
-- **BBVA Research** — macro España, análisis sectorial
+- **Briefing** ~3 min sobre publicaciones recientes, agrupado por subsección.
+- 3 subsecciones:
+  - **Classic**: Tony Blair Institute (sitemap parser), European Policy Centre (HTML scraper).
+  - **España**: Elcano, Fedea, BBVA Research (scraper).
+  - **Abundance**: Progress Ireland, Abundance Institute, Center for Growth and Opportunity.
+
+### Papers (`/papers`)
+- NBER (Education / Children / Political Economy), IZA Discussion Papers, Banco de España, VoxEU/CEPR. Lista cronológica por fuente, sin scoring.
 
 ## Ciclo diario
 
-1. **Madrugada (4AM Madrid)**: GitHub Action ejecuta nightly → vacía Reader feed → puntúa todo → archiva en Reader → genera briefing audio → commit + push → Render redeploy
-2. **Durante el día**: lees desde readerme, marcas como Leído lo que vas leyendo
-3. **Siguiente madrugada**: artículos no leídos se arrastran (máx 7 días), los nuevos se añaden
+GitHub Actions a las 04:00 Madrid → `nightly.py` →
+1. Main RSS deltas → main.json
+2. Polymarket Main → markets_main.json
+3. España (RSS + Claude pick + briefing.mp3)
+4. Thinktanks (RSS por subtag + scrape BBVA)
+5. Papers (RSS)
+6. Briefings audio (Main + Thinktanks)
+7. Commit + push → Render redeploy
 
 ## Setup
 
@@ -55,61 +65,39 @@ python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 ```
 
-Crea `.env`:
+`.env`:
 ```
-READWISE_TOKEN=tu_token_de_readwise
-ANTHROPIC_API_KEY=tu_api_key_de_anthropic
+ANTHROPIC_API_KEY=...
 ```
 
 ## Uso
 
 ```bash
-# Ciclo nocturno completo (mundo + españa + thinktanks)
-.venv/bin/python run.py nightly
-
-# Solo curar mundo
-.venv/bin/python run.py curate --days 7 --top 10
-
-# Solo curar España
+.venv/bin/python run.py nightly   # ciclo completo
+.venv/bin/python run.py curate    # solo Main
 .venv/bin/python run.py curate-spain
-
-# Solo servir lo ya curado
 .venv/bin/python run.py serve --port 8080
 ```
-
-## Ranking
-
-- Rúbrica de 4 dimensiones: relevancia (0-30), sustantividad (0-25), alineación YIMBY (0-25), novedad (0-20)
-- Ranking comparativo: ordena primero, puntúa después
-- Cache de scores: max ±10 puntos entre pasadas para estabilidad
-- Artículos no leídos se arrastran entre curaciones (máx 7 días)
-
-## Deploy
-
-- **Render** (auto-deploy desde `main`)
-- **GitHub Actions** (`.github/workflows/nightly.yml`): cron 4AM Madrid → curación + commit + push
 
 ## Estructura
 
 ```
 readerme/
-├── run.py          # CLI: curate / serve / curate-spain / nightly
-├── curator.py      # perfil + ranking + thinktank + abundance
-├── reader.py       # Readwise Reader API (fetch, archive, content)
-├── substack.py     # scraper de Substack (perfil de autor)
-├── spain.py        # RSS medios españoles + intl + audio briefing
-├── thinktanks.py   # Elcano, Fedea, BBVA Research
-├── polls.py        # encuestas electorales (colmenadedatos)
-├── markets.py      # Polymarket prediction markets
-├── nightly.py      # ciclo nocturno (mundo + españa + thinktanks)
-├── server.py       # Flask: páginas + API (content, scrape, share, audio)
-├── templates/
-│   ├── index.html      # Mundo
-│   ├── espana.html     # España
-│   └── thinktanks.html # Thinktanks
+├── run.py            # CLI
+├── curator.py        # Main: RSS deltas → main.json
+├── rss.py            # parsers (RSS/Atom + sitemap_tbi + scrape_epc)
+├── thinktanks.py     # /thinktanks
+├── papers.py         # /papers
+├── spain.py          # /espana (RSS + Claude pick + briefing audio)
+├── polls.py          # encuestas
+├── markets.py        # Polymarket (Spain + Main)
+├── briefing.py       # Claude Opus 4.7 + edge-tts (Main, Thinktanks)
+├── nightly.py        # ciclo nocturno
+├── server.py         # Flask
+├── templates/        # index, espana, thinktanks, papers
 ├── static/style.css
-├── data/           # cache, scores, audio (committed via GitHub Actions)
-├── Procfile        # Render web process
+├── data/             # feeds.json + outputs (commiteados por nightly)
+├── Procfile          # Render web process
 └── requirements.txt
 ```
 
@@ -117,18 +105,15 @@ readerme/
 
 | Endpoint | Método | Descripción |
 |----------|--------|-------------|
-| `/` | GET | Página Mundo |
-| `/espana` | GET | Página España |
-| `/thinktanks` | GET | Página Thinktanks |
-| `/api/content/<doc_id>` | GET | Contenido HTML de artículo Reader |
-| `/api/scrape?url=...` | GET | Scraping de artículo web |
-| `/api/share-text` | POST | Generar texto para compartir |
-| `/api/briefing.mp3` | GET | Audio briefing político |
-
-## Fuentes bloqueadas
-
-Configuradas en `curator.py`: `BLOCKED_SOURCES = ["cleo abram", "ft shorts"]`
+| `/` | GET | Main |
+| `/espana` | GET | España |
+| `/thinktanks` | GET | Thinktanks |
+| `/papers` | GET | Papers |
+| `/api/scrape?url=...` | GET | Scrape de un artículo web |
+| `/api/share-text` | POST | Texto para compartir (Claude) |
+| `/api/briefing.mp3` | GET | Briefing España (legacy) |
+| `/api/briefing/<tab>.mp3` | GET | Briefing Main / Thinktanks |
 
 ## Stack
 
-Python 3.13 · Flask + Gunicorn · Claude Sonnet (curación, briefing, compartir) · Readwise Reader API · DuckDuckGo · edge-tts · Chart.js · Polymarket CLOB API · httpx + BeautifulSoup
+Python 3.13 · Flask + Gunicorn · Claude Opus 4.7 (briefings) + Sonnet (España pick + share-text) · edge-tts · Chart.js · Polymarket CLOB · httpx + BeautifulSoup + lxml.

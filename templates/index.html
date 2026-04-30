@@ -140,7 +140,6 @@
   // Read state: localStorage, per-device. Stored as {normalizedUrl: timestamp}.
   const READ_KEY = 'readerme_read';
   const READ_TTL_DAYS = 60;
-  const MIN_TAG_COUNT = 3;
 
   // Normalize URL so marketing params and trailing slashes don't break matching.
   // Keep meaningful params (e.g. ?v= on YouTube) so different posts stay distinct.
@@ -208,40 +207,6 @@
   });
   _updateUnreadCount();
 
-  // Build tag filter — only tags with MIN_TAG_COUNT unread cards, to avoid clutter
-  (function() {
-    const tagCounts = {};
-    document.querySelectorAll('.card[data-tag]').forEach(c => {
-      if (_isRead(_read, c.dataset.url)) return;
-      const t = c.dataset.tag;
-      if (t) tagCounts[t] = (tagCounts[t] || 0) + 1;
-    });
-    const bar = document.getElementById('tagFilter');
-    Object.keys(tagCounts).sort().forEach(tag => {
-      if (tagCounts[tag] < MIN_TAG_COUNT) return;
-      const btn = document.createElement('button');
-      btn.className = 'tag-btn';
-      btn.dataset.tag = tag;
-      btn.textContent = tag;
-      btn.onclick = () => filterTag(tag);
-      bar.appendChild(btn);
-    });
-  })();
-
-  function filterTag(tag) {
-    document.querySelectorAll('.tag-btn').forEach(b => b.classList.toggle('active', b.dataset.tag === tag));
-    const read = _loadRead();
-    document.querySelectorAll('.card[data-tag]').forEach(card => {
-      const hidden = _isRead(read, card.dataset.url) || (tag !== 'all' && card.dataset.tag !== tag);
-      card.style.display = hidden ? 'none' : '';
-    });
-    document.querySelectorAll('section[data-section]').forEach(sec => {
-      const visible = sec.querySelectorAll('.card[data-tag]:not([style*="display: none"])');
-      sec.style.display = visible.length ? '' : 'none';
-    });
-    _updateUnreadCount();
-  }
-
   async function _fetchContent(btn, contentDiv, url) {
     btn.textContent = '...';
     try {
@@ -261,28 +226,6 @@
   function _showListenBtn(card, show) {
     const lb = card.querySelector('.top-actions .btn-listen');
     if (lb) lb.style.display = show ? '' : 'none';
-  }
-
-  async function toggleExpand(btn) {
-    const card = btn.closest('.card');
-    const contentDiv = card.querySelector('.article-content');
-    if (contentDiv.style.display !== 'none') {
-      if (_ttsState.card === card) _stopTTS();
-      contentDiv.style.display = 'none';
-      card.querySelector('.card-bottom').style.display = 'none';
-
-      _showListenBtn(card, false);
-      btn.textContent = 'Leer';
-      return;
-    }
-    if (!contentDiv.innerHTML) {
-      if (!await _fetchContent(btn, contentDiv, '/api/content/' + btn.dataset.id)) return;
-    }
-    contentDiv.style.display = 'block';
-    card.querySelector('.card-bottom').style.display = 'block';
-
-    _showListenBtn(card, true);
-    btn.textContent = 'Cerrar';
   }
 
   async function toggleScrape(btn) {
