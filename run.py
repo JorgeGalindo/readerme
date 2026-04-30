@@ -6,20 +6,13 @@ import sys
 
 
 def cmd_curate(args):
-    from curator import curate, build_profile
+    from curator import curate
 
-    if args.profile_only:
-        profile = build_profile(force_refresh=True)
-        import json
-        print(json.dumps(profile, ensure_ascii=False, indent=2))
-        return
-
-    result = curate(days=args.days, top_n=args.top)
-    print(f"\n{len(result['articles'])} articles curated from {result['article_count_total']} candidates.")
-    print("\nTop 5:")
+    result = curate()
+    print(f"\n{len(result['articles'])} articles in main.json.")
+    print("\nLatest 5:")
     for a in result["articles"][:5]:
-        print(f"  [{a['score']}] {a['title']}")
-        print(f"       {a['reason']}\n")
+        print(f"  [{a.get('site_name', '?')}] {a['title'][:80]}")
 
 
 def cmd_serve(args):
@@ -57,10 +50,7 @@ def main():
     sub = parser.add_subparsers(dest="command")
 
     # curate
-    p_curate = sub.add_parser("curate", help="Fetch and curate articles")
-    p_curate.add_argument("--days", type=int, default=2, help="How many days back to fetch (default: 2)")
-    p_curate.add_argument("--top", type=int, default=7, help="Number of articles to curate (default: 7)")
-    p_curate.add_argument("--profile-only", action="store_true", help="Only rebuild the profile")
+    sub.add_parser("curate", help="Fetch RSS deltas and update main.json")
 
     # serve
     p_serve = sub.add_parser("serve", help="Start the web server")
@@ -69,11 +59,8 @@ def main():
 
     # run (curate + serve)
     p_run = sub.add_parser("run", help="Curate and serve (default)")
-    p_run.add_argument("--days", type=int, default=2)
-    p_run.add_argument("--top", type=int, default=7)
     p_run.add_argument("--port", type=int, default=5555)
     p_run.add_argument("--debug", action="store_true")
-    p_run.add_argument("--profile-only", action="store_true")
 
     # curate-spain
     sub.add_parser("curate-spain", help="Fetch and curate Spain political risk news")
@@ -99,11 +86,8 @@ def main():
         run_nightly()
     else:
         # Default: run
-        args.days = 2
-        args.top = 7
         args.port = 5555
         args.debug = False
-        args.profile_only = False
         cmd_run(args)
 
 

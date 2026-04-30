@@ -20,7 +20,12 @@ DATA_DIR = pathlib.Path(__file__).parent / "data"
 FEEDS_FILE = DATA_DIR / "feeds.json"
 STATE_FILE = DATA_DIR / "rss_state.json"
 
-UA = "Mozilla/5.0 (compatible; readerme/1.0; +https://github.com/JorgeGalindo/readerme)"
+UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
+HTTP_HEADERS = {
+    "User-Agent": UA,
+    "Accept": "application/rss+xml, application/atom+xml, application/xml;q=0.9, text/xml;q=0.9, text/html;q=0.7, */*;q=0.5",
+    "Accept-Language": "en-US,en;q=0.9,es;q=0.8",
+}
 
 
 def _load_feeds() -> list[dict]:
@@ -158,7 +163,7 @@ def _fetch_one(rss_url: str, site_name: str, last_seen_id: Optional[str]) -> tup
     items (first run for this feed).
     """
     try:
-        r = httpx.get(rss_url, headers={"User-Agent": UA}, timeout=20, follow_redirects=True)
+        r = httpx.get(rss_url, headers=HTTP_HEADERS, timeout=20, follow_redirects=True)
         r.raise_for_status()
     except Exception as e:
         print(f"  [skip] {site_name}: {e}")
@@ -189,6 +194,27 @@ def _fetch_one(rss_url: str, site_name: str, last_seen_id: Optional[str]) -> tup
     return new_items, new_top_id
 
 
+def _fetch_articles(feed: dict) -> list[dict]:
+    """Dispatch by feed_type. Default 'rss' parses RSS/Atom; custom types route
+    to dedicated handlers (sitemap, scrape) for sites that don't expose feeds."""
+    rss_url = feed["rss_url"]
+    site = feed.get("site_name") or rss_url
+    feed_type = feed.get("feed_type", "rss")
+
+    if feed_type == "sitemap_tbi":
+        return _fetch_tbi_sitemap(rss_url, site)
+    if feed_type == "scrape_epc":
+        return _fetch_epc_scrape(rss_url, site)
+
+    try:
+        r = httpx.get(rss_url, headers=HTTP_HEADERS, timeout=20, follow_redirects=True)
+        r.raise_for_status()
+        return _parse_feed(r.text, site, rss_url)
+    except Exception as e:
+        print(f"  [skip] {site}: {e}")
+        return []
+
+
 def fetch_latest_by_tag(tag: str, max_per_feed: int = 10, sleep_between: float = 0.3) -> list[dict]:
     """Fetch the latest N items from each feed with the given tag, ignoring state.
 
@@ -199,21 +225,102 @@ def fetch_latest_by_tag(tag: str, max_per_feed: int = 10, sleep_between: float =
     feeds = [f for f in _load_feeds() if f.get("tag") == tag]
     out = []
     for f in feeds:
-        rss_url = f["rss_url"]
-        site = f.get("site_name") or rss_url
         subtag = f.get("subtag", "")
-        try:
-            r = httpx.get(rss_url, headers={"User-Agent": UA}, timeout=20, follow_redirects=True)
-            r.raise_for_status()
-            articles = _parse_feed(r.text, site, rss_url)
-        except Exception as e:
-            print(f"  [skip] {site}: {e}")
-            time.sleep(sleep_between)
-            continue
+        articles = _fetch_articles(f)
         for a in articles[:max_per_feed]:
             a["subtag"] = subtag
             out.append(a)
         time.sleep(sleep_between)
+    return out
+
+
+def _fetch_tbi_sitemap(sitemap_url: str, site_name: str, max_items: int = 25) -> list[dict]:
+    """Tony Blair Institute exposes no RSS but does publish a sitemap with
+    `lastmod` for every /insights/ page. We sort by lastmod desc and take the
+    most recent N. Title is fetched per-page (one extra request each)."""
+    try:
+        r = httpx.get(sitemap_url, headers=HTTP_HEADERS, timeout=20, follow_redirects=True)
+        r.raise_for_status()
+        soup = BeautifulSoup(r.text, "xml")
+    except Exception as e:
+        print(f"  [skip] {site_name}: sitemap fetch failed: {e}")
+        return []
+
+    insights = []
+    for u in soup.find_all("url"):
+        loc_el = u.find("loc")
+        lastmod_el = u.find("lastmod")
+        if not loc_el or "/insights/" not in loc_el.text:
+            continue
+        insights.append((loc_el.text, lastmod_el.text if lastmod_el else ""))
+
+    insights.sort(key=lambda x: x[1], reverse=True)
+    out = []
+    for url, lastmod in insights[:max_items]:
+        title = ""
+        try:
+            pr = httpx.get(url, headers=HTTP_HEADERS, timeout=15, follow_redirects=True)
+            if pr.status_code == 200:
+                psoup = BeautifulSoup(pr.text, "html.parser")
+                t_el = psoup.find("meta", property="og:title") or psoup.find("title")
+                if t_el:
+                    title = t_el.get("content") if t_el.name == "meta" else t_el.text
+                    title = (title or "").strip()
+        except Exception:
+            pass
+        if not title:
+            # Fallback: derive from URL slug
+            title = url.rstrip("/").rsplit("/", 1)[-1].replace("-", " ").title()
+
+        out.append({
+            "id": hashlib.sha1(url.encode()).hexdigest(),
+            "title": title,
+            "source_url": url,
+            "site_name": site_name,
+            "summary": "",
+            "author": "",
+            "published_date": _parse_date(lastmod),
+            "_feed": sitemap_url,
+        })
+        time.sleep(0.2)
+    return out
+
+
+def _fetch_epc_scrape(page_url: str, site_name: str, max_items: int = 20) -> list[dict]:
+    """European Policy Centre publishes no RSS. Scrape /publications/ HTML."""
+    try:
+        r = httpx.get(page_url, headers=HTTP_HEADERS, timeout=20, follow_redirects=True)
+        r.raise_for_status()
+    except Exception as e:
+        print(f"  [skip] {site_name}: {e}")
+        return []
+
+    soup = BeautifulSoup(r.text, "html.parser")
+    seen = set()
+    out = []
+    for a in soup.select("a[href*='/publication/']"):
+        href = a.get("href", "")
+        if not href.startswith("http"):
+            href = "https://www.epc.eu" + href
+        if href in seen:
+            continue
+        text = a.get_text(strip=True)
+        # Filter labels like 'OP-ED' / 'Read more' / single-word category links
+        if not text or len(text) < 20 or text.lower() in ("read more", "publications"):
+            continue
+        seen.add(href)
+        out.append({
+            "id": hashlib.sha1(href.encode()).hexdigest(),
+            "title": text,
+            "source_url": href,
+            "site_name": site_name,
+            "summary": "",
+            "author": "",
+            "published_date": "",
+            "_feed": page_url,
+        })
+        if len(out) >= max_items:
+            break
     return out
 
 

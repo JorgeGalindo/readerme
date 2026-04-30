@@ -52,7 +52,8 @@ def _scrape_web_content(url: str) -> str:
 def index():
     main_file = DATA_DIR / "main.json"
     if not main_file.exists():
-        return render_template("index.html", articles=[], generated_at="Run 'python run.py' first", total=0)
+        return render_template("index.html", articles=[], markets={}, has_audio=False,
+                               generated_at="Run 'python run.py' first", total=0)
 
     data = json.loads(main_file.read_text())
 
@@ -61,9 +62,15 @@ def index():
         dt = datetime.fromisoformat(generated_at)
         generated_at = dt.strftime("%d %b %Y, %H:%M")
 
+    markets_file = DATA_DIR / "markets_main.json"
+    markets = json.loads(markets_file.read_text()) if markets_file.exists() else {}
+    has_audio = (DATA_DIR / "briefing_main.mp3").exists()
+
     return render_template(
         "index.html",
         articles=data.get("articles", []),
+        markets=markets,
+        has_audio=has_audio,
         generated_at=generated_at,
         total=data.get("article_count_total", 0),
     )
@@ -131,16 +138,30 @@ def thinktanks():
         if sub in grouped:
             sections.append({"key": sub, "label": SUBTAG_LABEL[sub], "by_source": grouped[sub]})
 
+    has_audio = (DATA_DIR / "briefing_thinktanks.mp3").exists()
     return render_template(
         "thinktanks.html",
         sections=sections,
+        has_audio=has_audio,
         generated_at=generated_at,
     )
 
 
 @app.route("/api/briefing.mp3")
 def briefing_audio():
+    """Legacy route — España briefing."""
     audio_file = DATA_DIR / "briefing.mp3"
+    if not audio_file.exists():
+        return jsonify({"ok": False}), 404
+    return send_file(audio_file, mimetype="audio/mpeg")
+
+
+@app.route("/api/briefing/<tab>.mp3")
+def briefing_audio_tab(tab):
+    """Per-tab briefing. Spain still uses /api/briefing.mp3 above."""
+    if tab not in ("main", "thinktanks"):
+        return jsonify({"ok": False}), 404
+    audio_file = DATA_DIR / f"briefing_{tab}.mp3"
     if not audio_file.exists():
         return jsonify({"ok": False}), 404
     return send_file(audio_file, mimetype="audio/mpeg")

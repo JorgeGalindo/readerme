@@ -21,11 +21,6 @@
     </nav>
   </header>
 
-  <!-- Tag filter bar -->
-  <nav class="tag-filter" id="tagFilter">
-    <button class="tag-btn active" data-tag="all" onclick="filterTag('all')">todo</button>
-  </nav>
-
   <main>
     {% if not articles %}
     <div class="empty">
@@ -34,19 +29,44 @@
     </div>
     {% endif %}
 
-    {% for article in articles %}
-    <article class="card" data-tag="{{ article.tag }}" data-url="{{ article.source_url or article.title }}">
-      <div class="card-header">
-        <span class="tag">{{ article.tag }}</span>
-        <span class="score">{{ article.score }}</span>
+    {% if has_audio %}
+    <section class="audio-briefing">
+      <div class="audio-header">
+        <h2 class="section-title">Briefing de hoy</h2>
+        <button class="btn-play" id="playBtn" onclick="toggleAudio()">Escuchar</button>
       </div>
+      <audio id="briefingAudio" src="/api/briefing/main.mp3" preload="none"></audio>
+    </section>
+    {% endif %}
+
+    {% if markets %}
+    <section>
+      <h2 class="section-title">Mercados de predicción</h2>
+      <div class="markets-grid">
+        {% for key, m in markets.items() %}
+        <div class="market-card">
+          <div class="market-header">
+            <span class="market-title">{{ m.title }}</span>
+            <span class="market-current">{{ m.current }}%</span>
+          </div>
+          <div class="market-chart-container">
+            <canvas id="market-{{ key }}"></canvas>
+          </div>
+          <a href="{{ m.url }}" target="_blank" rel="noopener" class="market-source">polymarket</a>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    {% for article in articles %}
+    <article class="card" data-url="{{ article.source_url or article.title }}">
       <h2>
         <a href="{{ article.source_url or '#' }}" target="_blank" rel="noopener">{{ article.title }}</a>
       </h2>
       <p class="source-reason">
         {{ article.site_name or 'Unknown' }}
         {% if article.author %} &middot; {{ article.author }}{% endif %}
-        &middot; <span class="reason">{{ article.reason }}</span>
       </p>
       <div class="card-actions top-actions">
         {% if article.source_url %}
@@ -67,8 +87,53 @@
   </main>
 
   <footer>
-    <p>readerme &middot; curado con Claude a partir de tu escritura y tus lecturas</p>
+    <p>readerme &middot; tu lector de feeds personal</p>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <script>
+  function toggleAudio() {
+    const audio = document.getElementById('briefingAudio');
+    const btn = document.getElementById('playBtn');
+    if (!audio) return;
+    if (audio.paused) { audio.play(); btn.textContent = 'Pausar'; }
+    else { audio.pause(); btn.textContent = 'Escuchar'; }
+    audio.onended = () => { btn.textContent = 'Escuchar'; };
+  }
+
+  {% if markets %}
+  (function() {
+    const mkts = {{ markets | tojson }};
+    Object.keys(mkts).forEach(key => {
+      const m = mkts[key];
+      const el = document.getElementById('market-' + key);
+      if (!el || !m.dates) return;
+      const labels = m.dates.map(d => {
+        const [y, mo, day] = d.split('-');
+        const months = ['','Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+        return months[parseInt(mo)] + ' ' + day;
+      });
+      new Chart(el, {
+        type: 'line',
+        data: { labels: labels, datasets: [{
+          data: m.prices, borderColor: '#5B9BD5',
+          backgroundColor: 'rgba(91,155,213,0.08)',
+          borderWidth: 1.5, pointRadius: 0, tension: 0.3, fill: true,
+        }]},
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false }, tooltip: {
+            callbacks: { label: ctx => ctx.parsed.y + '%' },
+            titleFont: { family: "'Roboto Mono'", size: 10 },
+            bodyFont: { family: "'Roboto Mono'", size: 10, weight: 300 }
+          }},
+          scales: { x: { display: false }, y: { display: false, min: 0, max: Math.max(...m.prices) * 1.3 } }
+        }
+      });
+    });
+  })();
+  {% endif %}
+  </script>
 
   <script>
   // Read state: localStorage, per-device. Stored as {normalizedUrl: timestamp}.

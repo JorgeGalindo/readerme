@@ -45,5 +45,9 @@
 
   {"site_name": "Real Instituto Elcano", "rss_url": "https://www.realinstitutoelcano.org/feed/", "tag": "thinktank", "subtag": "spain"},
   {"site_name": "Fedea", "rss_url": "https://fedea.net/feed/", "tag": "thinktank", "subtag": "spain"},
-  {"site_name": "Progress Ireland", "rss_url": "https://progressireland.substack.com/feed", "tag": "thinktank", "subtag": "abundance"}
+  {"site_name": "Progress Ireland", "rss_url": "https://progressireland.substack.com/feed", "tag": "thinktank", "subtag": "abundance"},
+  {"site_name": "Abundance Institute", "rss_url": "https://abundance.institute/articles/feed", "tag": "thinktank", "subtag": "abundance"},
+  {"site_name": "Center for Growth and Opportunity", "rss_url": "https://www.thecgo.org/news/feed/", "tag": "thinktank", "subtag": "abundance"},
+  {"site_name": "Tony Blair Institute", "rss_url": "https://institute.global/sitemap.xml", "tag": "thinktank", "subtag": "classic", "feed_type": "sitemap_tbi"},
+  {"site_name": "European Policy Centre", "rss_url": "https://www.epc.eu/publications/", "tag": "thinktank", "subtag": "classic", "feed_type": "scrape_epc"}
 ]

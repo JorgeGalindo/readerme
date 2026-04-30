@@ -28,6 +28,16 @@
     </div>
     {% endif %}
 
+    {% if has_audio %}
+    <section class="audio-briefing">
+      <div class="audio-header">
+        <h2 class="section-title">Briefing de hoy</h2>
+        <button class="btn-play" id="playBtn" onclick="toggleAudio()">Escuchar</button>
+      </div>
+      <audio id="briefingAudio" src="/api/briefing/thinktanks.mp3" preload="none"></audio>
+    </section>
+    {% endif %}
+
     {% for section in sections %}
     <section class="tt-subsection" data-subtag="{{ section.key }}">
       <h2 class="subsection-title">{{ section.label }}</h2>
@@ -58,7 +68,16 @@
   </footer>
 
   <script>
-  // Read state: localStorage, per-device. Same format as Mundo: {normalizedUrl: ts}.
+  function toggleAudio() {
+    const audio = document.getElementById('briefingAudio');
+    const btn = document.getElementById('playBtn');
+    if (!audio) return;
+    if (audio.paused) { audio.play(); btn.textContent = 'Pausar'; }
+    else { audio.pause(); btn.textContent = 'Escuchar'; }
+    audio.onended = () => { btn.textContent = 'Escuchar'; };
+  }
+
+  // Read state: localStorage, per-device. Same format as Main: {normalizedUrl: ts}.
   const READ_KEY = 'readerme_read';
   const READ_TTL_DAYS = 60;
 

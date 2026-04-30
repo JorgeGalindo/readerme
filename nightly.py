@@ -14,19 +14,34 @@ def run_nightly():
     print(f"readerme nightly — {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
     print(f"{'='*50}\n")
 
-    print("1. Main: scoring new RSS items...")
+    print("1. Main: pulling RSS deltas…")
     result = curate()
     print(f"  Main: {len(result.get('articles', []))} articles in main.json")
 
-    print("\n2. España...")
+    print("\n2. Polymarket (Main)…")
+    from markets import fetch_markets_main
+    fetch_markets_main()
+
+    print("\n3. España…")
     from spain import curate_spain
     spain = curate_spain()
     print(f"  España: {len(spain.get('intl', []))} intl + {len(spain.get('spanish', []))} national")
 
-    print("\n3. Thinktanks...")
+    print("\n4. Thinktanks…")
     from thinktanks import curate_thinktanks
     tt = curate_thinktanks()
     print(f"  Thinktanks: {len(tt.get('articles', []))} publications")
+
+    print("\n5. Audio briefings (Main + Thinktanks)…")
+    from briefing import generate_main, generate_thinktanks
+    try:
+        generate_main()
+    except Exception as e:
+        print(f"  Main briefing failed: {e}")
+    try:
+        generate_thinktanks()
+    except Exception as e:
+        print(f"  Thinktanks briefing failed: {e}")
 
 
 if __name__ == "__main__":
