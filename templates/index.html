@@ -13,9 +13,9 @@
 </head>
 <body>
   <header>
-    <h1>readerme <span class="meta">{{ generated_at }} &middot; <span id="unreadCount">{{ (articles|length) + (thinktank|length) + (abundance|length) }}</span> sin leer</span></h1>
+    <h1>readerme <span class="meta">{{ generated_at }} &middot; <span id="unreadCount">{{ articles|length }}</span> sin leer</span></h1>
     <nav class="page-nav">
-      <a href="/" class="active">Mundo</a>
+      <a href="/" class="active">Main</a>
       <a href="/espana">España</a>
       <a href="/thinktanks">Thinktanks</a>
     </nav>
@@ -27,81 +27,11 @@
   </nav>
 
   <main>
-    {% if not articles and not thinktank and not abundance %}
+    {% if not articles %}
     <div class="empty">
       <p>No hay artículos curados todavía.</p>
       <code>python run.py</code>
     </div>
-    {% endif %}
-
-    {% if thinktank %}
-    <section class="bubble-section" data-section="thinktank">
-      <h2 class="section-title">Thinktank</h2>
-      {% for b in thinktank %}
-      <article class="card bubble-card" data-tag="{{ b.tag }}" data-url="{{ b.source_url or b.title }}">
-        <div class="card-header">
-          <span class="tag">{{ b.tag }}</span>
-        </div>
-        <h2>
-          {% if b.source_url %}
-          <a href="{{ b.source_url }}" target="_blank" rel="noopener">{{ b.title }}</a>
-          {% else %}
-          {{ b.title }}
-          {% endif %}
-        </h2>
-        <p class="source-reason">{{ b.site_name }} &middot; <span class="reason">{{ b.reason }}</span></p>
-        <div class="card-actions top-actions">
-          {% if b.source_url %}
-          <button class="btn-expand" data-url="{{ b.source_url }}" onclick="toggleScrape(this)">Leer</button>
-          {% endif %}
-          <button class="btn-listen" onclick="toggleListen(this)" style="display:none">Escuchar</button>
-          <button class="btn-read" onclick="markRead(this)">Leído</button>
-        </div>
-        <div class="article-content" style="display:none"></div>
-        <div class="card-bottom" style="display:none">
-          <div class="card-actions">
-            <button class="btn-share" data-title="{{ b.title }}" data-url="{{ b.source_url or '' }}" onclick="getShareText(this)">Compartir</button>
-          </div>
-          <div class="share-result"></div>
-        </div>
-      </article>
-      {% endfor %}
-    </section>
-    {% endif %}
-
-    {% if abundance %}
-    <section class="abundance-section" data-section="abundance">
-      <h2 class="section-title">Mundo abundancia</h2>
-      {% for a in abundance %}
-      <article class="card abundance-card" data-tag="{{ a.tag }}" data-url="{{ a.source_url or a.title }}">
-        <div class="card-header">
-          <span class="tag">{{ a.tag }}</span>
-        </div>
-        <h2>
-          <a href="{{ a.source_url or '#' }}" target="_blank" rel="noopener">{{ a.title }}</a>
-        </h2>
-        <p class="source-reason">{{ a.site_name }} &middot; <span class="reason">{{ a.reason }}</span></p>
-        <div class="card-actions top-actions">
-          {% if a.source_url %}
-          <button class="btn-expand" data-url="{{ a.source_url }}" onclick="toggleScrape(this)">Leer</button>
-          {% endif %}
-          <button class="btn-listen" onclick="toggleListen(this)" style="display:none">Escuchar</button>
-          <button class="btn-read" onclick="markRead(this)">Leído</button>
-        </div>
-        <div class="article-content" style="display:none"></div>
-        <div class="card-bottom" style="display:none">
-          <div class="card-actions">
-            <button class="btn-share" data-title="{{ a.title }}" data-url="{{ a.source_url or '' }}" onclick="getShareText(this)">Compartir</button>
-          </div>
-          <div class="share-result"></div>
-        </div>
-      </article>
-      {% endfor %}
-    </section>
-    {% endif %}
-
-    {% if articles %}
-    <h2 class="section-title">Desde tus fuentes</h2>
     {% endif %}
 
     {% for article in articles %}
@@ -116,12 +46,11 @@
       <p class="source-reason">
         {{ article.site_name or 'Unknown' }}
         {% if article.author %} &middot; {{ article.author }}{% endif %}
-        {% if article.reading_time %} &middot; {{ article.reading_time }}{% endif %}
         &middot; <span class="reason">{{ article.reason }}</span>
       </p>
       <div class="card-actions top-actions">
-        {% if article.id %}
-        <button class="btn-expand" data-id="{{ article.id }}" onclick="toggleExpand(this)">Leer</button>
+        {% if article.source_url %}
+        <button class="btn-expand" data-url="{{ article.source_url }}" onclick="toggleScrape(this)">Leer</button>
         {% endif %}
         <button class="btn-listen" onclick="toggleListen(this)" style="display:none">Escuchar</button>
         <button class="btn-read" onclick="markRead(this)">Leído</button>

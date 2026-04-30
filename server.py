@@ -8,8 +8,6 @@ import httpx
 from bs4 import BeautifulSoup
 from flask import Flask, render_template, request, jsonify, send_file
 
-from reader import fetch_html_content
-
 DATA_DIR = pathlib.Path(__file__).parent / "data"
 
 app = Flask(__name__)
@@ -52,11 +50,11 @@ def _scrape_web_content(url: str) -> str:
 
 @app.route("/")
 def index():
-    curated_file = DATA_DIR / "curated.json"
-    if not curated_file.exists():
-        return render_template("index.html", articles=[], thinktank=[], abundance=[], generated_at="Run 'python run.py' first", total=0)
+    main_file = DATA_DIR / "main.json"
+    if not main_file.exists():
+        return render_template("index.html", articles=[], generated_at="Run 'python run.py' first", total=0)
 
-    data = json.loads(curated_file.read_text())
+    data = json.loads(main_file.read_text())
 
     generated_at = data.get("generated_at", "")
     if generated_at:
@@ -66,8 +64,6 @@ def index():
     return render_template(
         "index.html",
         articles=data.get("articles", []),
-        thinktank=data.get("thinktank", []),
-        abundance=data.get("abundance", []),
         generated_at=generated_at,
         total=data.get("article_count_total", 0),
     )
@@ -140,14 +136,6 @@ def briefing_audio():
     if not audio_file.exists():
         return jsonify({"ok": False}), 404
     return send_file(audio_file, mimetype="audio/mpeg")
-
-
-@app.route("/api/content/<doc_id>")
-def content(doc_id):
-    html = fetch_html_content(doc_id)
-    if html:
-        return jsonify({"ok": True, "html": html})
-    return jsonify({"ok": False, "html": ""})
 
 
 @app.route("/api/scrape")

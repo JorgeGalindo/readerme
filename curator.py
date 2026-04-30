@@ -2,22 +2,19 @@
 
 import json
 import pathlib
-import re
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 import anthropic
-import httpx
-from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
 from substack import load_articles
-from reader import fetch_feed
+from rss import fetch_by_tag
 
 load_dotenv()
 
 DATA_DIR = pathlib.Path(__file__).parent / "data"
 PROFILE_FILE = DATA_DIR / "profile.json"
-CURATED_FILE = DATA_DIR / "curated.json"
+MAIN_FILE = DATA_DIR / "main.json"
 
 client = anthropic.Anthropic(timeout=180.0, max_retries=3)
 
@@ -170,23 +167,21 @@ Responde SOLO JSON array con TODOS los artículos ordenados de mayor a menor sco
 
 
 def curate(days: int = 2, top_n: int = 0) -> dict:
-    """Score and rank Reader feed articles against the author profile.
+    """Fetch new RSS items (tag=main), score them, write data/main.json.
 
-    The curated list is a snapshot of Reader's current UNSEEN feed (location=feed):
-    each run replaces curated.json with what's currently unseen in Reader. No carry-over
-    from previous runs — Reader is the source of truth. Read state in the UI is tracked
-    per-URL in localStorage, so it survives even when an article leaves the snapshot.
+    State is delta-only: rss.py keeps track of last-seen-id per feed, so each run
+    only sees items not seen before. main.json is the union of (new this run) +
+    (previously curated, still recent). Read state in the UI is tracked per-URL
+    in localStorage.
     """
     profile = build_profile()
-    articles = fetch_feed()
-    fetched_ids = [a.get("id", "") for a in articles if a.get("id")]
-    print(f"Fetched {len(articles)} articles from Reader feed.")
+    articles = fetch_by_tag("main")
+    print(f"Fetched {len(articles)} new RSS items (main).")
 
     if not articles:
-        print("No new articles in Reader feed.")
-        # Still return previous curated data if it exists
-        if CURATED_FILE.exists():
-            return json.loads(CURATED_FILE.read_text())
+        print("No new RSS items.")
+        if MAIN_FILE.exists():
+            return json.loads(MAIN_FILE.read_text())
         return {"articles": [], "generated_at": ""}
 
     # Filter blocked sources
@@ -202,17 +197,6 @@ def curate(days: int = 2, top_n: int = 0) -> dict:
     ]
     if len(articles) < before:
         print(f"  Filtered {before - len(articles)} blocked sources.")
-
-    # Extract thinktank digest IDs before scoring (they don't need scores)
-    thinktank_ids = []
-    scoreable = []
-    for a in articles:
-        if "thinktank" in (a.get("title") or "").lower() and "twitter" in (a.get("title") or "").lower():
-            thinktank_ids.append(a.get("id", ""))
-        else:
-            scoreable.append(a)
-    articles = scoreable
-    print(f"  Found {len(thinktank_ids)} thinktank digests to process.")
 
     # Load previous scores for stability
     prev_scores = _load_scores_cache()
@@ -267,14 +251,38 @@ def curate(days: int = 2, top_n: int = 0) -> dict:
             article["score"] = s.get("score", 0)
             article["reason"] = s.get("reason_es", s.get("reason", ""))
             article["tag"] = s.get("tag", "")
-            if not article.get("_added_at"):
-                article["_added_at"] = datetime.now(timezone.utc).isoformat()
             curated_articles.append(article)
 
-    # Find outside-bubble (from thinktank lists) and abundance recommendations
-    reader_urls = {a.get("source_url", "") for a in articles}
-    thinktank = find_outside_bubble(profile, reader_urls, thinktank_ids)
-    abundance = find_abundance(reader_urls)
+    # Carry over previously-curated items still considered fresh (the user hasn't
+    # marked them read in localStorage, but the server doesn't know that).
+    # We use a 14-day window from when the item was first scored to bound growth.
+    if MAIN_FILE.exists():
+        try:
+            prev = json.loads(MAIN_FILE.read_text())
+            new_urls = {a.get("source_url", "") for a in curated_articles}
+            new_titles = {(a.get("title") or "").strip().lower() for a in curated_articles}
+            cutoff = (datetime.now(timezone.utc) - timedelta(days=14)).isoformat()
+            carried = 0
+            for old in prev.get("articles", []):
+                added = old.get("_added_at") or old.get("published_date") or ""
+                if added and added < cutoff:
+                    continue
+                u = old.get("source_url", "")
+                t = (old.get("title") or "").strip().lower()
+                if u in new_urls or t in new_titles:
+                    continue
+                curated_articles.append(old)
+                carried += 1
+            if carried:
+                print(f"  Carried over {carried} previously-curated items.")
+        except Exception as e:
+            print(f"  Carry-over skipped: {e}")
+
+    # Stamp _added_at on items that don't have one (first time we see them)
+    now_iso = datetime.now(timezone.utc).isoformat()
+    for a in curated_articles:
+        if not a.get("_added_at"):
+            a["_added_at"] = now_iso
 
     # Deduplicate by source_url and normalized title
     seen_urls = set()
@@ -308,313 +316,14 @@ def curate(days: int = 2, top_n: int = 0) -> dict:
     result = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "article_count_total": len(articles),
-        "thinktank": thinktank,
-        "abundance": abundance,
         "articles": curated_articles,
     }
 
-    CURATED_FILE.write_text(json.dumps(result, ensure_ascii=False, indent=2))
-    print(f"Curated {len(curated_articles)} articles from {len(articles)} candidates.")
-
-    # Return fetched IDs for archiving (not saved to JSON)
-    result["_fetched_ids"] = fetched_ids
+    DATA_DIR.mkdir(exist_ok=True)
+    MAIN_FILE.write_text(json.dumps(result, ensure_ascii=False, indent=2))
+    print(f"Wrote {len(curated_articles)} articles to main.json (from {len(articles)} new candidates).")
     return result
 
-
-def _search_ddg(query: str, max_results: int = 8) -> list[dict]:
-    """Search DuckDuckGo HTML and return results."""
-    resp = httpx.get(
-        "https://html.duckduckgo.com/html/",
-        params={"q": query},
-        headers={"User-Agent": "Mozilla/5.0"},
-        timeout=15,
-        follow_redirects=True,
-    )
-    resp.raise_for_status()
-    soup = BeautifulSoup(resp.text, "html.parser")
-    results = []
-    for r in soup.select(".result")[:max_results]:
-        title_el = r.select_one(".result__title a")
-        snippet_el = r.select_one(".result__snippet")
-        if not title_el:
-            continue
-        href = title_el.get("href", "")
-        # DDG wraps URLs in a redirect — extract the actual URL
-        if "uddg=" in href:
-            from urllib.parse import unquote, urlparse, parse_qs
-            parsed = parse_qs(urlparse(href).query)
-            href = unquote(parsed.get("uddg", [href])[0])
-        results.append({
-            "title": title_el.get_text(strip=True),
-            "url": href,
-            "snippet": snippet_el.get_text(strip=True) if snippet_el else "",
-        })
-    return results
-
-
-def find_outside_bubble(profile: dict, reader_urls: set[str], thinktank_ids: list[str]) -> list[dict]:
-    """Extract interesting links shared in thinktank twitter list digests."""
-    from reader import fetch_html_content
-
-    if not thinktank_ids:
-        print("No thinktank twitter lists found, skipping bubble.")
-        return []
-
-    # Fetch HTML from the most recent thinktank digests and extract tweets WITH links
-    tweets_with_links = []
-    tweets_without_links = []
-    seen_urls = set()
-
-    for doc_id in thinktank_ids[:4]:  # Last 4 digests
-        try:
-            html = fetch_html_content(doc_id)
-            if not html:
-                continue
-            soup = BeautifulSoup(html, "html.parser")
-            for tweet in soup.select(".rw-embedded-tweet"):
-                text = tweet.get_text(separator=" ", strip=True)
-                if not text or len(text) < 30:
-                    continue
-                links = [a["href"] for a in tweet.select("a[href]")
-                         if a["href"].startswith("http")
-                         and "twitter.com" not in a["href"]
-                         and "x.com" not in a["href"]
-                         and "t.co" not in a["href"]]
-                # Deduplicate by first link
-                if links:
-                    if links[0] in seen_urls:
-                        continue
-                    seen_urls.add(links[0])
-                    tweets_with_links.append({"text": text[:400], "links": links})
-                else:
-                    tweets_without_links.append({"text": text[:400], "links": []})
-        except Exception as e:
-            print(f"  Failed to fetch thinktank list {doc_id}: {e}")
-
-    # Prioritize tweets that share links — that's the actual content
-    # Fill with linkless tweets only if we don't have enough
-    candidates = tweets_with_links[:30] + tweets_without_links[:10]
-
-    if not candidates:
-        print("No tweet content extracted from thinktank lists.")
-        return []
-
-    print(f"  Extracted {len(tweets_with_links)} tweets with links, {len(tweets_without_links)} without.")
-
-    tweets_summary = "\n\n".join(
-        f"[{i}] {t['text']}" + (f"\n  URL: {t['links'][0]}" if t['links'] else " [sin enlace]")
-        for i, t in enumerate(candidates)
-    )
-
-    response = client.messages.create(
-        model="claude-sonnet-4-20250514",
-        max_tokens=800,
-        messages=[{
-            "role": "user",
-            "content": f"""Estos son tweets recientes de think tanks y analistas. Selecciona los 4 mejores ARTÍCULOS ENLAZADOS para un lector YIMBY/abundance interesado en economía, vivienda, IA y política europea.
-
-REGLAS:
-- SOLO selecciona tweets que tengan URL (ignora los marcados [sin enlace])
-- Prioriza artículos con análisis sustantivo, datos nuevos, perspectivas inesperadas
-- NUNCA recomiendes contenido anti-crecimiento o pro-degrowth
-- Los 4 deben ser de temas DIFERENTES entre sí
-
-{tweets_summary}
-
-Para cada seleccionado, responde:
-- index: el [N] del tweet
-- title: título del artículo enlazado (extraído del tweet)
-- reason_es: concepto corto 3-8 palabras
-- tag: DEBE ser una de estas: {", ".join(TAGS)}
-
-Responde SOLO JSON array, sin markdown:
-[{{"index": 0, "title": "...", "reason_es": "...", "tag": "..."}}, ...]"""
-        }],
-    )
-
-    picks_text = response.content[0].text.strip()
-    if picks_text.startswith("```"):
-        picks_text = picks_text.split("\n", 1)[1].rsplit("```", 1)[0].strip()
-    picks = json.loads(picks_text)
-
-    bubble_articles = []
-    for p in picks[:4]:
-        idx = p.get("index", -1)
-        if 0 <= idx < len(candidates) and candidates[idx]["links"]:
-            t = candidates[idx]
-            bubble_articles.append({
-                "title": p.get("title", ""),
-                "source_url": t["links"][0],
-                "site_name": t["text"].split("@")[1].split()[0] if "@" in t["text"] else "Twitter",
-                "reason": p.get("reason_es", ""),
-                "tag": p.get("tag", ""),
-            })
-
-    print(f"Found {len(bubble_articles)} thinktank articles.")
-    return bubble_articles
-
-
-def find_abundance(reader_urls: set[str]) -> list[dict]:
-    """Search for 3 articles from the YIMBY/abundance world, always including Works in Progress."""
-    from urllib.parse import urlparse
-    import random
-    from datetime import datetime, timezone
-
-    # Dedicated WiP query
-    wip_query = "site:worksinprogress.co"
-
-    # Rotating query pools — pick 3 from diverse buckets each run
-    source_queries = [
-        "site:ifp.org analysis",
-        "site:niskanencenter.org policy",
-        "site:constructionphysics.substack.com",
-        "site:fullstackeconomics.com",
-        "site:worksinprogress.co recent",
-        "site:asteriskmag.com",
-        "site:maximumprogress.substack.com",
-    ]
-    topic_queries = [
-        "YIMBY housing reform zoning results 2024 2025",
-        "permitting reform infrastructure energy abundance",
-        "building more homes policy evidence Europe",
-        "supply side progressivism pro-growth policy",
-        "nuclear energy deregulation new construction",
-        "abundance agenda housing transportation density",
-        "immigration economic growth labor shortage reform",
-        "industrial policy productivity growth evidence",
-    ]
-    geo_queries = [
-        "housing reform UK planning permission results",
-        "Spain vivienda urbanismo reforma supply",
-        "Germany Wohnungsbau housing construction reform",
-        "Japan housing zoning abundance lessons",
-        "New Zealand housing reform YIMBY results",
-        "Australia housing supply planning reform",
-    ]
-
-    # Pick 1 source + 1 topic + 1 geo for variety
-    general_queries = [
-        random.choice(source_queries),
-        random.choice(topic_queries),
-        random.choice(geo_queries),
-    ]
-
-    reader_domains = {re.sub(r'^www\.', '', urlparse(u).netloc) for u in reader_urls if u}
-
-    def _collect(queries):
-        results = []
-        for q in queries:
-            try:
-                hits = _search_ddg(q)
-                for h in hits:
-                    domain = re.sub(r'^www\.', '', urlparse(h["url"]).netloc)
-                    if domain not in reader_domains and h["url"] not in reader_urls:
-                        h["query"] = q
-                        results.append(h)
-            except Exception as e:
-                print(f"Abundance search failed for '{q}': {e}")
-        return results
-
-    # Get WiP results separately to guarantee one
-    wip_results = _collect([wip_query])
-    general_results = _collect(general_queries)
-
-    if not wip_results and not general_results:
-        print("No abundance results found.")
-        return []
-
-    # Pick 1 from WiP
-    wip_article = None
-    if wip_results:
-        wip_results_text = "\n".join(
-            f'[{i}] "{r["title"]}" — {r["url"]}\n    {r["snippet"]}'
-            for i, r in enumerate(wip_results)
-        )
-        response = client.messages.create(
-            model="claude-sonnet-4-20250514",
-            max_tokens=200,
-            messages=[{
-                "role": "user",
-                "content": f"""Elige el mejor artículo de Works in Progress:
-
-{wip_results_text}
-
-Responde SOLO con JSON, sin markdown:
-{{"index": 0, "reason_es": "concepto corto 3-8 palabras", "tag": "una de: {", ".join(TAGS)}"}}"""
-            }],
-        )
-        pick_text = response.content[0].text.strip()
-        if pick_text.startswith("```"):
-            pick_text = pick_text.split("\n", 1)[1].rsplit("```", 1)[0].strip()
-        pick = json.loads(pick_text)
-        idx = pick["index"]
-        if 0 <= idx < len(wip_results):
-            r = wip_results[idx]
-            wip_article = {
-                "title": r["title"],
-                "source_url": r["url"],
-                "site_name": "Works in Progress",
-                "reason": pick["reason_es"],
-                "tag": pick["tag"],
-                "snippet": r["snippet"],
-            }
-
-    # Pick 2 from general
-    general_articles = []
-    if general_results:
-        results_text = "\n".join(
-            f'[{i}] "{r["title"]}" — {r["url"]}\n    {r["snippet"]}'
-            for i, r in enumerate(general_results)
-        )
-        response = client.messages.create(
-            model="claude-sonnet-4-20250514",
-            max_tokens=500,
-            messages=[{
-                "role": "user",
-                "content": f"""De estos resultados, elige los 2 mejores artículos del mundo YIMBY/abundance agenda.
-
-Criterios estrictos:
-- Análisis sustantivos PRO-CRECIMIENTO, pro-construcción, pro-abundancia
-- NUNCA recomiendes contenido degrowth, anti-crecimiento, o anti-desarrollo
-- Los 2 deben ser de temas DIFERENTES (no repitas país ni temática)
-- Prioriza: think tanks (Niskanen, IFP, Works in Progress), casos europeos, reformas concretas
-- Evita repetir siempre los mismos países (varía entre EEUU, UK, Europa, Asia, LatAm)
-
-{results_text}
-
-Tag DEBE ser una de: {", ".join(TAGS)}
-
-Responde SOLO con un JSON array, sin markdown:
-[
-  {{"index": 0, "reason_es": "concepto corto 3-8 palabras", "tag": "..."}},
-  {{"index": 1, "reason_es": "concepto corto 3-8 palabras", "tag": "..."}}
-]"""
-            }],
-        )
-        picks_text = response.content[0].text.strip()
-        if picks_text.startswith("```"):
-            picks_text = picks_text.split("\n", 1)[1].rsplit("```", 1)[0].strip()
-        picks = json.loads(picks_text)
-        for p in picks[:2]:
-            idx = p["index"]
-            if 0 <= idx < len(general_results):
-                r = general_results[idx]
-                general_articles.append({
-                    "title": r["title"],
-                    "source_url": r["url"],
-                    "site_name": re.sub(r'^www\.', '', urlparse(r["url"]).netloc),
-                    "reason": p["reason_es"],
-                    "tag": p["tag"],
-                    "snippet": r["snippet"],
-                })
-
-    abundance_articles = []
-    if wip_article:
-        abundance_articles.append(wip_article)
-    abundance_articles.extend(general_articles)
-
-    print(f"Found {len(abundance_articles)} abundance articles.")
-    return abundance_articles
 
 
 if __name__ == "__main__":
