@@ -13,7 +13,7 @@
 </head>
 <body>
   <header>
-    <h1>readerme <span class="meta">{{ generated_at }} &middot; <span id="unreadCount">{{ articles|length }}</span> sin leer</span></h1>
+    <h1>readerme <span class="meta">{{ generated_at }} &middot; <span id="unreadCount">{{ articles|length }}</span> sin leer &middot; <a href="#" class="reset-link" onclick="event.preventDefault(); resetRead()">borrar leídos</a></span></h1>
     <nav class="page-nav">
       <a href="/" class="active">Main</a>
       <a href="/espana">España</a>
@@ -140,6 +140,12 @@
   // Read state: localStorage, per-device. Stored as {normalizedUrl: timestamp}.
   const READ_KEY = 'readerme_read';
   const READ_TTL_DAYS = 60;
+
+  function resetRead() {
+    if (!confirm('¿Borrar el registro de artículos leídos? Volverán a aparecer todos.')) return;
+    localStorage.removeItem(READ_KEY);
+    location.reload();
+  }
 
   // Normalize URL so marketing params and trailing slashes don't break matching.
   // Keep meaningful params (e.g. ?v= on YouTube) so different posts stay distinct.

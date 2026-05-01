@@ -164,7 +164,9 @@ def papers():
     for a in data.get("articles", []):
         by_source.setdefault(a.get("source", "Other"), []).append(a)
 
-    return render_template("papers.html", by_source=by_source, generated_at=generated_at)
+    has_audio = (DATA_DIR / "briefing_papers.mp3").exists()
+    return render_template("papers.html", by_source=by_source, has_audio=has_audio,
+                           generated_at=generated_at)
 
 
 @app.route("/api/briefing.mp3")
@@ -179,7 +181,7 @@ def briefing_audio():
 @app.route("/api/briefing/<tab>.mp3")
 def briefing_audio_tab(tab):
     """Per-tab briefing. Spain still uses /api/briefing.mp3 above."""
-    if tab not in ("main", "thinktanks"):
+    if tab not in ("main", "thinktanks", "papers"):
         return jsonify({"ok": False}), 404
     audio_file = DATA_DIR / f"briefing_{tab}.mp3"
     if not audio_file.exists():

@@ -100,6 +100,18 @@ main {
   padding: 0 24px 60px;
 }
 
+.reset-link {
+  color: var(--text-secondary);
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.reset-link:hover {
+  color: var(--accent);
+}
+
 .empty {
   text-align: center;
   padding: 80px 0;

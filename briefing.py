@@ -155,6 +155,52 @@ INSTRUCCIONES:
     _save_and_speak("thinktanks", text)
 
 
+def generate_papers():
+    """Briefing of the freshest items in papers.json, by source."""
+    pp_file = DATA_DIR / "papers.json"
+    if not pp_file.exists():
+        print("  no papers.json — skipping briefing")
+        return
+    data = json.loads(pp_file.read_text())
+    arts = data.get("articles", [])
+    if not arts:
+        print("  empty papers — skipping briefing")
+        return
+
+    by_src: dict[str, list[dict]] = {}
+    for a in arts:
+        by_src.setdefault(a.get("source", "?"), []).append(a)
+
+    sections = []
+    for src, items in by_src.items():
+        lines = [
+            f"- {a.get('title','')[:160]}"
+            + (f" ({a['author']})" if a.get('author') else "")
+            + (f" — {a.get('summary','')[:200]}" if a.get('summary') else "")
+            for a in items[:15]
+        ]
+        sections.append(f"{src} ({len(items)} papers):\n" + "\n".join(lines))
+
+    prompt = f"""Genera un briefing de audio en español sobre papers académicos publicados recientemente. Será leído por un TTS, así que escribe como se habla.
+
+PAPERS POR FUENTE:
+
+{chr(10).join(sections)}
+
+INSTRUCCIONES:
+- Tono: investigador que digiere working papers para un colega no especialista. Factual, claro, sin opinión propia.
+- Estructura: recorre fuente por fuente (NBER, IZA, Banco de España, VoxEU, etc.). Para cada bloque: 2-5 papers. Para cada paper: el qué (pregunta de investigación), el cómo (método/datos en una frase si está claro), y por qué importa.
+- NO inventes resultados que no estén en el título/resumen. Si no hay sustancia, salta el paper.
+- NO uses encabezados, asteriscos, guiones ni ningún formato. Solo texto corrido en párrafos.
+- Longitud: ~600-1000 palabras (3 minutos).
+- Idioma: español."""
+
+    print("Generating Papers briefing…")
+    text = _claude_text(prompt, max_tokens=2500)
+    _save_and_speak("papers", text)
+
+
 if __name__ == "__main__":
     generate_main()
     generate_thinktanks()
+    generate_papers()
