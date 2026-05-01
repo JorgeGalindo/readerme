@@ -139,8 +139,9 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
   <script>
-  function resetRead() {
+  async function resetRead() {
     if (!confirm('¿Borrar el registro de artículos leídos? Volverán a aparecer todos.')) return;
+    try { await fetch('/api/read/clear', { method: 'POST' }); } catch (e) {}
     localStorage.removeItem('readerme_read');
     location.reload();
   }

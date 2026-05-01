@@ -6,6 +6,7 @@ import pathlib
 from datetime import datetime, timezone
 
 from rss import fetch_latest_by_tag
+import read_store
 
 DATA_DIR = pathlib.Path(__file__).parent / "data"
 PAPERS_FILE = DATA_DIR / "papers.json"
@@ -45,6 +46,11 @@ def curate_papers() -> dict:
             "author": a.get("author", ""),
             "date": a.get("published_date", ""),
         })
+
+    before = len(out)
+    out = read_store.filter_unread(out)
+    if len(out) < before:
+        print(f"  Filtered {before - len(out)} previously-read items.")
 
     # Sort each source by date desc; sources rendered in feed-order.
     out.sort(key=lambda x: x.get("date") or "", reverse=True)

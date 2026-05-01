@@ -10,6 +10,7 @@ from datetime import datetime, timedelta, timezone
 from dotenv import load_dotenv
 
 from rss import fetch_by_tag
+import read_store
 
 load_dotenv()
 
@@ -63,6 +64,12 @@ def curate() -> dict:
         if title:
             seen_titles.add(title)
         out.append(a)
+
+    # Drop anything the user has already marked as read (server-side ledger).
+    before = len(out)
+    out = read_store.filter_unread(out)
+    if len(out) < before:
+        print(f"  Filtered {before - len(out)} previously-read items.")
 
     # Sort newest first by published_date (fallback to _added_at).
     out.sort(key=lambda a: a.get("published_date") or a.get("_added_at") or "", reverse=True)

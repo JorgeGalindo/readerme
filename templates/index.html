@@ -141,8 +141,9 @@
   const READ_KEY = 'readerme_read';
   const READ_TTL_DAYS = 60;
 
-  function resetRead() {
+  async function resetRead() {
     if (!confirm('¿Borrar el registro de artículos leídos? Volverán a aparecer todos.')) return;
+    try { await fetch('/api/read/clear', { method: 'POST' }); } catch (e) {}
     localStorage.removeItem(READ_KEY);
     location.reload();
   }
@@ -192,9 +193,15 @@
   function markRead(btn) {
     const card = btn.closest('.card');
     if (!card.dataset.url) return;
+    const url = card.dataset.url;
     const read = _loadRead();
-    read[_normUrl(card.dataset.url)] = Date.now();
+    read[_normUrl(url)] = Date.now();
     localStorage.setItem(READ_KEY, JSON.stringify(read));
+    fetch('/api/read', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url })
+    }).catch(() => {});
     card.style.display = 'none';
     _updateUnreadCount();
   }

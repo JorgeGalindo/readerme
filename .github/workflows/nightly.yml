@@ -26,7 +26,6 @@ jobs:
       - name: Run nightly curation
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          READWISE_TOKEN: ${{ secrets.READWISE_TOKEN }}
         run: |
           python nightly.py
           python polls.py
@@ -36,8 +35,15 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/curated.json data/spain.json data/polls.json data/markets.json \
-                  data/scores_cache.json data/seen_intl.json data/thinktanks.json \
-                  data/briefing.mp3 data/briefing.txt 2>/dev/null || true
+          # New flow: main/thinktanks/papers + per-tab briefings + RSS state + read ledger.
+          # Legacy paths kept (briefing.mp3) for /espana.
+          git add data/main.json data/papers.json data/thinktanks.json data/spain.json \
+                  data/polls.json data/markets.json data/markets_main.json \
+                  data/seen_intl.json data/rss_state.json data/read.json \
+                  data/briefing.mp3 data/briefing.txt \
+                  data/briefing_main.mp3 data/briefing_main.txt \
+                  data/briefing_thinktanks.mp3 data/briefing_thinktanks.txt \
+                  data/briefing_papers.mp3 data/briefing_papers.txt \
+                  2>/dev/null || true
           git diff --cached --quiet || git commit -m "nightly: $(date -u '+%Y-%m-%d %H:%M') UTC"
           git push

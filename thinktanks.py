@@ -10,6 +10,7 @@ import httpx
 from bs4 import BeautifulSoup
 
 from rss import fetch_latest_by_tag
+import read_store
 
 DATA_DIR = pathlib.Path(__file__).parent / "data"
 THINKTANKS_FILE = DATA_DIR / "thinktanks.json"
@@ -83,6 +84,10 @@ def fetch_thinktanks() -> list[dict]:
 def curate_thinktanks() -> dict:
     print("Fetching thinktank publications...")
     articles = fetch_thinktanks()
+    before = len(articles)
+    articles = read_store.filter_unread(articles)
+    if len(articles) < before:
+        print(f"  Filtered {before - len(articles)} previously-read items.")
     print(f"  Total: {len(articles)} publications")
 
     result = {

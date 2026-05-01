@@ -8,6 +8,8 @@ import httpx
 from bs4 import BeautifulSoup
 from flask import Flask, render_template, request, jsonify, send_file
 
+import read_store
+
 DATA_DIR = pathlib.Path(__file__).parent / "data"
 
 app = Flask(__name__)
@@ -66,13 +68,14 @@ def index():
     markets = json.loads(markets_file.read_text()) if markets_file.exists() else {}
     has_audio = (DATA_DIR / "briefing_main.mp3").exists()
 
+    articles = read_store.filter_unread(data.get("articles", []))
     return render_template(
         "index.html",
-        articles=data.get("articles", []),
+        articles=articles,
         markets=markets,
         has_audio=has_audio,
         generated_at=generated_at,
-        total=data.get("article_count_total", 0),
+        total=len(articles),
     )
 
 
@@ -128,7 +131,7 @@ def thinktanks():
     SUBTAG_ORDER = ["classic", "spain", "abundance"]
     SUBTAG_LABEL = {"classic": "Classic", "spain": "España", "abundance": "Abundance"}
     grouped: dict[str, dict[str, list]] = {}
-    for a in tt_data.get("articles", []):
+    for a in read_store.filter_unread(tt_data.get("articles", [])):
         sub = a.get("subtag") or "classic"
         src = a.get("source", "Other")
         grouped.setdefault(sub, {}).setdefault(src, []).append(a)
@@ -161,7 +164,7 @@ def papers():
 
     # Group by source, preserving insertion order from feeds.json.
     by_source: dict[str, list] = {}
-    for a in data.get("articles", []):
+    for a in read_store.filter_unread(data.get("articles", [])):
         by_source.setdefault(a.get("source", "Other"), []).append(a)
 
     has_audio = (DATA_DIR / "briefing_papers.mp3").exists()
@@ -187,6 +190,24 @@ def briefing_audio_tab(tab):
     if not audio_file.exists():
         return jsonify({"ok": False}), 404
     return send_file(audio_file, mimetype="audio/mpeg")
+
+
+@app.route("/api/read", methods=["POST"])
+def api_read_mark():
+    """Mark an item as read so it disappears from feeds permanently."""
+    data = request.get_json(silent=True) or {}
+    url = (data.get("url") or "").strip()
+    if not url:
+        return jsonify({"ok": False, "error": "missing url"}), 400
+    read_store.mark(url)
+    return jsonify({"ok": True})
+
+
+@app.route("/api/read/clear", methods=["POST"])
+def api_read_clear():
+    """Wipe the read ledger."""
+    read_store.clear()
+    return jsonify({"ok": True})
 
 
 @app.route("/api/scrape")
