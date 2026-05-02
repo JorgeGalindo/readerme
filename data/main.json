@@ -1,7 +1,161 @@
 {
-  "generated_at": "2026-04-30T07:41:00.255906+00:00",
-  "article_count_total": 966,
+  "generated_at": "2026-05-02T05:15:52.894319+00:00",
+  "article_count_total": 980,
   "articles": [
+    {
+      "id": "https://www.ggd.world/p/female-power-for-whom",
+      "title": "Female Power for Whom?",
+      "source_url": "https://www.ggd.world/p/female-power-for-whom",
+      "site_name": "GGD (Growth, Geopolitics, Demography)",
+      "summary": "Queen mothers, pawned girls, and the limits of the Standard Cross Cultural Sample",
+      "author": "Alice Evans",
+      "published_date": "2026-05-01T22:06:58+00:00",
+      "_feed": "https://www.ggd.world/feed",
+      "_added_at": "2026-05-02T05:15:52.889202+00:00"
+    },
+    {
+      "id": "https://www.elconfidencial.com/economia/2026-05-01/gobierno-calcula-gasto-salarios-publicos-minimo-29-anos_4348505/",
+      "title": "El Gobierno prevé que el gasto en salarios públicos sobre el PIB baje al mínimo en 19 años",
+      "source_url": "https://www.elconfidencial.com/economia/2026-05-01/gobierno-calcula-gasto-salarios-publicos-minimo-29-anos_4348505/",
+      "site_name": "Javier G. Jorrín (El Confidencial)",
+      "summary": "La actualización del plan fiscal incluye un descenso de la remuneración de asalariados hasta el 10,5% del PIB. El repunte de la inflación extenderá la pérdida de poder adquisitivo de los empleados públicos",
+      "author": "Javier Jorrín",
+      "published_date": "2026-05-01T15:16:00+02:00",
+      "_feed": "https://rss.elconfidencial.com/autores/javier-g-jorrin-1715/",
+      "_added_at": "2026-05-02T05:15:52.889202+00:00"
+    },
+    {
+      "id": "https://statmodeling.stat.columbia.edu/?p=53000",
+      "title": "What advice do you have for this student who’s in his first year of college and interested in both statistics and political science?",
+      "source_url": "https://statmodeling.stat.columbia.edu/2026/05/01/what-advice-do-you-have-for-this-student-whos-in-his-first-year-of-college-and-interested-in-both-statistics-and-political-science/",
+      "site_name": "Statistical Modeling (Andrew Gelman)",
+      "summary": "Joey Jennings writes: I’m a first-year statistics major and wanted to reach out because statistics and political science were my two main options when choosing a major, and I’m still considering law school down the line. I’m very interested in … Continue reading →",
+      "author": "Andrew",
+      "published_date": "2026-05-01T13:14:25+00:00",
+      "_feed": "https://statmodeling.stat.columbia.edu/feed/",
+      "_added_at": "2026-05-02T05:15:52.889202+00:00"
+    },
+    {
+      "id": "https://www.worksinprogress.news/p/one-week-left-to-apply-for-invisible",
+      "title": "One week left to apply for Invisible College 2026",
+      "source_url": "https://www.worksinprogress.news/p/one-week-left-to-apply-for-invisible",
+      "site_name": "Works in Progress news",
+      "summary": "Our residential seminar for 18–22 year olds was such a success that we are running it again. Apply this week or forever hold your peace.",
+      "author": "Works in Progress",
+      "published_date": "2026-05-01T13:13:46+00:00",
+      "_feed": "https://www.worksinprogress.news/feed",
+      "_added_at": "2026-05-02T05:15:52.889202+00:00"
+    },
+    {
+      "id": "https://www.grumpy-economist.com/p/the-iran-war-doesnt-have-to-be-a",
+      "title": "The Iran War Doesn’t Have to Be a Rerun of ‘That ’70s Show’",
+      "source_url": "https://www.grumpy-economist.com/p/the-iran-war-doesnt-have-to-be-a",
+      "site_name": "Grumpy Economist (John Cochrane)",
+      "summary": "Rising energy prices turn into recessions only if bad government policies compound their effects",
+      "author": "John H. Cochrane",
+      "published_date": "2026-05-01T13:00:47+00:00",
+      "_feed": "https://www.grumpy-economist.com/feed",
+      "_added_at": "2026-05-02T05:15:52.889202+00:00"
+    },
+    {
+      "id": "https://www.noahpinion.blog/p/roundup-81-back-to-our-regular-programming",
+      "title": "Roundup #81: Back to our regular programming",
+      "source_url": "https://www.noahpinion.blog/p/roundup-81-back-to-our-regular-programming",
+      "site_name": "Noahpinion",
+      "summary": "National debt; AI cyberattacks; Phone bans; AI and coding jobs; Millennials vs. Boomers; Public order; California YIMBYism",
+      "author": "Noah Smith",
+      "published_date": "2026-05-01T08:57:37+00:00",
+      "_feed": "https://www.noahpinion.blog/feed",
+      "_added_at": "2026-05-02T05:15:52.889202+00:00"
+    },
+    {
+      "id": "https://www.elconfidencial.com/economia/2026-05-01/ue-permite-espana-incrementar-gasto-crecimiento_4348363/",
+      "title": "La UE permite a España incrementar su gasto un 21% más por el crecimiento económico",
+      "source_url": "https://www.elconfidencial.com/economia/2026-05-01/ue-permite-espana-incrementar-gasto-crecimiento_4348363/",
+      "site_name": "Javier G. Jorrín (El Confidencial)",
+      "summary": "Inicialmente España partía con un límite de crecimiento del gasto del 3,7% en 2025, pero el crecimiento superior al previsto elevó este umbral hasta el 4,5%",
+      "author": "Javier Jorrín",
+      "published_date": "2026-05-01T05:00:00+02:00",
+      "_feed": "https://rss.elconfidencial.com/autores/javier-g-jorrin-1715/",
+      "_added_at": "2026-05-02T05:15:52.889202+00:00"
+    },
+    {
+      "id": "https://www.eldiario.es/sociedad/intensivo-jets-privados-fortunas-espanolas-tour-eurocopa-vuelos-ultracortos_1_13170676.html",
+      "title": "El uso intensivo de los jets privados por las fortunas españolas: del tour por la Eurocopa a los vuelos ultracortos",
+      "source_url": "https://www.eldiario.es/sociedad/intensivo-jets-privados-fortunas-espanolas-tour-eurocopa-vuelos-ultracortos_1_13170676.html",
+      "site_name": "Politepol AGQzwFm9yxMD",
+      "summary": "Sociedad \nDelivered by PolitePaul service",
+      "author": "",
+      "published_date": "2026-05-01T03:53:09+00:00",
+      "_feed": "https://politepol.com/fd/AGQzwFm9yxMD",
+      "_added_at": "2026-05-02T05:15:52.889202+00:00"
+    },
+    {
+      "id": "https://www.astralcodexten.com/p/what-deontological-bars",
+      "title": "What Deontological Bars?",
+      "source_url": "https://www.astralcodexten.com/p/what-deontological-bars",
+      "site_name": "Astral Codex Ten",
+      "summary": "...",
+      "author": "Scott Alexander",
+      "published_date": "2026-04-30T23:11:09+00:00",
+      "_feed": "https://www.astralcodexten.com/feed",
+      "_added_at": "2026-05-02T05:15:52.889202+00:00"
+    },
+    {
+      "id": "https://www.elconfidencial.com/economia/2026-04-30/bce-mantiene-tipos-interes-alerta-riesgo-inflacionista_4347976/",
+      "title": "El BCE mantiene los tipos de interés en el 2% tras un debate interno sobre una posible subida",
+      "source_url": "https://www.elconfidencial.com/economia/2026-04-30/bce-mantiene-tipos-interes-alerta-riesgo-inflacionista_4347976/",
+      "site_name": "Javier G. Jorrín (El Confidencial)",
+      "summary": "El eurobanco avisa de que el \"acusado incremento\" de los precios de la energía está generando inflación y afectando al clima económico en Europa. Finalmente hubo unanimidad en mantener los tipos sin cambios",
+      "author": "Javier Jorrín",
+      "published_date": "2026-04-30T14:20:00+02:00",
+      "_feed": "https://rss.elconfidencial.com/autores/javier-g-jorrin-1715/",
+      "_added_at": "2026-05-02T05:15:52.889202+00:00"
+    },
+    {
+      "id": "https://statmodeling.stat.columbia.edu/?p=53020",
+      "title": "A study is retracted after it turns out that its authors were misrepresented as “third-party experts” even though they were actually paid by the company?",
+      "source_url": "https://statmodeling.stat.columbia.edu/2026/04/30/53020/",
+      "site_name": "Statistical Modeling (Andrew Gelman)",
+      "summary": "Gur Huberman points to this news article: A Study Is Retracted, Renewing Concerns About the Weedkiller Roundup Problems with a 25-year-old landmark paper on the safety of Roundup’s active ingredient, glyphosate, have led to calls for the E.P.A. to reassess … Continue reading →",
+      "author": "Andrew",
+      "published_date": "2026-04-30T13:51:27+00:00",
+      "_feed": "https://statmodeling.stat.columbia.edu/feed/",
+      "_added_at": "2026-05-02T05:15:52.889202+00:00"
+    },
+    {
+      "id": "https://www.statecraft.pub/p/what-trump-can-learn-from-nixon",
+      "title": "What Trump Can Learn From Nixon",
+      "source_url": "https://www.statecraft.pub/p/what-trump-can-learn-from-nixon",
+      "site_name": "Statecraft",
+      "summary": "\"The Plot That Failed: Nixon and the Administrative Presidency,\" by Richard P. Nathan",
+      "author": "Santi Ruiz",
+      "published_date": "2026-04-30T13:19:40+00:00",
+      "_feed": "https://www.statecraft.pub/feed",
+      "_added_at": "2026-05-02T05:15:52.889202+00:00"
+    },
+    {
+      "id": "https://www.construction-physics.com/p/how-an-oil-refinery-works",
+      "title": "How an Oil Refinery Works",
+      "source_url": "https://www.construction-physics.com/p/how-an-oil-refinery-works",
+      "site_name": "Construction Physics",
+      "summary": "Though wind and solar continue to carve out larger and larger shares of world energy supply, the modern world still runs on petroleum, and will continue to do so for the foreseeable future.",
+      "author": "Brian Potter",
+      "published_date": "2026-04-30T12:03:35+00:00",
+      "_feed": "https://www.construction-physics.com/feed",
+      "_added_at": "2026-05-02T05:15:52.889202+00:00"
+    },
+    {
+      "id": "https://www.derekthompson.org/p/why-do-richer-dads-spend-more-time",
+      "title": "How American Dads Became the Parents Their Fathers Never Were",
+      "source_url": "https://www.derekthompson.org/p/why-do-richer-dads-spend-more-time",
+      "site_name": "Derek Thompson",
+      "summary": "Compared to their parents, Millennial fathers have roughly tripled the amount of time they spend with kids. The new American dad is more present and more exhausted—but also, more satisfied with life.",
+      "author": "Derek Thompson",
+      "published_date": "2026-04-30T10:02:24+00:00",
+      "_feed": "https://www.derekthompson.org/feed",
+      "_added_at": "2026-05-02T05:15:52.889202+00:00"
+    },
     {
       "id": "https://www.elconfidencial.com/economia/2026-04-30/pib-ralentiza-inicio-ano-productividad_4347623/",
       "title": "El PIB se ralentiza al 0,6% en el inicio del año pero mantiene el pulso por la productividad",
