@@ -1,106 +1,143 @@
 {
-  "generated_at": "2026-05-03T05:35:49.656697+00:00",
-  "intl": [],
+  "generated_at": "2026-05-08T04:57:16.507883+00:00",
+  "intl": [
+    {
+      "title": "Great rail journeys: across Spain aboard a lavish hotel-on-wheels",
+      "link": "https://www.ft.com/content/453090a6-e529-4aed-9630-3a8765fc6724",
+      "author": "",
+      "summary": "Kate Maxwell joins the Al Andalus for its first departure on a new, week-long journey from Madrid to Seville — via multiple cities and millennia of history",
+      "date": "Fri, 08 May 2026 04:00:14 GMT",
+      "source": "Financial Times",
+      "risk_summary": "Kate Maxwell joins the Al Andalus for its first departure on a new, week-long journey from Madrid to Seville — via multiple cities and millennia of history"
+    },
+    {
+      "title": "Four ways Europe’s big immigration experiment has changed Spain",
+      "link": "https://www.ft.com/content/3fe9dccf-7db2-48ac-b26a-9272251fa1d9",
+      "author": "",
+      "summary": "The country accounts for a quarter of new EU jobs this decade — 70 per cent of them have gone to immigrants",
+      "date": "Thu, 07 May 2026 04:00:14 GMT",
+      "source": "Financial Times",
+      "risk_summary": "The country accounts for a quarter of new EU jobs this decade — 70 per cent of them have gone to immigrants"
+    },
+    {
+      "title": "Spain to repatriate 150 passengers from cruise hit by rat-borne virus",
+      "link": "https://www.ft.com/content/cd6f5219-ea97-4913-8109-dcfa41843672",
+      "author": "",
+      "summary": "Hantavirus outbreak has killed three passengers on ship, which is en route to Tenerife",
+      "date": "Wed, 06 May 2026 22:32:50 GMT",
+      "source": "Financial Times",
+      "risk_summary": "Hantavirus outbreak has killed three passengers on ship, which is en route to Tenerife"
+    },
+    {
+      "title": "Hantavirus outbreak ‘not start of pandemic’ says WHO, as Canaries secure concessions over cruise docking plans - as it happened",
+      "link": "https://www.theguardian.com/world/live/2026/may/07/ukraine-russia-drones-latvia-hungary-bulgaria-latest-news-updates",
+      "author": "Jakub Krupa",
+      "summary": "Health body gives briefing as Spain says ship will not dock in Tenerife but be anchored offshore and passengers will have no contact with the publicMeanwhile,Hungary’s incoming prime minister Péter Magyar has arrived for talks at Palazzo Chigi in Rome,where he is due to meet with Italy’s prime minis",
+      "date": "Thu, 07 May 2026 17:53:32 GMT",
+      "source": "The Guardian Europe",
+      "risk_summary": "Health body gives briefing as Spain says ship will not dock in Tenerife but be anchored offshore and passengers will have no contact with the publicMeanwhile,Hungary’s incoming prime minister Péter Magyar has arrived for talks at Palazzo Chigi in Rome,where he is due to meet with Italy’s prime minis"
+    }
+  ],
   "spanish": [
     {
-      "title": "Sánchez llama a concentrar el voto de izquierda en la candidatura de Montero",
-      "link": "https://elpais.com/espana/elecciones-andalucia/2026-05-01/sanchez-llama-a-concentrar-el-voto-de-izquierda-en-la-candidatura-de-montero.html",
+      "title": "Moreno se apunta al ‘yo o el caos’",
+      "link": "https://elpais.com/espana/elecciones-andalucia/2026-05-08/moreno-se-apunta-al-yo-o-el-caos.html",
       "author": "Lourdes Lucio-Villegas Galán",
-      "summary": "El presidente exige a Netanyahu la liberación del ciudadano con nacionalidad española Saif Abukeshek, detenido por los israelíes en su abordaje a la flotilla a Gaza",
-      "date": "Fri, 01 May 2026 19:07:35 GMT",
+      "summary": "El líder del PP andaluz dice que se paralizarían las oposiciones y ayudas económicas si nadie se “abstiene” en su investidura. Los partidos de izquierda lo acusan de “chantaje”",
+      "date": "Fri, 08 May 2026 03:30:01 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "Sánchez intensifica su implicación en la campaña andaluza pidiendo concentración del voto de izquierda, señalando la importancia estratégica de estas elecciones para su supervivencia política."
+      "risk_summary": "Moreno Bonilla presiona con amenaza de paralización administrativa para forzar abstenciones en su investidura, señalando fragilidad política en Andalucía."
     },
     {
-      "title": "El Gobierno y Junts reabren las vías para negociar la prórroga de los alquileres",
-      "link": "https://elpais.com/espana/2026-05-01/el-gobierno-y-junts-reabren-las-vias-para-negociar-la-prorroga-de-los-alquileres.html",
-      "author": "Javier Casqueiro Barreiro",
-      "summary": "Los nacionalistas catalanes exigen discutir rebajas fiscales para las rentas más bajas y autónomos",
-      "date": "Fri, 01 May 2026 12:23:23 GMT",
+      "title": "Sánchez y Clavijo rebajan la tensión por el hantavirus mientras Feijóo se lanza contra el Gobierno",
+      "link": "https://elpais.com/espana/2026-05-07/el-pp-aviva-la-guerra-politica-por-el-hantavirus-esto-es-un-caos-absoluto.html",
+      "author": "Elsa García de Blas,Carlos E Cué",
+      "summary": "El presidente llama al líder canario para suavizar. El Ejecutivo trata de tranquilizar: “No habrá contacto con la población”. El líder del PP exige ver los informes técnicos",
+      "date": "Thu, 07 May 2026 12:16:01 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "La reapertura de negociaciones entre Gobierno y Junts sobre alquileres revela la dependencia crítica de Sánchez de los nacionalistas catalanes para aprobar cualquier medida legislativa."
+      "risk_summary": "Crisis sanitaria del hantavirus genera tensión entre gobierno central y autonómico canario, mientras Feijóo aprovecha para atacar la gestión gubernamental."
     },
     {
-      "title": "Juicio por la trama de las mascarillas del 30 de abril de 2026 | Koldo asegura que recibió miles de euros en “metálico” del PSOE en concepto de gastos, incluidos billetes de 500",
-      "link": "https://elpais.com/espana/2026-04-30/primer-juicio-contra-abalos-koldo-y-aldama-por-la-trama-de-las-mascarillas-en-directo.html",
-      "author": "EL PAÍS",
-      "summary": "El exasesor de Ábalos niega haber hablado con Sánchez tras su llegada a Moncloa: “Yo no hablaba con el presidente” | Niega haber recibido regalos y 10.000 euros al mes de Aldama",
-      "date": "Thu, 30 Apr 2026 18:52:41 GMT",
+      "title": "El PP y Vox descartan llegar a un acuerdo de gobierno en Castilla y León antes de las elecciones andaluzas",
+      "link": "https://elpais.com/espana/2026-05-07/el-pp-y-vox-descartan-llegar-a-un-acuerdo-de-gobierno-en-castilla-y-leon-antes-de-las-andaluzas.html",
+      "author": "Juan Navarro García",
+      "summary": "El presidente de las Cortes autonómicas propone a Fernández Mañueco como candidato a la Junta",
+      "date": "Thu, 07 May 2026 12:18:56 GMT",
       "source": "El País (España)",
       "scrapeable": false,
-      "risk_summary": "Las declaraciones de Koldo sobre financiación irregular del PSOE y pagos en metálico intensifican la presión judicial sobre el entorno directo de Sánchez."
+      "risk_summary": "El bloqueo entre PP y Vox en Castilla y León evidencia las dificultades de gobernabilidad de la derecha antes de comicios andaluces clave."
     },
     {
-      "title": "Miles de trabajadores se manifiestan por la vivienda el Primero de Mayo: “Es insostenible que haya alquileres a 1.000 euros en barrios obreros”",
-      "link": "https://elpais.com/economia/2026-05-01/los-sindicatos-se-manifiestan-en-toda-espana-contra-el-precio-de-la-vivienda-y-el-crecimiento-de-la-ultraderecha.html",
-      "author": "Nacho Sánchez,Emilio Sánchez Hidalgo",
-      "summary": "La protesta central de UGT y CC OO se ha celebrado en Málaga, paradigma de la crisis de acceso a las casas, coincidiendo con el arranque de la campaña electoral en Andalucía",
-      "date": "Fri, 01 May 2026 11:36:56 GMT",
+      "title": "Moreno, sobre la prioridad nacional: “Es un eslogan hueco. El PP nunca va a vulnerar la ley”",
+      "link": "https://elpais.com/espana/elecciones-andalucia/2026-05-07/moreno-sobre-la-prioridad-nacional-es-un-eslogan-hueco-el-pp-nunca-va-a-vulnerar-la-ley.html",
+      "author": "Eva Saiz Escolano",
+      "summary": "El presidente de la Junta defiende la mano de obra migrante ante el sector de la fresa de Huelva: “Cuidado con algunos mensajes y discursos porque nos podemos meter en un lío”",
+      "date": "Thu, 07 May 2026 17:19:45 GMT",
+      "source": "El País (España)",
+      "scrapeable": false,
+      "risk_summary": "Moreno rechaza la 'prioridad nacional' de Vox y defiende inmigración laboral, marcando distancias que complican futuros pactos de gobierno."
+    },
+    {
+      "title": "El juicio de las mascarillas, visto para sentencia: la Fiscalía da por probada una trama criminal con Ábalos en la cúspide",
+      "link": "https://elpais.com/espana/2026-05-06/el-juicio-de-las-mascarillas-visto-para-sentencia-la-fiscalia-da-por-probada-una-trama-criminal-con-abalos-en-la-cuspide.html",
+      "author": "Reyes Rincón",
+      "summary": "El exministro lamenta su “presunción de culpabilidad” y dice ser víctima de un “proceso inquisitorial”",
+      "date": "Wed, 06 May 2026 20:06:33 GMT",
+      "source": "El País (España)",
+      "scrapeable": false,
+      "risk_summary": "El juicio de las mascarillas queda visto para sentencia con Ábalos en el centro de una trama criminal que debilita al PSOE gubernamental."
+    },
+    {
+      "title": "El Gobierno dispara los retoques de los Presupuestos hasta 32.000 millones ante la falta de cuentas públicas",
+      "link": "https://elpais.com/economia/2026-05-08/el-gobierno-dispara-los-retoques-de-los-presupuestos-hasta-32000-millones-ante-la-falta-de-cuentas-publicas.html",
+      "author": "Pablo Sempere",
+      "summary": "Hacienda registra en el primer trimestre modificaciones de crédito que duplican las del mismo periodo de 2025",
+      "date": "Fri, 08 May 2026 03:30:01 GMT",
       "source": "El País (Economía)",
       "scrapeable": false,
-      "risk_summary": "La manifestación sindical del Primero de Mayo centrada en vivienda en Málaga coincide estratégicamente con el inicio de campaña andaluza, presionando al PSOE en su flanco social."
+      "risk_summary": "El Gobierno recurre a 32.000 millones en modificaciones presupuestarias ante la ausencia de nuevos Presupuestos, evidenciando debilidad parlamentaria."
     },
     {
-      "title": "El presidente del PNV le advierte a Sánchez que \"no nos vamos a callar\" y acusa a los socialistas vascos de \"no tener palabra\"",
-      "link": "https://www.elmundo.es/pais-vasco/2026/05/02/69f5f31b21efa00d758b4584.html",
-      "author": "Josean Izarra",
-      "summary": "Aitor Esteban abona su estrategia de distanciamiento con el PSOE y cuestiona a Andueza. El jefe de gabinete de Sánchez intentó sofocar la polémica multiplicada por el meme de los socialistasLeer",
-      "date": "Sat, 02 May 2026 15:52:15 +0200",
+      "title": "Tránsfugas y guerra sin cuartel entre Junts y Aliança por la capital de la Cataluña profunda",
+      "link": "https://www.elconfidencial.com/espana/cataluna/2026-05-08/transfugas-y-guerra-sin-cuartel-entre-junts-y-alianca-por-la-capital-de-la-cataluna-profunda_4351406/",
+      "author": "Antonio Fernández",
+      "summary": "Una concejala posconvergente ficha por el partido ultra de Sílvia Orriols y los de Puigdemont podrían perder la alcaldía de la ciudad de Vic tras casi 50 años gobernándola",
+      "date": "2026-05-08T05:00:00+02:00",
+      "source": "El Confidencial",
+      "scrapeable": false,
+      "risk_summary": "Junts pierde influencia en la Cataluña profunda ante el avance de Aliança ultra, erosionando su base territorial histórica."
+    },
+    {
+      "title": "Juanma Moreno se distancia de un entendimiento con Vox porque es un partido \"teledirigido desde Madrid\"",
+      "link": "https://www.elmundo.es/elecciones/elecciones-andalucia/2026/05/07/69fcca74e9cf4abc3f8b457e.html",
+      "author": "Teresa López Pavón",
+      "summary": "El candidato popular a la reelección apunta a un gobierno en solitario aunque no tenga mayoría absoluta y eleva el tono: «La prioridad nacional es un eslogan»Leer",
+      "date": "Thu, 07 May 2026 19:55:29 +0200",
       "source": "El Mundo",
       "scrapeable": false,
-      "risk_summary": "La advertencia del PNV de que 'no se van a callar' y sus críticas a los socialistas vascos evidencian el deterioro de relaciones con un socio parlamentario clave de Sánchez."
+      "risk_summary": "Moreno descarta pactos con Vox por considerarlo 'teledirigido desde Madrid', buscando gobierno en solitario que aumenta riesgo de ingobernabilidad."
     },
     {
-      "title": "Fractura en el socialismo catalán por la seguridad y la inmigración: los alcaldes piden más dureza mientras Illa templa",
-      "link": "https://www.elmundo.es/cataluna/2026/05/03/69f643a4e4d4d8f1378b456d.html",
-      "author": "Cristina Rubio",
-      "summary": "Los ayuntamientos del PSC optan por medidas contundentes en contraste con el discurso oficial del GovernLeer",
-      "date": "Sun, 03 May 2026 00:07:21 +0200",
+      "title": "Las educadoras infantiles, en huelga en toda España: \"Somos la base de la educación, pero malvivimos en la precariedad\"",
+      "link": "https://www.elmundo.es/espana/2026/05/07/69fc3accfc6c8371518b459c.html",
+      "author": "Olga R. Sanmartín",
+      "summary": "Gobierno y CCAA se responsabilizan mutuamente del elevado número de niños por aula. CCOO cifra el seguimiento por encima del 75%Leer",
+      "date": "Thu, 07 May 2026 12:38:34 +0200",
       "source": "El Mundo",
       "scrapeable": false,
-      "risk_summary": "La fractura interna del PSC catalán entre alcaldes que piden dureza en seguridad e inmigración e Illa que templa refleja tensiones territoriales que pueden debilitar al PSOE."
+      "risk_summary": "Huelga nacional de educadoras infantiles con 75% de seguimiento expone tensión social y conflicto competencial entre Gobierno y autonomías."
     },
     {
-      "title": "El Gobierno pierde socios en el final más \"loco\" de legislatura: \"Les mandamos flores y cajas de bombones, pero...\"",
-      "link": "https://www.elmundo.es/espana/2026/05/03/69f5e918fc6c8398168b4572.html",
-      "author": "Raúl Piña",
-      "summary": "Moncloa asume un resto de legislatura convulso con sus aliados \"tomando distancia\": \"Ahora llega el momento en el que buscan motivos para que les voten a ellos y no a nosotros\"Leer",
-      "date": "Sun, 03 May 2026 01:44:54 +0200",
-      "source": "El Mundo",
-      "scrapeable": false,
-      "risk_summary": "El Gobierno asume públicamente que perderá socios parlamentarios en el tramo final de legislatura, reconociendo su creciente aislamiento político."
-    },
-    {
-      "title": "Sumar confía en que la presión social para la prórroga de los alquileres tuerza el brazo a PSOE y Junts",
-      "link": "https://www.eldiario.es/politica/sumar-confia-presion-social-prorroga-alquileres-tuerza-brazo-psoe-junts_1_13187266.html",
-      "author": "Daniel Ríos",
-      "summary": "El ala minoritaria del Gobierno señala la manifestación por el derecho a la vivienda del 24 de mayo como un hito clave, mientras Junts no cierra la puerta a un nuevo decreto. Vivienda mantendrá contactos con los grupos, y se abre a rebajar la “medida de máximos” que, a su juicio, es la prórroga para",
-      "date": "Fri, 01 May 2026 19:30:32 +0000",
+      "title": "El juez Peinado rechaza archivar el caso de Begoña Gómez e insiste en que la juzgue un jurado popular",
+      "link": "https://www.eldiario.es/politica/juez-rechaza-archivar-caso-begona-gomez-e-insiste-juzgue-jurado-popular_1_13199724.html",
+      "author": "elDiario.es",
+      "summary": "Rechaza los recursos de Begoña Gómez y los otros dos imputados, su asesora Cristina Álvarez y el empresario Juan Carlos BarrabésLa Fiscalía acusa a Peinado de basarse en “hipótesis” y “alambicadas teorías” para sentar en el banquillo a Begoña GómezEl juez Juan Carlos Peinado ha rechazado los recurso",
+      "date": "Wed, 06 May 2026 11:48:35 +0000",
       "source": "eldiario.es",
       "scrapeable": true,
-      "risk_summary": "Las tensiones entre PSOE y Junts por la prórroga de alquileres, con Sumar presionando, muestran las dificultades de Sánchez para mantener unida su frágil mayoría parlamentaria."
-    },
-    {
-      "title": "Los juicios a la corrupción de PP y PSOE marcan el inicio de la campaña andaluza que calibrará el peso de Vox",
-      "link": "https://www.eldiario.es/politica/juicios-corrupcion-pp-psoe-marcan-inicio-campana-andaluza-calibrara-peso-vox_1_13186723.html",
-      "author": "José Enrique Monrosi, Aitor Riveiro, Daniel Ríos",
-      "summary": "La digestión nacional de los resultados en Andalucía girará en torno al peso que la ultraderecha obtenga en las urnas: si Moreno revalida la mayoría absoluta liberará a Feijóo del peaje de otra negociación como la de Extremadura o Aragón, que Sánchez explota para desgastar al líder del PPEl curioso ",
-      "date": "Thu, 30 Apr 2026 20:09:22 +0000",
-      "source": "eldiario.es",
-      "scrapeable": true,
-      "risk_summary": "Las elecciones andaluzas se configuran como test definitivo del peso de Vox que determinará si Feijóo puede evitar futuros pactos con la ultraderecha."
-    },
-    {
-      "title": "Aldama busca escalar la trama corrupta de Ábalos hacia el PSOE y Sánchez con acusaciones sin pruebas",
-      "link": "https://www.eldiario.es/politica/aldama-busca-escalar-trama-corrupta-abalos-psoe-sanchez-acusaciones-pruebas_1_13183820.html",
-      "author": "Elena Herrera, Javier Lillo, José Enrique Monrosi",
-      "summary": "El comisionista sitúa al presidente del Gobierno en el \"escalafón uno\" de la trama y cifra en 1,8 millones de euros el dinero entregado al PSOE, mientras las defensas del exministro y Koldo García atacan su credibilidad por la falta de evidencias documentalesEl PSOE pedirá amparo al Supremo por las ",
-      "date": "Wed, 29 Apr 2026 20:10:03 +0000",
-      "source": "eldiario.es",
-      "scrapeable": true,
-      "risk_summary": "Las acusaciones sin pruebas de Aldama que sitúan a Sánchez en el 'escalafón uno' de corrupción y cifran en 1,8 millones el dinero al PSOE intensifican el cerco judicial al presidente."
+      "risk_summary": "El juez Peinado mantiene el caso Begoña Gómez rechazando el archivo, perpetuando la presión judicial sobre el entorno presidencial."
     }
   ]
 }
