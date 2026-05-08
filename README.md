@@ -48,14 +48,22 @@ spain.py también escribe briefing.mp3 (legacy path)
 
 ## Ciclo diario
 
-GitHub Actions a las 04:00 Madrid → `nightly.py` →
-1. Main RSS deltas → main.json
-2. Polymarket Main → markets_main.json
-3. España (RSS + Claude pick + briefing.mp3)
-4. Thinktanks (RSS por subtag + scrape BBVA)
-5. Papers (RSS)
-6. Briefings audio (Main + Thinktanks)
-7. Commit + push → Render redeploy
+Vercel Cron, dos fases bajo el límite de 300s por función:
+
+- **02:00 UTC** → `/api/nightly/curate` (~165s)
+  1. Main RSS deltas → main.json
+  2. Polymarket Main → markets_main.json
+  3. España (RSS + Claude pick + briefing.mp3)
+  4. Thinktanks (RSS por subtag + scrape BBVA)
+  5. Papers (RSS)
+  6. Polls (colmenadedatos)
+  7. Polymarket España
+- **02:10 UTC** → `/api/nightly/brief` (~240s)
+  1. Briefing Main (Claude Opus + edge-tts)
+  2. Briefing Thinktanks
+  3. Briefing Papers
+
+Disparable manualmente con `Authorization: Bearer $CRON_SECRET`.
 
 ## Setup
 
@@ -65,10 +73,20 @@ python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 ```
 
-`.env`:
+`.env` (dev local — los datos viven en disco bajo `data/`):
 ```
 ANTHROPIC_API_KEY=...
 ```
+
+Producción en Vercel (`https://readerme.vercel.app`) usa:
+- `BLOB_READ_WRITE_TOKEN` — Vercel Blob (jsons + mp3 generados por la nightly)
+- `KV_REST_API_URL` / `KV_REST_API_TOKEN` — Upstash Redis (read ledger)
+- `CRON_SECRET` — gate de `/api/nightly/*`
+- `ANTHROPIC_API_KEY`
+
+Si no hay `BLOB_READ_WRITE_TOKEN` en el entorno, `storage.py` cae al filesystem
+local automáticamente — `python run.py serve` y `python run.py nightly` siguen
+funcionando igual sin tocar nada.
 
 ## Uso
 
@@ -92,12 +110,15 @@ readerme/
 ├── polls.py          # encuestas
 ├── markets.py        # Polymarket (Spain + Main)
 ├── briefing.py       # Claude Opus 4.7 + edge-tts (Main, Thinktanks)
-├── nightly.py        # ciclo nocturno
-├── server.py         # Flask
+├── nightly.py        # CLI nocturno (dev local)
+├── server.py         # Flask + rutas /api/nightly/{curate,brief}
+├── app.py            # entry point para Vercel (re-exporta server.app)
+├── storage.py        # adaptador Blob (prod) / filesystem (dev)
+├── read_store.py     # adaptador KV (prod) / JSON local (dev)
 ├── templates/        # index, espana, thinktanks, papers
 ├── static/style.css
-├── data/             # feeds.json + outputs (commiteados por nightly)
-├── Procfile          # Render web process
+├── data/             # feeds.json + profile.json (config); outputs en Blob
+├── vercel.json       # cron schedule (02:00 + 02:10 UTC)
 └── requirements.txt
 ```
 
@@ -112,8 +133,12 @@ readerme/
 | `/api/scrape?url=...` | GET | Scrape de un artículo web |
 | `/api/share-text` | POST | Texto para compartir (Claude) |
 | `/api/briefing.mp3` | GET | Briefing España (legacy) |
-| `/api/briefing/<tab>.mp3` | GET | Briefing Main / Thinktanks |
+| `/api/briefing/<tab>.mp3` | GET | Briefing Main / Thinktanks / Papers |
+| `/api/read` | POST | Marcar URL como leída (KV ledger) |
+| `/api/read/clear` | POST | Vaciar ledger |
+| `/api/nightly/curate` | GET | Cron fase 1 — fetch + curate |
+| `/api/nightly/brief` | GET | Cron fase 2 — audio briefings |
 
 ## Stack
 
-Python 3.13 · Flask + Gunicorn · Claude Opus 4.7 (briefings) + Sonnet (España pick + share-text) · edge-tts · Chart.js · Polymarket CLOB · httpx + BeautifulSoup + lxml.
+Python 3.13 · Flask en Vercel Functions · Vercel Blob (artefactos) · Upstash Redis vía Vercel KV (read ledger) · Vercel Cron · Claude Opus 4.7 (briefings) + Sonnet (España pick + share-text) · edge-tts · Chart.js · Polymarket CLOB · httpx + BeautifulSoup + lxml.
