@@ -1,0 +1,22 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    { "source": "/((?!api/).*)", "destination": "/api/index" }
+  ],
+  "functions": {
+    "api/index.py": {
+      "memory": 1024,
+      "maxDuration": 60
+    },
+    "api/nightly.py": {
+      "memory": 1024,
+      "maxDuration": 800
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/nightly",
+      "schedule": "0 2 * * *"
+    }
+  ]
+}

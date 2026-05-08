@@ -5,15 +5,16 @@ data/briefing_<tab>.txt and data/briefing_<tab>.mp3.
 """
 
 import asyncio
-import json
-import pathlib
+import os
+import tempfile
 
 import anthropic
 from dotenv import load_dotenv
 
+import storage
+
 load_dotenv()
 
-DATA_DIR = pathlib.Path(__file__).parent / "data"
 MODEL = "claude-opus-4-7"  # latest Opus; falls back to sonnet 4.6 if not provisioned
 
 VOICE_ES = "es-ES-AlvaroNeural"
@@ -41,40 +42,46 @@ def _claude_text(prompt: str, max_tokens: int = 2000) -> str:
     return resp.content[0].text.strip()
 
 
-def _tts(text: str, voice: str, out_path: pathlib.Path):
-    """Synthesize speech with edge-tts."""
+def _tts_to_bytes(text: str, voice: str) -> bytes:
+    """Synthesize speech with edge-tts, return mp3 bytes."""
     import edge_tts
-    async def run():
-        communicate = edge_tts.Communicate(text, voice)
-        await communicate.save(str(out_path))
-    asyncio.run(run())
+    tmp = tempfile.NamedTemporaryFile(suffix=".mp3", delete=False)
+    tmp.close()
+    try:
+        async def run():
+            communicate = edge_tts.Communicate(text, voice)
+            await communicate.save(tmp.name)
+        asyncio.run(run())
+        with open(tmp.name, "rb") as f:
+            return f.read()
+    finally:
+        try:
+            os.unlink(tmp.name)
+        except OSError:
+            pass
 
 
 def _save_and_speak(tab: str, text: str, voice: str = VOICE_ES):
-    DATA_DIR.mkdir(exist_ok=True)
-    txt_path = DATA_DIR / f"briefing_{tab}.txt"
-    mp3_path = DATA_DIR / f"briefing_{tab}.mp3"
-    txt_path.write_text(text)
+    storage.write_bytes(f"briefing_{tab}.txt", text.encode("utf-8"),
+                        "text/plain; charset=utf-8")
     print(f"  generating {tab} audio…")
-    _tts(text, voice, mp3_path)
-    size_kb = mp3_path.stat().st_size // 1024
-    print(f"  briefing_{tab}.mp3: {size_kb} KB")
+    audio = _tts_to_bytes(text, voice)
+    storage.write_bytes(f"briefing_{tab}.mp3", audio, "audio/mpeg")
+    print(f"  briefing_{tab}.mp3: {len(audio) // 1024} KB")
 
 
 def generate_main(top_n: int = 30):
     """Briefing of the freshest items in main.json."""
-    main_file = DATA_DIR / "main.json"
-    if not main_file.exists():
+    data = storage.read_json("main.json")
+    if not data:
         print("  no main.json — skipping main briefing")
         return
-    data = json.loads(main_file.read_text())
     arts = data.get("articles", [])[:top_n]
     if not arts:
         print("  empty main — skipping briefing")
         return
 
-    markets_file = DATA_DIR / "markets_main.json"
-    markets = json.loads(markets_file.read_text()) if markets_file.exists() else {}
+    markets = storage.read_json("markets_main.json") or {}
 
     item_lines = [
         f"- [{a.get('site_name','?')}] {a.get('title','')[:160]}"
@@ -107,11 +114,10 @@ INSTRUCCIONES:
 
 def generate_thinktanks():
     """Briefing of the freshest items in thinktanks.json, by subsection."""
-    tt_file = DATA_DIR / "thinktanks.json"
-    if not tt_file.exists():
+    data = storage.read_json("thinktanks.json")
+    if not data:
         print("  no thinktanks.json — skipping briefing")
         return
-    data = json.loads(tt_file.read_text())
     arts = data.get("articles", [])
     if not arts:
         print("  empty thinktanks — skipping briefing")
@@ -157,11 +163,10 @@ INSTRUCCIONES:
 
 def generate_papers():
     """Briefing of the freshest items in papers.json, by source."""
-    pp_file = DATA_DIR / "papers.json"
-    if not pp_file.exists():
+    data = storage.read_json("papers.json")
+    if not data:
         print("  no papers.json — skipping briefing")
         return
-    data = json.loads(pp_file.read_text())
     arts = data.get("articles", [])
     if not arts:
         print("  empty papers — skipping briefing")

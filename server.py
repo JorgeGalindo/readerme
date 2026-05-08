@@ -1,16 +1,15 @@
 """Minimal Flask server for the readerme microsite."""
 
+import io
 import json
-import pathlib
 from datetime import datetime
 
 import httpx
 from bs4 import BeautifulSoup
-from flask import Flask, render_template, request, jsonify, send_file
+from flask import Flask, render_template, request, jsonify, send_file, redirect
 
 import read_store
-
-DATA_DIR = pathlib.Path(__file__).parent / "data"
+import storage
 
 app = Flask(__name__)
 
@@ -52,21 +51,18 @@ def _scrape_web_content(url: str) -> str:
 
 @app.route("/")
 def index():
-    main_file = DATA_DIR / "main.json"
-    if not main_file.exists():
+    data = storage.read_json("main.json")
+    if not data:
         return render_template("index.html", articles=[], markets={}, has_audio=False,
                                generated_at="Run 'python run.py' first", total=0)
-
-    data = json.loads(main_file.read_text())
 
     generated_at = data.get("generated_at", "")
     if generated_at:
         dt = datetime.fromisoformat(generated_at)
         generated_at = dt.strftime("%d %b %Y, %H:%M")
 
-    markets_file = DATA_DIR / "markets_main.json"
-    markets = json.loads(markets_file.read_text()) if markets_file.exists() else {}
-    has_audio = (DATA_DIR / "briefing_main.mp3").exists()
+    markets = storage.read_json("markets_main.json") or {}
+    has_audio = storage.exists("briefing_main.mp3")
 
     articles = read_store.filter_unread(data.get("articles", []))
     return render_template(
@@ -81,28 +77,16 @@ def index():
 
 @app.route("/espana")
 def espana():
-    spain_file = DATA_DIR / "spain.json"
-    polls_file = DATA_DIR / "polls.json"
-
-    spain_data = {}
-    if spain_file.exists():
-        spain_data = json.loads(spain_file.read_text())
-
-    polls_data = {}
-    if polls_file.exists():
-        polls_data = json.loads(polls_file.read_text())
-
-    markets_file = DATA_DIR / "markets.json"
-    markets_data = {}
-    if markets_file.exists():
-        markets_data = json.loads(markets_file.read_text())
+    spain_data = storage.read_json("spain.json") or {}
+    polls_data = storage.read_json("polls.json") or {}
+    markets_data = storage.read_json("markets.json") or {}
 
     generated_at = spain_data.get("generated_at", "")
     if generated_at:
         dt = datetime.fromisoformat(generated_at)
         generated_at = dt.strftime("%d %b %Y, %H:%M")
 
-    has_audio = (DATA_DIR / "briefing.mp3").exists()
+    has_audio = storage.exists("briefing.mp3")
 
     return render_template(
         "espana.html",
@@ -117,10 +101,7 @@ def espana():
 
 @app.route("/thinktanks")
 def thinktanks():
-    tt_file = DATA_DIR / "thinktanks.json"
-    tt_data = {}
-    if tt_file.exists():
-        tt_data = json.loads(tt_file.read_text())
+    tt_data = storage.read_json("thinktanks.json") or {}
 
     generated_at = tt_data.get("generated_at", "")
     if generated_at:
@@ -141,7 +122,7 @@ def thinktanks():
         if sub in grouped:
             sections.append({"key": sub, "label": SUBTAG_LABEL[sub], "by_source": grouped[sub]})
 
-    has_audio = (DATA_DIR / "briefing_thinktanks.mp3").exists()
+    has_audio = storage.exists("briefing_thinktanks.mp3")
     return render_template(
         "thinktanks.html",
         sections=sections,
@@ -152,11 +133,10 @@ def thinktanks():
 
 @app.route("/papers")
 def papers():
-    papers_file = DATA_DIR / "papers.json"
-    if not papers_file.exists():
+    data = storage.read_json("papers.json")
+    if not data:
         return render_template("papers.html", by_source={}, generated_at="")
 
-    data = json.loads(papers_file.read_text())
     generated_at = data.get("generated_at", "")
     if generated_at:
         dt = datetime.fromisoformat(generated_at)
@@ -167,18 +147,28 @@ def papers():
     for a in read_store.filter_unread(data.get("articles", [])):
         by_source.setdefault(a.get("source", "Other"), []).append(a)
 
-    has_audio = (DATA_DIR / "briefing_papers.mp3").exists()
+    has_audio = storage.exists("briefing_papers.mp3")
     return render_template("papers.html", by_source=by_source, has_audio=has_audio,
                            generated_at=generated_at)
+
+
+def _serve_audio(name: str):
+    """Stream an mp3. In Blob mode, redirect to the public Blob URL (no
+    bytes through the function); locally, send the file from disk."""
+    url = storage.public_url(name)
+    if url:
+        return redirect(url, code=302)
+    audio_bytes = storage.read_bytes(name)
+    if audio_bytes is None:
+        return jsonify({"ok": False}), 404
+    return send_file(io.BytesIO(audio_bytes), mimetype="audio/mpeg",
+                     download_name=name)
 
 
 @app.route("/api/briefing.mp3")
 def briefing_audio():
     """Legacy route — España briefing."""
-    audio_file = DATA_DIR / "briefing.mp3"
-    if not audio_file.exists():
-        return jsonify({"ok": False}), 404
-    return send_file(audio_file, mimetype="audio/mpeg")
+    return _serve_audio("briefing.mp3")
 
 
 @app.route("/api/briefing/<tab>.mp3")
@@ -186,10 +176,7 @@ def briefing_audio_tab(tab):
     """Per-tab briefing. Spain still uses /api/briefing.mp3 above."""
     if tab not in ("main", "thinktanks", "papers"):
         return jsonify({"ok": False}), 404
-    audio_file = DATA_DIR / f"briefing_{tab}.mp3"
-    if not audio_file.exists():
-        return jsonify({"ok": False}), 404
-    return send_file(audio_file, mimetype="audio/mpeg")
+    return _serve_audio(f"briefing_{tab}.mp3")
 
 
 @app.route("/api/read", methods=["POST"])
@@ -232,11 +219,7 @@ def share_text():
     url = data.get("url", "")
     content_snippet = data.get("content", "")[:3000]
 
-    # Load author profile for voice
-    profile_file = DATA_DIR / "profile.json"
-    profile = {}
-    if profile_file.exists():
-        profile = json.loads(profile_file.read_text())
+    profile = storage.read_json("profile.json") or {}
 
     client = anthropic.Anthropic(timeout=120.0, max_retries=2)
     response = client.messages.create(

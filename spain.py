@@ -1,7 +1,6 @@
 """Fetch and curate Spanish political risk news."""
 
 import json
-import pathlib
 import time
 import xml.etree.ElementTree as ET
 
@@ -10,11 +9,9 @@ import httpx
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
-load_dotenv()
+import storage
 
-DATA_DIR = pathlib.Path(__file__).parent / "data"
-SPAIN_FILE = DATA_DIR / "spain.json"
-SEEN_INTL_FILE = DATA_DIR / "seen_intl.json"
+load_dotenv()
 
 client = anthropic.Anthropic(timeout=180.0, max_retries=3)
 
@@ -115,14 +112,12 @@ def _parse_atom(xml_text: str, source_name: str) -> list[dict]:
 
 
 def _load_seen_intl() -> set:
-    if SEEN_INTL_FILE.exists():
-        return set(json.loads(SEEN_INTL_FILE.read_text()))
-    return set()
+    data = storage.read_json("seen_intl.json")
+    return set(data) if data else set()
 
 
 def _save_seen_intl(seen: set):
-    DATA_DIR.mkdir(exist_ok=True)
-    SEEN_INTL_FILE.write_text(json.dumps(list(seen)))
+    storage.write_json("seen_intl.json", list(seen))
 
 
 def fetch_intl_spain() -> list[dict]:
@@ -272,8 +267,7 @@ Responde SOLO JSON array, sin markdown:
         "spanish": curated_spanish,
     }
 
-    DATA_DIR.mkdir(exist_ok=True)
-    SPAIN_FILE.write_text(json.dumps(result, ensure_ascii=False, indent=2))
+    storage.write_json("spain.json", result)
     print(f"Spain curated: {len(curated_intl)} intl + {len(curated_spanish)} national")
 
     # Generate audio briefing
@@ -287,17 +281,8 @@ def generate_audio_briefing(intl: list[dict], spanish: list[dict]):
     import asyncio
     import edge_tts
 
-    # Load markets data if available
-    markets_file = DATA_DIR / "markets.json"
-    markets = {}
-    if markets_file.exists():
-        markets = json.loads(markets_file.read_text())
-
-    # Load polls data if available
-    polls_file = DATA_DIR / "polls.json"
-    polls = {}
-    if polls_file.exists():
-        polls = json.loads(polls_file.read_text())
+    markets = storage.read_json("markets.json") or {}
+    polls = storage.read_json("polls.json") or {}
 
     # Build context for Claude
     intl_lines = [f"- {a['title']} ({a['source']}): {a.get('risk_summary', '')}" for a in intl]
@@ -353,22 +338,29 @@ INSTRUCCIONES:
     )
 
     briefing_text = response.content[0].text.strip()
+    storage.write_bytes("briefing.txt", briefing_text.encode("utf-8"), "text/plain; charset=utf-8")
 
-    # Save text version
-    briefing_text_file = DATA_DIR / "briefing.txt"
-    briefing_text_file.write_text(briefing_text)
-
-    # Generate audio
+    # Generate audio. edge-tts writes to a real file, so we use a tmp path
+    # then upload bytes via storage.
     print("Converting to audio...")
-    audio_file = DATA_DIR / "briefing.mp3"
+    import tempfile, os as _os
 
-    async def _tts():
-        communicate = edge_tts.Communicate(briefing_text, "es-ES-AlvaroNeural")
-        await communicate.save(str(audio_file))
-
-    asyncio.run(_tts())
-    size_kb = audio_file.stat().st_size // 1024
-    print(f"  Audio briefing: {size_kb}KB")
+    tmp = tempfile.NamedTemporaryFile(suffix=".mp3", delete=False)
+    tmp.close()
+    try:
+        async def _tts():
+            communicate = edge_tts.Communicate(briefing_text, "es-ES-AlvaroNeural")
+            await communicate.save(tmp.name)
+        asyncio.run(_tts())
+        with open(tmp.name, "rb") as f:
+            audio_bytes = f.read()
+    finally:
+        try:
+            _os.unlink(tmp.name)
+        except OSError:
+            pass
+    storage.write_bytes("briefing.mp3", audio_bytes, "audio/mpeg")
+    print(f"  Audio briefing: {len(audio_bytes) // 1024}KB")
 
 
 if __name__ == "__main__":

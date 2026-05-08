@@ -2,8 +2,6 @@
 """Thinktanks tab: pull RSS feeds tagged 'thinktank' (grouped by subtag) +
 scrape BBVA Research (no RSS available)."""
 
-import json
-import pathlib
 from datetime import datetime, timezone
 
 import httpx
@@ -11,9 +9,7 @@ from bs4 import BeautifulSoup
 
 from rss import fetch_latest_by_tag
 import read_store
-
-DATA_DIR = pathlib.Path(__file__).parent / "data"
-THINKTANKS_FILE = DATA_DIR / "thinktanks.json"
+import storage
 
 MAX_PER_FEED = 10
 
@@ -95,8 +91,7 @@ def curate_thinktanks() -> dict:
         "articles": articles,
     }
 
-    DATA_DIR.mkdir(exist_ok=True)
-    THINKTANKS_FILE.write_text(json.dumps(result, ensure_ascii=False, indent=2))
+    storage.write_json("thinktanks.json", result)
     return result
 
 

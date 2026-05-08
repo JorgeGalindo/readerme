@@ -3,19 +3,15 @@
 No Claude scoring/tagging — items are shown chronologically from their feeds.
 """
 
-import json
-import pathlib
 from datetime import datetime, timedelta, timezone
 
 from dotenv import load_dotenv
 
 from rss import fetch_by_tag
 import read_store
+import storage
 
 load_dotenv()
-
-DATA_DIR = pathlib.Path(__file__).parent / "data"
-MAIN_FILE = DATA_DIR / "main.json"
 
 CARRY_OVER_DAYS = 14
 
@@ -35,9 +31,9 @@ def curate() -> dict:
 
     # Carry over previously-curated items still inside the carry-over window.
     carried = []
-    if MAIN_FILE.exists():
+    prev = storage.read_json("main.json")
+    if prev:
         try:
-            prev = json.loads(MAIN_FILE.read_text())
             cutoff = (datetime.now(timezone.utc) - timedelta(days=CARRY_OVER_DAYS)).isoformat()
             for old in prev.get("articles", []):
                 added = old.get("_added_at") or old.get("published_date") or ""
@@ -80,8 +76,7 @@ def curate() -> dict:
         "articles": out,
     }
 
-    DATA_DIR.mkdir(exist_ok=True)
-    MAIN_FILE.write_text(json.dumps(result, ensure_ascii=False, indent=2))
+    storage.write_json("main.json", result)
     print(f"Wrote {len(out)} articles to main.json.")
     return result
 

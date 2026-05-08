@@ -1,15 +1,14 @@
 """Fetch Polymarket prediction-market history for Spain (España tab) and
 Main (global politics) tabs. Each set writes to its own JSON file."""
 
-import json
-import pathlib
 from datetime import datetime, timezone
 
 import httpx
 
-DATA_DIR = pathlib.Path(__file__).parent / "data"
-MARKETS_FILE_SPAIN = DATA_DIR / "markets.json"           # legacy filename
-MARKETS_FILE_MAIN = DATA_DIR / "markets_main.json"
+import storage
+
+MARKETS_FILE_SPAIN = "markets.json"  # legacy filename
+MARKETS_FILE_MAIN = "markets_main.json"
 
 
 SPAIN_MARKETS = {
@@ -72,7 +71,7 @@ def _fetch_one(token_id: str) -> tuple[list[str], list[float], float]:
     return dates, prices, current
 
 
-def _fetch_set(name: str, markets: dict, out_file: pathlib.Path) -> dict:
+def _fetch_set(name: str, markets: dict, out_file: str) -> dict:
     print(f"Fetching Polymarket data ({name})…")
     out: dict = {}
     for key, market in markets.items():
@@ -88,8 +87,7 @@ def _fetch_set(name: str, markets: dict, out_file: pathlib.Path) -> dict:
             print(f"  {market['title']}: {current}% ({len(dates)} points)")
         except Exception as e:
             print(f"  Failed {key}: {e}")
-    DATA_DIR.mkdir(exist_ok=True)
-    out_file.write_text(json.dumps(out, ensure_ascii=False, indent=2))
+    storage.write_json(out_file, out)
     return out
 
 

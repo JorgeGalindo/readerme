@@ -6,8 +6,6 @@ and stop at the first item whose id is in state — everything above is new.
 """
 
 import hashlib
-import json
-import pathlib
 import time
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
@@ -16,9 +14,7 @@ from typing import Optional
 import httpx
 from bs4 import BeautifulSoup
 
-DATA_DIR = pathlib.Path(__file__).parent / "data"
-FEEDS_FILE = DATA_DIR / "feeds.json"
-STATE_FILE = DATA_DIR / "rss_state.json"
+import storage
 
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
 HTTP_HEADERS = {
@@ -29,20 +25,15 @@ HTTP_HEADERS = {
 
 
 def _load_feeds() -> list[dict]:
-    if not FEEDS_FILE.exists():
-        return []
-    return json.loads(FEEDS_FILE.read_text())
+    return storage.read_json("feeds.json") or []
 
 
 def _load_state() -> dict:
-    if not STATE_FILE.exists():
-        return {}
-    return json.loads(STATE_FILE.read_text())
+    return storage.read_json("rss_state.json") or {}
 
 
 def _save_state(state: dict):
-    DATA_DIR.mkdir(exist_ok=True)
-    STATE_FILE.write_text(json.dumps(state, ensure_ascii=False, indent=2))
+    storage.write_json("rss_state.json", state)
 
 
 def _stable_id(item_url: str, guid: str) -> str:

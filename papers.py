@@ -1,15 +1,11 @@
 #!/usr/bin/env python3
 """Papers tab: pull RSS feeds tagged 'papers'. Chronological, grouped by source."""
 
-import json
-import pathlib
 from datetime import datetime, timezone
 
 from rss import fetch_latest_by_tag
 import read_store
-
-DATA_DIR = pathlib.Path(__file__).parent / "data"
-PAPERS_FILE = DATA_DIR / "papers.json"
+import storage
 
 MAX_PER_FEED = 25
 
@@ -59,8 +55,7 @@ def curate_papers() -> dict:
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "articles": out,
     }
-    DATA_DIR.mkdir(exist_ok=True)
-    PAPERS_FILE.write_text(json.dumps(result, ensure_ascii=False, indent=2))
+    storage.write_json("papers.json", result)
     print(f"  Total: {len(out)} papers")
     return result
 

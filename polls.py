@@ -1,14 +1,11 @@
 """Fetch Spanish election polling trends from colmenadedatos.com (Datawrapper)."""
 
 import csv
-import json
-import pathlib
 from io import StringIO
 
 import httpx
 
-DATA_DIR = pathlib.Path(__file__).parent / "data"
-POLLS_FILE = DATA_DIR / "polls.json"
+import storage
 
 DATAWRAPPER_CSV = "https://datawrapper.dwcdn.net/7zFyg/17/dataset.csv"
 
@@ -86,8 +83,7 @@ def fetch_and_process() -> dict:
         "source": "colmenadedatos.com / Datawrapper",
     }
 
-    DATA_DIR.mkdir(exist_ok=True)
-    POLLS_FILE.write_text(json.dumps(result, ensure_ascii=False, indent=2))
+    storage.write_json("polls.json", result)
     print(f"  Bloc: derecha {right_bloc}% vs izquierda {left_bloc}%")
     print(f"  Gap: {bloc['gap_label']} | Mayoría PP+Vox: {prob}")
     return result
