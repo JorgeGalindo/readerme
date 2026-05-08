@@ -10,3 +10,6 @@ data/substack_articles.json
 data/launchd.log
 data/nightly.log
 feed*.png
+.vercel
+.env*.local
+.env.vercel*
