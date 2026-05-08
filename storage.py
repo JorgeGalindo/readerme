@@ -126,15 +126,17 @@ def _blob_write_bytes(name: str, data: bytes, content_type: str) -> None:
     if not token:
         raise RuntimeError("BLOB_READ_WRITE_TOKEN not set")
     key = _blob_key(name)
-    # `addRandomSuffix=false` so we can reach the blob by stable path.
-    # `allowOverwrite=true` so re-uploads replace the existing blob.
+    # All flags go as headers, not query params. Mirrors @vercel/blob SDK.
+    # `x-add-random-suffix: 0` keeps a stable pathname.
+    # `x-allow-overwrite: 1` lets re-uploads replace the existing blob.
     r = httpx.put(
         f"{_BLOB_API}/{key}",
-        params={"addRandomSuffix": "false", "allowOverwrite": "true"},
         headers={
             "authorization": f"Bearer {token}",
-            "x-content-type": content_type,
             "x-api-version": "7",
+            "x-content-type": content_type,
+            "x-add-random-suffix": "0",
+            "x-allow-overwrite": "1",
         },
         content=data,
         timeout=60,

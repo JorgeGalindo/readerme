@@ -2,7 +2,9 @@
 
 import io
 import json
-from datetime import datetime
+import os
+import traceback
+from datetime import datetime, timezone
 
 import httpx
 from bs4 import BeautifulSoup
@@ -249,3 +251,59 @@ INSTRUCCIONES:
 
     text = response.content[0].text.strip()
     return jsonify({"ok": True, "text": text})
+
+
+def _cron_authorized() -> bool:
+    """Vercel Cron sends `Authorization: Bearer <CRON_SECRET>`. If no secret
+    is configured we allow it (dev convenience)."""
+    expected = os.environ.get("CRON_SECRET")
+    if not expected:
+        return True
+    return request.headers.get("Authorization", "") == f"Bearer {expected}"
+
+
+@app.route("/api/nightly", methods=["GET", "POST"])
+def api_nightly():
+    """Cron endpoint. Runs the full nightly cycle and returns a per-step log."""
+    if not _cron_authorized():
+        return jsonify({"ok": False, "error": "unauthorized"}), 401
+
+    started = datetime.now(timezone.utc).isoformat()
+    log: list[dict] = []
+
+    def step(name: str, fn):
+        t0 = datetime.now(timezone.utc)
+        try:
+            fn()
+            log.append({"step": name, "ok": True,
+                        "secs": (datetime.now(timezone.utc) - t0).total_seconds()})
+        except Exception as e:
+            log.append({"step": name, "ok": False, "error": str(e),
+                        "trace": traceback.format_exc().splitlines()[-5:],
+                        "secs": (datetime.now(timezone.utc) - t0).total_seconds()})
+
+    from curator import curate
+    from markets import fetch_markets, fetch_markets_main
+    from spain import curate_spain
+    from thinktanks import curate_thinktanks
+    from papers import curate_papers
+    from polls import fetch_and_process
+    from briefing import generate_main, generate_thinktanks, generate_papers
+
+    step("main_curate", curate)
+    step("markets_main", fetch_markets_main)
+    step("spain", curate_spain)
+    step("thinktanks", curate_thinktanks)
+    step("papers", curate_papers)
+    step("polls", fetch_and_process)
+    step("markets_spain", fetch_markets)
+    step("briefing_main", generate_main)
+    step("briefing_thinktanks", generate_thinktanks)
+    step("briefing_papers", generate_papers)
+
+    return jsonify({
+        "ok": all(s["ok"] for s in log),
+        "started": started,
+        "finished": datetime.now(timezone.utc).isoformat(),
+        "steps": log,
+    })
