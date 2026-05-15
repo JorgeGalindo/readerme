@@ -254,18 +254,44 @@
   })();
   {% endif %}
 
+  (function setupBriefingAudio() {
+    const audio = document.getElementById('briefingAudio');
+    if (!audio) return;
+    audio.preload = 'metadata';
+    audio.setAttribute('playsinline', '');
+    audio.setAttribute('webkit-playsinline', '');
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: 'Briefing España',
+        artist: 'readerme',
+        album: 'Briefing de hoy',
+      });
+      navigator.mediaSession.setActionHandler('play', () => audio.play());
+      navigator.mediaSession.setActionHandler('pause', () => audio.pause());
+      navigator.mediaSession.setActionHandler('seekbackward', e => {
+        audio.currentTime = Math.max(0, audio.currentTime - (e.seekOffset || 15));
+      });
+      navigator.mediaSession.setActionHandler('seekforward', e => {
+        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + (e.seekOffset || 30));
+      });
+    }
+  })();
+
   function toggleAudio() {
     const audio = document.getElementById('briefingAudio');
     const btn = document.getElementById('playBtn');
     if (!audio) return;
     if (audio.paused) {
-      audio.play();
+      const p = audio.play();
+      if (p && p.catch) p.catch(() => {});
       btn.textContent = 'Pausar';
     } else {
       audio.pause();
       btn.textContent = 'Escuchar';
     }
     audio.onended = () => { btn.textContent = 'Escuchar'; };
+    audio.onpause = () => { if (!audio.ended) btn.textContent = 'Escuchar'; };
+    audio.onplay = () => { btn.textContent = 'Pausar'; };
   }
 
   async function toggleScrape(btn) {

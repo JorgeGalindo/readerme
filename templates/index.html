@@ -30,16 +30,6 @@
     </div>
     {% endif %}
 
-    {% if has_audio %}
-    <section class="audio-briefing">
-      <div class="audio-header">
-        <h2 class="section-title">Briefing de hoy</h2>
-        <button class="btn-play" id="playBtn" onclick="toggleAudio()">Escuchar</button>
-      </div>
-      <audio id="briefingAudio" src="/api/briefing/main.mp3" preload="none"></audio>
-    </section>
-    {% endif %}
-
     {% if markets %}
     <section>
       <h2 class="section-title">Mercados de predicción</h2>
@@ -93,15 +83,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
   <script>
-  function toggleAudio() {
-    const audio = document.getElementById('briefingAudio');
-    const btn = document.getElementById('playBtn');
-    if (!audio) return;
-    if (audio.paused) { audio.play(); btn.textContent = 'Pausar'; }
-    else { audio.pause(); btn.textContent = 'Escuchar'; }
-    audio.onended = () => { btn.textContent = 'Escuchar'; };
-  }
-
   {% if markets %}
   (function() {
     const mkts = {{ markets | tojson }};

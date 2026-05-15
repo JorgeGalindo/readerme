@@ -1,6 +1,6 @@
 # readerme
 
-Lector de feeds RSS personal con cuatro pestañas (Main, España, Thinktanks, Papers), audio briefings y mercados de predicción.
+Lector de feeds RSS personal con cuatro pestañas (Main, España, Thinktanks, Papers), audio briefings (España y Thinktanks) y mercados de predicción.
 
 ## Cómo funciona
 
@@ -17,14 +17,13 @@ data/feeds.json (RSS taggeados main / thinktank / papers)
 
 markets.py (Polymarket CLOB API) ──► markets.json + markets_main.json
 polls.py   (colmenadedatos)      ──► polls.json
-briefing.py (Claude Opus 4.7 + edge-tts) ─► briefing_main.mp3, briefing_thinktanks.mp3
-spain.py también escribe briefing.mp3 (legacy path)
+briefing.py (Claude Sonnet 4.6 + OpenAI gpt-4o-mini-tts) ─► briefing_thinktanks.mp3
+spain.py también escribe briefing.mp3 (briefing España)
 ```
 
 ## Pestañas
 
 ### Main (`/`)
-- **Briefing de hoy** — ~3 min, generado con Claude Opus 4.7 + edge-tts.
 - **Mercados de predicción (Polymarket)** — Iran régimen, Russia-Ukraine, Fed cut, China-Taiwan.
 - **Artículos** — orden cronológico. No hay scoring: lo que entra por RSS aparece aquí.
 - Cada card: **Leer** (scrape vía `/api/scrape`), **Escuchar** (TTS browser-side), **Compartir** (LinkedIn/X), **Leído** (oculta + localStorage).
@@ -58,10 +57,8 @@ Vercel Cron, dos fases bajo el límite de 300s por función:
   5. Papers (RSS)
   6. Polls (colmenadedatos)
   7. Polymarket España
-- **02:10 UTC** → `/api/nightly/brief` (~240s)
-  1. Briefing Main (Claude Opus + edge-tts)
-  2. Briefing Thinktanks
-  3. Briefing Papers
+- **02:10 UTC** → `/api/nightly/brief` (~120s)
+  1. Briefing Thinktanks (Claude Sonnet 4.6 + OpenAI gpt-4o-mini-tts)
 
 Disparable manualmente con `Authorization: Bearer $CRON_SECRET`.
 
@@ -76,6 +73,7 @@ python3 -m venv .venv
 `.env` (dev local — los datos viven en disco bajo `data/`):
 ```
 ANTHROPIC_API_KEY=...
+OPENAI_API_KEY=...   # gpt-4o-mini-tts para los audio briefings
 ```
 
 Producción en Vercel (`https://readerme.vercel.app`) usa:
@@ -83,6 +81,8 @@ Producción en Vercel (`https://readerme.vercel.app`) usa:
 - `KV_REST_API_URL` / `KV_REST_API_TOKEN` — Upstash Redis (read ledger)
 - `CRON_SECRET` — gate de `/api/nightly/*`
 - `ANTHROPIC_API_KEY`
+- `OPENAI_API_KEY` — TTS de los briefings
+- `OPENAI_TTS_VOICE` (opcional, default `nova`) — alloy / ash / ballad / coral / echo / fable / nova / onyx / sage / shimmer
 
 Si no hay `BLOB_READ_WRITE_TOKEN` en el entorno, `storage.py` cae al filesystem
 local automáticamente — `python run.py serve` y `python run.py nightly` siguen
@@ -109,7 +109,7 @@ readerme/
 ├── spain.py          # /espana (RSS + Claude pick + briefing audio)
 ├── polls.py          # encuestas
 ├── markets.py        # Polymarket (Spain + Main)
-├── briefing.py       # Claude Opus 4.7 + edge-tts (Main, Thinktanks)
+├── briefing.py       # Claude Sonnet 4.6 + OpenAI gpt-4o-mini-tts (Thinktanks)
 ├── nightly.py        # CLI nocturno (dev local)
 ├── server.py         # Flask + rutas /api/nightly/{curate,brief}
 ├── app.py            # entry point para Vercel (re-exporta server.app)
@@ -132,8 +132,8 @@ readerme/
 | `/papers` | GET | Papers |
 | `/api/scrape?url=...` | GET | Scrape de un artículo web |
 | `/api/share-text` | POST | Texto para compartir (Claude) |
-| `/api/briefing.mp3` | GET | Briefing España (legacy) |
-| `/api/briefing/<tab>.mp3` | GET | Briefing Main / Thinktanks / Papers |
+| `/api/briefing.mp3` | GET | Briefing España |
+| `/api/briefing/thinktanks.mp3` | GET | Briefing Thinktanks |
 | `/api/read` | POST | Marcar URL como leída (KV ledger) |
 | `/api/read/clear` | POST | Vaciar ledger |
 | `/api/nightly/curate` | GET | Cron fase 1 — fetch + curate |
@@ -141,4 +141,4 @@ readerme/
 
 ## Stack
 
-Python 3.13 · Flask en Vercel Functions · Vercel Blob (artefactos) · Upstash Redis vía Vercel KV (read ledger) · Vercel Cron · Claude Opus 4.7 (briefings) + Sonnet (España pick + share-text) · edge-tts · Chart.js · Polymarket CLOB · httpx + BeautifulSoup + lxml.
+Python 3.13 · Flask en Vercel Functions · Vercel Blob (artefactos) · Upstash Redis vía Vercel KV (read ledger) · Vercel Cron · Claude Sonnet 4.6 (briefings + España pick + share-text) · OpenAI gpt-4o-mini-tts · Chart.js · Polymarket CLOB · httpx + BeautifulSoup + lxml.

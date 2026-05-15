@@ -208,7 +208,7 @@ def curate_spain() -> dict:
         articles_text = "\n\n".join(article_list)
 
         response = client.messages.create(
-            model="claude-sonnet-4-20250514",
+            model="claude-sonnet-4-6",
             max_tokens=4000,
             messages=[{
                 "role": "user",
@@ -278,8 +278,7 @@ Responde SOLO JSON array, sin markdown:
 
 def generate_audio_briefing(intl: list[dict], spanish: list[dict]):
     """Generate a spoken political risk briefing from curated news + markets."""
-    import asyncio
-    import edge_tts
+    from briefing import _tts_to_bytes
 
     markets = storage.read_json("markets.json") or {}
     polls = storage.read_json("polls.json") or {}
@@ -332,7 +331,7 @@ INSTRUCCIONES:
 
     print("Generating audio briefing text...")
     response = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-sonnet-4-6",
         max_tokens=2000,
         messages=[{"role": "user", "content": prompt}],
     )
@@ -340,25 +339,8 @@ INSTRUCCIONES:
     briefing_text = response.content[0].text.strip()
     storage.write_bytes("briefing.txt", briefing_text.encode("utf-8"), "text/plain; charset=utf-8")
 
-    # Generate audio. edge-tts writes to a real file, so we use a tmp path
-    # then upload bytes via storage.
-    print("Converting to audio...")
-    import tempfile, os as _os
-
-    tmp = tempfile.NamedTemporaryFile(suffix=".mp3", delete=False)
-    tmp.close()
-    try:
-        async def _tts():
-            communicate = edge_tts.Communicate(briefing_text, "es-ES-AlvaroNeural")
-            await communicate.save(tmp.name)
-        asyncio.run(_tts())
-        with open(tmp.name, "rb") as f:
-            audio_bytes = f.read()
-    finally:
-        try:
-            _os.unlink(tmp.name)
-        except OSError:
-            pass
+    print("Converting to audio (OpenAI TTS)...")
+    audio_bytes = _tts_to_bytes(briefing_text)
     storage.write_bytes("briefing.mp3", audio_bytes, "audio/mpeg")
     print(f"  Audio briefing: {len(audio_bytes) // 1024}KB")
 

@@ -29,16 +29,6 @@
     </div>
     {% endif %}
 
-    {% if has_audio %}
-    <section class="audio-briefing">
-      <div class="audio-header">
-        <h2 class="section-title">Briefing de hoy</h2>
-        <button class="btn-play" id="playBtn" onclick="toggleAudio()">Escuchar</button>
-      </div>
-      <audio id="briefingAudio" src="/api/briefing/papers.mp3" preload="none"></audio>
-    </section>
-    {% endif %}
-
     {% for source, articles in by_source.items() %}
     <section class="bubble-section">
       <h2 class="section-title">{{ source }}</h2>
@@ -65,15 +55,6 @@
   </footer>
 
   <script>
-  function toggleAudio() {
-    const audio = document.getElementById('briefingAudio');
-    const btn = document.getElementById('playBtn');
-    if (!audio) return;
-    if (audio.paused) { audio.play(); btn.textContent = 'Pausar'; }
-    else { audio.pause(); btn.textContent = 'Escuchar'; }
-    audio.onended = () => { btn.textContent = 'Escuchar'; };
-  }
-
   const READ_KEY = 'readerme_read';
   const READ_TTL_DAYS = 60;
 

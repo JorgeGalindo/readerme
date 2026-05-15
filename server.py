@@ -55,7 +55,7 @@ def _scrape_web_content(url: str) -> str:
 def index():
     data = storage.read_json("main.json")
     if not data:
-        return render_template("index.html", articles=[], markets={}, has_audio=False,
+        return render_template("index.html", articles=[], markets={},
                                generated_at="Run 'python run.py' first", total=0)
 
     generated_at = data.get("generated_at", "")
@@ -64,14 +64,12 @@ def index():
         generated_at = dt.strftime("%d %b %Y, %H:%M")
 
     markets = storage.read_json("markets_main.json") or {}
-    has_audio = storage.exists("briefing_main.mp3")
 
     articles = read_store.filter_unread(data.get("articles", []))
     return render_template(
         "index.html",
         articles=articles,
         markets=markets,
-        has_audio=has_audio,
         generated_at=generated_at,
         total=len(articles),
     )
@@ -149,8 +147,7 @@ def papers():
     for a in read_store.filter_unread(data.get("articles", [])):
         by_source.setdefault(a.get("source", "Other"), []).append(a)
 
-    has_audio = storage.exists("briefing_papers.mp3")
-    return render_template("papers.html", by_source=by_source, has_audio=has_audio,
+    return render_template("papers.html", by_source=by_source,
                            generated_at=generated_at)
 
 
@@ -176,7 +173,7 @@ def briefing_audio():
 @app.route("/api/briefing/<tab>.mp3")
 def briefing_audio_tab(tab):
     """Per-tab briefing. Spain still uses /api/briefing.mp3 above."""
-    if tab not in ("main", "thinktanks", "papers"):
+    if tab not in ("thinktanks",):
         return jsonify({"ok": False}), 404
     return _serve_audio(f"briefing_{tab}.mp3")
 
@@ -225,7 +222,7 @@ def share_text():
 
     client = anthropic.Anthropic(timeout=120.0, max_retries=2)
     response = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-sonnet-4-6",
         max_tokens=800,
         messages=[{
             "role": "user",
@@ -312,15 +309,13 @@ def api_nightly_curate():
 
 @app.route("/api/nightly/brief", methods=["GET", "POST"])
 def api_nightly_brief():
-    """Phase 2 of the nightly cycle: generate the three audio briefings.
+    """Phase 2 of the nightly cycle: generate the Thinktanks audio briefing.
     Reads the JSON snapshots written by /api/nightly/curate."""
     if not _cron_authorized():
         return jsonify({"ok": False, "error": "unauthorized"}), 401
 
-    from briefing import generate_main, generate_thinktanks, generate_papers
+    from briefing import generate_thinktanks
 
     return jsonify(_run_steps([
-        ("briefing_main", generate_main),
         ("briefing_thinktanks", generate_thinktanks),
-        ("briefing_papers", generate_papers),
     ]))
