@@ -1,21 +1,39 @@
 """Fetch Spanish election polling trends from colmenadedatos.com (Datawrapper)."""
 
 import csv
+import re
 from io import StringIO
 
 import httpx
 
 import storage
 
-DATAWRAPPER_CSV = "https://datawrapper.dwcdn.net/7zFyg/17/dataset.csv"
+DW_SLUG = "7zFyg"
 
 PARTIES = ["PP", "PSOE", "VOX", "SUMAR", "PODEMOS"]
 
 
+def _latest_dataset_url() -> str:
+    """Datawrapper version-pins each republish (slug/NN/dataset.csv), so a
+    hardcoded version goes stale. Fetch the embed page and grab the current
+    one. Falls back to a known-good version if the discovery fails."""
+    try:
+        r = httpx.get(f"https://datawrapper.dwcdn.net/{DW_SLUG}/",
+                      headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
+        r.raise_for_status()
+        versions = [int(v) for v in re.findall(rf"/{DW_SLUG}/(\d+)/", r.text)]
+        if versions:
+            return f"https://datawrapper.dwcdn.net/{DW_SLUG}/{max(versions)}/dataset.csv"
+    except Exception as e:
+        print(f"  [polls] version discovery failed: {e}")
+    return f"https://datawrapper.dwcdn.net/{DW_SLUG}/17/dataset.csv"
+
+
 def fetch_and_process() -> dict:
     """Fetch trend estimates from colmenadedatos/Datawrapper and compute bloc analysis."""
-    print("Fetching polling trends from colmenadedatos.com...")
-    resp = httpx.get(DATAWRAPPER_CSV, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
+    url = _latest_dataset_url()
+    print(f"Fetching polling trends: {url}")
+    resp = httpx.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
     resp.raise_for_status()
 
     reader = csv.DictReader(StringIO(resp.text), delimiter="\t")
