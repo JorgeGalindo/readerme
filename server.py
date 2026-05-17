@@ -1,14 +1,16 @@
 """Minimal Flask server for the readerme microsite."""
 
+import hashlib
 import io
 import json
 import os
+import re
 import traceback
 from datetime import datetime, timezone
 
 import httpx
 from bs4 import BeautifulSoup
-from flask import Flask, render_template, request, jsonify, send_file, redirect
+from flask import Flask, Response, render_template, request, jsonify, send_file, redirect
 
 import read_store
 import storage
@@ -122,11 +124,9 @@ def thinktanks():
         if sub in grouped:
             sections.append({"key": sub, "label": SUBTAG_LABEL[sub], "by_source": grouped[sub]})
 
-    has_audio = storage.exists("briefing_thinktanks.mp3")
     return render_template(
         "thinktanks.html",
         sections=sections,
-        has_audio=has_audio,
         generated_at=generated_at,
     )
 
@@ -166,16 +166,101 @@ def _serve_audio(name: str):
 
 @app.route("/api/briefing.mp3")
 def briefing_audio():
-    """Legacy route — España briefing."""
+    """España briefing."""
     return _serve_audio("briefing.mp3")
 
 
-@app.route("/api/briefing/<tab>.mp3")
-def briefing_audio_tab(tab):
-    """Per-tab briefing. Spain still uses /api/briefing.mp3 above."""
-    if tab not in ("thinktanks",):
-        return jsonify({"ok": False}), 404
-    return _serve_audio(f"briefing_{tab}.mp3")
+# ---------- on-demand article TTS ----------
+
+def _kv_endpoint():
+    return (
+        os.environ.get("KV_REST_API_URL") or os.environ.get("UPSTASH_REDIS_REST_URL"),
+        os.environ.get("KV_REST_API_TOKEN") or os.environ.get("UPSTASH_REDIS_REST_TOKEN"),
+    )
+
+
+def _kv_temp_set(key: str, value: str, ttl: int) -> None:
+    url, token = _kv_endpoint()
+    if not (url and token):
+        return
+    try:
+        httpx.post(url, headers={"authorization": f"Bearer {token}"},
+                   json=["SET", key, value, "EX", str(ttl)], timeout=10)
+    except Exception:
+        pass
+
+
+def _kv_temp_get(key: str) -> str | None:
+    url, token = _kv_endpoint()
+    if not (url and token):
+        return None
+    try:
+        r = httpx.post(url, headers={"authorization": f"Bearer {token}"},
+                       json=["GET", key], timeout=10)
+        r.raise_for_status()
+        return r.json().get("result")
+    except Exception:
+        return None
+
+
+def _tts_hash(text: str) -> str:
+    from briefing import TTS_MODEL, TTS_VOICE
+    return hashlib.sha256(f"{TTS_MODEL}|{TTS_VOICE}|{text}".encode("utf-8")).hexdigest()[:16]
+
+
+@app.route("/api/tts/url", methods=["POST"])
+def api_tts_url():
+    """Resolve a text → audio URL. Returns a cached Blob URL if it exists,
+    otherwise stashes the text in KV (TTL 10 min) and points the client at
+    the streaming endpoint below."""
+    data = request.get_json(silent=True) or {}
+    text = (data.get("text") or "").strip()
+    if not text:
+        return jsonify({"ok": False, "error": "missing text"}), 400
+    text = text[:50000]  # safety cap (~12-15 min of audio)
+    h = _tts_hash(text)
+    cached = storage.public_url(f"tts_{h}.mp3")
+    if cached:
+        return jsonify({"ok": True, "url": cached, "cached": True})
+    _kv_temp_set(f"tts:{h}", text, 600)
+    return jsonify({"ok": True, "url": f"/api/tts/{h}.mp3", "cached": False})
+
+
+@app.route("/api/tts/<h>.mp3")
+def api_tts_stream(h):
+    """Stream mp3 from OpenAI to the client. On completion, persist to Blob
+    so the next request for the same text hits the cache instantly."""
+    if not re.fullmatch(r"[a-f0-9]{16}", h):
+        return jsonify({"ok": False, "error": "bad hash"}), 400
+    blob_name = f"tts_{h}.mp3"
+    cached = storage.public_url(blob_name)
+    if cached:
+        return redirect(cached, code=302)
+    text = _kv_temp_get(f"tts:{h}")
+    if not text:
+        return jsonify({"ok": False, "error": "expired"}), 404
+
+    from briefing import tts_stream
+
+    def gen():
+        buf = bytearray()
+        completed = False
+        try:
+            for chunk in tts_stream(text):
+                buf.extend(chunk)
+                yield chunk
+            completed = True
+        finally:
+            if completed and buf:
+                try:
+                    storage.write_bytes(blob_name, bytes(buf), "audio/mpeg")
+                except Exception:
+                    pass
+
+    return Response(gen(), mimetype="audio/mpeg", headers={
+        "Cache-Control": "no-store",
+        "X-Accel-Buffering": "no",
+    })
 
 
 @app.route("/api/read", methods=["POST"])
@@ -284,8 +369,8 @@ def _run_steps(steps: list[tuple[str, callable]]) -> dict:
 @app.route("/api/nightly", methods=["GET", "POST"])
 @app.route("/api/nightly/curate", methods=["GET", "POST"])
 def api_nightly_curate():
-    """Phase 1 of the nightly cycle: fetch + curate everything (also runs the
-    Spain audio briefing, which is bundled inside curate_spain)."""
+    """Nightly cycle: fetch + curate everything. The Spain audio briefing is
+    bundled inside curate_spain."""
     if not _cron_authorized():
         return jsonify({"ok": False, "error": "unauthorized"}), 401
 
@@ -304,18 +389,4 @@ def api_nightly_curate():
         ("papers", curate_papers),
         ("polls", fetch_and_process),
         ("markets_spain", fetch_markets),
-    ]))
-
-
-@app.route("/api/nightly/brief", methods=["GET", "POST"])
-def api_nightly_brief():
-    """Phase 2 of the nightly cycle: generate the Thinktanks audio briefing.
-    Reads the JSON snapshots written by /api/nightly/curate."""
-    if not _cron_authorized():
-        return jsonify({"ok": False, "error": "unauthorized"}), 401
-
-    from briefing import generate_thinktanks
-
-    return jsonify(_run_steps([
-        ("briefing_thinktanks", generate_thinktanks),
     ]))

@@ -37,13 +37,6 @@ def run_nightly():
     pp = curate_papers()
     print(f"  Papers: {len(pp.get('articles', []))} publications")
 
-    print("\n6. Audio briefing (Thinktanks)…")
-    from briefing import generate_thinktanks
-    try:
-        generate_thinktanks()
-    except Exception as e:
-        print(f"  Thinktanks briefing failed: {e}")
-
 
 if __name__ == "__main__":
     run_nightly()

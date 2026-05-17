@@ -226,7 +226,7 @@
     const card = btn.closest('.card');
     const contentDiv = card.querySelector('.article-content');
     if (contentDiv.style.display !== 'none') {
-      if (_ttsState.card === card) _stopTTS();
+      if (card._audio && _currentAudio === card._audio) _stopCurrent();
       contentDiv.style.display = 'none';
       card.querySelector('.card-bottom').style.display = 'none';
 
@@ -272,107 +272,93 @@
     btn.disabled = false;
   }
 
-  let _ttsState = { card: null, chunks: [], idx: 0, btn: null, keepAlive: null };
+  // Server-side TTS streamed to <audio>. Survives backgrounded tabs and
+  // locked screens because it's a real media element (unlike speechSynthesis).
+  let _currentAudio = null;
 
-  function _splitChunks(text) {
-    const clean = text.replace(/\s+/g, ' ').trim();
-    const sents = clean.match(/[^.!?]+[.!?]+(\s|$)|[^.!?]+$/g) || [clean];
-    const chunks = [];
-    let cur = '';
-    for (const s of sents) {
-      if ((cur + s).length > 180 && cur) { chunks.push(cur.trim()); cur = s; }
-      else cur += s;
+  function _stopCurrent() {
+    if (_currentAudio) {
+      _currentAudio.pause();
+      _currentAudio = null;
     }
-    if (cur.trim()) chunks.push(cur.trim());
-    return chunks;
+    document.querySelectorAll('.btn-listen.speaking').forEach(b => {
+      b.textContent = 'Escuchar';
+      b.classList.remove('speaking');
+    });
   }
 
-  function _stopTTS() {
-    if (_ttsState.keepAlive) clearInterval(_ttsState.keepAlive);
-    speechSynthesis.cancel();
-    if (_ttsState.btn) {
-      _ttsState.btn.textContent = 'Escuchar';
-      _ttsState.btn.classList.remove('speaking');
-    }
-    _ttsState = { card: null, chunks: [], idx: 0, btn: null, keepAlive: null };
-  }
-
-  function _detectLang(text) {
-    // Simple heuristic: count Spanish-specific patterns vs English
-    const sample = text.slice(0, 1000).toLowerCase();
-    const esWords = (sample.match(/\b(que|los|las|del|una|por|con|para|más|como|pero|esta|tiene|sobre|entre|desde|también|puede|este|según)\b/g) || []).length;
-    const enWords = (sample.match(/\b(the|and|that|with|for|from|this|have|are|was|will|been|which|their|would|about|into|could|than)\b/g) || []).length;
-    return esWords > enWords ? 'es' : 'en';
-  }
-
-  function _pickVoice(lang) {
-    const voices = speechSynthesis.getVoices();
-    return voices.find(v => v.lang.startsWith(lang) && v.localService) ||
-           voices.find(v => v.lang.startsWith(lang)) || null;
-  }
-
-  function toggleListen(btn) {
+  async function toggleListen(btn) {
     const card = btn.closest('.card');
     const contentDiv = card.querySelector('.article-content');
     if (!contentDiv || !contentDiv.textContent.trim()) return;
 
-    if (_ttsState.card === card) {
-      if (speechSynthesis.speaking && !speechSynthesis.paused) {
-        speechSynthesis.pause();
-        btn.textContent = 'Reanudar';
-        return;
-      }
-      if (speechSynthesis.paused) {
-        speechSynthesis.resume();
-        btn.textContent = 'Pausar';
-        return;
-      }
+    // Already loaded for this card — toggle play/pause.
+    if (card._audio) {
+      const a = card._audio;
+      if (a.paused) { a.play().catch(() => {}); }
+      else { a.pause(); }
+      return;
     }
 
-    _stopTTS();
-    const chunks = _splitChunks(contentDiv.textContent);
-    if (!chunks.length) return;
+    // Different card playing — stop it first.
+    if (_currentAudio) _stopCurrent();
 
-    // Chrome bug workaround: pause/resume keeps synth alive
-    const keepAlive = setInterval(() => {
-      if (speechSynthesis.speaking && !speechSynthesis.paused) {
-        speechSynthesis.pause();
-        speechSynthesis.resume();
+    btn.textContent = 'Cargando…';
+    btn.disabled = true;
+    try {
+      const resp = await fetch('/api/tts/url', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: contentDiv.textContent.trim() }),
+      });
+      const data = await resp.json();
+      if (!data.ok) throw new Error(data.error || 'tts failed');
+
+      const audio = new Audio();
+      audio.setAttribute('playsinline', '');
+      audio.setAttribute('webkit-playsinline', '');
+      audio.preload = 'auto';
+      audio.src = data.url;
+      card._audio = audio;
+      _currentAudio = audio;
+
+      const title = (card.querySelector('h2 a')?.textContent || '').trim().slice(0, 80);
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: title || 'Artículo',
+          artist: 'readerme',
+        });
+        navigator.mediaSession.setActionHandler('play', () => audio.play());
+        navigator.mediaSession.setActionHandler('pause', () => audio.pause());
+        navigator.mediaSession.setActionHandler('seekbackward', e => {
+          audio.currentTime = Math.max(0, audio.currentTime - (e.seekOffset || 15));
+        });
+        navigator.mediaSession.setActionHandler('seekforward', e => {
+          audio.currentTime = audio.currentTime + (e.seekOffset || 30);
+        });
       }
-    }, 10000);
-
-    const lang = _detectLang(contentDiv.textContent);
-    _ttsState = { card, chunks, idx: 0, btn, keepAlive };
-    btn.textContent = 'Pausar';
-    btn.classList.add('speaking');
-
-    const voice = _pickVoice(lang);
-
-    const speakNext = () => {
-      if (_ttsState.card !== card) return;
-      if (_ttsState.idx >= _ttsState.chunks.length) {
-        _stopTTS();
-        return;
-      }
-      const u = new SpeechSynthesisUtterance(_ttsState.chunks[_ttsState.idx++]);
-      u.lang = lang === 'es' ? 'es-ES' : 'en-US';
-      if (voice) u.voice = voice;
-      u.rate = 1.0;
-      u.onend = () => setTimeout(speakNext, 50);
-      u.onerror = (e) => {
-        if (e.error === 'canceled') return;
-        setTimeout(speakNext, 50);
+      audio.onplay = () => { btn.textContent = 'Pausar'; btn.classList.add('speaking'); };
+      audio.onpause = () => { if (!audio.ended) btn.textContent = 'Reanudar'; };
+      audio.onended = () => {
+        btn.textContent = 'Escuchar';
+        btn.classList.remove('speaking');
+        card._audio = null;
+        if (_currentAudio === audio) _currentAudio = null;
       };
-      speechSynthesis.speak(u);
-    };
-    speakNext();
+      audio.onerror = () => {
+        btn.textContent = 'Error';
+        card._audio = null;
+        if (_currentAudio === audio) _currentAudio = null;
+      };
+
+      await audio.play();
+    } catch (e) {
+      btn.textContent = 'Error';
+      setTimeout(() => { btn.textContent = 'Escuchar'; }, 2000);
+    } finally {
+      btn.disabled = false;
+    }
   }
-
-  // Ensure voices are loaded (some browsers load async)
-  speechSynthesis.getVoices();
-  speechSynthesis.addEventListener('voiceschanged', () => {});
-
-  window.addEventListener('beforeunload', () => { _stopTTS(); });
 
   function copyShare(btn) {
     const pre = btn.previousElementSibling;
