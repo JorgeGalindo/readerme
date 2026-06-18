@@ -1,16 +1,14 @@
 """Minimal Flask server for the readerme microsite."""
 
-import hashlib
 import io
 import json
 import os
-import re
 import traceback
 from datetime import datetime, timezone
 
 import httpx
 from bs4 import BeautifulSoup
-from flask import Flask, Response, render_template, request, jsonify, send_file, redirect
+from flask import Flask, render_template, request, jsonify, send_file, redirect
 
 import read_store
 import storage
@@ -19,7 +17,11 @@ app = Flask(__name__)
 
 
 def _scrape_web_content(url: str) -> str:
-    """Try to scrape readable HTML from a URL."""
+    """Try to scrape readable, sanitized article HTML from a URL.
+
+    Returns inner HTML suitable for dropping into a standalone <article> that
+    Safari Reader / "Listen to Page" recognize. Scripts, chrome and inline
+    event handlers are stripped so the markup is content-only."""
     if not url:
         return ""
     try:
@@ -27,9 +29,22 @@ def _scrape_web_content(url: str) -> str:
         resp.raise_for_status()
         soup = BeautifulSoup(resp.text, "html.parser")
 
-        # Remove noise
-        for tag in soup.select("script, style, nav, header, footer, aside, .sidebar, .comments, .ad"):
+        # Remove noise / non-content chrome and anything executable.
+        for tag in soup.select(
+            "script, style, noscript, template, nav, header, footer, aside, "
+            "form, button, iframe, object, embed, svg, .sidebar, .comments, .ad"
+        ):
             tag.decompose()
+
+        # Strip inline event handlers and javascript: URLs.
+        for el in soup.find_all(True):
+            for attr in list(el.attrs):
+                val = el.attrs[attr]
+                if attr.lower().startswith("on"):
+                    del el.attrs[attr]
+                elif attr.lower() in ("href", "src") and isinstance(val, str) \
+                        and val.strip().lower().startswith("javascript:"):
+                    del el.attrs[attr]
 
         # Try common article selectors
         article = (
@@ -41,7 +56,7 @@ def _scrape_web_content(url: str) -> str:
             soup.select_one("main")
         )
         if article:
-            return str(article)
+            return article.decode_contents()
 
         # Fallback: grab all paragraphs
         paragraphs = soup.select("p")
@@ -151,6 +166,31 @@ def papers():
                            generated_at=generated_at)
 
 
+@app.route("/read")
+def read_article():
+    """Standalone, single-article page.
+
+    Gathers the article body server-side and renders it as a clean, semantic
+    document (one <article>, <h1>, byline, paragraphs) so Safari recognizes it
+    as an article — enabling Reader mode and native "Listen to Page" / "Escuchar
+    página" read-aloud, without any custom TTS."""
+    url = (request.args.get("url") or "").strip()
+    title = (request.args.get("title") or "").strip()
+    source = (request.args.get("source") or "").strip()
+    author = (request.args.get("author") or "").strip()
+
+    byline = " · ".join(p for p in (source, author) if p)
+    content = _scrape_web_content(url) if url else ""
+
+    return render_template(
+        "reader.html",
+        title=title or "Artículo",
+        byline=byline,
+        content=content,
+        source_url=url,
+    )
+
+
 def _serve_audio(name: str):
     """Stream an mp3. In Blob mode, redirect to the public Blob URL (no
     bytes through the function); locally, send the file from disk."""
@@ -168,99 +208,6 @@ def _serve_audio(name: str):
 def briefing_audio():
     """España briefing."""
     return _serve_audio("briefing.mp3")
-
-
-# ---------- on-demand article TTS ----------
-
-def _kv_endpoint():
-    return (
-        os.environ.get("KV_REST_API_URL") or os.environ.get("UPSTASH_REDIS_REST_URL"),
-        os.environ.get("KV_REST_API_TOKEN") or os.environ.get("UPSTASH_REDIS_REST_TOKEN"),
-    )
-
-
-def _kv_temp_set(key: str, value: str, ttl: int) -> None:
-    url, token = _kv_endpoint()
-    if not (url and token):
-        return
-    try:
-        httpx.post(url, headers={"authorization": f"Bearer {token}"},
-                   json=["SET", key, value, "EX", str(ttl)], timeout=10)
-    except Exception:
-        pass
-
-
-def _kv_temp_get(key: str) -> str | None:
-    url, token = _kv_endpoint()
-    if not (url and token):
-        return None
-    try:
-        r = httpx.post(url, headers={"authorization": f"Bearer {token}"},
-                       json=["GET", key], timeout=10)
-        r.raise_for_status()
-        return r.json().get("result")
-    except Exception:
-        return None
-
-
-def _tts_hash(text: str) -> str:
-    from briefing import TTS_MODEL, TTS_VOICE
-    return hashlib.sha256(f"{TTS_MODEL}|{TTS_VOICE}|{text}".encode("utf-8")).hexdigest()[:16]
-
-
-@app.route("/api/tts/url", methods=["POST"])
-def api_tts_url():
-    """Resolve a text → audio URL. Returns a cached Blob URL if it exists,
-    otherwise stashes the text in KV (TTL 10 min) and points the client at
-    the streaming endpoint below."""
-    data = request.get_json(silent=True) or {}
-    text = (data.get("text") or "").strip()
-    if not text:
-        return jsonify({"ok": False, "error": "missing text"}), 400
-    text = text[:50000]  # safety cap (~12-15 min of audio)
-    h = _tts_hash(text)
-    cached = storage.public_url(f"tts_{h}.mp3")
-    if cached:
-        return jsonify({"ok": True, "url": cached, "cached": True})
-    _kv_temp_set(f"tts:{h}", text, 600)
-    return jsonify({"ok": True, "url": f"/api/tts/{h}.mp3", "cached": False})
-
-
-@app.route("/api/tts/<h>.mp3")
-def api_tts_stream(h):
-    """Stream mp3 from OpenAI to the client. On completion, persist to Blob
-    so the next request for the same text hits the cache instantly."""
-    if not re.fullmatch(r"[a-f0-9]{16}", h):
-        return jsonify({"ok": False, "error": "bad hash"}), 400
-    blob_name = f"tts_{h}.mp3"
-    cached = storage.public_url(blob_name)
-    if cached:
-        return redirect(cached, code=302)
-    text = _kv_temp_get(f"tts:{h}")
-    if not text:
-        return jsonify({"ok": False, "error": "expired"}), 404
-
-    from briefing import tts_stream
-
-    def gen():
-        buf = bytearray()
-        completed = False
-        try:
-            for chunk in tts_stream(text):
-                buf.extend(chunk)
-                yield chunk
-            completed = True
-        finally:
-            if completed and buf:
-                try:
-                    storage.write_bytes(blob_name, bytes(buf), "audio/mpeg")
-                except Exception:
-                    pass
-
-    return Response(gen(), mimetype="audio/mpeg", headers={
-        "Cache-Control": "no-store",
-        "X-Accel-Buffering": "no",
-    })
 
 
 @app.route("/api/read", methods=["POST"])
@@ -281,16 +228,6 @@ def api_read_clear():
     return jsonify({"ok": True})
 
 
-@app.route("/api/scrape")
-def scrape():
-    url = request.args.get("url", "")
-    html = _scrape_web_content(url)
-    if html:
-        return jsonify({"ok": True, "html": html})
-    return jsonify({"ok": False, "html": ""})
-
-
-
 @app.route("/api/share-text", methods=["POST"])
 def share_text():
     """Generate a ready-to-share LinkedIn/X post based on an article."""
@@ -301,7 +238,14 @@ def share_text():
     data = request.get_json()
     title = data.get("title", "")
     url = data.get("url", "")
-    content_snippet = data.get("content", "")[:3000]
+    content_snippet = (data.get("content", "") or "").strip()[:3000]
+
+    # The inline article body no longer lives in the page, so gather it
+    # server-side when the client didn't supply any.
+    if not content_snippet and url:
+        scraped = _scrape_web_content(url)
+        if scraped:
+            content_snippet = BeautifulSoup(scraped, "html.parser").get_text(" ", strip=True)[:3000]
 
     profile = storage.read_json("profile.json") or {}
 

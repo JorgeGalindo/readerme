@@ -53,7 +53,11 @@
     {% for article in articles %}
     <article class="card" data-url="{{ article.source_url or article.title }}">
       <h2>
-        <a href="{{ article.source_url or '#' }}" target="_blank" rel="noopener">{{ article.title }}</a>
+        {% if article.source_url %}
+        <a href="/read?url={{ article.source_url|urlencode }}&title={{ article.title|urlencode }}&source={{ (article.site_name or '')|urlencode }}{% if article.author %}&author={{ article.author|urlencode }}{% endif %}" target="_blank" rel="noopener">{{ article.title }}</a>
+        {% else %}
+        {{ article.title }}
+        {% endif %}
       </h2>
       <p class="source-reason">
         {{ article.site_name or 'Unknown' }}
@@ -61,18 +65,11 @@
       </p>
       <div class="card-actions top-actions">
         {% if article.source_url %}
-        <button class="btn-expand" data-url="{{ article.source_url }}" onclick="toggleScrape(this)">Leer</button>
+        <button class="btn-share" data-title="{{ article.title }}" data-url="{{ article.source_url }}" onclick="getShareText(this)">Compartir</button>
         {% endif %}
-        <button class="btn-listen" onclick="toggleListen(this)" style="display:none">Escuchar</button>
         <button class="btn-read" onclick="markRead(this)">Leído</button>
       </div>
-      <div class="article-content" style="display:none"></div>
-      <div class="card-bottom" style="display:none">
-        <div class="card-actions">
-          <button class="btn-share" data-title="{{ article.title }}" data-url="{{ article.source_url or '' }}" onclick="getShareText(this)">Compartir</button>
-        </div>
-        <div class="share-result"></div>
-      </div>
+      <div class="share-result"></div>
     </article>
     {% endfor %}
   </main>
@@ -201,53 +198,9 @@
   });
   _updateUnreadCount();
 
-  async function _fetchContent(btn, contentDiv, url) {
-    btn.textContent = '...';
-    try {
-      const resp = await fetch(url);
-      const data = await resp.json();
-      if (data.ok && data.html) {
-        contentDiv.innerHTML = data.html;
-        return true;
-      }
-    } catch (e) {}
-    btn.textContent = 'Sin contenido';
-    btn.disabled = true;
-    btn.classList.add('btn-dead');
-    return false;
-  }
-
-  function _showListenBtn(card, show) {
-    const lb = card.querySelector('.top-actions .btn-listen');
-    if (lb) lb.style.display = show ? '' : 'none';
-  }
-
-  async function toggleScrape(btn) {
-    const card = btn.closest('.card');
-    const contentDiv = card.querySelector('.article-content');
-    if (contentDiv.style.display !== 'none') {
-      if (card._audio && _currentAudio === card._audio) _stopCurrent();
-      contentDiv.style.display = 'none';
-      card.querySelector('.card-bottom').style.display = 'none';
-
-      _showListenBtn(card, false);
-      btn.textContent = 'Leer';
-      return;
-    }
-    if (!contentDiv.innerHTML) {
-      if (!await _fetchContent(btn, contentDiv, '/api/scrape?url=' + encodeURIComponent(btn.dataset.url))) return;
-    }
-    contentDiv.style.display = 'block';
-    card.querySelector('.card-bottom').style.display = 'block';
-
-    _showListenBtn(card, true);
-    btn.textContent = 'Cerrar';
-  }
-
   async function getShareText(btn) {
     const card = btn.closest('.card');
     const resultDiv = card.querySelector('.share-result');
-    const contentDiv = card.querySelector('.article-content');
 
     btn.textContent = 'Generando...';
     btn.disabled = true;
@@ -258,7 +211,7 @@
       body: JSON.stringify({
         title: btn.dataset.title,
         url: btn.dataset.url,
-        content: contentDiv ? contentDiv.textContent.substring(0, 3000) : ''
+        content: ''
       })
     });
     const data = await resp.json();
@@ -270,94 +223,6 @@
     }
     btn.textContent = 'Compartir';
     btn.disabled = false;
-  }
-
-  // Server-side TTS streamed to <audio>. Survives backgrounded tabs and
-  // locked screens because it's a real media element (unlike speechSynthesis).
-  let _currentAudio = null;
-
-  function _stopCurrent() {
-    if (_currentAudio) {
-      _currentAudio.pause();
-      _currentAudio = null;
-    }
-    document.querySelectorAll('.btn-listen.speaking').forEach(b => {
-      b.textContent = 'Escuchar';
-      b.classList.remove('speaking');
-    });
-  }
-
-  async function toggleListen(btn) {
-    const card = btn.closest('.card');
-    const contentDiv = card.querySelector('.article-content');
-    if (!contentDiv || !contentDiv.textContent.trim()) return;
-
-    // Already loaded for this card — toggle play/pause.
-    if (card._audio) {
-      const a = card._audio;
-      if (a.paused) { a.play().catch(() => {}); }
-      else { a.pause(); }
-      return;
-    }
-
-    // Different card playing — stop it first.
-    if (_currentAudio) _stopCurrent();
-
-    btn.textContent = 'Cargando…';
-    btn.disabled = true;
-    try {
-      const resp = await fetch('/api/tts/url', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: contentDiv.textContent.trim() }),
-      });
-      const data = await resp.json();
-      if (!data.ok) throw new Error(data.error || 'tts failed');
-
-      const audio = new Audio();
-      audio.setAttribute('playsinline', '');
-      audio.setAttribute('webkit-playsinline', '');
-      audio.preload = 'auto';
-      audio.src = data.url;
-      card._audio = audio;
-      _currentAudio = audio;
-
-      const title = (card.querySelector('h2 a')?.textContent || '').trim().slice(0, 80);
-      if ('mediaSession' in navigator) {
-        navigator.mediaSession.metadata = new MediaMetadata({
-          title: title || 'Artículo',
-          artist: 'readerme',
-        });
-        navigator.mediaSession.setActionHandler('play', () => audio.play());
-        navigator.mediaSession.setActionHandler('pause', () => audio.pause());
-        navigator.mediaSession.setActionHandler('seekbackward', e => {
-          audio.currentTime = Math.max(0, audio.currentTime - (e.seekOffset || 15));
-        });
-        navigator.mediaSession.setActionHandler('seekforward', e => {
-          audio.currentTime = audio.currentTime + (e.seekOffset || 30);
-        });
-      }
-      audio.onplay = () => { btn.textContent = 'Pausar'; btn.classList.add('speaking'); };
-      audio.onpause = () => { if (!audio.ended) btn.textContent = 'Reanudar'; };
-      audio.onended = () => {
-        btn.textContent = 'Escuchar';
-        btn.classList.remove('speaking');
-        card._audio = null;
-        if (_currentAudio === audio) _currentAudio = null;
-      };
-      audio.onerror = () => {
-        btn.textContent = 'Error';
-        card._audio = null;
-        if (_currentAudio === audio) _currentAudio = null;
-      };
-
-      await audio.play();
-    } catch (e) {
-      btn.textContent = 'Error';
-      setTimeout(() => { btn.textContent = 'Escuchar'; }, 2000);
-    } finally {
-      btn.disabled = false;
-    }
   }
 
   function copyShare(btn) {

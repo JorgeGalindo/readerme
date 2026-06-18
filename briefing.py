@@ -66,20 +66,3 @@ def _tts_to_bytes(text: str) -> bytes:
         )
         out.extend(resp.content)
     return bytes(out)
-
-
-def tts_stream(text: str):
-    """Yield mp3 frames from OpenAI TTS as soon as they arrive.
-    Long text is split into <=TTS_MAX_CHARS pieces and streamed sequentially;
-    naive concatenation of independent mp3 frame streams plays back fine."""
-    for piece in _split_for_tts(text):
-        with _openai().audio.speech.with_streaming_response.create(
-            model=TTS_MODEL,
-            voice=TTS_VOICE,
-            input=piece,
-            instructions=TTS_INSTRUCTIONS,
-            response_format="mp3",
-        ) as resp:
-            for chunk in resp.iter_bytes(4096):
-                if chunk:
-                    yield chunk
