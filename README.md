@@ -26,7 +26,7 @@ spain.py también escribe briefing.mp3 (briefing España)
 ### Main (`/`)
 - **Mercados de predicción (Polymarket)** — Iran régimen, Russia-Ukraine, Fed cut, China-Taiwan.
 - **Artículos** — orden cronológico. No hay scoring: lo que entra por RSS aparece aquí.
-- Cada card: **Leer** (scrape vía `/api/scrape`), **Escuchar** (TTS browser-side), **Compartir** (LinkedIn/X), **Leído** (oculta + localStorage).
+- Cada card: el título enlaza **directamente a la fuente original** (sin página intermedia; en iPhone los posts de Substack abren en la app vía Universal Links), **Compartir** (LinkedIn/X), **Leído** (oculta + ledger).
 
 ### España (`/espana`)
 - **Briefing** factual (encuestas, mercados, noticias).
@@ -130,7 +130,6 @@ readerme/
 | `/espana` | GET | España |
 | `/thinktanks` | GET | Thinktanks |
 | `/papers` | GET | Papers |
-| `/api/scrape?url=...` | GET | Scrape de un artículo web |
 | `/api/share-text` | POST | Texto para compartir (Claude) |
 | `/api/briefing.mp3` | GET | Briefing España |
 | `/api/briefing/thinktanks.mp3` | GET | Briefing Thinktanks |

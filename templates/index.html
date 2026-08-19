@@ -54,7 +54,7 @@
     <article class="card" data-url="{{ article.source_url or article.title }}">
       <h2>
         {% if article.source_url %}
-        <a href="/read?url={{ article.source_url|urlencode }}&title={{ article.title|urlencode }}&source={{ (article.site_name or '')|urlencode }}{% if article.author %}&author={{ article.author|urlencode }}{% endif %}" target="_blank" rel="noopener">{{ article.title }}</a>
+        <a href="{{ article.source_url }}" target="_blank" rel="noopener">{{ article.title }}</a>
         {% else %}
         {{ article.title }}
         {% endif %}

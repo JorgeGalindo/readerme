@@ -96,7 +96,7 @@
       <article class="card card-compact">
         <h2>
           {% if a.link %}
-          <a href="/read?url={{ a.link|urlencode }}&title={{ a.title|urlencode }}&source={{ (a.source or '')|urlencode }}{% if a.author %}&author={{ a.author|urlencode }}{% endif %}" target="_blank" rel="noopener">{{ a.title }}</a>
+          <a href="{{ a.link }}" target="_blank" rel="noopener">{{ a.title }}</a>
           {% else %}{{ a.title }}{% endif %}
         </h2>
         <p class="source-reason">
@@ -116,7 +116,7 @@
       <article class="card card-compact">
         <h2>
           {% if a.link %}
-          <a href="/read?url={{ a.link|urlencode }}&title={{ a.title|urlencode }}&source={{ (a.source or '')|urlencode }}{% if a.author %}&author={{ a.author|urlencode }}{% endif %}" target="_blank" rel="noopener">{{ a.title }}</a>
+          <a href="{{ a.link }}" target="_blank" rel="noopener">{{ a.title }}</a>
           {% else %}{{ a.title }}{% endif %}
         </h2>
         <p class="source-reason">

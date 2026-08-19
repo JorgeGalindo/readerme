@@ -19,9 +19,8 @@ app = Flask(__name__)
 def _scrape_web_content(url: str) -> str:
     """Try to scrape readable, sanitized article HTML from a URL.
 
-    Returns inner HTML suitable for dropping into a standalone <article> that
-    Safari Reader / "Listen to Page" recognize. Scripts, chrome and inline
-    event handlers are stripped so the markup is content-only."""
+    Only used server-side to feed /api/share-text with the article body.
+    Scripts, chrome and inline event handlers are stripped."""
     if not url:
         return ""
     try:
@@ -164,31 +163,6 @@ def papers():
 
     return render_template("papers.html", by_source=by_source,
                            generated_at=generated_at)
-
-
-@app.route("/read")
-def read_article():
-    """Standalone, single-article page.
-
-    Gathers the article body server-side and renders it as a clean, semantic
-    document (one <article>, <h1>, byline, paragraphs) so Safari recognizes it
-    as an article — enabling Reader mode and native "Listen to Page" / "Escuchar
-    página" read-aloud, without any custom TTS."""
-    url = (request.args.get("url") or "").strip()
-    title = (request.args.get("title") or "").strip()
-    source = (request.args.get("source") or "").strip()
-    author = (request.args.get("author") or "").strip()
-
-    byline = " · ".join(p for p in (source, author) if p)
-    content = _scrape_web_content(url) if url else ""
-
-    return render_template(
-        "reader.html",
-        title=title or "Artículo",
-        byline=byline,
-        content=content,
-        source_url=url,
-    )
 
 
 def _serve_audio(name: str):
