@@ -36,6 +36,12 @@ spain.py escribe además briefing.mp3 (briefing España, OpenAI gpt-4o-mini-tts)
 > (noahpinion.blog, astralcodexten.com…), sirven el `apple-app-site-association`
 > con `/p/*`. En iOS 26 hay que añadir el icono con **"Abrir como app web"
 > desactivado** para que abra en Safari.
+>
+> Por lo mismo, los enlaces de titular van **sin `target="_blank"`**: abrir en
+> pestaña nueva es una causa documentada de que el Universal Link no llegue a
+> la app. Y si iOS ya abrió un dominio en Safari una vez (tocando el nombre del
+> dominio arriba a la derecha), se queda esa preferencia guardada: se restaura
+> manteniendo pulsado el enlace y eligiendo *Abrir en "Substack"*.
 
 ### España (`/espana`)
 - **Briefing** factual (encuestas, mercados, noticias).
