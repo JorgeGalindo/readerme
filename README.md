@@ -1,6 +1,6 @@
 # readerme
 
-Lector de feeds RSS personal con cuatro pestañas (Main, España, Thinktanks, Papers), audio briefings (España y Thinktanks) y mercados de predicción.
+Lector de feeds RSS personal con cuatro pestañas (Main, España, Thinktanks, Papers), audio briefing (España) y mercados de predicción.
 
 ## Cómo funciona
 
@@ -17,8 +17,7 @@ data/feeds.json (RSS taggeados main / thinktank / papers)
 
 markets.py (Polymarket CLOB API) ──► markets.json + markets_main.json
 polls.py   (colmenadedatos)      ──► polls.json
-briefing.py (Claude Sonnet 4.6 + OpenAI gpt-4o-mini-tts) ─► briefing_thinktanks.mp3
-spain.py también escribe briefing.mp3 (briefing España)
+spain.py escribe además briefing.mp3 (briefing España, OpenAI gpt-4o-mini-tts)
 ```
 
 ## Pestañas
@@ -26,7 +25,17 @@ spain.py también escribe briefing.mp3 (briefing España)
 ### Main (`/`)
 - **Mercados de predicción (Polymarket)** — Iran régimen, Russia-Ukraine, Fed cut, China-Taiwan.
 - **Artículos** — orden cronológico. No hay scoring: lo que entra por RSS aparece aquí.
-- Cada card: el título enlaza **directamente a la fuente original** (sin página intermedia; en iPhone los posts de Substack abren en la app vía Universal Links), **Compartir** (LinkedIn/X), **Leído** (oculta + ledger).
+- Cada card: el título enlaza **directamente a la fuente original** (sin página intermedia), **Compartir** (LinkedIn/X), **Leído** (oculta + ledger).
+
+> **Por qué no es standalone en iOS.** Los templates omiten a propósito
+> `apple-mobile-web-app-capable`. En modo standalone (icono en la pantalla de
+> inicio) iOS abre todo enlace saliente en un web view embebido, donde los
+> Universal Links no llegan nunca a la app de destino — comprobado en iPhone.
+> Corriendo en Safari, en cambio, tocar un post de Substack abre la app de
+> Substack: todos los dominios de `feeds.json`, también los propios
+> (noahpinion.blog, astralcodexten.com…), sirven el `apple-app-site-association`
+> con `/p/*`. En iOS 26 hay que añadir el icono con **"Abrir como app web"
+> desactivado** para que abra en Safari.
 
 ### España (`/espana`)
 - **Briefing** factual (encuestas, mercados, noticias).
@@ -36,7 +45,6 @@ spain.py también escribe briefing.mp3 (briefing España)
 - **Radar político** — 10 noticias picadas con Claude Sonnet desde RSS de medios españoles.
 
 ### Thinktanks (`/thinktanks`)
-- **Briefing** ~3 min sobre publicaciones recientes, agrupado por subsección.
 - 3 subsecciones:
   - **Classic**: Tony Blair Institute (sitemap parser), European Policy Centre (HTML scraper).
   - **España**: Elcano, Fedea, BBVA Research (scraper).
@@ -47,7 +55,7 @@ spain.py también escribe briefing.mp3 (briefing España)
 
 ## Ciclo diario
 
-Vercel Cron, dos fases bajo el límite de 300s por función:
+Vercel Cron, una sola fase bajo el límite de 300s por función:
 
 - **02:00 UTC** → `/api/nightly/curate` (~165s)
   1. Main RSS deltas → main.json
@@ -57,8 +65,6 @@ Vercel Cron, dos fases bajo el límite de 300s por función:
   5. Papers (RSS)
   6. Polls (colmenadedatos)
   7. Polymarket España
-- **02:10 UTC** → `/api/nightly/brief` (~120s)
-  1. Briefing Thinktanks (Claude Sonnet 4.6 + OpenAI gpt-4o-mini-tts)
 
 Disparable manualmente con `Authorization: Bearer $CRON_SECRET`.
 
@@ -73,7 +79,7 @@ python3 -m venv .venv
 `.env` (dev local — los datos viven en disco bajo `data/`):
 ```
 ANTHROPIC_API_KEY=...
-OPENAI_API_KEY=...   # gpt-4o-mini-tts para los audio briefings
+OPENAI_API_KEY=...   # gpt-4o-mini-tts para el briefing de España
 ```
 
 Producción en Vercel (`https://readerme.vercel.app`) usa:
@@ -81,7 +87,7 @@ Producción en Vercel (`https://readerme.vercel.app`) usa:
 - `KV_REST_API_URL` / `KV_REST_API_TOKEN` — Upstash Redis (read ledger)
 - `CRON_SECRET` — gate de `/api/nightly/*`
 - `ANTHROPIC_API_KEY`
-- `OPENAI_API_KEY` — TTS de los briefings
+- `OPENAI_API_KEY` — TTS del briefing de España
 - `OPENAI_TTS_VOICE` (opcional, default `nova`) — alloy / ash / ballad / coral / echo / fable / nova / onyx / sage / shimmer
 
 Si no hay `BLOB_READ_WRITE_TOKEN` en el entorno, `storage.py` cae al filesystem
@@ -109,7 +115,7 @@ readerme/
 ├── spain.py          # /espana (RSS + Claude pick + briefing audio)
 ├── polls.py          # encuestas
 ├── markets.py        # Polymarket (Spain + Main)
-├── briefing.py       # Claude Sonnet 4.6 + OpenAI gpt-4o-mini-tts (Thinktanks)
+├── briefing.py       # OpenAI gpt-4o-mini-tts (utilidad de voz para spain.py)
 ├── nightly.py        # CLI nocturno (dev local)
 ├── server.py         # Flask + rutas /api/nightly/{curate,brief}
 ├── app.py            # entry point para Vercel (re-exporta server.app)
@@ -118,7 +124,7 @@ readerme/
 ├── templates/        # index, espana, thinktanks, papers
 ├── static/style.css
 ├── data/             # feeds.json + profile.json (config); outputs en Blob
-├── vercel.json       # cron schedule (02:00 + 02:10 UTC)
+├── vercel.json       # cron schedule (02:00 UTC)
 └── requirements.txt
 ```
 
@@ -132,12 +138,10 @@ readerme/
 | `/papers` | GET | Papers |
 | `/api/share-text` | POST | Texto para compartir (Claude) |
 | `/api/briefing.mp3` | GET | Briefing España |
-| `/api/briefing/thinktanks.mp3` | GET | Briefing Thinktanks |
 | `/api/read` | POST | Marcar URL como leída (KV ledger) |
 | `/api/read/clear` | POST | Vaciar ledger |
-| `/api/nightly/curate` | GET | Cron fase 1 — fetch + curate |
-| `/api/nightly/brief` | GET | Cron fase 2 — audio briefings |
+| `/api/nightly/curate` | GET | Cron nocturno — fetch + curate |
 
 ## Stack
 
-Python 3.13 · Flask en Vercel Functions · Vercel Blob (artefactos) · Upstash Redis vía Vercel KV (read ledger) · Vercel Cron · Claude Sonnet 4.6 (briefings + España pick + share-text) · OpenAI gpt-4o-mini-tts · Chart.js · Polymarket CLOB · httpx + BeautifulSoup + lxml.
+Python 3.13 · Flask en Vercel Functions · Vercel Blob (artefactos) · Upstash Redis vía Vercel KV (read ledger) · Vercel Cron · Claude Sonnet 4.6 (briefing España + España pick + share-text) · OpenAI gpt-4o-mini-tts · Chart.js · Polymarket CLOB · httpx + BeautifulSoup + lxml.

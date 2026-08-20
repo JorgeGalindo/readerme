@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  {# No apple-mobile-web-app-capable on purpose: standalone mode traps outbound
+     links in an embedded web view, so Universal Links never open the source app
+     (Substack et al). Running in Safari is what makes those links work. #}
   <title>readerme — España</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
