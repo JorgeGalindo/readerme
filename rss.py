@@ -15,6 +15,7 @@ import httpx
 from bs4 import BeautifulSoup
 
 import storage
+import substack
 
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
 HTTP_HEADERS = {
@@ -142,6 +143,17 @@ def _parse_feed(xml_text: str, site_name: str, rss_url: str) -> list[dict]:
             "published_date": published_iso,
             "_feed": rss_url,
         })
+
+    # Substack posts on a custom domain never reach the iOS app; route them
+    # through open.substack.com, which does. See substack.py for the why.
+    if articles and substack.is_substack(soup):
+        sample = next((a["source_url"] for a in articles if a.get("source_url")), "")
+        pub = substack.resolve_pub(rss_url, soup, sample)
+        if pub:
+            for a in articles:
+                target = substack.app_url(a.get("source_url", ""), pub)
+                if target:
+                    a["app_url"] = target
 
     return articles
 

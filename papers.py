@@ -41,6 +41,7 @@ def curate_papers() -> dict:
             "summary": a.get("summary", ""),
             "author": a.get("author", ""),
             "date": a.get("published_date", ""),
+            "app_url": a.get("app_url", ""),
         })
 
     before = len(out)

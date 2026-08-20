@@ -39,9 +39,17 @@ spain.py escribe además briefing.mp3 (briefing España, OpenAI gpt-4o-mini-tts)
 >
 > Por lo mismo, los enlaces de titular van **sin `target="_blank"`**: abrir en
 > pestaña nueva es una causa documentada de que el Universal Link no llegue a
-> la app. Y si iOS ya abrió un dominio en Safari una vez (tocando el nombre del
-> dominio arriba a la derecha), se queda esa preferencia guardada: se restaura
-> manteniendo pulsado el enlace y eligiendo *Abrir en "Substack"*.
+> la app.
+>
+> **Y el AASA del dominio no basta.** El apretón de manos tiene dos lados: el
+> dominio declara la app *y* la app declara el dominio (entitlement
+> `Associated Domains`, lista fija dentro del binario). Substack sirve el AASA
+> en cada dominio propio, pero su app solo puede reclamar `substack.com`,
+> `*.substack.com` y `open.substack.com` — no los cientos de miles de dominios
+> de sus publicaciones. Por eso `substack.py` reescribe los posts de dominio
+> propio a `open.substack.com/pub/<publicación>/p/<slug>`, que sí abre la app
+> y cae a la web si no está instalada. Los posts ya alojados en
+> `*.substack.com` se dejan intactos: la app reclama ese comodín.
 
 ### España (`/espana`)
 - **Briefing** factual (encuestas, mercados, noticias).
@@ -118,6 +126,7 @@ readerme/
 ├── rss.py            # parsers (RSS/Atom + sitemap_tbi + scrape_epc)
 ├── thinktanks.py     # /thinktanks
 ├── papers.py         # /papers
+├── substack.py       # posts de dominio propio -> open.substack.com (Universal Links)
 ├── spain.py          # /espana (RSS + Claude pick + briefing audio)
 ├── polls.py          # encuestas
 ├── markets.py        # Polymarket (Spain + Main)

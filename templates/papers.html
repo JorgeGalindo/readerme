@@ -36,7 +36,7 @@
       {% for a in articles %}
       <article class="card bubble-card" data-url="{{ a.url }}">
         <h2>
-          <a href="{{ a.url }}">{{ a.title }}</a>
+          <a href="{{ a.app_url or a.url }}">{{ a.title }}</a>
         </h2>
         <p class="source-reason">
           {% if a.author %}{{ a.author }}{% endif %}

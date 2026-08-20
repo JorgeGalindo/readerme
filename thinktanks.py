@@ -68,6 +68,7 @@ def fetch_thinktanks() -> list[dict]:
             "summary": a.get("summary", ""),
             "date": a.get("published_date", ""),
             "subtag": a.get("subtag", ""),
+            "app_url": a.get("app_url", ""),
         })
 
     # BBVA scrape
