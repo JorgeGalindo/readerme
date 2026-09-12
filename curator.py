@@ -7,7 +7,7 @@ from datetime import datetime, timedelta, timezone
 
 from dotenv import load_dotenv
 
-from rss import fetch_by_tag
+from rss import fetch_batch_by_tag
 import read_store
 import storage
 
@@ -22,7 +22,8 @@ def _norm_title(s: str) -> str:
 
 def curate() -> dict:
     """Fetch new RSS items (tag=main), dedup, carry over recent unread, save."""
-    new_items = fetch_by_tag("main")
+    batch = fetch_batch_by_tag("main")
+    new_items = batch.articles
     print(f"Fetched {len(new_items)} new RSS items (main).")
 
     now_iso = datetime.now(timezone.utc).isoformat()
@@ -77,6 +78,7 @@ def curate() -> dict:
     }
 
     storage.write_json("main.json", result)
+    batch.commit()
     print(f"Wrote {len(out)} articles to main.json.")
     return result
 

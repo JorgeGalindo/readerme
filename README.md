@@ -1,6 +1,6 @@
 # readerme
 
-Lector de feeds RSS personal con cuatro pestañas (Main, España, Thinktanks, Papers), audio briefing (España) y mercados de predicción.
+Lector personal con cinco pestañas (Portadas, Main, España, Thinktanks, Papers), audio briefing (España) y mercados de predicción.
 
 ## Cómo funciona
 
@@ -9,7 +9,7 @@ data/feeds.json (RSS taggeados main / thinktank / papers)
         │
         ├─► rss.py (delta por feed) ─────► curator.py ────► main.json   ─┐
         │                                  (sin scoring)                 │
-        │                                                                ├─► /
+        │                                                                ├─► /main
         ├─► fetch_latest_by_tag (sin estado) ──► thinktanks.py ─► thinktanks.json ─► /thinktanks
         │                                       papers.py    ─► papers.json     ─► /papers
         │
@@ -22,7 +22,13 @@ spain.py escribe además briefing.mp3 (briefing España, OpenAI gpt-4o-mini-tts)
 
 ## Pestañas
 
-### Main (`/`)
+### Portadas (`/`)
+
+La primera pestaña: medio, titular principal enlazado y botón **Actualizar**. Consulta las portadas públicas al pulsarlo, sin depender del ciclo nocturno ni usar modelos o APIs de pago. Si un medio no responde o cambia su HTML, se muestra «No disponible» con enlace a su portada.
+
+Incluye El País, El Mundo, El Confidencial, The Objective, ABC, elDiario.es, La Razón, La Vanguardia, El Periódico, El Periódico de España, ARA, El Español, Público, 20minutos, infoLibre y Vozpópuli. Los selectores de apertura viven en `portadas.py`; no se sustituye la apertura por el último artículo de un RSS. La consulta se hace de nuevo en cada actualización y la respuesta de `/api/portadas` lleva `Cache-Control: no-store`.
+
+### Main (`/main`)
 - **Mercados de predicción (Polymarket)** — Iran régimen, Russia-Ukraine, Fed cut, China-Taiwan.
 - **Artículos** — orden cronológico. No hay scoring: lo que entra por RSS aparece aquí.
 - Cada card: el título enlaza **directamente a la fuente original** (sin página intermedia), **Compartir** (LinkedIn/X), **Leído** (oculta + ledger).
@@ -108,6 +114,12 @@ Si no hay `BLOB_READ_WRITE_TOKEN` en el entorno, `storage.py` cae al filesystem
 local automáticamente — `python run.py serve` y `python run.py nightly` siguen
 funcionando igual sin tocar nada.
 
+El avance de los feeds RSS se confirma después de guardar `main.json`. Si falla ese guardado, las noticias se vuelven a recoger en el próximo intento; si falla la confirmación, se deduplican al reintentarlo. Los artefactos locales y el registro de lecturas se sustituyen de forma atómica para conservar la copia anterior ante una escritura fallida.
+
+«Leído» guarda una cola pendiente en el navegador antes de ocultar la tarjeta. Las lecturas se envían en orden y se reintentan al abrir otra página, recuperar la conexión, volver a la pestaña o tras un fallo temporal. Si el navegador impide guardar datos locales, la tarjeta permanece visible hasta que el servidor confirme. Al terminar la lista aparece «Todo leído por ahora» y se ocultan las secciones vacías.
+
+«Borrar leídos» espera al guardado en curso y comprueba que el servidor haya borrado el registro antes de eliminar la copia local y recargar. Si falla, conserva las lecturas y permite reintentar. En producción, un fallo de Redis devuelve un error recuperable: no se anuncia éxito guardando en un archivo temporal de la función. `static/read.js` comparte este comportamiento entre las cuatro páginas y normaliza las URL con los mismos casos de prueba que Python.
+
 ## Uso
 
 ```bash
@@ -147,7 +159,9 @@ readerme/
 
 | Endpoint | Método | Descripción |
 |----------|--------|-------------|
-| `/` | GET | Main |
+| `/` | GET | Portadas, pestaña inicial |
+| `/main` | GET | Main |
+| `/api/portadas` | POST | Consultar ahora los titulares principales |
 | `/espana` | GET | España |
 | `/thinktanks` | GET | Thinktanks |
 | `/papers` | GET | Papers |
@@ -156,6 +170,17 @@ readerme/
 | `/api/read` | POST | Marcar URL como leída (KV ledger) |
 | `/api/read/clear` | POST | Vaciar ledger |
 | `/api/nightly/curate` | GET | Cron nocturno — fetch + curate |
+
+## Pruebas locales
+
+Con las dependencias de Python instaladas y Node disponible:
+
+```bash
+python3 -B -m unittest discover -s tests -v
+node --test tests/*.test.mjs
+```
+
+Estas pruebas simulan fallos de persistencia, cola de lecturas, reintentos, borrado, respuestas del botón Compartir y acceso denegado al almacenamiento o al portapapeles. También comprueban las claves URL y los endpoints de lectura. Usan datos ficticios, sin llamadas a las APIs externas; los ficheros temporales permanecen dentro de `tests/`.
 
 ## Stack
 

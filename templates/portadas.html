@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>readerme — portadas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>readerme</h1>
+    <nav class="page-nav">
+      <a href="/" class="active" aria-current="page">Portadas</a>
+      <a href="/main">Main</a>
+      <a href="/espana">España</a>
+      <a href="/thinktanks">Thinktanks</a>
+      <a href="/papers">Papers</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="portadas-toolbar">
+      <button id="refreshPortadas" class="portadas-refresh" type="button">Actualizar</button>
+      <time id="portadasTime"></time>
+    </div>
+    <p id="portadasStatus" class="portadas-status" role="status">Pulsa Actualizar para consultar las portadas.</p>
+    <ul id="portadasList" class="portadas-list">
+      {% for paper in newspapers %}
+      <li class="portada" data-source="{{ paper.id }}" data-home="{{ paper.url }}">
+        <span class="portada-name">{{ paper.name }}</span>
+        <span class="portada-headline">—</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </main>
+  <script src="/static/portadas.js"></script>
+</body>
+</html>

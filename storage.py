@@ -28,6 +28,7 @@ import pathlib
 from typing import Any
 
 import httpx
+from local_files import atomic_write
 
 DATA_DIR = pathlib.Path(__file__).parent / "data"
 BLOB_PREFIX = "readerme/"  # all blobs live under this folder in the store
@@ -55,8 +56,7 @@ def _local_read_bytes(name: str) -> bytes | None:
 
 
 def _local_write_bytes(name: str, data: bytes) -> None:
-    DATA_DIR.mkdir(exist_ok=True)
-    _local_path(name).write_bytes(data)
+    atomic_write(_local_path(name), data)
 
 
 def _local_exists(name: str) -> bool:

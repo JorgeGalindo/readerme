@@ -1,0 +1,12 @@
+[
+  {"raw":"https://EXAMPLE.com/post/?utm_source=mail&b=2&a=1#comments","normalized":"https://example.com/post?a=1&b=2"},
+  {"raw":"https://example.com/?tag=z&tag=a&tag=a","normalized":"https://example.com/?tag=a&tag=a&tag=z"},
+  {"raw":"https://example.com/?q=a%26b%3Dc%2Bd+e","normalized":"https://example.com/?q=a%26b%3Dc%2Bd+e"},
+  {"raw":"https://example.com/?x=!~*'()&blank=","normalized":"https://example.com/?blank=&x=%21~%2A%27%28%29"},
+  {"raw":"https://example.com:8443/p/","normalized":"https://example.com:8443/p"},
+  {"raw":"https://example.com:443/p/","normalized":"https://example.com/p"},
+  {"raw":"https://[::1]:8443/p/","normalized":"https://[::1]:8443/p"},
+  {"raw":"https://ejemplo.es/café/?q=niño+feliz","normalized":"https://ejemplo.es/caf%C3%A9?q=ni%C3%B1o+feliz"},
+  {"raw":"https://mañana.es/p/","normalized":"https://xn--maana-pta.es/p"},
+  {"raw":"  Un título sin enlace  ","normalized":"un título sin enlace"}
+]

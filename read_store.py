@@ -8,7 +8,7 @@ the full ledger for filter_unread.
 In local dev (no KV env vars): falls back to data/read.json so `python run.py`
 keeps working without any Vercel setup.
 
-URL normalization mirrors the JS _normUrl in templates so server- and
+URL normalization mirrors normUrl in static/read.js so server- and
 client-side keys match.
 """
 
@@ -20,9 +20,10 @@ import pathlib
 import re
 from datetime import datetime, timezone
 from threading import Lock
-from urllib.parse import urlparse, parse_qsl, urlencode
+from urllib.parse import urlparse, parse_qsl, urlencode, quote
 
 import httpx
+from local_files import atomic_write
 
 DATA_DIR = pathlib.Path(__file__).parent / "data"
 READ_FILE = DATA_DIR / "read.json"
@@ -42,8 +43,11 @@ def norm_url(raw: str) -> str:
             return raw.strip().lower()
         q = sorted([(k, v) for k, v in parse_qsl(u.query, keep_blank_values=True)
                     if not _TRACKING.match(k)])
-        path = re.sub(r"/+$", "", u.path) or "/"
+        path = quote(re.sub(r"/+$", "", u.path) or "/", safe="/%:@!$&'()*+,;=-._~")
         host = (u.hostname or "").lower()
+        host = f"[{host}]" if ":" in host else host.encode("idna").decode("ascii")
+        if u.port is not None and (u.scheme, u.port) not in (("http", 80), ("https", 443)):
+            host += f":{u.port}"
         query = ("?" + urlencode(q)) if q else ""
         return f"{u.scheme}://{host}{path}{query}"
     except Exception:
@@ -72,6 +76,8 @@ def _kv_call(command: list) -> any:
                    json=command, timeout=15)
     r.raise_for_status()
     body = r.json()
+    if not isinstance(body, dict) or "result" not in body:
+        raise RuntimeError("Invalid KV response")
     if "error" in body:
         raise RuntimeError(f"KV error: {body['error']}")
     return body.get("result")
@@ -90,11 +96,15 @@ def _kv_load() -> dict:
 
 
 def _kv_mark(url_norm: str, ts: str) -> None:
-    _kv_call(["HSET", KV_HASH_KEY, url_norm, ts])
+    result = _kv_call(["HSET", KV_HASH_KEY, url_norm, ts])
+    if type(result) is not int or result not in (0, 1):
+        raise RuntimeError("KV did not confirm the read mark")
 
 
 def _kv_clear() -> None:
-    _kv_call(["DEL", KV_HASH_KEY])
+    result = _kv_call(["DEL", KV_HASH_KEY])
+    if type(result) is not int or result not in (0, 1):
+        raise RuntimeError("KV did not confirm the ledger reset")
 
 
 # ---------- local-file ops (dev fallback) ----------
@@ -109,19 +119,23 @@ def _local_load() -> dict:
 
 
 def _local_save(state: dict) -> None:
-    DATA_DIR.mkdir(exist_ok=True)
-    READ_FILE.write_text(json.dumps(state, ensure_ascii=False, indent=2))
+    atomic_write(READ_FILE, json.dumps(state, ensure_ascii=False, indent=2).encode("utf-8"))
 
 
 # ---------- public API ----------
 
 def load() -> dict:
+    state = None
     if _kv_enabled():
         try:
-            return _kv_load()
+            state = _kv_load()
         except Exception as e:
             print(f"  [read_store] KV load failed, falling back to local: {e}")
-    return _local_load()
+    if state is None:
+        state = _local_load()
+    if not isinstance(state, dict):
+        return {}
+    return {norm_url(url): ts for url, ts in state.items()}
 
 
 def mark(url: str) -> None:
@@ -130,11 +144,10 @@ def mark(url: str) -> None:
         return
     ts = datetime.now(timezone.utc).isoformat()
     if _kv_enabled():
-        try:
-            _kv_mark(n, ts)
-            return
-        except Exception as e:
-            print(f"  [read_store] KV mark failed, falling back to local: {e}")
+        # A local file in a serverless instance is not a durable fallback.
+        # Let the client retain the pending mark and retry the configured store.
+        _kv_mark(n, ts)
+        return
     with _lock:
         state = _local_load()
         state[n] = ts
@@ -143,11 +156,8 @@ def mark(url: str) -> None:
 
 def clear() -> None:
     if _kv_enabled():
-        try:
-            _kv_clear()
-            return
-        except Exception as e:
-            print(f"  [read_store] KV clear failed, falling back to local: {e}")
+        _kv_clear()
+        return
     with _lock:
         _local_save({})
 

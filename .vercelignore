@@ -18,3 +18,5 @@ data/seen_intl.json
 data/read.json
 data/launchd.log
 data/nightly.log
+data/portadas-audit/
+tests/

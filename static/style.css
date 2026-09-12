@@ -66,9 +66,26 @@ header .meta {
   margin-left: 8px;
 }
 
+.read-status {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100% - 32px);
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  z-index: 20;
+}
+
 .page-nav {
   display: flex;
-  gap: 16px;
+  flex-wrap: wrap;
+  gap: 8px 16px;
   margin-top: 12px;
 }
 
@@ -90,6 +107,26 @@ header .meta {
 
 .page-nav a:hover {
   color: var(--text);
+}
+
+/* Portadas: one linked headline per newspaper. */
+.portadas-toolbar { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.portadas-toolbar time, .portadas-status { font-size: 0.75rem; color: var(--text-secondary); }
+.portadas-refresh { font: inherit; font-size: 0.85rem; padding: 8px 14px; border: 1px solid var(--border);
+  border-radius: 6px; color: var(--text); background: var(--surface); cursor: pointer; }
+.portadas-refresh:disabled { opacity: 0.6; cursor: wait; }
+.portadas-status { margin-top: 12px; }
+.portadas-status:empty { display: none; }
+.portadas-list { list-style: none; margin-top: 20px; }
+.portada { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 16px;
+  padding: 16px 0; border-bottom: 1px solid var(--border); }
+.portada-name { font-size: 0.75rem; color: var(--text-secondary); padding-top: 3px; }
+.portada-headline { font-size: 0.95rem; line-height: 1.5; overflow-wrap: anywhere; }
+.portada-headline a { color: var(--text); text-decoration: none; }
+.portada-headline a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.portada-headline a.portada-unavailable { color: var(--text-secondary); font-size: 0.8rem; }
+@media (max-width: 500px) {
+  .portada { grid-template-columns: minmax(0, 1fr); gap: 4px; }
 }
 
 /* Tag filter bar */

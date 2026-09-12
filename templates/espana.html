@@ -16,11 +16,13 @@
   <header>
     <h1>readerme <span class="meta">{{ generated_at }} &middot; <a href="#" class="reset-link" onclick="event.preventDefault(); resetRead()">borrar leídos</a></span></h1>
     <nav class="page-nav">
-      <a href="/">Main</a>
+      <a href="/">Portadas</a>
+      <a href="/main">Main</a>
       <a href="/espana" class="active">España</a>
       <a href="/thinktanks">Thinktanks</a>
       <a href="/papers">Papers</a>
     </nav>
+    <p id="readStatus" class="read-status" role="status" hidden></p>
   </header>
 
   <main>
@@ -137,13 +139,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
   <script>
-  async function resetRead() {
-    if (!confirm('¿Borrar el registro de artículos leídos? Volverán a aparecer todos.')) return;
-    try { await fetch('/api/read/clear', { method: 'POST' }); } catch (e) {}
-    localStorage.removeItem('readerme_read');
-    location.reload();
-  }
-
   {% if polls and polls.dates %}
   (function() {
     const ctx = document.getElementById('pollChart').getContext('2d');
@@ -293,5 +288,6 @@
   }
 
   </script>
+  <script src="/static/read.js"></script>
 </body>
 </html>

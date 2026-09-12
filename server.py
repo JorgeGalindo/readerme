@@ -12,6 +12,7 @@ from flask import Flask, render_template, request, jsonify, send_file, redirect
 
 import read_store
 import storage
+import portadas
 
 app = Flask(__name__)
 
@@ -68,6 +69,18 @@ def _scrape_web_content(url: str) -> str:
 
 
 @app.route("/")
+def front_pages():
+    return render_template("portadas.html", newspapers=portadas.NEWSPAPERS)
+
+
+@app.route("/api/portadas", methods=["POST"])
+def api_front_pages():
+    response = jsonify(portadas.fetch_headlines())
+    response.headers["Cache-Control"] = "no-store"
+    return response
+
+
+@app.route("/main")
 def index():
     data = storage.read_json("main.json")
     if not data:
@@ -88,6 +101,7 @@ def index():
         markets=markets,
         generated_at=generated_at,
         total=len(articles),
+        has_items=bool(data.get("articles")),
     )
 
 
@@ -142,6 +156,7 @@ def thinktanks():
         "thinktanks.html",
         sections=sections,
         generated_at=generated_at,
+        has_items=bool(tt_data.get("articles")),
     )
 
 
@@ -162,7 +177,7 @@ def papers():
         by_source.setdefault(a.get("source", "Other"), []).append(a)
 
     return render_template("papers.html", by_source=by_source,
-                           generated_at=generated_at)
+                           generated_at=generated_at, has_items=bool(data.get("articles")))
 
 
 def _serve_audio(name: str):
@@ -187,18 +202,26 @@ def briefing_audio():
 @app.route("/api/read", methods=["POST"])
 def api_read_mark():
     """Mark an item as read so it disappears from feeds permanently."""
-    data = request.get_json(silent=True) or {}
-    url = (data.get("url") or "").strip()
-    if not url:
+    data = request.get_json(silent=True)
+    url = data.get("url") if isinstance(data, dict) else None
+    if not isinstance(url, str) or not url.strip():
         return jsonify({"ok": False, "error": "missing url"}), 400
-    read_store.mark(url)
+    try:
+        read_store.mark(url.strip())
+    except Exception:
+        app.logger.warning("Read ledger unavailable while marking an article")
+        return jsonify({"ok": False, "error": "read ledger unavailable"}), 503
     return jsonify({"ok": True})
 
 
 @app.route("/api/read/clear", methods=["POST"])
 def api_read_clear():
     """Wipe the read ledger."""
-    read_store.clear()
+    try:
+        read_store.clear()
+    except Exception:
+        app.logger.warning("Read ledger unavailable while clearing")
+        return jsonify({"ok": False, "error": "read ledger unavailable"}), 503
     return jsonify({"ok": True})
 
 

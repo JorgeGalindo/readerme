@@ -16,17 +16,19 @@
   <header>
     <h1>readerme <span class="meta">{{ generated_at }} &middot; <a href="#" class="reset-link" onclick="event.preventDefault(); resetRead()">borrar leídos</a></span></h1>
     <nav class="page-nav">
-      <a href="/">Main</a>
+      <a href="/">Portadas</a>
+      <a href="/main">Main</a>
       <a href="/espana">España</a>
       <a href="/thinktanks" class="active">Thinktanks</a>
       <a href="/papers">Papers</a>
     </nav>
+    <p id="readStatus" class="read-status" role="status" hidden></p>
   </header>
 
   <main>
     {% if not sections %}
     <div class="empty">
-      <p>No hay publicaciones de thinktanks todavía.</p>
+      <p>{{ 'Todo leído por ahora.' if has_items else 'No hay publicaciones de thinktanks todavía.' }}</p>
     </div>
     {% endif %}
 
@@ -53,79 +55,13 @@
       {% endfor %}
     </section>
     {% endfor %}
+    <div id="readEmpty" class="empty" hidden><p>Todo leído por ahora.</p></div>
   </main>
 
   <footer>
     <p>readerme &middot; thinktanks RSS</p>
   </footer>
 
-  <script>
-  // Read state: localStorage, per-device. Same format as Main: {normalizedUrl: ts}.
-  const READ_KEY = 'readerme_read';
-  const READ_TTL_DAYS = 60;
-
-  async function resetRead() {
-    if (!confirm('¿Borrar el registro de artículos leídos? Volverán a aparecer todos.')) return;
-    try { await fetch('/api/read/clear', { method: 'POST' }); } catch (e) {}
-    localStorage.removeItem(READ_KEY);
-    location.reload();
-  }
-
-  function _normUrl(raw) {
-    if (!raw) return '';
-    try {
-      const u = new URL(raw);
-      const TRACKING = /^(utm_|fbclid|gclid|mc_cid|mc_eid|ref_|ref$|_hsenc|_hsmi)/i;
-      const keys = [...u.searchParams.keys()].filter(k => !TRACKING.test(k)).sort();
-      const query = keys.length ? '?' + keys.map(k => k + '=' + u.searchParams.get(k)).join('&') : '';
-      const path = u.pathname.replace(/\/+$/, '') || '/';
-      return u.protocol + '//' + u.host.toLowerCase() + path + query;
-    } catch {
-      return raw.trim().toLowerCase();
-    }
-  }
-
-  function _loadRead() {
-    try {
-      const raw = JSON.parse(localStorage.getItem(READ_KEY) || '{}');
-      if (Array.isArray(raw)) {
-        const now = Date.now();
-        const migrated = {};
-        for (const url of raw) migrated[_normUrl(url)] = now;
-        localStorage.setItem(READ_KEY, JSON.stringify(migrated));
-        return migrated;
-      }
-      const cutoff = Date.now() - READ_TTL_DAYS * 86400000;
-      let changed = false;
-      for (const k of Object.keys(raw)) {
-        if (raw[k] < cutoff) { delete raw[k]; changed = true; }
-      }
-      if (changed) localStorage.setItem(READ_KEY, JSON.stringify(raw));
-      return raw;
-    } catch { return {}; }
-  }
-
-  function markRead(btn) {
-    const card = btn.closest('.card');
-    if (!card.dataset.url) return;
-    const url = card.dataset.url;
-    const read = _loadRead();
-    read[_normUrl(url)] = Date.now();
-    localStorage.setItem(READ_KEY, JSON.stringify(read));
-    fetch('/api/read', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ url })
-    }).catch(() => {});
-    card.style.display = 'none';
-  }
-
-  (function() {
-    const read = _loadRead();
-    document.querySelectorAll('.card[data-url]').forEach(card => {
-      if (read[_normUrl(card.dataset.url)]) card.style.display = 'none';
-    });
-  })();
-  </script>
+  <script src="/static/read.js"></script>
 </body>
 </html>

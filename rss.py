@@ -7,6 +7,7 @@ and stop at the first item whose id is in state — everything above is new.
 
 import hashlib
 import time
+from dataclasses import dataclass
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 from typing import Optional
@@ -327,10 +328,20 @@ def _fetch_epc_scrape(page_url: str, site_name: str, max_items: int = 20) -> lis
     return out
 
 
-def fetch_by_tag(tag: str, sleep_between: float = 0.3) -> list[dict]:
+@dataclass
+class RSSBatch:
+    articles: list[dict]
+    state: dict
+
+    def commit(self) -> None:
+        """Acknowledge feed positions only after the articles have been saved."""
+        _save_state(self.state)
+
+
+def fetch_batch_by_tag(tag: str, sleep_between: float = 0.3) -> RSSBatch:
     """Fetch all feeds with the given tag, return new items since last run.
 
-    Updates rss_state.json so the next run only picks up what's new.
+    The returned batch leaves rss_state.json unchanged until commit().
     """
     feeds = [f for f in _load_feeds() if f.get("tag") == tag]
     state = _load_state()
@@ -348,8 +359,18 @@ def fetch_by_tag(tag: str, sleep_between: float = 0.3) -> list[dict]:
         all_new.extend(new_items)
         time.sleep(sleep_between)
 
-    _save_state(state)
-    return all_new
+    return RSSBatch(all_new, state)
+
+
+def fetch_by_tag(tag: str, sleep_between: float = 0.3) -> list[dict]:
+    """Fetch and immediately acknowledge a batch (standalone CLI helper).
+
+    Consumers that persist articles should use fetch_batch_by_tag and commit
+    the batch after saving, so a failed write cannot lose unread articles.
+    """
+    batch = fetch_batch_by_tag(tag, sleep_between)
+    batch.commit()
+    return batch.articles
 
 
 if __name__ == "__main__":
