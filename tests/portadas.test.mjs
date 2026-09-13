@@ -10,7 +10,7 @@ const payload = (title = 'Titular principal') => ({
 });
 const response = (data = payload()) => ({ ok: true, json: async () => data });
 
-function setup(fetcher = async () => response()) {
+function setup(fetcher = async () => response(), storage = new Map()) {
   const handlers = {}, calls = [], timers = new Map();
   let fetch = fetcher, timerId = 0;
   const button = { disabled: false, textContent: 'Actualizar', addEventListener(event, handler) { handlers[event] = handler; } };
@@ -25,11 +25,12 @@ function setup(fetcher = async () => response()) {
   };
   vm.runInNewContext(source, {
     document, URL, AbortController,
+    localStorage: { getItem: (key) => storage.get(key) ?? null, setItem: (key, value) => storage.set(key, value) },
     fetch: async (...args) => { calls.push(args); return fetch(...args); },
     setTimeout(fn, ms) { timers.set(++timerId, { fn, ms }); return timerId; },
     clearTimeout(id) { timers.delete(id); },
   });
-  return { button, headline, status, time, list, calls,
+  return { button, headline, status, time, list, calls, storage,
     click: () => handlers.click(),
     setFetch(fn) { fetch = fn; },
     timeout() { [...timers.values()][0].fn(); },
@@ -100,4 +101,38 @@ test('a hung request times out and restores the button', async () => {
   const pending = page.click(); page.timeout(); await pending;
   assert.equal(page.button.disabled, false);
   assert.match(page.status.textContent, /No se pudo actualizar/);
+});
+
+test('reopening restores the last consultation without requesting new headlines', async () => {
+  const first = setup(); await first.click();
+  const reopened = setup(async () => { throw new Error('must stay offline'); }, first.storage);
+  assert.equal(reopened.calls.length, 0);
+  assert.equal(reopened.headline.children[0].textContent, 'Titular principal');
+  assert.equal(reopened.time.dateTime, first.time.dateTime);
+  assert.equal(reopened.status.textContent, '');
+});
+
+test('only a successful manual refresh replaces the saved consultation', async () => {
+  const first = setup(); await first.click();
+  const reopened = setup(async () => ({ ok: false }), first.storage);
+  await reopened.click();
+  let again = setup(undefined, first.storage);
+  assert.equal(again.headline.children[0].textContent, 'Titular principal');
+  reopened.setFetch(async () => response(payload('Titular siguiente')));
+  await reopened.click();
+  again = setup(undefined, first.storage);
+  assert.equal(again.headline.children[0].textContent, 'Titular siguiente');
+});
+
+test('invalid or unavailable browser storage does not prevent manual refresh', async () => {
+  for (const value of ['{', 'null', '{"headlines":[],"updated_at":"bad"}']) {
+    const page = setup(undefined, new Map([['readerme:portadas:v1', value]]));
+    assert.equal(page.calls.length, 0);
+    await page.click();
+    assert.equal(page.headline.children[0].textContent, 'Titular principal');
+  }
+  const page = setup(undefined, { get() { throw new Error('blocked'); }, set() { throw new Error('full'); } });
+  await page.click();
+  assert.equal(page.status.textContent, '');
+  assert.equal(page.headline.children[0].textContent, 'Titular principal');
 });

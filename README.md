@@ -26,6 +26,11 @@ spain.py escribe además briefing.mp3 (briefing España, OpenAI gpt-4o-mini-tts)
 
 La primera pestaña: medio, titular principal enlazado y botón **Actualizar**. Consulta las portadas públicas al pulsarlo, sin depender del ciclo nocturno ni usar modelos o APIs de pago. Si un medio no responde o cambia su HTML, se muestra «No disponible» con enlace a su portada.
 
+La última consulta se guarda en este navegador, con su fecha y hora, y se restaura al
+recargar o volver a abrir. Solo **Actualizar** pide titulares nuevos. En iOS, al volver
+a la app, se abre Portadas; lo mismo al regresar de una noticia. La navegación normal
+entre pestañas sigue disponible.
+
 Incluye El País, El Mundo, El Confidencial, The Objective, ABC, elDiario.es, La Razón, La Vanguardia, El Periódico, El Periódico de España, ARA, El Español, Público, 20minutos, infoLibre y Vozpópuli. Los selectores de apertura viven en `portadas.py`; no se sustituye la apertura por el último artículo de un RSS. La consulta se hace de nuevo en cada actualización y la respuesta de `/api/portadas` lleva `Cache-Control: no-store`.
 
 ### Main (`/main`)
