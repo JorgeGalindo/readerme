@@ -1,48 +1,25 @@
-async function getShareText(btn) {
-  const card = btn.closest('.card');
-  const result = card.querySelector('.share-result');
-  result.setAttribute('aria-live', 'polite');
-  btn.textContent = 'Generando...';
-  btn.disabled = true;
-  try {
-    const response = await fetch('/api/share-text', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title: btn.dataset.title, url: btn.dataset.url, content: '' })
-    });
-    if (!response.ok) throw new Error('HTTP ' + response.status);
-    const data = await response.json();
-    if (!data.ok || typeof data.text !== 'string') throw new Error('Invalid response');
-
-    const wrapper = document.createElement('div');
-    wrapper.className = 'share-text';
-    const text = document.createElement('pre');
-    // El texto del modelo puede contener HTML: se muestra siempre como texto.
-    text.textContent = data.text;
-    const copy = document.createElement('button');
-    copy.type = 'button';
-    copy.className = 'btn-copy';
-    copy.textContent = 'Copiar';
-    copy.addEventListener('click', () => { void copyShare(copy); });
-    wrapper.append(text, copy);
-    result.replaceChildren(wrapper);
-  } catch {
-    const error = document.createElement('p');
-    error.className = 'share-error';
-    error.textContent = 'No se pudo generar el texto. Puedes volver a intentarlo.';
-    result.replaceChildren(error);
-  } finally {
-    btn.textContent = 'Compartir';
-    btn.disabled = false;
+// «Compartir» opens the system share sheet (LinkedIn, X, Mensajes…) with the
+// article's title and link. Where the browser has no share sheet it copies
+// both to the clipboard. No model writes the post any more.
+async function shareArticle(btn) {
+  const title = btn.dataset.title || '';
+  const url = btn.dataset.url || '';
+  if (!url) return;
+  if (typeof navigator.share === 'function') {
+    try {
+      await navigator.share({ title, url });
+      return;
+    } catch (error) {
+      // Closing the sheet is not an error worth reporting.
+      if (error && error.name === 'AbortError') return;
+    }
   }
-}
-
-async function copyShare(btn) {
+  const label = btn.textContent;
   try {
-    await navigator.clipboard.writeText(btn.previousElementSibling.textContent);
-    btn.textContent = 'Copiado';
+    await navigator.clipboard.writeText(title ? title + '\n' + url : url);
+    btn.textContent = 'Enlace copiado';
   } catch {
     btn.textContent = 'No se pudo copiar';
   }
-  setTimeout(() => { btn.textContent = 'Copiar'; }, 1500);
+  setTimeout(() => { btn.textContent = label; }, 2000);
 }

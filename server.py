@@ -1,15 +1,16 @@
-"""Minimal Flask server for the readerme microsite."""
+"""Minimal Flask server for the readerme microsite.
 
-import io
-import json
+No route calls a model: the only AI step (España radar + briefing) runs on the
+Mac mini with `claude -p`, see spain_ai.py.
+"""
+
 import os
 import traceback
 from datetime import datetime, timezone
 
-import httpx
-from bs4 import BeautifulSoup
-from flask import Flask, render_template, request, jsonify, send_file, redirect
+from flask import Flask, render_template, request, jsonify
 
+import markets
 import read_store
 import storage
 import portadas
@@ -17,54 +18,37 @@ import portadas
 app = Flask(__name__)
 
 
-def _scrape_web_content(url: str) -> str:
-    """Try to scrape readable, sanitized article HTML from a URL.
+def _es_number(value: float) -> str:
+    text = f"{value:.1f}".rstrip("0").rstrip(".")
+    return text.replace(".", ",")
 
-    Only used server-side to feed /api/share-text with the article body.
-    Scripts, chrome and inline event handlers are stripped."""
-    if not url:
+
+@app.template_filter("pct")
+def pct(value) -> str:
+    """87.5 -> «87,5%»; under 1 % is shown as «<1%»."""
+    if not isinstance(value, (int, float)):
+        return ""
+    if 0 < value < 1:
+        return "<1%"
+    return _es_number(value) + "%"
+
+
+@app.template_filter("pp")
+def pp(value) -> str:
+    """Weekly change in points: +3.5 -> «+3,5»; tiny or missing -> «=» / «»."""
+    if not isinstance(value, (int, float)):
+        return ""
+    if abs(value) < 0.5:
+        return "="
+    return ("+" if value > 0 else "−") + _es_number(abs(value))
+
+
+def _stamp(iso: str) -> str:
+    if not iso:
         return ""
     try:
-        resp = httpx.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=15, follow_redirects=True)
-        resp.raise_for_status()
-        soup = BeautifulSoup(resp.text, "html.parser")
-
-        # Remove noise / non-content chrome and anything executable.
-        for tag in soup.select(
-            "script, style, noscript, template, nav, header, footer, aside, "
-            "form, button, iframe, object, embed, svg, .sidebar, .comments, .ad"
-        ):
-            tag.decompose()
-
-        # Strip inline event handlers and javascript: URLs.
-        for el in soup.find_all(True):
-            for attr in list(el.attrs):
-                val = el.attrs[attr]
-                if attr.lower().startswith("on"):
-                    del el.attrs[attr]
-                elif attr.lower() in ("href", "src") and isinstance(val, str) \
-                        and val.strip().lower().startswith("javascript:"):
-                    del el.attrs[attr]
-
-        # Try common article selectors
-        article = (
-            soup.select_one("article") or
-            soup.select_one("[role='main']") or
-            soup.select_one(".post-content") or
-            soup.select_one(".entry-content") or
-            soup.select_one(".article-body") or
-            soup.select_one("main")
-        )
-        if article:
-            return article.decode_contents()
-
-        # Fallback: grab all paragraphs
-        paragraphs = soup.select("p")
-        if len(paragraphs) >= 3:
-            return "".join(str(p) for p in paragraphs)
-
-        return ""
-    except Exception:
+        return datetime.fromisoformat(iso).strftime("%d %b %Y, %H:%M")
+    except ValueError:
         return ""
 
 
@@ -73,9 +57,12 @@ def front_pages():
     return render_template("portadas.html", newspapers=portadas.NEWSPAPERS)
 
 
-@app.route("/api/portadas", methods=["POST"])
-def api_front_pages():
-    response = jsonify(portadas.fetch_headlines())
+@app.route("/api/portadas/<paper_id>")
+def api_front_page(paper_id: str):
+    result = portadas.fetch_one(paper_id)
+    if result is None:
+        return jsonify({"ok": False, "error": "unknown newspaper"}), 404
+    response = jsonify(result)
     response.headers["Cache-Control"] = "no-store"
     return response
 
@@ -84,7 +71,7 @@ def api_front_pages():
 def index():
     data = storage.read_json("main.json")
     if not data:
-        return render_template("index.html", articles=[], markets={},
+        return render_template("index.html", articles=[], markets=[],
                                generated_at="Run 'python run.py' first", total=0)
 
     generated_at = data.get("generated_at", "")
@@ -92,13 +79,11 @@ def index():
         dt = datetime.fromisoformat(generated_at)
         generated_at = dt.strftime("%d %b %Y, %H:%M")
 
-    markets = storage.read_json("markets_main.json") or {}
-
     articles = read_store.filter_unread(data.get("articles", []))
     return render_template(
         "index.html",
         articles=articles,
-        markets=markets,
+        markets=markets.load("markets_main.json"),
         generated_at=generated_at,
         total=len(articles),
         has_items=bool(data.get("articles")),
@@ -109,23 +94,22 @@ def index():
 def espana():
     spain_data = storage.read_json("spain.json") or {}
     polls_data = storage.read_json("polls.json") or {}
-    markets_data = storage.read_json("markets.json") or {}
 
-    generated_at = spain_data.get("generated_at", "")
-    if generated_at:
-        dt = datetime.fromisoformat(generated_at)
-        generated_at = dt.strftime("%d %b %Y, %H:%M")
-
-    has_audio = storage.exists("briefing.mp3")
+    # The briefing only counts if it was written for today's candidates.
+    fresh_ai = spain_data.get("radar_source") == "claude" and \
+        spain_data.get("ai_for") == spain_data.get("generated_at")
+    briefing = spain_data.get("briefing", "") if fresh_ai else ""
 
     return render_template(
         "espana.html",
         intl=spain_data.get("intl", []),
         spanish=spain_data.get("spanish", []),
+        radar_source="claude" if fresh_ai else "rss",
+        briefing=[p.strip() for p in briefing.split("\n\n") if p.strip()],
+        briefing_at=_stamp(spain_data.get("ai_at", "")) if fresh_ai else "",
         polls=polls_data,
-        markets=markets_data,
-        generated_at=generated_at,
-        has_audio=has_audio,
+        markets=markets.load("markets.json"),
+        generated_at=_stamp(spain_data.get("generated_at", "")),
     )
 
 
@@ -180,25 +164,6 @@ def papers():
                            generated_at=generated_at, has_items=bool(data.get("articles")))
 
 
-def _serve_audio(name: str):
-    """Stream an mp3. In Blob mode, redirect to the public Blob URL (no
-    bytes through the function); locally, send the file from disk."""
-    url = storage.public_url(name)
-    if url:
-        return redirect(url, code=302)
-    audio_bytes = storage.read_bytes(name)
-    if audio_bytes is None:
-        return jsonify({"ok": False}), 404
-    return send_file(io.BytesIO(audio_bytes), mimetype="audio/mpeg",
-                     download_name=name)
-
-
-@app.route("/api/briefing.mp3")
-def briefing_audio():
-    """España briefing."""
-    return _serve_audio("briefing.mp3")
-
-
 @app.route("/api/read", methods=["POST"])
 def api_read_mark():
     """Mark an item as read so it disappears from feeds permanently."""
@@ -223,57 +188,6 @@ def api_read_clear():
         app.logger.warning("Read ledger unavailable while clearing")
         return jsonify({"ok": False, "error": "read ledger unavailable"}), 503
     return jsonify({"ok": True})
-
-
-@app.route("/api/share-text", methods=["POST"])
-def share_text():
-    """Generate a ready-to-share LinkedIn/X post based on an article."""
-    import anthropic
-    from dotenv import load_dotenv
-    load_dotenv()
-
-    data = request.get_json()
-    title = data.get("title", "")
-    url = data.get("url", "")
-    content_snippet = (data.get("content", "") or "").strip()[:3000]
-
-    # The inline article body no longer lives in the page, so gather it
-    # server-side when the client didn't supply any.
-    if not content_snippet and url:
-        scraped = _scrape_web_content(url)
-        if scraped:
-            content_snippet = BeautifulSoup(scraped, "html.parser").get_text(" ", strip=True)[:3000]
-
-    profile = storage.read_json("profile.json") or {}
-
-    client = anthropic.Anthropic(timeout=120.0, max_retries=2)
-    response = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=800,
-        messages=[{
-            "role": "user",
-            "content": f"""Escribe un texto corto para compartir en LinkedIn o X (Twitter). El autor es Jorge Galindo, analista de políticas públicas con perspectiva YIMBY/abundance.
-
-PERFIL: {json.dumps(profile, ensure_ascii=False)}
-
-ARTÍCULO:
-Título: {title}
-URL: {url}
-Contenido: {content_snippet}
-
-INSTRUCCIONES:
-- Tono: analítico pero accesible, directo, sin florituras. Como alguien que comparte algo que le ha hecho pensar.
-- NO resumas el artículo. Extrae 1-2 takeaways o reflexiones propias que conecten con su perspectiva.
-- Puede ser en español o inglés según el artículo y la audiencia natural.
-- Incluye el link al final.
-- Longitud: 2-4 frases. Máximo 280 caracteres para X o un párrafo corto para LinkedIn.
-- NO uses hashtags, NO uses emojis, NO empieces con "Interesante artículo" ni fórmulas genéricas.
-- Ready to copy-paste. Solo el texto, nada más."""
-        }],
-    )
-
-    text = response.content[0].text.strip()
-    return jsonify({"ok": True, "text": text})
 
 
 def _cron_authorized() -> bool:
@@ -310,8 +224,8 @@ def _run_steps(steps: list[tuple[str, callable]]) -> dict:
 @app.route("/api/nightly", methods=["GET", "POST"])
 @app.route("/api/nightly/curate", methods=["GET", "POST"])
 def api_nightly_curate():
-    """Nightly cycle: fetch + curate everything. The Spain audio briefing is
-    bundled inside curate_spain."""
+    """Nightly cycle: fetch + store everything. No model is called here; the
+    España radar and briefing are added later by spain_ai.py on the mini."""
     if not _cron_authorized():
         return jsonify({"ok": False, "error": "unauthorized"}), 401
 

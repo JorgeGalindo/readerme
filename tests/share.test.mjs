@@ -5,55 +5,43 @@ import vm from 'node:vm';
 
 const source = await readFile(new URL('../static/share.js', import.meta.url), 'utf8');
 
-function element(tagName) {
-  return {
-    tagName, children: [], textContent: '', disabled: false,
-    setAttribute() {}, addEventListener() {},
-    set innerHTML(_) { throw new Error('Generated text must never be parsed as HTML'); },
-    append(...nodes) { this.children.push(...nodes); },
-    replaceChildren(...nodes) { this.children = nodes; },
-  };
-}
-
-function setup(fetch) {
-  const result = element('div');
-  const btn = element('button');
-  btn.dataset = { title: 'Article', url: 'https://example.com' };
-  btn.closest = () => ({ querySelector: () => result });
-  const context = vm.createContext({ fetch, document: { createElement: element }, navigator: {}, setTimeout: () => {} });
+function setup(navigator) {
+  const timers = [];
+  const btn = { textContent: 'Compartir', dataset: { title: 'Artículo', url: 'https://example.com/a' } };
+  const context = vm.createContext({ navigator, setTimeout: (fn) => timers.push(fn) });
   vm.runInContext(source, context);
-  return { context, result, btn };
+  return { btn, share: () => context.shareArticle(btn), runTimers: () => timers.forEach((fn) => fn()) };
 }
 
-test('el texto generado se muestra literalmente, incluso si contiene HTML', async () => {
-  const text = '<img src=x onerror="alert(1)"><script>bad()</script>';
-  const { context, result, btn } = setup(async () => ({ ok: true, json: async () => ({ ok: true, text }) }));
-  await context.getShareText(btn);
-  const [wrapper] = result.children;
-  assert.equal(wrapper.children[0].tagName, 'pre');
-  assert.equal(wrapper.children[0].textContent, text);
-  assert.equal(wrapper.children[1].textContent, 'Copiar');
-  assert.equal(btn.disabled, false);
+test('abre la hoja de compartir del sistema con título y enlace', async () => {
+  const shared = [];
+  const page = setup({ share: async (data) => shared.push(data), clipboard: { writeText: () => assert.fail() } });
+  await page.share();
+  assert.equal(JSON.stringify(shared), JSON.stringify([{ title: 'Artículo', url: 'https://example.com/a' }]));
+  assert.equal(page.btn.textContent, 'Compartir');
 });
 
-for (const [name, fetch] of [
-  ['red desconectada', async () => { throw new TypeError('offline'); }],
-  ['error HTTP', async () => ({ ok: false, status: 503 })],
-  ['respuesta no JSON', async () => ({ ok: true, json: async () => { throw new SyntaxError('not json'); } })],
-  ['respuesta incompleta', async () => ({ ok: true, json: async () => ({ ok: true }) })],
-]) {
-  test(`permite reintentar tras ${name}`, async () => {
-    const { context, result, btn } = setup(fetch);
-    await context.getShareText(btn);
-    assert.equal(btn.disabled, false);
-    assert.equal(btn.textContent, 'Compartir');
-    assert.equal(result.children[0].className, 'share-error');
+test('cerrar la hoja no copia nada ni muestra un error', async () => {
+  const page = setup({
+    share: async () => { throw Object.assign(new Error('cancel'), { name: 'AbortError' }); },
+    clipboard: { writeText: () => assert.fail('should not copy') },
   });
-}
+  await page.share();
+  assert.equal(page.btn.textContent, 'Compartir');
+});
+
+test('sin hoja de compartir copia título y enlace, y vuelve a su texto', async () => {
+  let copied;
+  const page = setup({ clipboard: { writeText: async (text) => { copied = text; } } });
+  await page.share();
+  assert.equal(copied, 'Artículo\nhttps://example.com/a');
+  assert.equal(page.btn.textContent, 'Enlace copiado');
+  page.runTimers();
+  assert.equal(page.btn.textContent, 'Compartir');
+});
 
 test('no anuncia que copió si el portapapeles deniega el acceso', async () => {
-  const { context, btn } = setup();
-  btn.previousElementSibling = { textContent: 'Text' };
-  await context.copyShare(btn);
-  assert.equal(btn.textContent, 'No se pudo copiar');
+  const page = setup({ clipboard: { writeText: async () => { throw new Error('denied'); } } });
+  await page.share();
+  assert.equal(page.btn.textContent, 'No se pudo copiar');
 });

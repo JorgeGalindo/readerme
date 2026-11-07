@@ -26,7 +26,7 @@
       <button id="refreshPortadas" class="portadas-refresh" type="button">Actualizar</button>
       <time id="portadasTime"></time>
     </div>
-    <p id="portadasStatus" class="portadas-status" role="status">Pulsa Actualizar para consultar las portadas.</p>
+    <p id="portadasStatus" class="portadas-status" role="status"></p>
     <ul id="portadasList" class="portadas-list">
       {% for paper in newspapers %}
       <li class="portada" data-source="{{ paper.id }}" data-home="{{ paper.url }}">

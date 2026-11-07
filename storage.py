@@ -11,7 +11,7 @@ Backend selection:
     If BLOB_READ_WRITE_TOKEN is set in the environment → Vercel Blob.
     Otherwise → local data/ directory next to this file.
 
-Names are bare filenames like "main.json" or "briefing_main.mp3"; the adapter
+Names are bare filenames like "main.json" or "markets.json"; the adapter
 prefixes them with the right path/prefix per backend.
 
 Read fallback in Blob mode: if a name isn't in Blob yet (e.g. config files

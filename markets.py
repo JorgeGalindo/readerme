@@ -1,282 +1,282 @@
-"""Fetch Polymarket prediction-market history for Spain (España tab) and
-Main (global politics) tabs. Each set writes to its own JSON file.
+"""Polymarket prediction markets for Main and España, chosen automatically.
 
-Main shows 4 markets per day on a daily rotation: one from each of four
-categories (geopolitics, economy, ai_tech, elections), drawn from a pool of
-28 (7 per category). Each market reappears every 7 days."""
+Until 2026-11 this file held a hand-picked pool of token ids. Markets resolve
+(«Fed baja en junio», «elecciones anticipadas antes del 30 jun») and the page
+kept showing them at 0 % with empty charts. Now each night we ask Polymarket's
+Gamma API for the most traded open events in a few tags and show those.
 
-from datetime import datetime, timezone
+Rules, in order:
+- an event must be open, end at least a day from now and have traded enough in
+  the last 24 h (noise like «gas prices on November 7» falls out by itself);
+- events that are one district of a bigger election («Spain General Election:
+  Biscay Winner») are skipped, the national market already covers them;
+- inside an event, only live markets count: placeholders («Person H»), closed
+  or already-expired dates are dropped, and so are outcomes under 1 %;
+- each event shows up to three outcomes, most likely first, with 30 days of
+  daily prices from the CLOB price history. Date ladders («ceasefire holds
+  through…?», «Sánchez out by…?») are cumulative, so they keep calendar order
+  and show the three nearest dates.
+
+The CLOB resets connections under parallel load, so histories are fetched one
+after another on a single keep-alive client, with retries (~5 s per 25).
+"""
+
+from datetime import datetime, timedelta, timezone
+import json
+import re
+import time
 
 import httpx
 
 import storage
 
-MARKETS_FILE_SPAIN = "markets.json"  # legacy filename
+MARKETS_FILE_SPAIN = "markets.json"
 MARKETS_FILE_MAIN = "markets_main.json"
 
+GAMMA = "https://gamma-api.polymarket.com/events"
+CLOB_HISTORY = "https://clob.polymarket.com/prices-history"
+HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; Readerme/1.0)"}
 
-SPAIN_MARKETS = {
-    "snap_june": {
-        "title": "Elecciones anticipadas antes del 30 jun 2026",
-        "token_id": "22727676348515372003751667928661129938953357934816532759741382381194930135311",
-        "url": "https://polymarket.com/event/spain-snap-election-called-by/spain-snap-election-called-by-june-30-2026",
-    },
-    "snap_2026": {
-        "title": "Elecciones anticipadas en 2026",
-        "token_id": "59503554798824057287666406378885313688964980592517621433937122029072326338100",
-        "url": "https://polymarket.com/event/spain-snap-election-called-in-2026",
-    },
-}
+# (tag slug on Polymarket, label shown in the card, events to show,
+#  min 24h volume in USD, extra title regex to skip or None)
+MAIN_SECTIONS = (
+    ("geopolitics", "Geopolítica", 2, 20_000, None),
+    ("economy", "Economía", 2, 5_000, None),
+    # US party primaries two years out crowd out every other election.
+    ("world-elections", "Elecciones", 2, 20_000, re.compile(r"\bnominee\b", re.I)),
+    ("ai", "IA", 2, 5_000, None),
+)
+SPAIN_SECTIONS = (
+    ("spain", "España", 6, 300, None),
+)
 
-
-# ---------- Main rotation pool: 28 markets, 7 per category ----------
-
-CATEGORIES = ("geopolitics", "economy", "ai_tech", "elections")
-
-MAIN_MARKETS_POOL: dict[str, dict] = {
-    # geopolitics
-    "iran_us_invade": {
-        "category": "geopolitics",
-        "title": "EE.UU. invade Irán antes 2027",
-        "token_id": "55115078421062885512539156303747803058407616201213034911037320915726138659123",
-        "url": "https://polymarket.com/event/will-the-us-invade-iran-before-2027",
-    },
-    "china_taiwan": {
-        "category": "geopolitics",
-        "title": "Invasión china de Taiwán antes fin 2026",
-        "token_id": "94559586571241563470235664821564670251180951772614764383113614156422396181162",
-        "url": "https://polymarket.com/event/will-china-invade-taiwan-before-2027",
-    },
-    "netanyahu_jun": {
-        "category": "geopolitics",
-        "title": "Netanyahu fuera antes 30 jun",
-        "token_id": "110540225177219524039862595475289990032643955968401089134377304882717624846278",
-        "url": "https://polymarket.com/event/netanyahu-out-before-2027/netanyahu-out-by-june-30-383-244-575",
-    },
-    "putin_dec": {
-        "category": "geopolitics",
-        "title": "Putin fuera antes fin 2026",
-        "token_id": "350977769852917329387037893294763093471844346281449484439085576212613048126",
-        "url": "https://polymarket.com/event/putin-out-before-2027",
-    },
-    "zelensky_dec": {
-        "category": "geopolitics",
-        "title": "Zelensky fuera antes fin 2026",
-        "token_id": "108187737663325442737199857734058032845728149267925579081973309839049299838520",
-        "url": "https://polymarket.com/event/zelenskyy-out-as-ukraine-president-before-2027",
-    },
-    "iran_leader_dec": {
-        "category": "geopolitics",
-        "title": "Cambio liderazgo Irán antes 31 dic",
-        "token_id": "18652479948917565296149340091675894865339012333173025944893512396354173886674",
-        "url": "https://polymarket.com/event/iran-leadership-change-by",
-    },
-    "us_iran_nuclear": {
-        "category": "geopolitics",
-        "title": "Acuerdo nuclear EE.UU.-Irán antes 30 jun",
-        "token_id": "68283792174293775430535402015214113701251372409839518501034763677920213819299",
-        "url": "https://polymarket.com/event/us-iran-nuclear-deal-by-june-30",
-    },
-
-    # economy
-    "fed_cut_25_jun": {
-        "category": "economy",
-        "title": "Fed baja 25 bps en junio 2026",
-        "token_id": "65193234666628291664907888364936366210889305490897648116746073820519263548476",
-        "url": "https://polymarket.com/event/fed-decision-in-june-825/will-the-fed-decrease-interest-rates-by-25-bps-after-the-june-2026-meeting",
-    },
-    "fed_no_cuts": {
-        "category": "economy",
-        "title": "Sin recortes Fed en 2026",
-        "token_id": "12403602920039269077597917340921667997547115084613238528792639013246536343316",
-        "url": "https://polymarket.com/event/how-many-fed-rate-cuts-in-2026/will-no-fed-rate-cuts-happen-in-2026",
-    },
-    "fed_hike_25_jul": {
-        "category": "economy",
-        "title": "Fed sube 25 bps en julio 2026",
-        "token_id": "10547381015916960267379463101229159185405356924982461726471550099674011526491",
-        "url": "https://polymarket.com/event/fed-decision-in-july-181/will-the-fed-increase-interest-rates-by-25-bps-after-the-july-2026-meeting",
-    },
-    "fed_4_cuts": {
-        "category": "economy",
-        "title": "4 recortes Fed en 2026",
-        "token_id": "73197441127256680134600821323583356037261213281680365433623681075249556019477",
-        "url": "https://polymarket.com/event/how-many-fed-rate-cuts-in-2026/will-4-fed-rate-cuts-happen-in-2026",
-    },
-    "us_recession_2026": {
-        "category": "economy",
-        "title": "Recesión EE.UU. antes fin 2026",
-        "token_id": "100379208559626151022751801118534484742123694725746262280150222742563282755057",
-        "url": "https://polymarket.com/event/us-recession-by-end-of-2026",
-    },
-    "fed_cut_50_jun": {
-        "category": "economy",
-        "title": "Fed baja 50+ bps en junio 2026",
-        "token_id": "110884561568299698460551977852169332756450294345019257864587852438060900499251",
-        "url": "https://polymarket.com/event/fed-decision-in-june-825/will-the-fed-decrease-interest-rates-by-50-bps-after-the-june-2026-meeting",
-    },
-    "fed_hike_50_jun": {
-        "category": "economy",
-        "title": "Fed sube 50+ bps en junio 2026",
-        "token_id": "11019686559003253359318459636510036787281809199165975947920974072245914352862",
-        "url": "https://polymarket.com/event/fed-decision-in-june-825/will-the-fed-increase-interest-rates-by-50-bps-after-the-june-2026-meeting",
-    },
-
-    # ai_tech
-    "xai_best_jun": {
-        "category": "ai_tech",
-        "title": "xAI mejor modelo fin junio",
-        "token_id": "111535169822707617708724803776230447684636442572401432413011961922458103225261",
-        "url": "https://polymarket.com/event/which-company-has-best-ai-model-end-of-june/will-xai-have-the-best-ai-model-at-the-end-of-june-2026",
-    },
-    "anthropic_best_jun": {
-        "category": "ai_tech",
-        "title": "Anthropic mejor modelo fin junio",
-        "token_id": "31257690721782087545855558909530748024291398703956697759040950846127149299962",
-        "url": "https://polymarket.com/event/which-company-has-best-ai-model-end-of-june/will-anthropic-have-the-best-ai-model-at-the-end-of-june-2026",
-    },
-    "openai_best_may": {
-        "category": "ai_tech",
-        "title": "OpenAI mejor modelo fin mayo",
-        "token_id": "99321540480563930395437102180161800415982867363326119900174086397411605035146",
-        "url": "https://polymarket.com/event/which-company-has-the-best-ai-model-end-of-may/will-openai-have-the-best-ai-model-at-the-end-of-may-2026",
-    },
-    "openai_ipo_1t": {
-        "category": "ai_tech",
-        "title": "OpenAI IPO >$1T",
-        "token_id": "2011448762453318924331890857436552502625185273746051467874416268100776921808",
-        "url": "https://polymarket.com/event/openai-ipo-closing-market-cap-above",
-    },
-    "nvidia_top_jun": {
-        "category": "ai_tech",
-        "title": "NVIDIA mayor empresa 30 jun",
-        "token_id": "114266735877811876021362945683127542532778925409590599016489267644246881997088",
-        "url": "https://polymarket.com/event/largest-company-end-of-june-712/will-nvidia-be-the-largest-company-in-the-world-by-market-cap-on-june-30-824",
-    },
-    "tesla_top_jun": {
-        "category": "ai_tech",
-        "title": "Tesla mayor empresa 30 jun",
-        "token_id": "29302012528838680690187789761162568894047228199221874292227996792731980008913",
-        "url": "https://polymarket.com/event/largest-company-end-of-june-712/will-tesla-be-the-largest-company-in-the-world-by-market-cap-on-june-30",
-    },
-    "openai_acquired": {
-        "category": "ai_tech",
-        "title": "OpenAI adquirida antes 2027",
-        "token_id": "32919655202731037203140231130939093798403278359599025499865606899485004387270",
-        "url": "https://polymarket.com/event/which-companies-will-be-acquired-before-2027/will-openai-be-acquired-before-2027-859",
-    },
-
-    # elections (internacionales)
-    "lula_brazil": {
-        "category": "elections",
-        "title": "Lula gana presidencial Brasil 2026",
-        "token_id": "30630994248667897740988010928640156931882346081873066002335460180076741328029",
-        "url": "https://polymarket.com/event/brazil-presidential-election/will-luiz-incio-lula-da-silva-win-the-2026-brazilian-presidential-election",
-    },
-    "starmer_dec": {
-        "category": "elections",
-        "title": "Starmer fuera antes fin 2026",
-        "token_id": "42498579290170525937803365597001189493798686141769429176410526295573824619073",
-        "url": "https://polymarket.com/event/starmer-out-in-2025/starmer-out-by-december-31-2026-936-416-977-234-134-475",
-    },
-    "akesson_sweden": {
-        "category": "elections",
-        "title": "Åkesson próximo PM Suecia",
-        "token_id": "82283291912489202302595502692326101345632588904573705648995568317366762287152",
-        "url": "https://polymarket.com/event/next-prime-minister-of-sweden/will-jimmie-kesson-be-the-next-prime-minister-of-sweden",
-    },
-    "farage_uk": {
-        "category": "elections",
-        "title": "Farage próximo PM Reino Unido 2026",
-        "token_id": "50960260636990249013018697727132070044900034089108950792866072435222205165583",
-        "url": "https://polymarket.com/event/next-uk-prime-minister-in-2026-122/will-nigel-farage-be-the-next-prime-minister-of-the-united-kingdom-in-2026-356",
-    },
-    "macron_jun": {
-        "category": "elections",
-        "title": "Macron fuera antes 30 jun 2026",
-        "token_id": "16201530957950630406397949502319734794139620443510795733205872225099141120819",
-        "url": "https://polymarket.com/event/macron-out-in-2025/macron-out-by-june-30-2026-273",
-    },
-    "lepen_2027": {
-        "category": "elections",
-        "title": "Le Pen gana presidencial Francia 2027",
-        "token_id": "55764212211467781322980371912612507865974994976253196346176314491480419639168",
-        "url": "https://polymarket.com/event/next-french-presidential-election/will-marine-le-pen-win-the-2027-french-presidential-election",
-    },
-    "burnham_uk": {
-        "category": "elections",
-        "title": "Burnham próximo PM Reino Unido 2026",
-        "token_id": "22879769232544702309459734857825459980910104747937470036552736453122914481526",
-        "url": "https://polymarket.com/event/next-uk-prime-minister-in-2026-122/will-andy-burnham-be-the-next-prime-minister-of-the-united-kingdom-in-2026-882",
-    },
-}
+MAX_OUTCOMES = 3
+MIN_PRICE = 0.01
+# «Spain General Election: Biscay Winner», «…: Barcelona 2nd Place»
+DISTRICT_RE = re.compile(r":\s.*\b(winner|2nd place|3rd place)\??$", re.I)
+NOISE_RE = re.compile(r"#\s*(of\s+)?tweets|up or down|\bprice of\b|\bon (january|february|march|april|may|june|july|"
+                      r"august|september|october|november|december) \d{1,2}\b", re.I)
 
 
-def _daily_keys() -> list[str]:
-    """The 4 keys to show today — one per category, rotating every day.
-    Each category has 7 markets, so each surfaces once a week."""
-    by_cat: dict[str, list[str]] = {c: [] for c in CATEGORIES}
-    for k, m in MAIN_MARKETS_POOL.items():
-        by_cat[m["category"]].append(k)
-    for c in CATEGORIES:
-        by_cat[c].sort()
-    day = datetime.now(timezone.utc).toordinal()
-    return [by_cat[c][day % len(by_cat[c])] for c in CATEGORIES]
+def _parse_dt(value: str | None) -> datetime | None:
+    if not value:
+        return None
+    try:
+        return datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return None
 
 
-def _fetch_one(token_id: str) -> tuple[list[str], list[float], float]:
-    """Return (dates, prices, current) for one Polymarket token."""
-    resp = httpx.get(
-        "https://clob.polymarket.com/prices-history",
-        params={"market": token_id, "interval": "all", "fidelity": 360},
-        headers={"User-Agent": "Mozilla/5.0"},
-        timeout=15,
-    )
+def _yes_price(market: dict) -> float | None:
+    try:
+        prices = market.get("outcomePrices")
+        prices = json.loads(prices) if isinstance(prices, str) else prices
+        return float(prices[0])
+    except (TypeError, ValueError, IndexError):
+        return None
+
+
+def _yes_token(market: dict) -> str | None:
+    try:
+        tokens = market.get("clobTokenIds")
+        tokens = json.loads(tokens) if isinstance(tokens, str) else tokens
+        return str(tokens[0])
+    except (TypeError, ValueError, IndexError):
+        return None
+
+
+MONTHS = ("january", "february", "march", "april", "may", "june", "july",
+          "august", "september", "october", "november", "december")
+DATE_LABEL_RE = re.compile(r"^(%s) (\d{1,2})(?:, (\d{4}))?$" % "|".join(MONTHS), re.I)
+
+
+def _label_date(label: str, fallback: datetime | None) -> datetime | None:
+    """«November 30» / «January 31, 2027» → a date; the market's end date
+    settles the year when the label omits it."""
+    match = DATE_LABEL_RE.match(label.strip())
+    if not match:
+        return None
+    month = MONTHS.index(match.group(1).lower()) + 1
+    year = int(match.group(3)) if match.group(3) else (fallback.year if fallback else None)
+    if year is None:
+        return None
+    try:
+        return datetime(year, month, int(match.group(2)), tzinfo=timezone.utc)
+    except ValueError:
+        return None
+
+
+def live_outcomes(event: dict, now: datetime) -> list[dict]:
+    """The event's live markets as outcomes: most likely first, or in calendar
+    order when every outcome is a date."""
+    outcomes = []
+    multi = len(event.get("markets") or []) > 1
+    for market in event.get("markets") or []:
+        if not market.get("active") or market.get("closed"):
+            continue
+        if market.get("acceptingOrders") is False:
+            continue
+        end = _parse_dt(market.get("endDate"))
+        # A rung of a date ladder that settles within a day says nothing new.
+        if end and end <= now + (timedelta(days=1) if multi else timedelta(0)):
+            continue
+        price = _yes_price(market)
+        token = _yes_token(market)
+        if price is None or token is None:
+            continue
+        if multi and price < MIN_PRICE:
+            continue
+        change = market.get("oneWeekPriceChange")
+        label = (market.get("groupItemTitle") or "").strip() if multi else ""
+        outcomes.append({
+            "label": label,
+            "price": round(price * 100, 1),
+            "change_1w": round(float(change) * 100, 1) if isinstance(change, (int, float)) else None,
+            "token_id": token,
+            "_date": _label_date(label, end) if label else None,
+        })
+    if multi and outcomes and all(o["_date"] for o in outcomes):
+        outcomes.sort(key=lambda o: o["_date"])
+    else:
+        outcomes.sort(key=lambda o: -o["price"])
+    for o in outcomes:
+        o.pop("_date")
+    return outcomes[:MAX_OUTCOMES]
+
+
+def pick_events(events: list[dict], *, limit: int, min_volume: float, now: datetime,
+                seen: set[str], exclude: re.Pattern | None = None) -> list[dict]:
+    """Most traded open events that pass the rules in the module docstring."""
+    picked = []
+    for event in sorted(events, key=lambda e: -float(e.get("volume24hr") or 0)):
+        if len(picked) >= limit:
+            break
+        event_id = str(event.get("id"))
+        title = (event.get("title") or "").strip()
+        if event_id in seen or not title:
+            continue
+        if not event.get("active") or event.get("closed") or event.get("archived"):
+            continue
+        end = _parse_dt(event.get("endDate"))
+        if end is None or end < now + timedelta(days=1):
+            continue
+        if float(event.get("volume24hr") or 0) < min_volume:
+            continue
+        if DISTRICT_RE.search(title) or NOISE_RE.search(title):
+            continue
+        if exclude is not None and exclude.search(title):
+            continue
+        outcomes = live_outcomes(event, now)
+        if not outcomes:
+            continue
+        seen.add(event_id)
+        picked.append({
+            "id": event_id,
+            "title": title,
+            "url": f"https://polymarket.com/event/{event.get('slug')}",
+            "end_date": end.date().isoformat(),
+            "volume_24h": round(float(event.get("volume24hr") or 0)),
+            "outcomes": outcomes,
+        })
+    return picked
+
+
+def _fetch_events(client: httpx.Client, tag: str) -> list[dict]:
+    resp = client.get(GAMMA, params={
+        "tag_slug": tag, "active": "true", "closed": "false",
+        "order": "volume24hr", "ascending": "false", "limit": 40,
+    })
     resp.raise_for_status()
-    data = resp.json()
-    history = data.get("history", [])
-    dates: list[str] = []
-    prices: list[float] = []
-    for point in history:
-        ts = point.get("t", 0)
-        price = float(point.get("p", 0))
-        dt = datetime.fromtimestamp(ts, tz=timezone.utc)
-        dates.append(dt.strftime("%Y-%m-%d"))
-        prices.append(round(price * 100, 1))
-    current = prices[-1] if prices else 0
-    return dates, prices, current
+    return resp.json()
 
 
-def _fetch_set(name: str, markets: dict, out_file: str) -> dict:
-    print(f"Fetching Polymarket data ({name})…")
-    out: dict = {}
-    for key, market in markets.items():
+def _fetch_history(client: httpx.Client, token_id: str, attempts: int = 3) -> tuple[list[str], list[float]]:
+    """Last 30 days, one point per day."""
+    for attempt in range(attempts):
         try:
-            dates, prices, current = _fetch_one(market["token_id"])
-            out[key] = {
-                "title": market["title"],
-                "url": market["url"],
-                "dates": dates,
-                "prices": prices,
-                "current": current,
-            }
-            print(f"  {market['title']}: {current}% ({len(dates)} points)")
-        except Exception as e:
-            print(f"  Failed {key}: {e}")
-    storage.write_json(out_file, out)
-    return out
+            resp = client.get(CLOB_HISTORY, params={"market": token_id, "interval": "1m", "fidelity": 1440})
+            resp.raise_for_status()
+            history = resp.json().get("history", [])
+            break
+        except (httpx.HTTPError, ValueError):
+            if attempt == attempts - 1:
+                raise
+            time.sleep(1 + attempt)
+    dates, prices = [], []
+    for point in history:
+        day = datetime.fromtimestamp(point.get("t", 0), tz=timezone.utc).strftime("%Y-%m-%d")
+        if dates and dates[-1] == day:
+            prices[-1] = round(float(point.get("p", 0)) * 100, 1)
+            continue
+        dates.append(day)
+        prices.append(round(float(point.get("p", 0)) * 100, 1))
+    return dates, prices
+
+
+def build(sections, client: httpx.Client, now: datetime | None = None) -> dict:
+    now = now or datetime.now(timezone.utc)
+    seen: set[str] = set()
+    out_sections = []
+    for tag, label, limit, min_volume, exclude in sections:
+        try:
+            events = pick_events(_fetch_events(client, tag), limit=limit, min_volume=min_volume,
+                                 now=now, seen=seen, exclude=exclude)
+        except httpx.HTTPError as exc:
+            print(f"  Polymarket {tag} failed: {exc}")
+            continue
+        for event in events:
+            event["section"] = label
+        out_sections.extend(events)
+
+    pending = [o for e in out_sections for o in e["outcomes"]]
+    # Resets come in bursts: whatever fails gets a second pass after a pause.
+    for pass_no in (1, 2):
+        failed = []
+        for outcome in pending:
+            try:
+                outcome["dates"], outcome["prices"] = _fetch_history(client, outcome["token_id"])
+            except (httpx.HTTPError, ValueError):
+                outcome["dates"], outcome["prices"] = [], []
+                failed.append(outcome)
+        if not failed or pass_no == 2:
+            break
+        time.sleep(5)
+        pending = failed
+    if failed:
+        print(f"  {len(failed)} price histories unavailable")
+    for outcome in (o for e in out_sections for o in e["outcomes"]):
+        outcome.pop("token_id")
+    return {"generated_at": now.isoformat(), "events": out_sections}
+
+
+def _fetch_and_store(name: str, sections, out_file: str) -> dict:
+    print(f"Fetching Polymarket events ({name})…")
+    with httpx.Client(headers=HEADERS, timeout=15, follow_redirects=True) as client:
+        data = build(sections, client)
+    for e in data["events"]:
+        lead = e["outcomes"][0]
+        print(f"  [{e['section']}] {e['title']}: {lead['label'] or 'Sí'} {lead['price']}%")
+    if data["events"]:
+        storage.write_json(out_file, data)
+    else:
+        # Keep yesterday's file rather than blanking the section.
+        print("  No events found; keeping the previous file.")
+    return data
 
 
 def fetch_markets() -> dict:
-    return _fetch_set("spain", SPAIN_MARKETS, MARKETS_FILE_SPAIN)
+    return _fetch_and_store("spain", SPAIN_SECTIONS, MARKETS_FILE_SPAIN)
 
 
 def fetch_markets_main() -> dict:
-    """Fetch only today's 4 rotating markets, one per category."""
-    keys = _daily_keys()
-    print(f"  Main rotation today ({datetime.now(timezone.utc).date()}): {keys}")
-    selected = {k: MAIN_MARKETS_POOL[k] for k in keys}
-    return _fetch_set("main", selected, MARKETS_FILE_MAIN)
+    return _fetch_and_store("main", MAIN_SECTIONS, MARKETS_FILE_MAIN)
+
+
+def load(name: str) -> list[dict]:
+    """Events for a template; ignores files written by the old hand-picked pool."""
+    data = storage.read_json(name) or {}
+    events = data.get("events") if isinstance(data, dict) else None
+    return events if isinstance(events, list) else []
 
 
 if __name__ == "__main__":

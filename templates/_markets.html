@@ -1,0 +1,29 @@
+{# Prediction markets chosen by markets.py. One card per event, up to three
+   outcomes; the coloured dot ties each row to its line in the chart. #}
+{% macro markets_block(events, heading='Mercados de predicción') %}
+{% if events %}
+<section class="markets">
+  <h2 class="section-title">{{ heading }}</h2>
+  <div class="markets-grid">
+    {% for e in events %}
+    <div class="market-card">
+      <p class="market-section">{{ e.section }}</p>
+      <a class="market-title" href="{{ e.url }}">{{ e.title }}</a>
+      <ul class="market-outcomes">
+        {% for o in e.outcomes %}
+        <li class="market-outcome series-{{ loop.index0 }}">
+          <span class="market-label">{{ o.label or 'Sí' }}</span>
+          <span class="market-price">{{ o.price | pct }}</span>
+          <span class="market-change">{{ o.change_1w | pp }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="market-chart-container"><canvas data-market="{{ loop.index0 }}"></canvas></div>
+    </div>
+    {% endfor %}
+  </div>
+  <p class="market-note">Probabilidad implícita en Polymarket y cambio en los últimos 7 días, en puntos. Gráficos: últimos 30 días.</p>
+  <script type="application/json" id="marketsData">{{ events | tojson }}</script>
+</section>
+{% endif %}
+{% endmacro %}

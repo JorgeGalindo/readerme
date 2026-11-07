@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/style.css">
 </head>
+{% from '_markets.html' import markets_block %}
 <body>
   <header>
     <h1>readerme <span class="meta">{{ generated_at }} &middot; <a href="#" class="reset-link" onclick="event.preventDefault(); resetRead()">borrar leídos</a></span></h1>
@@ -33,13 +34,13 @@
     </div>
     {% endif %}
 
-    {% if has_audio %}
-    <section class="audio-briefing">
-      <div class="audio-header">
-        <h2 class="section-title">Briefing de hoy</h2>
-        <button class="btn-play" id="playBtn" onclick="toggleAudio()">Escuchar</button>
+    {% if briefing %}
+    <section class="briefing">
+      <h2 class="section-title">Briefing de hoy</h2>
+      <div class="briefing-text">
+        {% for paragraph in briefing %}<p>{{ paragraph }}</p>{% endfor %}
       </div>
-      <audio id="briefingAudio" src="/api/briefing.mp3" preload="none"></audio>
+      <p class="briefing-meta">Escrito con Claude en el mini · {{ briefing_at }}</p>
     </section>
     {% endif %}
 
@@ -72,25 +73,7 @@
     </section>
     {% endif %}
 
-    {% if markets %}
-    <section>
-      <h2 class="section-title">Mercados de predicción</h2>
-      <div class="markets-grid">
-        {% for key, m in markets.items() %}
-        <div class="market-card">
-          <div class="market-header">
-            <span class="market-title">{{ m.title }}</span>
-            <span class="market-current">{{ m.current }}%</span>
-          </div>
-          <div class="market-chart-container">
-            <canvas id="market-{{ key }}"></canvas>
-          </div>
-          <a href="{{ m.url }}" target="_blank" rel="noopener" class="market-source">polymarket</a>
-        </div>
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
+    {{ markets_block(markets) }}
 
     {% if intl %}
     <section>
@@ -115,6 +98,9 @@
     {% if spanish %}
     <section>
       <h2 class="section-title">Radar de riesgo político</h2>
+      {% if radar_source != 'claude' %}
+      <p class="radar-note">Hoy sin selección de Claude: últimos titulares de política de cada medio.</p>
+      {% endif %}
       {% for a in spanish %}
       <article class="card card-compact">
         <h2>
@@ -138,6 +124,7 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <script src="/static/markets.js"></script>
   <script>
   {% if polls and polls.dates %}
   (function() {
@@ -200,92 +187,6 @@
     });
   })();
   {% endif %}
-
-  {% if markets %}
-  (function() {
-    const mkts = {{ markets | tojson }};
-    Object.keys(mkts).forEach(key => {
-      const m = mkts[key];
-      const ctx = document.getElementById('market-' + key);
-      if (!ctx || !m.dates) return;
-
-      const labels = m.dates.map(d => {
-        const [y, mo, day] = d.split('-');
-        const months = ['','Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
-        return months[parseInt(mo)] + ' ' + day;
-      });
-
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: labels,
-          datasets: [{
-            data: m.prices,
-            borderColor: '#5B9BD5',
-            backgroundColor: 'rgba(91,155,213,0.08)',
-            borderWidth: 1.5,
-            pointRadius: 0,
-            tension: 0.3,
-            fill: true,
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { display: false }, tooltip: {
-            callbacks: { label: ctx => ctx.parsed.y + '%' },
-            titleFont: { family: "'Roboto Mono'", size: 10 },
-            bodyFont: { family: "'Roboto Mono'", size: 10, weight: 300 }
-          }},
-          scales: {
-            x: { display: false },
-            y: { display: false, min: 0, max: Math.max(...m.prices) * 1.3 }
-          }
-        }
-      });
-    });
-  })();
-  {% endif %}
-
-  (function setupBriefingAudio() {
-    const audio = document.getElementById('briefingAudio');
-    if (!audio) return;
-    audio.preload = 'metadata';
-    audio.setAttribute('playsinline', '');
-    audio.setAttribute('webkit-playsinline', '');
-    if ('mediaSession' in navigator) {
-      navigator.mediaSession.metadata = new MediaMetadata({
-        title: 'Briefing España',
-        artist: 'readerme',
-        album: 'Briefing de hoy',
-      });
-      navigator.mediaSession.setActionHandler('play', () => audio.play());
-      navigator.mediaSession.setActionHandler('pause', () => audio.pause());
-      navigator.mediaSession.setActionHandler('seekbackward', e => {
-        audio.currentTime = Math.max(0, audio.currentTime - (e.seekOffset || 15));
-      });
-      navigator.mediaSession.setActionHandler('seekforward', e => {
-        audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + (e.seekOffset || 30));
-      });
-    }
-  })();
-
-  function toggleAudio() {
-    const audio = document.getElementById('briefingAudio');
-    const btn = document.getElementById('playBtn');
-    if (!audio) return;
-    if (audio.paused) {
-      const p = audio.play();
-      if (p && p.catch) p.catch(() => {});
-      btn.textContent = 'Pausar';
-    } else {
-      audio.pause();
-      btn.textContent = 'Escuchar';
-    }
-    audio.onended = () => { btn.textContent = 'Escuchar'; };
-    audio.onpause = () => { if (!audio.ended) btn.textContent = 'Escuchar'; };
-    audio.onplay = () => { btn.textContent = 'Pausar'; };
-  }
 
   </script>
   <script src="/static/read.js"></script>

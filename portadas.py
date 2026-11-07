@@ -1,13 +1,16 @@
 """The lead headline on each newspaper's public home page, fetched on demand.
 
 Selectors refer to the opening story, not tickers, related links or RSS order.
-Checked against the public home pages on 2026-09-12. No model or paid API.
+Checked against the public home pages on 2026-11-07. No model or paid API.
+
+El Periódico and El Periódico de España were dropped on 2026-11-07: both answer
+406 to this client, so their rows only ever said «No disponible».
 """
 
-from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from datetime import datetime, timezone
 import logging
+import re
 from urllib.parse import urljoin, urlsplit
 
 from bs4 import BeautifulSoup
@@ -20,19 +23,21 @@ class Newspaper:
     name: str
     url: str
     selector: str
+    # Optional regex the link path must match. El Mundo puts a carousel of
+    # games (crucigrama, sudoku…) above the opening with the same markup.
+    article_path: str | None = None
 
 
 NEWSPAPERS = (
     Newspaper("elpais", "El País", "https://elpais.com/", "article.c-d .c_t"),
-    Newspaper("elmundo", "El Mundo", "https://www.elmundo.es/", ".ue-c-cover-content__headline"),
+    Newspaper("elmundo", "El Mundo", "https://www.elmundo.es/", ".ue-c-cover-content__headline",
+              article_path=r"/\d{4}/\d{2}/\d{2}/"),
     Newspaper("elconfidencial", "El Confidencial", "https://www.elconfidencial.com/", "article.teaser .teaser__titleLink"),
     Newspaper("theobjective", "The Objective", "https://theobjective.com/", ".tno-blocks-article-top__title, .tno-article-block__title"),
     Newspaper("abc", "ABC", "https://www.abc.es/", "article .v-a-t"),
     Newspaper("eldiario", "elDiario.es", "https://www.eldiario.es/", "article .ni-title"),
     Newspaper("larazon", "La Razón", "https://www.larazon.es/", "article .article__title"),
     Newspaper("lavanguardia", "La Vanguardia", "https://www.lavanguardia.com/", "article.article-module .title"),
-    Newspaper("elperiodico", "El Periódico", "https://www.elperiodico.com/es/", ".ft-org-cardHome__mainTitle"),
-    Newspaper("epe", "El Periódico de España", "https://www.epe.es/es/", ".ft-org-cardHome__mainTitle"),
     Newspaper("ara", "ARA", "https://www.ara.cat/", ".combo-title--article .combo-title-wrapper"),
     Newspaper("elespanol", "El Español", "https://www.elespanol.com/", "article.art .art__title"),
     Newspaper("publico", "Público", "https://www.publico.es/", "article h2.title"),
@@ -68,6 +73,8 @@ def extract_headline(html: str, paper: Newspaper) -> tuple[str, str] | None:
             continue
         if parsed.path in ("", "/", "/es/", "/ca/"):
             continue
+        if paper.article_path and not re.search(paper.article_path, parsed.path):
+            continue
         return title, url
     return None
 
@@ -86,9 +93,21 @@ def fetch_headline(paper: Newspaper, client: httpx.Client) -> dict:
     return result
 
 
-def fetch_headlines() -> dict:
-    # Independent requests: one unavailable newspaper doesn't block the others.
-    with httpx.Client(headers=HEADERS, timeout=8, follow_redirects=True, max_redirects=3) as client:
-        with ThreadPoolExecutor(max_workers=8) as pool:
-            headlines = list(pool.map(lambda paper: fetch_headline(paper, client), NEWSPAPERS))
-    return {"updated_at": datetime.now(timezone.utc).isoformat(), "headlines": headlines}
+BY_ID = {paper.id: paper for paper in NEWSPAPERS}
+TIMEOUT = httpx.Timeout(6, connect=3)
+
+
+def _client() -> httpx.Client:
+    return httpx.Client(headers=HEADERS, timeout=TIMEOUT, follow_redirects=True, max_redirects=3)
+
+
+def fetch_one(paper_id: str) -> dict | None:
+    """One newspaper, for the page that fills each row as soon as it answers."""
+    paper = BY_ID.get(paper_id)
+    if paper is None:
+        return None
+    with _client() as client:
+        result = fetch_headline(paper, client)
+    result["updated_at"] = datetime.now(timezone.utc).isoformat()
+    return result
+

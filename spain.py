@@ -1,19 +1,23 @@
-"""Fetch and curate Spanish political risk news."""
+"""España tab: foreign press about Spain and a political-risk radar.
 
-import json
+The nightly on Vercel only fetches feeds; it never calls a model. It writes
+spain.json with the candidate articles and, as the radar, the latest political
+headlines from each paper in turn. Each morning `spain_ai.py` runs on the Mac
+mini with `claude -p` (Jorge's subscription, not the API), picks the ten that
+matter for political risk, writes a short text briefing and overwrites the
+radar. If the mini doesn't run, the page still updates, without the selection.
+"""
+
+from datetime import datetime, timezone
 import time
 import xml.etree.ElementTree as ET
 
-import anthropic
 import httpx
 from bs4 import BeautifulSoup
-from dotenv import load_dotenv
 
 import storage
 
-load_dotenv()
-
-client = anthropic.Anthropic(timeout=180.0, max_retries=3)
+RADAR_SIZE = 10
 
 # International feeds — direct Spain tags, no AI needed
 FEEDS_INTL = {
@@ -30,9 +34,6 @@ FEEDS_ES = {
     "El Mundo": "https://e00-elmundo.uecdn.es/elmundo/rss/espana.xml",
     "eldiario.es": "https://www.eldiario.es/rss/politica/",
 }
-
-# eldiario supports inline reading
-SCRAPEABLE_DOMAINS = {"eldiario.es"}
 
 NS = {
     "dc": "http://purl.org/dc/elements/1.1/",
@@ -173,85 +174,41 @@ def fetch_spanish_media() -> list[dict]:
         else:
             items = _parse_rss(xml, source)
 
-        # Mark scrapeable
-        for item in items:
-            domain = ""
-            if "eldiario.es" in (item.get("link") or ""):
-                domain = "eldiario.es"
-            item["scrapeable"] = domain in SCRAPEABLE_DOMAINS and domain != ""
-
         all_articles.extend(items[:20])  # Max 20 per source
         time.sleep(0.5)
 
     return all_articles
 
 
+def rss_radar(candidates: list[dict], size: int = RADAR_SIZE) -> list[dict]:
+    """Fallback radar without a model: newest item from each paper in turn."""
+    by_source: dict[str, list[dict]] = {}
+    for item in candidates:
+        by_source.setdefault(item["source"], []).append(item)
+    radar, seen_titles = [], set()
+    while len(radar) < size and any(by_source.values()):
+        for items in by_source.values():
+            if not items or len(radar) >= size:
+                continue
+            item = items.pop(0)
+            key = item["title"].strip().lower()
+            if key in seen_titles:
+                continue
+            seen_titles.add(key)
+            radar.append({**item, "risk_summary": item.get("summary", "")})
+    return radar
+
+
 def curate_spain() -> dict:
-    """Fetch all sources and curate for political risk analysis."""
+    """Fetch every source and store the day's candidates. No model involved."""
     print("Fetching international sources...")
     intl = fetch_intl_spain()
     print(f"  {len(intl)} international articles about Spain")
 
     print("Fetching Spanish media...")
-    spanish = fetch_spanish_media()
-    print(f"  {len(spanish)} Spanish media articles")
+    candidates = fetch_spanish_media()
+    print(f"  {len(candidates)} Spanish media articles")
 
-    # Curate Spanish media: pick 10 most relevant for political risk
-    curated_spanish = []
-    if spanish:
-        article_list = []
-        for i, a in enumerate(spanish):
-            article_list.append(
-                f"[{i}] \"{a['title']}\" — {a['source']}\n"
-                f"    {a['summary'][:200]}"
-            )
-        articles_text = "\n\n".join(article_list)
-
-        response = client.messages.create(
-            model="claude-sonnet-4-6",
-            max_tokens=4000,
-            messages=[{
-                "role": "user",
-                "content": f"""Eres un analista de riesgo político de Eurasia Group especializado en España. De estas noticias de medios españoles, selecciona las 10 más relevantes para el análisis de riesgo político del país.
-
-Prioriza:
-- Movimientos políticos que afecten estabilidad gubernamental
-- Cambios regulatorios o legislativos significativos
-- Tensiones territoriales (Cataluña, etc.)
-- Política fiscal y presupuestaria
-- Relaciones con la UE
-- Movimientos sindicales o protestas
-- Cambios en encuestas o dinámicas electorales
-- Nombramientos clave o dimisiones
-- Política energética o industrial con impacto macro
-
-NO priorices: sucesos, deportes, cultura, crónica social.
-
-ARTÍCULOS ({len(spanish)}):
-{articles_text}
-
-Para cada seleccionado:
-- index: el [N] original
-- summary_es: UNA frase de resumen orientada a riesgo político (no descriptiva, analítica)
-
-Responde SOLO JSON array, sin markdown:
-[{{"index": 0, "summary_es": "..."}}, ...]"""
-            }],
-        )
-
-        text = response.content[0].text.strip()
-        if text.startswith("```"):
-            text = text.split("\n", 1)[1].rsplit("```", 1)[0].strip()
-        picks = json.loads(text)
-
-        for p in picks[:10]:
-            idx = p["index"]
-            if 0 <= idx < len(spanish):
-                article = spanish[idx].copy()
-                article["risk_summary"] = p["summary_es"]
-                curated_spanish.append(article)
-
-    # International: no AI needed — use RSS summary directly, filter 2026+
     curated_intl = []
     for a in intl:
         date_str = (a.get("date") or "").lower()
@@ -260,89 +217,16 @@ Responde SOLO JSON array, sin markdown:
         a["risk_summary"] = a["summary"]
         curated_intl.append(a)
 
-    from datetime import datetime, timezone
     result = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "intl": curated_intl,
-        "spanish": curated_spanish,
+        "candidates": candidates,
+        "spanish": rss_radar(candidates),
+        "radar_source": "rss",
     }
-
     storage.write_json("spain.json", result)
-    print(f"Spain curated: {len(curated_intl)} intl + {len(curated_spanish)} national")
-
-    # Generate audio briefing
-    generate_audio_briefing(curated_intl, curated_spanish)
-
+    print(f"Spain stored: {len(curated_intl)} intl + {len(candidates)} candidates")
     return result
-
-
-def generate_audio_briefing(intl: list[dict], spanish: list[dict]):
-    """Generate a spoken political risk briefing from curated news + markets."""
-    from briefing import _tts_to_bytes
-
-    markets = storage.read_json("markets.json") or {}
-    polls = storage.read_json("polls.json") or {}
-
-    # Build context for Claude
-    intl_lines = [f"- {a['title']} ({a['source']}): {a.get('risk_summary', '')}" for a in intl]
-    spanish_lines = [f"- {a['title']} ({a['source']}): {a.get('risk_summary', '')}" for a in spanish]
-
-    markets_lines = []
-    for m in markets.values():
-        markets_lines.append(f"- {m['title']}: {m['current']}%")
-
-    polls_lines = []
-    if polls.get("bloc"):
-        bloc = polls["bloc"]
-        avgs = polls.get("averages", {})
-        # Get latest value for each party
-        for party in ["PP", "PSOE", "VOX", "SUMAR", "PODEMOS"]:
-            vals = avgs.get(party, [])
-            latest = next((v for v in reversed(vals) if v is not None), None)
-            if latest is not None:
-                polls_lines.append(f"- {party}: {latest}%")
-        polls_lines.append(f"- Bloque derecha (PP+VOX): {bloc.get('right_bloc', '?')}%")
-        polls_lines.append(f"- Bloque izquierda (PSOE+Sumar+Podemos+regionales): {bloc.get('left_bloc', '?')}%")
-        polls_lines.append(f"- Diferencia: {bloc.get('gap_label', '?')}")
-
-    prompt = f"""Genera un briefing de audio sobre la situación política en España. Será leído por un TTS, así que escribe como se habla: frases claras, ritmo natural, sin bullet points ni formato.
-
-ENCUESTAS DE INTENCIÓN DE VOTO (media de encuestas):
-{chr(10).join(polls_lines) if polls_lines else "No disponibles."}
-
-MERCADOS DE PREDICCIÓN:
-{chr(10).join(markets_lines) if markets_lines else "No disponibles."}
-
-PRENSA INTERNACIONAL SOBRE ESPAÑA:
-{chr(10).join(intl_lines) if intl_lines else "Sin artículos hoy."}
-
-PRENSA ESPAÑOLA:
-{chr(10).join(spanish_lines)}
-
-INSTRUCCIONES:
-- Tono: periodista de agencia de noticias. Factual, directo, sin opinión.
-- SOLO reporta hechos. NO interpretes, NO saques conclusiones, NO hagas valoraciones de riesgo, NO digas si la situación "se calienta" o "se enfría".
-- Estructura: empieza con las encuestas (cifras de cada partido y bloques), luego mercados de predicción, luego las noticias más relevantes de la prensa.
-- Cada noticia: qué ha pasado, quién lo ha dicho o hecho, y un dato concreto si lo hay. Nada más.
-- NO conectes noticias entre sí con interpretaciones causales.
-- Longitud: ~600-900 palabras (para ~3 minutos de audio).
-- Idioma: español.
-- NO uses encabezados, asteriscos, guiones ni ningún formato. Solo texto corrido con párrafos."""
-
-    print("Generating audio briefing text...")
-    response = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=2000,
-        messages=[{"role": "user", "content": prompt}],
-    )
-
-    briefing_text = response.content[0].text.strip()
-    storage.write_bytes("briefing.txt", briefing_text.encode("utf-8"), "text/plain; charset=utf-8")
-
-    print("Converting to audio (OpenAI TTS)...")
-    audio_bytes = _tts_to_bytes(briefing_text)
-    storage.write_bytes("briefing.mp3", audio_bytes, "audio/mpeg")
-    print(f"  Audio briefing: {len(audio_bytes) // 1024}KB")
 
 
 if __name__ == "__main__":
