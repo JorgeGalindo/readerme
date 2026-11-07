@@ -77,7 +77,7 @@ Las funciones corren en París (`cdg1`, en `vercel.json`): más cerca de los per
   - **Abundance**: Progress Ireland, Abundance Institute, Center for Growth and Opportunity.
 
 ### Papers (`/papers`)
-- NBER (Education / Children / Political Economy), IZA Discussion Papers, Banco de España, VoxEU/CEPR. Lista cronológica por fuente, sin scoring.
+- NBER (Education / Children / Political Economy), Banco de España, VoxEU/CEPR. Lista cronológica por fuente, sin scoring. IZA se quitó en noviembre de 2026: llegaba por politepol.com, que ya no existe, y IZA no tiene RSS propio.
 
 ## Mercados
 

@@ -1,10 +1,8 @@
 [
   {"site_name": "Ramón G. Ferriz (El Confidencial)", "rss_url": "https://rss.elconfidencial.com/autores/ramon-gonzalez-ferriz-4015/", "tag": "main"},
   {"site_name": "Abandoned Footnotes", "rss_url": "http://abandonedfootnotes.blogspot.com/feeds/posts/default", "tag": "main"},
-  {"site_name": "Politepol MYKIwL9TxxCL", "rss_url": "https://politepol.com/fd/MYKIwL9TxxCL", "tag": "main"},
   {"site_name": "Rosalía (Substack)", "rss_url": "https://rosalia.substack.com/feed", "tag": "main"},
   {"site_name": "Vallecana (Substack)", "rss_url": "https://vallecana.substack.com/feed", "tag": "main"},
-  {"site_name": "Politepol b47ifN5zeJ8O", "rss_url": "https://politepol.com/fd/b47ifN5zeJ8O", "tag": "main"},
   {"site_name": "Apricitas Economics", "rss_url": "https://www.apricitas.io/feed", "tag": "main"},
   {"site_name": "Age of Invention", "rss_url": "https://www.ageofinvention.xyz/feed", "tag": "main"},
   {"site_name": "Alberto González Sánchez", "rss_url": "https://albertogonzalezsanchez.substack.com/feed", "tag": "main"},
@@ -23,7 +21,6 @@
   {"site_name": "Opportunity Lost", "rss_url": "https://opportunitylost.substack.com/feed", "tag": "main"},
   {"site_name": "Chalmer Magne", "rss_url": "https://www.chalmermagne.com/feed", "tag": "main"},
   {"site_name": "Stay-At-Home Macro", "rss_url": "https://stayathomemacro.substack.com/feed", "tag": "main"},
-  {"site_name": "Politepol AGQzwFm9yxMD", "rss_url": "https://politepol.com/fd/AGQzwFm9yxMD", "tag": "main"},
   {"site_name": "Works in Progress", "rss_url": "https://worksinprogress.co/rss.xml", "tag": "main"},
   {"site_name": "Mark Chediak (Bloomberg)", "rss_url": "https://www.bloomberg.com/authors/APj9IOx5Yhk/mark-chediak.rss", "tag": "main"},
   {"site_name": "Astral Codex Ten", "rss_url": "https://www.astralcodexten.com/feed", "tag": "main"},
@@ -54,7 +51,6 @@
   {"site_name": "NBER – Education", "rss_url": "https://back.nber.org/rss/newed.xml", "tag": "papers"},
   {"site_name": "NBER – Children", "rss_url": "https://back.nber.org/rss/newch.xml", "tag": "papers"},
   {"site_name": "NBER – Political Economy", "rss_url": "https://back.nber.org/rss/newpe.xml", "tag": "papers"},
-  {"site_name": "VoxEU / CEPR", "rss_url": "https://politepol.com/fd/nDJFHbjMLqmT", "tag": "papers"},
-  {"site_name": "IZA Discussion Papers", "rss_url": "https://politepol.com/fd/8fhmwuMt90cZ", "tag": "papers"},
-  {"site_name": "Banco de España – Publicaciones", "rss_url": "https://politepol.com/fd/g0YZzVgD5RZp.xml", "tag": "papers"}
+  {"site_name": "VoxEU / CEPR", "rss_url": "https://cepr.org/rss/vox-content", "tag": "papers"},
+  {"site_name": "Banco de España – Publicaciones", "rss_url": "https://www.bde.es/wbe/es/inicio/rss/rss-estudios-publicaciones/", "tag": "papers"}
 ]
