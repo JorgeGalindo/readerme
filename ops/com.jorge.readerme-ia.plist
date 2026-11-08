@@ -10,6 +10,8 @@
 	<key>Label</key><string>com.jorge.readerme-ia</string>
 	<key>ProgramArguments</key>
 	<array>
+		<string>/usr/bin/caffeinate</string>
+		<string>-i</string>
 		<string>/Users/jorge/repos/readerme/.venv/bin/python</string>
 		<string>/Users/jorge/repos/readerme/spain_ai.py</string>
 	</array>
